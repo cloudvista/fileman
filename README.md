@@ -4,7 +4,7 @@
 https://www.va.gov/vdl/application.asp?appid=5
 
 
-|Name|	Date Created	|Last Updated	|Document|
+|Name|Date Created	|Last Updated	|Document|
 |FM 22.2 Advanced User Manual	| 2020-11-16	| 2021-03-15 |	DOCX (2.02 MB) PDF (3.21 MB)|
 
 FM 22.2 Data Access Control (DAC) User Guide	2020-11-16	2021-03-15	DOCX (383.05 KB)
