@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="George Timson">
+   <meta name="GENERATOR" content="Mozilla/4.61 [en]C-PBI-NC404  (Win95; I) [Netscape]">
+   <title>install</title></head>
+
+<body>
+
+<center>
+<h1>
+<img src="../images/brickbutton.gif" border="0" height="40" width="39">INSTALLING
+FILEMAN VERSION 22.2<img src="../images/brickbutton.gif" border="0" height="40" width="40"></h1></center>
+
+<center>(From the VA FileMan Installation Guide)
+<br>The installation is similar to that of earlier version of FileMan.</center>
+
+<h2>
+
+<hr width="100%">1.&nbsp; Be sure that your M[UMPS] system supports the
+1995 Standard</h2>
+VA FileMan no longer supports the following operating systems:
+<p>CCSM MICROMUMPS (UC DAVIS)
+<br>DATA GENERAL TANDEM
+<br>DSM(V3 &amp; V4) UNIX MUMPS(PLUS 5)
+<br>HARRIS VAX DSM(V3)
+<br>LMS-1(IBM SERIES 1) VAX DSM(V4 &amp; V5)
+<br>M/11 VISTA(AOS)
+<br>M/SQL-PDP
+</p><p>VA FileMan will not run properly under these operating systems since
+they do not support the 1995 M Standard.
+</p><p>NOTE: If you are running under any of these operating systems, you SHOULD
+NOT proceed with the installation of VA FileMan V. 22.0. After updating
+to an M operating system that supports the 1995 M Standard environment,
+kill ^DD("OS") in order to proceed with the installation.
+<br>&nbsp;
+</p><p>In VA FileMan V. 21.0 the VAX DSM(V6) entry was renamed to DSM for OpenVMS
+and the entry M/SQL-VAX was deleted.
+</p><p>In VA FileMan V. 22.0, the M/SQL operating system is no longer supported.
+The M/SQL entry in the MUMPS OPERATING SYSTEM file (#.7) is renamed CACHE/OpenM.
+Caché/OpenM sites should select this entry.
+<br>
+</p><hr width="100%">
+<br>&nbsp;
+<h2>
+2.&nbsp; Delete Old VA FileMan Routines in the Production Account</h2>
+It is recommended that you delete the old VA FileMan routines just before
+loading in the new ones to ensure that the only routines in FileMan's namespace
+are those coming in with V. 22.0. Use your M system routine deletion utility
+to delete the following routines:
+<p>DD*
+<br>DI*
+<br>DM*
+</p><p>
+</p><hr width="100%">
+<h2>
+3.&nbsp; Load Routines in the Production Account</h2>
+Use your M system's routine loading utility to load the VA FileMan V. 22.0
+routines from the distribution file (FM22.msm) into your Production account
+(of course, if you want, you can initially load the routines into a test
+account and install there).
+<p>
+</p><hr width="100%">
+<h2>
+4.&nbsp; Move Routines into the Manager Account</h2>
+Caché and OpenM sites that map the %Z*, %DT*, and %RCR routines
+back to the Production account can skip this step.
+<p>Some of VA FileMan's routines must reside in the Manager (Library) account
+on your system. Using the utilities available with your M system, move
+the following routines to the Manager account:
+</p><p>DIDT
+<br>DIDTC
+<br>DIRCR<br>DIISC
+<br>DIIS
+<br>DIISS<br>DINZ*&nbsp; (includes: DINZDTM, DINZMGR, DINZMGR1, DINZMSM, DINZONT,
+DINZVXD)
+<br>DINV*&nbsp; (includes: DINV1DTM, DINV1VXD, DINVDTM, DINVMSM, DINVONT,
+DINVVXD)
+<br>&nbsp;
+</p><h2>
+
+<hr width="100%"></h2>
+
+<h2>
+5.&nbsp; Run DINZMGR in the Manager Account</h2>
+A routine has been provided to set up your Manager account, DINZMGR. You
+MUST run this routine in your Manager account; be sure to move there. Online
+help is provided to aid in running this routine. DINZMGR accomplishes two
+tasks:
+<p>1. Renames routines in the Manager account to a new name.
+</p><p>2. Sets ^%ZOSF global nodes that are used by the screen-oriented features
+of VA FileMan.
+</p><p>DINZMGR references M implementation-specific information contained in
+other DINZ* and DINV* routines. The versions of M currently supported by
+DINZMGR are:
+</p><p>CACHE/OpenM
+<br>DSM for OpenVMS
+<br>DTM-PC
+<br>MSM
+</p><p>If you are using another version of M or if your version does not support
+the ZLOAD and ZSAVE commands, you cannot use DINZMGR. The next section
+describes how to accomplish DINZMGR's tasks manually.
+</p><p>Routines with the following names will be created in your Manager account
+by running DINZMGR:
+</p><p>%DT
+<br>%DTC
+<br>%RCR
+<br>%ZIS
+<br>%ZISS
+<br>%ZOSV
+<br>%ZOSV1
+</p><p>In addition, DINZMGR will set nodes in the ^%ZOSF global. Note that
+on some M systems, executing some of these ^%ZOSF nodes also causes ^XUTL
+global nodes to be set in the Production account.
+</p><p>DINZMGR gives you the chance to select which actions it will perform.
+So, if you already have routines with these %-names or data in the ^%ZOSF
+global that you do not want overwritten, you can tell DINZMGR not to change
+them. Note, however, that if you choose not to replace the %- routines
+or the data in ^%ZOSF, parts of VA FileMan may not work correctly unless
+the existing % routines and data in ^%ZOSF provide the functionality required
+by FileMan.
+</p><p>If your M system supports global protection, the ^%ZOSF global should
+be able to be read from any account (UCI) that uses the Manager account.
+Write and Delete access should be limited.
+<br>&nbsp;
+<br>&nbsp;
+</p><p>If you do not use DINZMGR or do not use it completely, you must either
+rename the following routines or have another version of the resulting
+%-routines in your Manager account. Otherwise, VA FileMan will not work.
+Rename, using the commands available with your M implementation.
+</p><p>DIDT rename to %DT
+<br>DIDTC rename to %DTC
+<br>DIRCR rename to %RCR
+<br>DIIS rename to %ZIS<br>DIISC rename to %ZISC</p><p>Also, in order to use VA FileMan's screen-oriented utilities, you should
+rename the following routine.
+</p><p>DIISS rename to %ZISS
+</p><p>You must also set executable M code into certain ^%ZOSF nodes in the
+Manager account. The specific nodes and what they should contain are described
+in the Device Handling section of the Package Management chapter of the
+Programmer Manual.
+</p><p>NOTE: The %ZOSV or %ZOSV1 routines are created by DINZMGR to support
+calls made by the ^%ZOSF nodes it creates. (Appropriate DINV* routines
+are renamed by DINZMGR.)&nbsp; If you are creating your own ^%ZOSF nodes,
+these routines are not needed.
+</p><p>
+</p><hr width="100%">
+<br>&nbsp;
+<br>&nbsp;
+<h2>
+6.&nbsp;&nbsp; Run DINIT in the Production Account</h2>
+Finally, return to the Production account and run the DINIT routine. DINIT
+prompts you for a site name and number like this:
+<p>SITE NAME:
+</p><p>SITE NUMBER:
+</p><p>NOTE: The site number entered by the installer will be multiplied by
+1000 to determine the beginning number of the default file number assignment,
+when using the Modify File Attributes option to add a new file.
+</p><p>After entering the site number, there will be a slight pause while VA
+FileMan installs the MUMPS OPERATING SYSTEM file (#.7), DIALOG file (#.84)
+and the LANGUAGE file (#.85). The installer will then be asked:
+</p><p>TYPE OF MUMPS SYSTEM YOU ARE USING:
+</p><p>Type a question mark ("?") at this point to see your choices. If you
+do not see your M operating system vendor listed, or you are unsure, enter
+OTHER in answer to this prompt.
+</p><p>Then the other VA FileMan files will be initialized.
+</p><p>The PACKAGE file (#9.4) will be initialized next. The PACKAGE file is
+necessary if you want to bundle an application package together for export
+using DIFROM. (In the Programmer Manual, see the DIFROM section of the
+Programmer Utilities chapter.) The PACKAGE file will not be updated if
+you have a File #9.4 with a name other than "PACKAGE."
+<br>&nbsp;
+</p><p>When the initialization has completed, you will see the statement:
+</p><p>INITIALIZATION COMPLETED IN nnnn SECONDS.
+<br>&nbsp;
+</p><p><b>Example:</b>
+</p><blockquote><tt><font size="-1"></font></tt>&nbsp;
+<br><tt><font size="-1">&gt;D ^DINIT</font></tt><tt><font size="-1"></font></tt>
+<p><tt><font size="-1">VA FileMan V.22.0</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">Initialize VA FileMan now?&nbsp; NO// Y</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">SITE NAME: KDEMO// &lt;-----------------&nbsp; Enter
+your site name here</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">SITE NUMBER: 16// &lt;-----------------&nbsp; Enter
+your site number here</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">Now loading MUMPS Operating System File..</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">Now loading DIALOG and LANGUAGE Files</font></tt>
+<br><tt><font size="-1">...............................................................</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">TYPE OF MUMPS SYSTEM YOU ARE USING: DSM for OpenVMS//
+?</font></tt>
+<br><tt><font size="-1">&nbsp;Answer with MUMPS OPERATING SYSTEM NAME</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">Choose from:</font></tt>
+<br><tt><font size="-1">CACHE/OpenM</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; DSM for OpenVMS</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; DTM-PC</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; GT.M(VAX)</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; MSM</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; OTHER</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">TYPE OF MUMPS SYSTEM YOU ARE USING: DSM for OpenVMS//&lt;------Enter
+Your</font></tt>
+<br><tt><font size="-1">&nbsp;M operating system here</font></tt>
+<br><tt><font size="-1">Now loading other FileMan files--please wait...................</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">The following files have been installed:</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .11&nbsp;&nbsp;&nbsp;&nbsp; INDEX</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DESTINATION</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .31&nbsp;&nbsp;&nbsp;&nbsp; KEY</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; PRINT
+TEMPLATE</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .401&nbsp;&nbsp;&nbsp; SORT TEMPLATE</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .402&nbsp;&nbsp;&nbsp; INPUT TEMPLATE</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .403&nbsp;&nbsp;&nbsp; FORM</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .404&nbsp;&nbsp;&nbsp; BLOCK</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .44&nbsp;&nbsp;&nbsp;&nbsp; FOREIGN
+FORMAT</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FUNCTION</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .6&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DD
+AUDIT</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .7&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MUMPS
+OPERATING SYSTEM</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .81&nbsp;&nbsp;&nbsp;&nbsp; DATA TYPE</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .83&nbsp;&nbsp;&nbsp;&nbsp; COMPILED
+ROUTINE</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .84&nbsp;&nbsp;&nbsp;&nbsp; DIALOG</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .85&nbsp;&nbsp;&nbsp;&nbsp; LANGUAGE</font></tt>
+<br><tt><font size="-1">&nbsp; 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FILE</font></tt>
+<br><tt><font size="-1">&nbsp; 1.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; AUDIT</font></tt>
+<br><tt><font size="-1">&nbsp; 1.11&nbsp;&nbsp;&nbsp;&nbsp; ARCHIVAL ACTIVITY</font></tt>
+<br><tt><font size="-1">&nbsp; 1.12&nbsp;&nbsp;&nbsp;&nbsp; FILEGRAM HISTORY</font></tt>
+<br><tt><font size="-1">&nbsp; 1.13&nbsp;&nbsp;&nbsp;&nbsp; FILEGRAM ERROR
+LOG</font></tt>
+<br><tt><font size="-1">&nbsp; 1.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ALTERNATE
+EDITOR</font></tt>
+<br><tt><font size="-1">&nbsp; 1.521&nbsp;&nbsp;&nbsp; SQLI_SCHEMA</font></tt>
+<br><tt><font size="-1">&nbsp; 1.52101&nbsp; SQLI_KEY_WORD</font></tt>
+<br><tt><font size="-1">&nbsp; 1.5211&nbsp;&nbsp; SQLI_DATA_TYPE</font></tt>
+<br><tt><font size="-1">&nbsp; 1.5212&nbsp;&nbsp; SQLI_DOMAIN</font></tt>
+<br><tt><font size="-1">&nbsp; 1.5213&nbsp;&nbsp; SQLI_KEY_FORMAT</font></tt>
+<br><tt><font size="-1">&nbsp; 1.5214&nbsp;&nbsp; SQLI_OUTPUT_FORMAT</font></tt>
+<br><tt><font size="-1">&nbsp; 1.5215&nbsp;&nbsp; SQLI_TABLE</font></tt>
+<br><tt><font size="-1">&nbsp; 1.5216&nbsp;&nbsp; SQLI_TABLE_ELEMENT</font></tt>
+<br><tt><font size="-1">&nbsp; 1.5217&nbsp;&nbsp; SQLI_COLUMN</font></tt>
+<br><tt><font size="-1">&nbsp; 1.5218&nbsp;&nbsp; SQLI_PRIMARY_KEY</font></tt>
+<br><tt><font size="-1">&nbsp; 1.5219&nbsp;&nbsp; SQLI_FOREIGN_KEY</font></tt>
+<br><tt><font size="-1">&nbsp; 1.52191&nbsp; SQLI_ERROR_TEXT</font></tt>
+<br><tt><font size="-1">&nbsp; 1.52192&nbsp; SQLI_ERROR_LOG</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">Your Package file will now be updated.</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">I AM GOING TO SET UP THE FOLLOWING FILES:</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">&nbsp;&nbsp; 9.4&nbsp; PACKAGE</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">...HMMM, I'M WORKING AS FAST AS I CAN................................</font></tt>
+<br><tt><font size="-1">...........</font></tt>
+<br><tt><font size="-1">OK, I'M DONE.</font></tt>
+<br><tt><font size="-1">NOTE THAT FILE SECURITY-CODE PROTECTION HAS BEEN
+MADE</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">Re-indexing in the DIALOG file....</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">Compiling all forms ...</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">&nbsp;&nbsp; .</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .</font></tt>
+<br><tt><font size="-1">DICATT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.001)</font></tt>
+<br><tt><font size="-1">DIPTED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.1001)</font></tt>
+<br><tt><font size="-1">DIKC
+EDIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.1101)</font></tt>
+<br><tt><font size="-1">DIKC EDIT UI&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.1102)</font></tt>
+<br><tt><font size="-1">DIKK
+EDIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.3101)</font></tt>
+<br><tt><font size="-1">DIBTED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40001)</font></tt>
+<br><tt><font size="-1">DIETED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40101)</font></tt>
+<br><tt><font size="-1">DIEDIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40201)</font></tt>
+<br><tt><font size="-1">DDGF BLOCK EDIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40301)</font></tt>
+<br><tt><font size="-1">DDGF PAGE ADD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40302)</font></tt>
+<br><tt><font size="-1">DDGF PAGE EDIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40303)</font></tt>
+<br><tt><font size="-1">DDGF PAGE SELECT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40304)</font></tt>
+<br><tt><font size="-1">DDGF FORM EDIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40305)</font></tt>
+<br><tt><font size="-1">DDGF HEADER BLOCK EDIT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40306)</font></tt>
+<br><tt><font size="-1">DDGF FIELD ADD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40401)</font></tt>
+<br><tt><font size="-1">DDGF FIELD CAPTION ONLY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40402)</font></tt>
+<br><tt><font size="-1">DDGF FIELD DD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40403)</font></tt>
+<br><tt><font size="-1">DDGF FIELD FORM ONLY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40404)</font></tt>
+<br><tt><font size="-1">DDGF FIELD COMPUTED&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40405)</font></tt>
+<br><tt><font size="-1">DDGF BLOCK ADD&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40406)</font></tt>
+<br><tt><font size="-1">DDGF BLOCK DELETE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40407)</font></tt>
+<br><tt><font size="-1">DDGF HEADER BLOCK SELECT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.40408)</font></tt>
+<br><tt><font size="-1">DDXP FF FORM1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.441)</font></tt>
+<br><tt><font size="-1">DDMP SPECIFY IMPORT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+(#.461)</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .</font></tt>
+<br><tt><font size="-1">&nbsp;&nbsp; .</font></tt><tt><font size="-1"></font></tt>
+</p><p><tt><font size="-1">INITIALIZATION COMPLETED IN 100 SECONDS.</font></tt>
+<br><tt><font size="-1">&gt;</font></tt></p></blockquote>
+
+<p>VA FileMan is now ready to use.
+</p><p>The menu choices for programmer-mode FileMan are invoked by typing
+</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; DO
+P^DI
+<br>&nbsp;
+<br>&nbsp;
+</p></body></html>

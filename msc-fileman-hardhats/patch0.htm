@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad//DTD HTML 3.2 + extensions for HoTMetaL PRO 3.0(U) 19961211//EN"
+ "hmpro3.dtd">
+<HTML>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<TITLE>Patch 0 -- DIM</TITLE></HEAD>
+<BODY BGCOLOR="#FFFFFF">
+<BLOCKQUOTE>
+<CENTER><IMG SRC="../images/redbrick.gif" WIDTH="32" HEIGHT="32">
+<IMG SRC="../images/redbrick.gif" WIDTH="32" HEIGHT="32">
+<IMG SRC="../images/redbrick.gif" WIDTH="32" HEIGHT="32">
+<H2>FileMan Patch to allow 1995 M[UMPS] syntax</H2><IMG
+SRC="../images/redbrick.gif" WIDTH="32" HEIGHT="32">
+<IMG SRC="../images/redbrick.gif" WIDTH="32" HEIGHT="32">
+<IMG SRC="../images/redbrick.gif" WIDTH="32" HEIGHT="32"><BR>
+<H3>What the patch does</H3></CENTER>
+<P>It allows FileMan's &quot;MUMPS parser&quot; to recognize M[UMPS] input
+strings that contain 1995 syntax such as</P>
+<UL>
+<LI><STRONG>MERGE</STRONG> command</LI>
+<LI>two-argument form of<STRONG> $ORDER and $GET</STRONG></LI>
+<LI><STRONG>'alternative' pattern match</STRONG> syntax</LI>
+<LI><STRONG>$NAME</STRONG>, <STRONG>$REVERSE</STRONG>, <STRONG>$QLENGTH</STRONG>,
+and
+<STRONG>$QSUBSCRIPT</STRONG> functions</LI></UL>
+<P><BR><BR></P>
+<CENTER>
+<H3>What the patch doesn't do</H3></CENTER>
+<P>The parser does not support certain syntax permitted by the 1995 Standard:</P>
+<UL>
+<LI><STRONG>namespace</STRONG> syntax for Global references, <I>e.g.</I>, &quot;^|XN|GLOBAL(SUB1,SUB2)&quot;</LI>
+<LI><STRONG>structured system variables</STRONG></LI>
+<LI>syntax that wouldn't make sense in a single executable line of MUMPS code:
+<UL>
+<LI><STRONG>Unargumented DO</STRONG> and &quot;.&quot; line level indicator</LI>
+<LI><STRONG>Transaction-processing</STRONG> commands</LI>
+<LI><STRONG>Error-trapping</STRONG> commands and functions</LI></UL></LI></UL>
+<CENTER>
+<H3>How to get the patch</H3></CENTER>
+<CENTER>
+<P><A HREF="https://www.hardhats.org/fileman/DIM.RTN"><IMG SRC="../images/door.gif" WIDTH="40" HEIGHT="40"></A></P></CENTER>
+<CENTER><A HREF="https://www.hardhats.org/fileman/DIM.RTN">Click here to download a 16Kb file 'DIM.RTN'</A></CENTER>
+<BLOCKQUOTE>
+<BLOCKQUOTE>
+<P><FONT SIZE="-1" FACE="arial">This patch replaces the five routines
+<STRONG>DIM, DIM1, DIM2, DIM3, and DIM4 </STRONG> in <EM>any</EM> Version of
+VA FileMan.  The patch is in the form of an uncompressed file, output from a DTM
+system (&quot;%rsave&quot;) in &quot;MSM/DSM&quot; format</FONT>.</P></BLOCKQUOTE></BLOCKQUOTE>
+<P>Questions regarding this patch should be directed
+<A HREF="../feedback.html">to this site</A>, not to the VA.  The patch is made
+available you, as a visitor to <I>www.hardhats.org</I> on an &quot;as is&quot;
+basis.</P></BLOCKQUOTE>
+<P ALIGN="center"><A HREF="../index.html"><FONT SIZE="2">Home</FONT></A><FONT
+SIZE="2">| </FONT><A HREF="../m/Mmain.html"><FONT SIZE="2">MUMPS</FONT></A><FONT
+SIZE="2"> | </FONT><A HREF="FMmain.html"><FONT SIZE="2">Fileman</FONT></A><FONT
+SIZE="2"> | </FONT><A HREF="../kernel/KRNmain.html"><FONT SIZE="2">Kernel</FONT></A><FONT
+SIZE="2"> | </FONT><A HREF="../cs/CSmain.html"><FONT SIZE="2">C/S, Mailman,
+Web</FONT></A><FONT SIZE="2"> | </FONT><A HREF="../tools/TOOLSmain.html"><FONT
+SIZE="2">Programmer Tools</FONT></A><FONT SIZE="2"> | </FONT><A
+HREF="../apps/APPSmain.html"><FONT SIZE="2">Applications</FONT></A></P></BODY></HTML>

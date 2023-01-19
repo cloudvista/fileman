@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML> 
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Data
+		Dictionary</TITLE> 
+  </HEAD> 
+  <BODY ONUNLOAD="closeOpenWindow()"> 
+	 <TABLE WIDTH="100%"> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"> 
+			 <TABLE WIDTH="100%"> 
+				<TR> 
+				  <TD ALIGN="LEFT"></TD> 
+				  <TD ALIGN="RIGHT"><A HREF="#navskip"
+					 TITLE="[Skip Navigation]"></A><FONT SIZE="4" FACE="Arial">VA FileMan V. 22 Key
+					 and Index Tutorial</FONT><BR>
+					 <A HREF="FMtut_p3_l11.htm" TITLE="Click and go to Lesson 11">[&lt;-- Back to
+					 Lesson 11]</A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_testdata.htm"
+					 TITLE="Click and go to the Tutorial File Entries Page">[Tutorial File Entries
+					 --&gt;]</A> </TD> 
+				</TR> 
+			 </TABLE> <BR> <FONT SIZE="6" FACE="Arial">Data Dictionary</FONT></TD>
+		  
+		</TR> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD> 
+		</TR> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD> 
+		</TR> 
+		<TR> 
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD> 
+		</TR> 
+	 </TABLE> 
+	 <P><A NAME="navskip"></A><FONT FACE="Arial" SIZE="5">Standard Data
+		Dictionary Listing of the Test File</FONT></P> 
+	 <TABLE WIDTH="100%"> 
+		<TR> 
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="3"><FONT SIZE="2"
+			 FACE="Arial">The following is a standard data dictionary listing of the test
+			 file. In this listing, the name of the test file is <I>ZZINDIVIDUAL</I>, with
+			 file number <I>662nnn</I>, stored in global root
+			 ^<I>DIZ</I>(<I>662nnn</I>).</FONT> </TD> 
+		</TR> 
+	 </TABLE><BR> 
+	 <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	  WIDTH="88%"> 
+		<TR> 
+		  <TD VALIGN="TOP" COLSPAN="4" WIDTH="92%"> 
+			 <PRE>STANDARD DATA DICTIONARY #<I>662nnn</I> -- <I>ZZINDIVIDUAL</I> FILE           10/3/00  PAGE 1
+STORED IN ^<I>DIZ</I>(<I>662nnn</I>,  (13 ENTRIES)   SITE: XXX   UCI: XXX,YYY
+ 
+DATA          NAME                  GLOBAL        DATA
+ELEMENT       TITLE                 LOCATION      TYPE
+-------------------------------------------------------------------------------
+ 
+ 
+              DD ACCESS: @
+              RD ACCESS: @
+              WR ACCESS: @
+             DEL ACCESS: @
+           LAYGO ACCESS: @
+           AUDIT ACCESS: @
+ 
+ 
+CROSS
+REFERENCED BY: NAME(B)
+ 
+   CREATED ON: OCT 3,2000 by USER,TEST
+ 
+<I>662nnn</I>,.01    NAME                   0;1 FREE TEXT (Required)
+ 
+              INPUT TRANSFORM:  K:$L(X)&gt;30!($L(X)&lt;3)!'(X'?1P.E) X
+              HELP-PROMPT:      Answer must be 3-30 characters in length.
+              CROSS-REFERENCE:  <I>662nnn</I>^B
+                                1)= S ^<I>DIZ</I>(<I>662nnn</I>,"B",$E(X,1,30),DA)=""
+                                2)= K ^<I>DIZ</I>(<I>662nnn</I>,"B",$E(X,1,30),DA)
+ 
+ 
+<I>662nnn</I>,.02    SSN                    0;2 FREE TEXT
+ 
+              INPUT TRANSFORM:  K:$L(X)&gt;9!($L(X)&lt;9)!'(X?9N) X
+              HELP-PROMPT:      Answer must be 9 characters in length.
+ 
+<I>662nnn</I>,.03    DOB                    0;3 DATE
+ 
+              INPUT TRANSFORM:  S %DT="EX" D ^%DT S X=Y K:Y&lt;1 X
+ 
+<I>662nnn</I>,2      EMAIL                  2;0 Multiple #<I>662nnn</I>.02
+ 
+ 
+<I>662nnn</I>.02,.01   EMAIL NAME             0;1 FREE TEXT (Multiply asked)
+ 
+                INPUT TRANSFORM:  K:$L(X)&gt;20!($L(X)&lt;1) X
+                HELP-PROMPT:      Answer must be 1-20 characters in length.
+                CROSS-REFERENCE:  <I>662nnn</I>.02^B
+                                1)= S ^<I>DIZ</I>(<I>662nnn</I>,DA(1),2,"B",$E(X,1,30),DA)=""
+                                2)= K ^<I>DIZ</I>(<I>662nnn</I>,DA(1),2,"B",$E(X,1,30),DA)
+ 
+ 
+<I>662nnn</I>.02,1     EMAIL DOMAIN         0;2 FREE TEXT
+ 
+                INPUT TRANSFORM:K:$L(X)&gt;20!($L(X)&lt;1) X
+                HELP-PROMPT:    Answer must be 1-20 characters in length.
+ 
+ 
+ 
+<I>662nnn</I>,3.1    AREA CODE              3;1 NUMBER
+ 
+              INPUT TRANSFORM:  K:+X'=X!(X&gt;999)!(X&lt;100)!(X?.E1"."1N.N) X
+              HELP-PROMPT:      Type a Number between 100 and 999, 0 Decimal
+                                Digits
+ 
+<I>662nnn</I>,3.2    LOCAL NUMBER           3;2 FREE TEXT
+ 
+              INPUT TRANSFORM:  K:$L(X)&gt;8!($L(X)&lt;8)!'(X?3N1"-"4N) X
+              HELP-PROMPT:      Answer must be 8 characters in length.
+ 
+<I>662nnn</I>,3.3    PHONE NUMBER           3;3 FREE TEXT
+ 
+              INPUT TRANSFORM:  K:$L(X)&gt;15!($L(X)&lt;1) X
+              HELP-PROMPT:      Answer must be 1-15 characters in length.
+ 
+<I>662nnn</I>,3.4    OLD PHONE NUMBER       3;4 FREE TEXT
+ 
+              INPUT TRANSFORM:  K:$L(X)&gt;15!($L(X)&lt;1) X
+              HELP-PROMPT:      Answer must be 1-15 characters in length.
+ 
+<I>662nnn</I>,4.1    DATE CREATED           4;1 DATE
+ 
+              INPUT TRANSFORM:  S %DT="ESTXR" D ^%DT S X=Y K:Y&lt;1 X
+</PRE> </TD> 
+		</TR> 
+	 </TABLE> <BR> 
+	 <TABLE WIDTH="100%"> 
+		<TR> 
+		  <TD ALIGN="LEFT" WIDTH="85%"> 
+			 <TABLE WIDTH="100%"> 
+				<TR> 
+				  <TD ALIGN="LEFT" WIDTH="85%"> <FONT SIZE="2" FACE="Arial">Click
+					 to go to lessons: </FONT><A HREF="introduction.htm"
+					 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+					 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+					 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+					 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+					 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+					 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+					 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+					 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+					 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+					 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+					 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+					 <A HREF="FMtut_p3_l11.htm" TITLE="Click and go to Lesson 11">[11]</A></TD> 
+				</TR> 
+			 </TABLE></TD> 
+		</TR> 
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

@@ -1,0 +1,417 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial - Lesson 6
+		Quiz</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="LIGHTYELLOW" ONUNLOAD="closeOpenWindow()"> 
+	 <NOSCRIPT> 
+		<P>Your browser or user agent does not support scripting. JavaScript is
+		  used in this tutorial to provide a quiz at the end of each lesson (also at the
+		  end of the Introduction Page). These quizzes have been designed not only for
+		  you to use as a tool to test yourself on what you learned, but to offer a
+		  summary of the lesson. Click on the following link to access a text version of
+		  this quiz: <A HREF="text/quiz_6_text.htm">Lesson 6 Quiz: Text Version</A>.
+		  Otherwise, click on the following link to continue onto the next lesson:
+		  <A HREF="../FMtut_p2_l7.htm">Lesson 7</A>. Please contact the IIS Webmasters if
+		  your user agent cannot read/access this information.</P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="javascript.js">//This script calls functions from external file (i.e., javascript.js). 
+</SCRIPT><SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+
+var numQues = 9;
+
+var corrAnswers = new Array(numQues);
+corrAnswers[0] = "True.";
+corrAnswers[1] = "Both of the above.";
+corrAnswers[2] = "The old cross-reference values when the Set and Kill logic and conditions are executed.";
+corrAnswers[3] = "The new cross-reference values when the Set and Kill logic and conditions are executed.";
+corrAnswers[4] = "True.";
+corrAnswers[5] = "True.";
+corrAnswers[6] = "True.";
+corrAnswers[7] = "False.";
+corrAnswers[8] = "'A'.";
+
+var questions = new Array(numQues);
+questions[0] = "The logic of a New-style MUMPS cross-reference, which is defined by the programmer, is executed whenever a field in the cross-reference is edited, and usually performs some action other than maintaining an index.";
+questions[1] = "The Set and Kill logic and the Set and Kill conditions of New-style cross-references can reference the X, X1, and X2 arrays. What does the X(order#) array contain when a record is edited, and the cross-reference is fired?";
+questions[2] = "What does the X1(order#) array contain when a record is edited, and the cross-reference is fired?";
+questions[3] = "What does the X2(order#) array contain when a record is edited, and the cross-reference is fired?";
+questions[4] = "When a new record is added to a file, FileMan sets the .01 field and immediately fires the Set logic of all the cross-references on the .01 field. The X1(order#) array element that corresponds to the .01 field is null at this point.";
+questions[5] = "When a record is deleted from a file, the Kill logic of all cross-references for that record is executed. All X2(order#) array elements are null at this point.";
+questions[6] = "You can define Set and Kill Conditions on both Regular and MUMPS cross-references to prevent a cross-reference from firing under conditions you specify. If there is a Set Condition, the Set Logic will be executed only if the Set Condition sets X to Boolean true (i.e., after the Set Condition code is executed, the command IF X evaluates to true).";
+questions[7] = "If there is Kill Condition on a Regular and MUMPS cross-reference, the Kill Logic is executed only if the Kill Condition sets X to Boolean false.";
+questions[8] = "An Action-type cross-reference is a cross-reference with Set and Kill logic that performs some action other than building an index. Most MUMPS cross-references are Action-type cross-references. An Action-type cross-reference must have a name that starts with the letter:";
+
+var message = new Array(numQues+1);
+message[9] = "Congratulations! You did a great job!";
+message[8] = "Good job! You only missed one question.";
+message[7] = "Good job! You only missed two questions.";
+message[6] = "";
+message[5] = "";
+message[4] = "";
+message[3] = "";
+message[2] = "";
+message[1] = "";
+message[0] = "";
+
+var falseHint = new Array(numQues);
+falseHint[0] = "";
+falseHint[1] = "";
+falseHint[2] = "";
+falseHint[3] = "";
+falseHint[4] = "";
+falseHint[5] = "";
+falseHint[6] = "";
+falseHint[7] = "";
+falseHint[8] = "";
+
+var constantHint = new Array(numQues);
+constantHint[0] = "";
+constantHint[1] = "(The X(order#) array contains [1] the old cross-reference values when the Kill Logic and Kill Condition are executed, and [2] the new cross-reference values when the Set Logic and Set Condition are executed.)";
+constantHint[2] = "";
+constantHint[3] = "";
+constantHint[4] = "";
+constantHint[5] = "";
+constantHint[6] = "";
+constantHint[7] = "(The <I>Kill Logic</I> is executed only if the <I>Kill Condition</I> sets X to Boolean true.)";
+constantHint[8] = "";
+
+//  End -->
+</SCRIPT> 
+	 <TABLE WIDTH="100%"> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"> 
+			 <TABLE WIDTH="100%"> 
+				<TR> 
+				  <TD ALIGN="LEFT"></TD> 
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR> <A HREF="../FMtut_p2_l6.htm">[&lt;-- Back to
+					 Lesson 6]</A>&nbsp;&nbsp;&nbsp;<A HREF="text/quiz_6_text.htm">[Lesson 6 Quiz:
+					 Text Version]</A>&nbsp;&nbsp;&nbsp;<A HREF="../FMtut_p2_l7.htm">[Go to Lesson 7
+					 --&gt;]</A></TD> 
+				</TR> 
+			 </TABLE> <BR> <FONT SIZE="6" FACE="Arial">Lesson 6 - Quiz</FONT></TD>
+		  
+		</TR> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD> 
+		</TR> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD> 
+		</TR> 
+		<TR> 
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD> 
+		</TR> 
+	 </TABLE> 
+	 <P><FONT SIZE="2" FACE="Arial">Answer the questions by selecting the radio
+		buttons, then click the Get Score button at the bottom of the page to calculate
+		your score and see your test results.</FONT></P> 
+	 <FORM NAME="quiz"> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">1. The logic of a New-style MUMPS cross-reference, which is
+				defined by the programmer, is executed whenever a field in the cross-reference
+				is edited, and usually performs some action other than maintaining an
+				index.</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q1" VALUE="True."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> True.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q1" VALUE="False."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">False.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				</FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><INPUT TYPE="HIDDEN"
+				NAME="q1" VALUE=""></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">2. The Set and Kill logic and the Set and Kill conditions of
+				New-style cross-references can reference the X, X1, and X2 arrays. What does
+				the X(order#) array contain when a record is edited, and the cross-reference is
+				fired?</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q2"
+				VALUE="The old cross-reference values when the Kill logic and Kill condition are executed."></FONT></TD>
+			 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">The old cross-reference values when the Kill logic and Kill
+				condition are executed. </FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q2"
+				 VALUE="The new cross-reference values when the Set logic and Set condition are executed."></FONT></TD>
+			 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">The new
+				cross-reference values when the Set logic and Set condition are
+				executed.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q2" VALUE="Both of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Both of
+				the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">3. What does the X1(order#) array contain when a record is edited,
+				and the cross-reference is fired?</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q3"
+				VALUE="The old cross-reference values when the Set and Kill logic and conditions are executed."></FONT></TD>
+			 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">The old cross-reference values when the Set and Kill logic and
+				conditions are executed. </FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q3"
+				 VALUE="The new cross-reference values when the Set and Kill logic and conditions are executed."></FONT></TD>
+			 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">The new
+				cross-reference values when the Set and Kill logic and conditions are
+				executed.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q3" VALUE="Neither of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Neither
+				of the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">4. What does the X2(order#) array contain when a record is edited,
+				and the cross-reference is fired?</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q4"
+				VALUE="The old cross-reference values when the Set and Kill logic and conditions are executed."></FONT></TD>
+			 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> The old cross-reference values when the Set and Kill logic and
+				conditions are executed.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q4"
+				 VALUE="The new cross-reference values when the Set and Kill logic and conditions are executed."></FONT></TD>
+			 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">The new
+				cross-reference values when the Set and Kill logic and conditions are
+				executed.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q4" VALUE="Neither of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Neither
+				of the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">5. When a new record is added to a file, FileMan sets the .01
+				field and immediately fires the Set logic of all the cross-references on the
+				.01 field. The X1(order#) array element that corresponds to the .01 field is
+				null at this point.</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q5" VALUE="True."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> True.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q5" VALUE="False."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">False.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				</FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><INPUT TYPE="HIDDEN"
+				NAME="q5" VALUE=""></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">6. When a record is deleted from a file, the Kill logic of all
+				cross-references for that record is executed. All X2(order#) array elements are
+				null at this point.</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q6" VALUE="True."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> True.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q6" VALUE="False."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">False.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				</FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><INPUT TYPE="HIDDEN"
+				NAME="q6" VALUE=""></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">7. You can define Set and Kill Conditions on both Regular and
+				MUMPS cross-references to prevent a cross-reference from firing under
+				conditions you specify. If there is a Set Condition, the Set Logic will be
+				executed only if the Set Condition sets X to Boolean true (i.e., after the Set
+				Condition code is executed, the command IF X evaluates to true).</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q7" VALUE="True."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> True.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q7" VALUE="False."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">False.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				</FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><INPUT TYPE="HIDDEN"
+				NAME="q7" VALUE=""></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">8. If there is Kill Condition on a Regular and MUMPS
+				cross-reference, the Kill Logic is executed only if the Kill Condition sets X
+				to Boolean false.</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q8" VALUE="True."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> True.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q8" VALUE="False."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">False.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				</FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><INPUT TYPE="HIDDEN"
+				NAME="q8" VALUE=""></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">9. An Action-type cross-reference is a cross-reference with Set
+				and Kill logic that performs some action other than building an index. Most
+				MUMPS cross-references are Action-type cross-references. An Action-type
+				cross-reference must have a name that starts with the letter:</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q9" VALUE="'A'."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> 'A'.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q9" VALUE="'C'."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">'C'.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q9" VALUE="Neither of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Neither
+				of the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<P><FONT SIZE="2" FACE="Arial"><INPUT TYPE="BUTTON" VALUE="Get score"
+		  ONCLICK="getScore(quiz,numQues,'Lesson 6',corrAnswers,questions,message,falseHint,constantHint)"
+		  ALT="Get score button"> <INPUT TYPE="RESET" VALUE="Clear"
+		  ALT="Clear quiz form"></FONT></P></FORM> <BR> 
+	 <TABLE WIDTH="100%"> 
+		<TR> 
+		  <TD ALIGN="LEFT"><A HREF="../FMtut_p2_l6.htm">[&lt;-- Back to Lesson
+			 6]</A>&nbsp;&nbsp;&nbsp;<A HREF="text/quiz_6_text.htm">[Lesson 6 Quiz: Text
+			 Version]</A>&nbsp;&nbsp;&nbsp;<A HREF="../FMtut_p2_l7.htm">[Go to Lesson 7
+			 --&gt;]</A></TD> 
+		</TR> 
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

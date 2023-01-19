@@ -1,0 +1,305 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+  <title>VA FileMan Version 22.0 Key and Index Tutorial: Environment
+Setup</title>
+</head>
+<body onUnload="closeOpenWindow()">
+<noscript> <P>Your browser or user agent does not support scripting.
+The JavaScript contained on this web page provides hyperlinks to
+display pop-up windows for additional topical information. The
+information contained in each window is provided in the associated HTML
+Title tag attribute. For user agents, your device should be able to
+read this content. For browsers, you should be able to display this
+information by simply moving your mouse across the hyperlink. Please
+contact the IIS Webmasters (see bottom of this web page for contact
+information) if you cannot read/access this information.<A
+HREF="#navskip" TITLE="[Skip Navigation]"></A></P></noscript>
+<script language="JavaScript" type="text/javascript">
+
+		<!--
+//Secondary windows for Environment Setup
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</script>
+<table width="100%">
+  <tbody>
+    <tr>
+      <td colspan="2" align="left" valign="top" width="100%">
+      <table width="100%">
+        <tbody>
+          <tr>
+            <td align="left"><br>
+            </td>
+            <td align="right"><font face="Arial" size="4">VA FileMan V.
+22 Key and Index Tutorial</font><br>
+            <a href="orientation.htm"
+ title="Click and go to the Orientation Page">[&lt;-- Orientation]</a>&nbsp;&nbsp;&nbsp;<a
+ href="introduction.htm" title="Click and go to the Introduction Page">[Introduction
+--&gt;]</a><br>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <font face="Arial" size="6">Environment Setup</font></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="left" height="10" valign="top" width="100%"><br>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center" valign="top" width="100%">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+    <tr>
+      <td colspan="2" align="left" height="10" valign="middle"
+ width="100%"><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p><a name="navskip"></a><font face="Arial" size="5">M (MUMPS) Test
+Account and Tutorial Test File</font> </p>
+<p><font face="Arial" size="2">An M test account is required, which
+runs VA FileMan Version 22.0, to take the lessons in this tutorial. You
+will also need to install a test file referred to as <a
+ href="http://vista.med.va.gov/fileman/fileman_training/online_pres/window_text/wt_ZZINDIVIDUAL.htm"
+ target="secondary"
+ onclick="makeNewWindow('width=600,height=210,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+ title="Contents of secondary window: The exercises in this tutorial make use of a simple test file that contains some sample data. The file is installed as part of Lesson 1, Exercise 1.1, and each user taking the tutorial works with his or her own copy of the tutorial test file. Each user's copy of the test file has a unique file name and number. In this tutorial, all references to this test file will be of file name: ZZINDIVIDUAL, file number: #662nnn, and global root: ^DIZ(662nnn,."><i>ZZINDIVIDUAL</i></a>
+that contains some sample data. You will use the test file in the
+exercises in this tutorial to create and experiment with your own keys
+and indexes.</font></p>
+<p><font face="Arial" size="2">A set of A6AKIT routines are provided to
+install the tutorial test file on your M system. You can use one of the
+following methods to retrieve the A6AKIT routines.</font></p>
+<br>
+<p><font face="Arial" size="2"><u><b>Method 1.</b></u>&nbsp; Use the
+appropriate FTP utility to retrieve the text host file A6AKIT.RTN from
+the San Francisco anonymous directory:</font></p>
+<table width="100%">
+  <tbody>
+    <tr>
+      <td valign="bottom" width="2%"><br>
+      </td>
+      <td valign="bottom" width="21%"><b><font face="Arial" size="2">OI
+Field Office</font></b></td>
+      <td width="2%"><br>
+      </td>
+      <td valign="bottom" width="21%"><b><font face="Arial" size="2">FTP
+Address</font></b></td>
+      <td width="2%"><br>
+      </td>
+      <td valign="bottom" width="30%"><b><font face="Arial" size="2">Directory</font></b></td>
+      <td width="2%"><br>
+      </td>
+      <td valign="bottom" width="20%"><b><font face="Arial" size="2">Host
+File Name</font></b></td>
+    </tr>
+    <tr>
+      <td><br>
+      </td>
+      <td colspan="7">
+      <hr></td>
+    </tr>
+    <tr>
+      <td valign="top"><br>
+      </td>
+      <td valign="top"><font face="Arial" size="2">San Francisco</font></td>
+      <td><br>
+      </td>
+      <td valign="top"><font face="Arial" size="2">152.132.1.57</font></td>
+      <td><br>
+      </td>
+      <td valign="top"><font face="Arial" size="2">anonymous</font></td>
+      <td><br>
+      </td>
+      <td valign="top"><font face="Arial" size="2">A6AKIT.RTN</font></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<br>
+<p><font face="Arial" size="2"><u><b>Method 2.</b></u>&nbsp; Download
+the A6AKIT.RTN file directly from this page:</font></p>
+<table width="100%">
+  <tbody>
+    <tr>
+      <td align="left" valign="top" width="2%"><br>
+      </td>
+      <td align="left" valign="top" width="10%"><font face="Arial"
+ size="2"><b>Step 1.</b> </font></td>
+      <td colspan="2" align="left" width="85%"><font face="Arial"
+ size="2"><i><b>Right click</b></i> on the following icon:</font><br>
+      <br>
+      <table bordercolorlight="#F1F2F3" bordercolordark="#808080"
+ border="0" width="88%">
+        <tbody>
+          <tr>
+            <td valign="top" width="7%"><br>
+            </td>
+            <td colspan="4" valign="top" width="98%"><a
+ href="http://hardhats.org/fileman/Main/routines/a6akit.rtn"><font
+ face="Arial" size="2"><img src="images/rtn.gif"
+ alt="Download A6AKIT routine"
+ style="border: 0px solid ; width: 63px; height: 56px;"></font></a> </td>
+          </tr>
+        </tbody>
+      </table>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table width="100%">
+  <tbody>
+    <tr>
+      <td align="left" valign="top" width="2%"><br>
+      </td>
+      <td align="left" valign="top" width="10%"><font face="Arial"
+ size="2"><b>Step 2.</b> </font></td>
+      <td colspan="2" align="left" width="85%"><font face="Arial"
+ size="2">Select Save As Target As...</font></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<table width="100%">
+  <tbody>
+    <tr>
+      <td align="left" valign="top" width="2%"><br>
+      </td>
+      <td align="left" valign="top" width="10%"><font face="Arial"
+ size="2"><b>Step 3.</b> </font></td>
+      <td colspan="2" align="left" width="85%"><font face="Arial"
+ size="2">In the Save As dialog box, select a directory in which to
+save the file. Accept A6AKIT.RTN as the file name, and the Text
+Document as the type.</font></td>
+    </tr>
+  </tbody>
+</table>
+<blockquote>
+  <blockquote>
+    <table bordercolorlight="#F1F2F3" bordercolordark="#808080"
+ border="0" width="500">
+      <tbody>
+        <tr>
+          <td colspan="4" valign="top" width="92%">
+          <table bgcolor="#f1f2f3" border="1" cellpadding="5"
+ width="500">
+            <tbody>
+              <tr>
+                <td>
+                <table bordercolorlight="#F1F2F3"
+ bordercolordark="#808080" bgcolor="#f1f2f3" border="0" width="100%">
+                  <tbody>
+                    <tr>
+                      <td align="left" valign="top" width="8%"><b><font
+ face="Arial" size="2">Note:</font></b></td>
+                      <td colspan="2" valign="top" width="92%"><font
+ face="Arial" size="2">After you've completed this step, please check
+the file name on your computer. If the save process appended a TXT
+extension to the end of the file (e.g., A6AKIT.RTN.TXT), simply delete
+it. Your file name should look like this: A6AKIT.RTN.</font></td>
+                    </tr>
+                  </tbody>
+                </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </blockquote>
+</blockquote>
+<br>
+<table width="100%">
+  <tbody>
+    <tr>
+      <td align="left" valign="top" width="2%"><br>
+      </td>
+      <td align="left" valign="top" width="10%"><font face="Arial"
+ size="2"><b>Step 4.</b> </font></td>
+      <td colspan="2" align="left" width="85%"><font face="Arial"
+ size="2">If necessary, use the appropriate FTP utility to move the
+text host file A6AKIT.RTN to your M system.</font></td>
+    </tr>
+  </tbody>
+</table>
+<br>
+<p><font face="Arial" size="2">Once retrieved, you can use your M
+operating system's routine restore utility to load the routines A6AKIT,
+A6AKIT1, and A6AKIT2 from the A6AKIT.RTN file into your M account.</font></p>
+<p><font face="Arial" size="2">See <a href="FMtut_p1_l1.htm"
+ title="Click and go to Lesson 1 to create your test file">Lesson 1,
+Exercise 1.1. Create Your Test File</a> for instructions on how to run
+the A6AKIT routine to create your personal copy of the tutorial test
+file.</font></p>
+<p><font face="Arial" size="2">See the Appendix section of this
+tutorial to see the <a href="FMtut_dd.htm"
+ title="Click and go to the Tutorial Data Dictionary">data dictionary</a>
+for the tutorial test file and the <a href="FMtut_testdata.htm"
+ title="Click and go to the Tutorial File Entries Page">file entries</a>
+that it contains.</font></p>
+<br>
+<table width="100%">
+  <tbody>
+    <tr>
+      <td align="left" width="85%"><font face="Arial" size="2">Click to
+go to lessons: </font><a href="introduction.htm"
+ title="Click and go to the Tutorial Introduction">[Intro]</a> <a
+ href="FMtut_p1_l1.htm" title="Click and go to Lesson 1">[1]</a> <a
+ href="FMtut_p1_l2.htm" title="Click and go to Lesson 2">[2]</a> <a
+ href="FMtut_p1_l3.htm" title="Click and go to Lesson 3">[3]</a> <a
+ href="FMtut_p1_l4.htm" title="Click and go to Lesson 4">[4]</a> <a
+ href="FMtut_p1_l5.htm" title="Click and go to Lesson 5">[5]</a> <a
+ href="FMtut_p2_l6.htm" title="Click and go to Lesson 6">[6]</a> <a
+ href="FMtut_p2_l7.htm" title="Click and go to Lesson 7">[7]</a> <a
+ href="FMtut_p2_l8.htm" title="Click and go to Lesson 8">[8]</a> <a
+ href="FMtut_p3_l9.htm" title="Click and go to Lesson 9">[9]</a> <a
+ href="FMtut_p3_l10.htm" title="Click and go to Lesson 10">[10]</a> <a
+ href="FMtut_p3_l11.htm" title="Click and go to Lesson 11">[11]</a></td>
+    </tr>
+  </tbody>
+</TABLE>
+<P>&nbsp;</P> 
+<HR CLASS="hrstyle" COLOR="blue">
+<!-- VA%20FileMan%20Version%2022.0%20Key%20and%20Index%20Tutorial%20-%20response%20from%20user -->
+<P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+<P>&nbsp;</P> 
+
+</BODY>
+</HTML>
+

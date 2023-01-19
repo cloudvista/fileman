@@ -1,0 +1,513 @@
+<!DOCTYPE HTML PUBLIC "-//SQ//DTD HTML 2.0 HoTMetaL + extensions//EN" "hmpro6.dtd">
+<html><head><!--VHA OI Health Systems Design & Development (HSD&D)--><!--Oakland OIFO--><!--Authored by Thom Blom and Kyle Clarke, 12/31/99--><!--Revised by Thom Blom, 06/30/03--><!--Edited March 2007, Hardhats.org-->
+	 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+	 
+	 <title>VA FileMan Getting Started HTML Manual: About Each Field Type</title><meta name="subject" content="VA FileMan V. 22.0 Getting Started HTML Manual">
+	 <meta name="keywords" content="Information Infrastructure Service,IIS,Infrastructure and Security Services,Infrastructure Security Services,ISS,VISTA,FileMan,VA FileMan,getting started,about each field type,field types">
+	 <link rel="StyleSheet" type="text/css" href="getting_started.css"></head>
+<body topmargin="0">
+	<br><img src="common/fileman_gs_heading.gif" alt="VA FileMan V. 22.0 Getting Started HTML Manual Banner" border="0" height="29" width="429">
+	<br>
+	<hr align="left" color="blue" width="429">
+	<br>
+	 <p>&nbsp;</p> 
+	 <table class="tdstyle" summary="This table is for formatting purposes only" valign="TOP" border="0" cellpadding="3" cellspacing="0" height="1" width="100%"> 
+		<tbody><tr> 
+		  <td class="menubartext" align="left" height="1" valign="bottom" width="10%">Contents:</td> 
+		  <td align="left" height="1" valign="bottom" width="7%">
+			 <a href="index.htm" target="_top" title="VA FileMan V. 22.0 Getting Started HTML Manual: Main Table of Contents" class="menubarlink">Main</a> </td> 
+		  <td align="left" height="1" valign="bottom" width="17%"><a href="he_frm.htm" target="_top" title="VA FileMan V. 22.0 Getting Started HTML Manual: VA FileMan Prompts Chapter TOC" class="menubarlink">Chapter</a></td> 
+		  <td class="menubartext" align="left" height="1" valign="bottom" width="10%">See Also: </td> 
+		  <td align="left" height="1" valign="bottom" width="28%"><a href="../u2/index.htm" target="_top" title="VA FileMan V. 22.0 Advanced User HTML Manual" class="menubarlink">Advanced User Manual</a></td> 
+		  <td colspan="4" align="left" height="1" valign="bottom" width="28%">
+			 <a href="../pm/index.htm" target="_top" title="VA FileMan V. 22.0 Programmer HTML Manual" class="menubarlink">Programmer Manual</a></td> 
+		</tr> 
+	 </tbody></table> 
+	 <!-- Content -->
+	 <h3><a name="navskip">Editing Records</a></h3> <hr class="hrstyle"> 
+	 <h4>About Each Field Type</h4> 
+	 <h5><a name="Introduction">Introduction</a></h5> 
+	 <p>So far, you've been introduced to several fundamental VA FileMan
+		conventions, including: </p> 
+	 <ul> 
+		<li>When the cursor comes to rest in a field, the computer expects you to
+		  respond.<br><br></li> 
+		<li>A field serves much the same purpose as a blank on a
+		  form.<br><br></li> 
+		<li>Each field has a prompt that identifies your response's subject
+		  matter.<br><br></li> 
+		<li>You have a number of tools available to you at field prompts,
+		  including the up-arrow ("<b>^</b>") jump, default response, "Replace...With"
+		  editor, spacebar recall, and at-sign ("<b>@</b>") deletion.<br><br></li> 
+		<li>Some fields have additional restrictions, such as your response's
+		  length or format. Enter a single or two question marks ("<b>?</b>" or
+		  "<b>??</b>") to retrieve Help on what is an acceptable entry for a particular
+		  field.</li> 
+	 </ul> 
+	 <p>When you are editing a field, entering a question mark ("<b>?</b>") at
+		the field prompt usually provides enough help to infer what kind of field
+		you've reached and to predict what kind of data is acceptable in this field.
+		</p> 
+	 <p>You won't need to know a lot about these field types, but a little
+		information can be helpful. In the pages that follow, you'll find examples and
+		brief explanations about each field type (i.e., DATA TYPE). In VA FileMan,
+		you'll work with many, if not all, of the following field types: </p> 
+	 <ul> 
+		<li><a href="#date" title="DATE/TIME" class="bodylink">DATE/TIME</a><br><br></li> 
+		<li><a href="#numeric" title="NUMERIC" class="bodylink">NUMERIC</a><br><br></li> 
+		<li><a href="#set" title="SET OF CODES" class="bodylink">SET OF CODES</a><br><br></li> 
+		<li><a href="#free" title="FREE TEXT" class="bodylink">FREE
+		  TEXT</a><br><br></li> 
+		<li><a href="#word" title="WORD-PROCESSING" class="bodylink">WORD-PROCESSING</a><br><br></li> 
+		<li><a href="#computed" title="COMPUTED" class="bodylink">COMPUTED</a><br><br></li> 
+		<li><a href="#pointer" title="POINTER TO A FILE" class="bodylink">POINTER TO A FILE</a><br><br></li> 
+    <li><a href="#variable" title="VARIABLE-POINTER" class="bodylink">VARIABLE-POINTER</a><br><br></li> 
+    <li><span class="badge">22.2</span><a href="#boolean" title="BOOLEAN" class="bodylink">BOOLEAN</a><br><br></li>
+    <li><span class="badge">22.2</span><a href="#label" title="LABEL REFERENCE" class="bodylink">LABEL REFERENCE</a><br><br></li>
+    <li><span class="badge">22.2</span><a href="#time" title="TIME" class="bodylink">TIME</a><br><br></li>
+    <li><span class="badge">22.2</span><a href="#year" title="YEAR" class="bodylink">YEAR</a><br><br></li>
+    <li><span class="badge">22.2</span><a href="#utc" title="UNIVERSAL TIME" class="bodylink">UNIVERSAL TIME</a><br><br></li>
+    <li><span class="badge">22.2</span><a href="#ftpointer" title="FT POINTER" class="bodylink">FT POINTER</a><br><br></li>
+    <li><span class="badge">22.2</span><a href="#ftdate" title="FT DATE" class="bodylink">FT DATE</a><br><br></li>
+    <li><span class="badge">22.2</span><a href="#ratio" title="RATIO" class="bodylink">RATIO</a><br><br></li>
+	 </ul> 
+	 <p>In addition,
+		<a href="#subfiles" title="Subfiles (Multiples)" class="bodylink">Subfiles
+		(Multiples)</a> are introduced at the end of this chapter.</p> <hr> 
+	 <h4><a name="date">DATE/TIME Fields</a></h4> 
+	 <p>You can use a variety of formats when entering dates. For example, a
+		DATE/TIME field would probably be used to hold a patient's birthdate: </p> 
+	 <pre>    DATE OF BIRTH: MAR 3, 1955</pre> 
+	 <p>With the DATE/TIME field type, as with all field types, entering a
+		question mark retrieves Help on acceptable responses. Enter a single question
+		mark ("<b>?</b>") at a DATE/TIME field prompt and you'll be given Help about
+		what dates are acceptable for the particular field and what precision of date
+		is needed (year, month, day, or time). </p> 
+	 <p><b>Acceptable Formats for Entering Dates</b></p> 
+	 <ul> 
+		<li>JULY 20, 1999 <u>or</u> July 20, 1999<br><br></li> 
+		<li>7/20/99<br><br></li> 
+		<li>20 JUL 99<br><br></li> 
+		<li>10jul99<br><br></li> 
+		<li>10 jul 99<br><br></li> 
+		<li>072099</li> 
+	 </ul> 
+	 <p>To simplify entering dates, you can use shortcuts such as <b>T</b> for
+		today, <b>T-1</b> for yesterday, or <b>T+1</b> for tomorrow. Or you can combine
+		<b>T</b> with <b>D</b> for day, <b>W</b> for week, or <b>M</b> for month;
+		<b>T-2D</b> means two days ago, <b>T+1W</b> means today plus one week, and
+		<b>T+4M</b> means four months from today. </p> 
+	 <p>The year portion of the date can be left off. Normally, VA FileMan
+		assumes the current year. Sometimes, you can input imprecise dates such as "JUL
+		99" or "1999".</p> 
+	 <p><b>NOTE:</b> VA FileMan is Year 2000 (Y2K) compliant.</p> 
+	 <p><b>Abbreviations for Dates</b></p> 
+	 <p>The following table illustrates acceptable abbreviations when entering
+		dates:</p> 
+	 <table summary="Abbreviations for Dates Table" title="Abbreviations for Dates Table" border="1" width="100%"> 
+		<tbody><tr> 
+		  <td width="288"><b>Abbreviation</b></td> 
+		  <td width="139"><b>Meaning</b> </td> 
+		</tr> 
+		<tr> 
+		  <td width="288"><b>TODAY</b> or <b>Today</b> or <b>T</b> or <b>t</b>
+			 </td> 
+		  <td width="139">Today.</td> 
+		</tr> 
+		<tr> 
+		  <td width="288"><b>TODAY+1</b> or <b>T+1</b> or <b>t+1</b></td> 
+		  <td width="139">Tomorrow.</td> 
+		</tr> 
+		<tr> 
+		  <td width="288"><b>TODAY-7</b> or <b>T-7</b> or <b>t-7</b></td> 
+		  <td width="139">One week ago.</td> 
+		</tr> 
+		<tr> 
+		  <td width="288"><b>TODAY+3W</b> or <b>T+3W</b> or <b>t+3w</b></td> 
+		  <td width="139">Three weeks hence.</td> 
+		</tr> 
+	 </tbody></table> 
+	 <p></p> 
+	 <p><b>Times in DATE/TIME Fields</b></p> 
+	 <p>In some DATE/TIME fields, you can enter a time-of-day along with the
+		date. For example, to indicate 4:00 PM on July 20, 1999, enter the date in one
+		of the formats shown above, followed by an at-sign ("<b>@</b>"), followed by
+		the time. </p> 
+	 <p>For example, you might enter:</p> 
+	 <pre>    APPOINTMENT: <b>20 JUL 99@4PM</b></pre> 
+	 <p>To be totally unambiguous, you can enter time as military time (four or
+		six digits, no colon), hour AM/PM, hour:minute AM/PM, or hour:minute:second
+		AM/PM. If you do omit an AM/PM notation, the following assumptions are
+		made:</p> 
+	 <ul> 
+		<li>If you enter a single digit for the hour, a time between 6AM and 6PM
+		  is used. Thus, <b>T@330</b> (or <b>T@3:30</b>) means today at 3:30 PM and
+		  <b>T@945</b> (or <b>T@9:45</b>) means today at 9:45 AM.<br><br></li> 
+		<li>If you enter two digits for the hour, the actual hour entered is used
+		  (as if military time were being used). Thus, <b>T@0330</b> (or <b>T@03:30</b>)
+		  means today at 3:30 AM. </li> 
+	 </ul> 
+	 <p>As with dates, there are supported abbreviations you can use when
+		entering times in DATE/TIME fields. For example, to enter the present moment,
+		you can enter the word <b>NOW</b>. To enter an hour from the present moment,
+		enter <b>NOW+1H</b>. To enter an hour ago from the present moment, enter
+		<b>NOW-1H</b>. You can also combine <b>NOW</b> with <b>D</b> for day and
+		<b>M</b> for month and <b>'</b> (apostrophe) for minute.&nbsp;<img src="new.gif" alt="New/Updated with VA FileMan V. 22.0 with Patch DI*22*36" border="0" height="11" width="35"> &nbsp;And you can enter <b>MID</b> for 12
+		a.m. and <b>NOON</b> for 12 p.m.</p> 
+	 <p><b>Abbreviations for Times</b></p> 
+	 <p>The following table illustrates acceptable abbreviations when entering
+		time: </p> 
+	 <table summary="Abbreviations for Times Table" title="Abbreviations for Times Table" border="1" width="100%"> 
+		<tbody><tr> 
+		  <td width="139"><b>Abbreviation</b></td> 
+		  <td width="288"><b>Meaning</b> </td> 
+		</tr> 
+		<tr> 
+		  <td width="139"><b>NOW+3'</b></td> 
+		  <td width="288">Present time plus three minutes.&nbsp;</td> 
+		</tr> 
+		<tr> 
+		  <td width="139"><b>NOW+1H</b></td> 
+		  <td width="288">Present time plus one hour. </td> 
+		</tr> 
+		<tr> 
+		  <td width="139"><b>NOW+3D</b></td> 
+		  <td width="288">Present time plus three days. </td> 
+		</tr> 
+		<tr> 
+		  <td width="139"><b>NOW+4M</b></td> 
+		  <td width="288">Present time plus four months. </td> 
+		</tr> 
+		<tr> 
+		  <td width="139"><b>NOON</b></td> 
+		  <td width="288">Today at 12:00 noon.</td> 
+		</tr> 
+		<tr> 
+		  <td width="139"><b>MID</b></td> 
+		  <td width="288">Today at 24:00 midnight. </td> 
+		</tr> 
+	 </tbody></table> 
+	 <p></p> <hr> 
+	 <h4><a name="numeric">NUMERIC Fields</a></h4> 
+	 <p>NUMERIC-type fields work very much like
+		<a href="#free" title="FREE TEXT" class="bodylink">FREE TEXT</a> fields, except
+		that input is restricted to valid numbers. There can also be restrictions as to
+		how small or large a number is allowed, and how many decimal places are
+		allowed. Entering a question mark retrieves Help that tells you what responses
+		are acceptable. </p> 
+	 <p>For example, a NUMERIC field would probably be used to store the height
+		of a patient: </p> 
+	 <pre>    HEIGHT (cm): 196 </pre> <hr> 
+	 <h4><a name="set">SET OF CODES Fields</a></h4> 
+	 <p>SET OF CODES-type fields (sometimes referred to as a SET) are preset to
+		accept coded information. The codes are usually only one or two characters
+		long. Each code in a SET represents a word or a series of words. The codes Y
+		and N, for example, often represent the words YES and NO. You can enter the
+		code at this prompt instead of the entire word. If, however, you enter anything
+		other than an acceptable code (or the word it represents), the computer will
+		reject your response. </p> 
+	 <p>To see a list of acceptable codes, simply enter a question mark in
+		response to the prompt. </p> 
+	 <p>The following example shows how a SET OF CODES field is used to store
+		whether or not a patient is a smoker: </p> 
+	 <p></p> 
+	 <p align="center"><img src="he_1.gif" alt="Example of the Valid Choices in a SET OF CODES Field." height="127" width="577"> </p> 
+	 <p></p> 
+	 <p><b>Internal vs. External Values for SET OF CODES Fields</b></p> 
+	 <p>In the previous example, the value of the SMOKER field is set to N,
+		which is the code for NON-SMOKER. In this case, N is the internal value of the
+		field (the form in which it is stored in the database). NON-SMOKER is the
+		external value of the field (the form in which it is displayed on screen and in
+		reports). </p> 
+	 <p>Every DATA TYPE has an internal and external value; in most cases,
+		however, the internal and external values are the same. SET OF CODES fields are
+		an exception. </p> 
+	 <p><b>NOTE:</b> Probably, the only place you need to know the distinction
+		between internal and external values is when you print a report and <i>sort</i>
+		on a SET OF CODES field. The sort order is based on the internal values (codes)
+		if you sort on a SET OF CODES field. <br> <br> For more information on printing
+		and sorting, please refer to the "<a href="pr_frm.htm" target="_top" title="Print" class="bodylink">Print</a>" chapter in this manual. </p> <hr> 
+	 <h4><a name="free">FREE TEXT Fields</a></h4> 
+	 <p>You can enter almost any character from your keyboard in a FREE
+		TEXT-type field. The computer accepts numbers, letters, and most of the symbols
+		that can be entered. The FREE TEXT field places a restriction on the number of
+		characters that you can enter. If you enter a question mark ("<b>?</b>") in
+		response to the prompt for a FREE TEXT field, you'll learn how many characters
+		you are allowed to enter. </p> 
+	 <p>For example, a FREE TEXT field would probably be used to hold a
+		patient's street address: </p> 
+	 <pre>    ADDRESS: 235 Begonia Street</pre> 
+	 <p>In some places, even though the field is FREE TEXT, checks are applied
+		to make sure what is entered matches a certain format. For example, if you're
+		entering a Social Security Number (which is stored as a FREE TEXT, <i>not</i>
+		NUMERIC, field), your input would typically be checked to make sure it is nine
+		characters in length, and contains all digits: </p> 
+	  
+	 <pre>SSN: <b>abcde </b>  ??<br>     ANSWER MUST BE 9 CHARACTERS IN LENGTH<br>    SSN: <b>99999 </b>  ??<br>      ANSWER MUST BE 9 CHARACTERS IN LENGTH<br>    SSN: <b>33233290 </b>  ??<br>      ANSWER MUST BE 9 CHARACTERS IN LENGTH<br>    SSN: <b>034232343 </b>
+    DATE:
+</pre> <hr> 
+	 <p></p><hr> 
+	 <h4><a name="word">WORD-PROCESSING Fields</a></h4> 
+	 <p>Fields with a WORD-PROCESSING DATA TYPE can contain unlimited amounts of
+		text data, and are suitable for things like mail messages, physician notes, and
+		descriptions. Because of their special nature, VA FileMan provides special
+		tools for entering and editing data into this kind of a field. </p> 
+	 <p>Two editors for editing WORD-PROCESSING fields are provided with VA
+		FileMan (and described in their own chapters in this manual):</p> 
+	 <ul> 
+		<li><a href="se_frm.htm" target="_top" title="Screen Editor" class="bodylink">Screen Editor</a><br><br></li> 
+		<li><a href="le_frm.htm" target="_top" title="Line Editor" class="bodylink">Line Editor</a></li> 
+	 </ul> 
+	 <p>You can <i>set</i> your default editor; see the "<a href="wp_swit.htm" title="Choice of Word Processing Editors" class="bodylink">Choice of Word
+		Processing Editors</a>" chapter. This chapter also explains how you can switch
+		your current editor on the fly. For most people, the Screen Editor should be
+		your Preferred Editor for WORD-PROCESSING fields. </p> 
+	 <p>When you encounter a WORD-PROCESSING field, if your default editor is
+		the <a href="se_frm.htm" target="_top" title="Screen Editor" class="bodylink">Screen Editor</a>, a portion of any existing text is
+		displayed, and you'll be prompted "Edit? NO//":</p> 
+	  
+	 <pre>Select PATIENT NAME: <b>SAMPLE,FRED A.</b>
+NAME: SAMPLE,FRED A.// <b></b> <br>SEX: MALE// <b></b> <br>DATE OF BIRTH: AUG 22,1948// <b></b> <br>HISTORY: <br>Owing to poverty in early youth, patient seems not to<br>have had proper diet. Since achieving economic success,<br>his diet has been adequate, but traces of original<br>deficiency remain.<br> <br>  Edit? NO//<br></pre> <hr> 
+	 <p><b>NOTE:</b> For a guide to using the Screen Editor, please refer to the
+		<a href="se_frm.htm" target="_top" title="Screen Editor" class="bodylink">Screen Editor</a> chapter in this manual. </p> 
+	 <p>When you encounter a WORD-PROCESSING field, if your default editor is
+		the <a href="le_frm.htm" target="_top" title="Line Editor" class="bodylink">Line Editor</a> on the other hand, a portion of the text is
+		displayed, and you'll be prompted with "Edit Option:" </p> 
+	  
+	 <pre>Select PATIENT NAME: <b>SAMPLE,FRED A.</b>
+NAME: SAMPLE,FRED A.// <b></b> <br>SEX: MALE// <b></b> <br>DATE OF BIRTH: AUG 22,1948// <b></b> <br>HISTORY: <br>  1&gt;Owing to poverty in early youth, patient seems not to<br>  2&gt;have had proper diet. Since achieving economic success,<br>  3&gt;his diet has been adequate, but traces of original<br>  4&gt;deficiency remain.<br> <br>EDIT OPTION:<br></pre> <hr> 
+	 <p><b>NOTE:</b> For a guide to using the Line Editor, please refer to the
+		<a href="le_frm.htm" target="_top" title="Line Editor" class="bodylink">Line
+		Editor</a> chapter in this manual.</p> <hr> 
+	 <h4><a name="computed">COMPUTED Fields</a></h4> 
+	 <p>COMPUTED-type fields are typically used to output a value computed at
+		run-time in a report. You can't edit the value of a COMPUTED field. </p> 
+	 <p>An example of a COMPUTED field would be a field that calculated AGE
+		based on today's date and a patient's DATE OF BIRTH field. Because the field is
+		a COMPUTED DATA TYPE, it can output a patient's current age based on whatever
+		today's date is. You can't <i>edit</i> the AGE field, but you can use it to
+		print out the current age of the patient.</p> 
+	 <p>You're most likely to come across COMPUTED fields when printing with the
+		CAPTIONED PRINT template. Choosing the
+		<a href="pr_intro.htm#captioned" title="CAPTIONED" class="bodylink">CAPTIONED</a> OUTPUT template automatically outputs all normal
+		fields containing data for each entry in a report. However, you must choose
+		whether you want COMPUTED fields included in the output as well: </p> 
+	 <p></p> 
+	 <p align="center"><img src="he_4.gif" alt="Example of Being Prompted to Choose COMPUTED Fields in Output." height="97" width="619"> </p> 
+	 <p></p> 
+	 <p><b>NOTE:</b> For more information on CAPTIONED output, please refer to
+		the "<a href="in_frm.htm" target="_top" title="Inquire" class="bodylink">Inquire</a>" and "<a href="pr_frm.htm" target="_top" title="Print" class="bodylink">Print</a>" chapters in this manual.</p> <hr> 
+	 <h4><a name="pointer">POINTER TO A FILE Fields</a></h4> 
+	 <p>A POINTER TO A FILE-type field is a field that directs the computer to
+		another file for information. If you're working in the PATIENT file, for
+		example, and you've reached a field that asks for the patient's STATE, the
+		field is probably a POINTER TO A FILE field that "points" to the STATE file.
+		Because of pointers, such commonly used information as states can be stored in
+		a single STATE file. Then, every file (PATIENT, VENDOR, INSURANCE, etc.) that
+		needs to record a value for STATE can use a POINTER TO A FILE field to the
+		STATE file to store that information. </p> 
+	 <p></p> 
+	 <p align="center"><img src="he_2.gif" alt="Example Showing Pointer Relationships Between Fileds and Files" height="511" width="625"> </p> 
+	 <p></p> 
+	 <p>If the choice you need is not listed, you can add that choice by typing
+		it in (provided you have LAYGO access to add the entry). If the entry you enter
+		is not matched, you're asked if you want to add a new entry. If you answer YES,
+		VA FileMan adds the new entry. For example, if there was a state that did not
+		have an entry in the STATE file, you could add it by entering it at the
+		"STATE:" field prompt. </p> <hr> 
+	 <h4><a name="variable">VARIABLE-POINTER Fields</a></h4> 
+	 <p>A VARIABLE-POINTER-type field is like the regular
+		<a href="#pointer" title="POINTER TO A FILE" class="bodylink">POINTER TO A
+		FILE</a> field type, with one difference: the VARIABLE-POINTER DATA TYPE can
+		point to a single record in one of <i>several</i> files, whereas the regular
+		POINTER TO A FILE DATA TYPE can point to a single record in only <i>one</i>
+		file. The PATIENT file, for example, might use a VARIABLE-POINTER to identify a
+		Provider; the Provider might be a Staff Provider, stored in the PROVIDER file,
+		or an Outside Provider, stored in another file.</p> 
+	 <p>Let's say you're working in a PATIENT file entry, and you need
+		information that explains how to look up a name listed in one of several files.
+		To get Help, simply enter a single question mark ("<b>?</b>") at the "PROVIDER"
+		prompt. Now, on your screen, you'll see instructions that explain how to choose
+		a Provider from either of the two files being pointed to: </p> 
+	 <p></p> 
+	 <p align="center"><img src="he_3.gif" alt="Example Showing the Pointer Prefixes." height="175" width="577"> </p> 
+	 <p></p> 
+	 <p>With VARIABLE-POINTER fields, you need to use a PREFIX in addition to an
+		entry name to select an entry. In this example, the online Help tells you that
+		to select a Staff Provider, prefix the Provider's name with "<b>S.</b>". To
+		select an Outside Provider, prefix the Provider's name with "<b>O.</b>". </p> 
+	 <p>You can enter a PREFIX and a question mark to get a list of entries in a
+		particular pointed-to file. For example, if you enter "<b>S.?</b>" you can get
+		a list of all Staff Providers. Likewise you can enter "<b>S.SMITH</b>" to get a
+		list of all Staff Providers whose last names are SMITH. You can also enter
+		"<b>S.SMITH,JOSEPH</b>" to select a Staff Provider named Joseph Smith.</p> 
+	 <p>For example:</p> 
+	  
+	 <pre>PROVIDER: <b>S.?</b>
+     CHOOSE FROM: 
+       ALLEN,JAKE 
+       ANDREWS,JOHN
+        :
+</pre> <hr> 
+	 <p>You can also select an entry in a VARIABLE-POINTER field by just
+		entering a name <i>without</i> the PREFIX. In this case, VA FileMan searches
+		each pointed-to file in succession until a match is found. </p> 
+	 <p><b>NOTE:</b> This method requires more processing time, since VA FileMan
+		will need to search the various pointed-to files. </p> 
+	 <p>For example, to choose a Provider without specifying in which file the
+		Provider can be found, enter the Provider name only:</p> 
+	  
+	 <pre>PROVIDER: <b>MCCOY,LEONARD M</b>
+
+    Searching for a Staff Provider
+
+    Searching for a Outside Provider  MCCOY,LEONARD M 
+            ...OK?  YES// <b></b>  (YES)<br></pre> <hr> 
+	 <p>You can add an entry to one of the files that is being pointed to by a
+		VARIABLE-POINTER field. To do this, enter the appropriate PREFIX and the new
+		name to add at the field prompt. </p> 
+	 <p>For example, to add "MCCOY,LEONARD M" as an Outside Provider (not a
+		Staff Provider), use the appropriate PREFIX when adding the new entry (in this
+		case, "<b>O.</b>"). When the requested name is not found, you're asked if you
+		want to add the Provider as a new entry. To add the entry, enter YES: </p> 
+	  
+	 <pre>PROVIDER: <b>O.MCCOY,LEONARD M.</b>  <br>      Are you adding 'MCCOY,LEONARD M.' as a new OUTSIDE PROVIDER?  No// <b>YES<br></b>  (Yes)<br>    OUTSIDE PROVIDER SEX: <b>MALE</b> <br>    OUTSIDE PROVIDER DATE OF BIRTH: <b>020235 </b>  (FEB 02, 1935) <br>    OUTSIDE PROVIDER SSN: <b>654987321</b> <br></pre> <hr> 
+
+
+	 <h4><span class="badge">22.2</span><a name="boolean">BOOLEAN fields</a></h4> 
+	 <p>A
+field defined as a BOOLEAN data type can have only two entry choices:
+YES or NO. The internal values of the BOOLEAN DATA TYPE is set to 1 for
+YES and 0 for NO.</p>
+   <pre>BOOLEAN: <strong>?</strong>
+     Choose from: 
+       1        YES
+       0        NO</pre>
+BOOLEAN: <strong>N</strong>  NO
+   <hr> 
+
+	 <h4><span class="badge">22.2</span><a name="label">LABEL REFERENCE fields</a></h4> 
+	 <p>A
+field defined as a LABEL REFERENCE data type is designed to store a tag
+and routine entry of the format, TAG^ROUTINE. It is stored as a
+free-text field.</p>
+   <pre>LABEL REFERENCE: <strong>TEST^BOO</strong></pre>
+   <hr> 
+
+	 <h4><span class="badge">22.2</span><a name="time">TIME fields</a></h4> 
+	 <p>A field defined as a TIME data type can accept many of the date/time entries, but only stores the TIME portion.</p>
+   <pre>TIME: <strong>?</strong>
+Enter 'NOW' or some valid time like '2:33PM'
+              Time may include seconds.
+TIME: <strong>15:09:43</strong> (15:09:43)</pre>
+   <hr>
+
+	 <h4><span class="badge">22.2</span><a name="year">YEAR fields</a></h4> 
+	 <p>A field defined as a YEAR data type can accept many of the date entries, but only stores the YEAR portion.</p>
+   <pre>YEAR: <strong>?</strong>
+
+     Enter a 4-digit year, e.g., '2015'.
+     Must not be earlier than 1980
+Examples of Valid Dates:
+   JAN 20 1957 or 20 JAN 57 or 1/20/57 or 012057  (omitting punctuation)
+   T   (for TODAY),  T+1 (for TOMORROW),  T+2,  T+7, etc.
+   T-1 (for YESTERDAY),  T-3W (for 3 WEEKS AGO), etc.
+If the year is omitted, the computer uses CURRENT YEAR.
+A 2-digit year means no more than 20 years in the future, or 80 years in
+the past.
+You may omit the precise day of the month, e.g.: Jan, 1957
+YEAR: <strong>2014</strong></pre>
+   <hr>
+
+	 <h4><span class="badge">22.2</span><a name="utc">UNIVERSAL TIME Fields</a></h4> 
+   <p>A
+field defined as a UNIVERSAL TIME data type can accept many of the
+date/time entries and stores the date/time in a format with the local
+time and includes an indicator showing the offset from Universal Time.</p>
+   <p>The
+first 14 characters of the internal storage of the UNIVERSAL TIME data
+type are exactly like the current DATE/TIME data type that includes
+seconds. The three characters in position 15, 16, and 17 indicate the
+UTC time offset in five (5) minute increments. In the example below:
+(440-500)/12=-5, this is a negative five hour offset from UTC.</p>
+   <pre>External: JAN 6,2016@08:03:36 (UTC-5:00)             Internal: 3160106.080336440</pre>
+   
+   <hr>
+
+	 <h4><span class="badge">22.2</span><a name="ftpointer">FT POINTER Fields</a></h4> 
+	 <p>A
+field defined as a FT POINTER data type works similar to the POINTER
+data type, but internally stores the free text that was returned from
+the pointed-to value. The example below shows selecting the first entry
+from File 200 (NEW PERSON).</p>
+   <pre>FREE TEXT POINTER: <strong>`1</strong>  USER,ONE     DBA</pre>
+   <hr> 
+
+	 <h4><span class="badge">22.2</span><a name="ftdate">FT DATE Fields</a></h4> 
+	 <p>A
+field defined as a FT DATE data type works similar to the DATE/TIME
+data type, but internally stores the free text that was input by the
+user to determine the date. So, for example, typing T-1 to store
+yesterday's date will not actually store yesterday's date, but "T-1",
+implying a relative date.</p>
+   <pre>FREE TEXT DATE: <strong>?</strong>
+
+Examples of Valid Dates:
+  JAN 20 1957 or 20 JAN 57 or 1/20/57 or 012057
+  T   (for TODAY),  T+1 (for TOMORROW),  T+2,  T+7,  etc.
+  T-1 (for YESTERDAY),  T-3W (for 3 WEEKS AGO), etc.
+If the year is omitted, the computer uses CURRENT YEAR.  Two digit year
+  assumes no more than 20 years in the future, or 80 years in the past.
+FREE TEXT DATE: <strong>T-1</strong>  (NOV 26, 2017)</pre>
+   <hr> 
+
+	 <h4><span class="badge">22.2</span><a name="ratio">RATIO Fields</a></h4> 
+	 <p>A
+field defined as a RATIO data type is designed to accept two numbers
+with a colon â&#8364;&#339;:â&#8364;&#157; between the two numbers. It is formatted and
+stored like a mathematical ratio.</p>
+   <pre>RATIO: <strong>1:3</strong></pre>
+   <hr> 
+
+	 <h4><a name="subfiles">Subfiles (Multiples)</a></h4> 
+	 <p>Sometimes, a single field in a record is not enough to hold all the
+		information required. For example, to keep track of the appointment history for
+		a patient, a single field would not be enough. An ordinary field could only
+		hold enough information to record a single appointment. But there needs to be a
+		way to record as many appointments as a patient has had, which could range from
+		none to several hundred. In addition, each appointment might have its own
+		information that needs to be stored, such as date, time, location, doctor, etc.
+		</p> 
+	 <p>This situation is handled with what are known as Subfiles (also known as
+		Multiples). Within an individual record, a Subfile (Multiple) can be used to
+		hold this type of information.</p> 
+	 <p></p> 
+	 <p align="center"><img src="he_5.gif" alt="Example of a Multiple Record." height="269" width="500"> </p> 
+	 <p></p> 
+	 <p>The fields in a Subfile (in this example, DATE, TIME, LOCATION, and
+		DOCTOR) are called <i>Subfields</i>. </p> 
+	 <p>The word "Select" is always the first part of the prompt when you
+		encounter a Multiple, to indicate that you are choosing among one of several
+		possible values on file:</p> 
+	 <pre>    Select APPOINTMENTS:</pre> 
+	 <p>If, for a given Multiple, more than one entry has already been entered,
+		the most recently created entry is displayed as a default. To see the list of
+		entries already in the Mmultiple, enter two question marks ("<b>?? </b>") at
+		the "Select..." prompt.</p> 
+	 <p>Because they are so useful, Subfiles (Multiples) are widely used
+		throughout
+		<acronym title="Veterans Health Information Systems and Technology Architecture/Decentralized Hospital Computer Program">VistA</acronym>.
+		They are usually straightforward to use, because their structure as Subfiles
+		mirrors the real-world structure of the information. For example, for a
+		purchase order, the top-level record would be the purchase order. Because a
+		single purchase order needs a place to store as few or as many items as are
+		requested, the purchase order record has a Multiple to record the order items
+		for the purchase order. </p> 
+	 <p>Subfiles can themselves contain Subfiles creating additional levels in
+		files.</p>
+	 <p>&nbsp;</p> 
+	 <hr class="hrstyle"> 
+	 <p align="center">Reviewed/Updated: March 4, 2007</p>
+	 <p>&nbsp;</p> 
+
+  </body></html>

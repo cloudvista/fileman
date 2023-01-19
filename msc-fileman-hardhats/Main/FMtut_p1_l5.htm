@@ -1,0 +1,853 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 1, Lesson
+		5</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 5
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR><A HREF="FMtut_p1_l4.htm"
+					 TITLE="Click and go to Lesson 4">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_5.htm"
+					 TITLE="Link to Lesson 5 Quiz"><IMG SRC="images/button_small_shadow_quiz_5.gif"
+					 WIDTH="89" HEIGHT="16" BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Lesson 5 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p2_l6.htm"
+					 TITLE="Click and go to Lesson 6">[Next Lesson --&gt;]</A></TD>
+				</TR>
+			 </TABLE><BR> <FONT SIZE="6" FACE="Arial">Part 1 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_regular.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: Regular is one of the two types of new-style cross-references you can create. (The other is MUMPS.) In a regular cross-reference, data is stored as subscript(s) in an index. The index can be used for sorting the data and for looking up entries in a file based on the indexed data.">Regular
+			 Indexes</A></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE><BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="110" VALIGN="TOP"><A NAME="navskip"></A><FONT FACE="Arial"
+			 SIZE="5">Lesson 5.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="689" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">Whole-File
+			 Indexes</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">In this lesson you will create a whole-file
+		index based on the fields in the EMAIL multiple of the <I>ZZINDIVIDUAL</I> test
+		file. This lesson will also illustrate a use for computed cross-reference
+		values.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 5.1. &nbsp;Create a Whole-File
+		Index Based on EMAIL NAME and EMAIL DOMAIN</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise you will create a
+		whole-file index that contains one computed subscript based on the EMAIL NAME
+		and the EMAIL DOMAIN fields within the EMAIL multiple. The subscript in the
+		index will look like:</FONT></P>
+	 <P><FONT SIZE="2"
+		FACE="Arial">&nbsp;&nbsp;&nbsp;&nbsp;email_name@email_domain</FONT></P><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">
+			 First, follow the menu path to the option Cross Reference a Field or File as
+			 shown below:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" CELLPADDING="5" BORDERCOLORLIGHT="#F1F2F3"
+			BORDERCOLORDARK="#808080" WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="1%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="99%"><FONT SIZE="2"
+				  FACE="Courier New"> VA FileMan</FONT><BR><FONT SIZE="2"
+				  FACE="Courier New">&nbsp;&nbsp;&nbsp;Utility Functions</FONT><BR><FONT SIZE="2"
+				  FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cross Reference a Field
+				  or File</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Enter <B>N</B> for New at the prompt:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"> What type of cross-reference (<A
+				  HREF="http://hardhats.org/fileman/Main/window_text/wt_traditional.htm"
+				  TARGET="secondary"
+				  ONCLICK="makeNewWindow('width=600,height=200,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+				  TITLE="Contents of secondary window: A traditional cross-reference is defined on a single field, and its definition is stored under ^DD(file#,field#,1). In general, the logic for a traditional cross-reference is executed when the field is edited. There are seven types of Traditional cross-references: Regular, MUMPS, Trigger, Bulletin, Soundex, KWIC, and Mnemonic.">Traditional</A>
+				  or New)? Traditional//<B>N</B></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select the <I>ZZINDIVIDUAL</I> file and EMAIL subfile. Answer yes
+			 when prompted if you want to create a new Index.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New">MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>//
+				  <B>&lt;Enter&gt;</B><BR>Select Subfile: <B>EMAIL &lt;Enter&gt;</B> (Subfile
+				  #<I>662nnn</I>.02)</FONT><BR><BR> <FONT SIZE="2" FACE="Courier New">There are
+				  no INDEX file cross-references defined on subfile #<I>662nnn</I>.02. Want to
+				  create a new Index for this file? No// <B>Y &lt;Enter&gt;</B>
+				  YES</FONT><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The fields you will select as cross-reference values in our index
+								  will be fields in the EMAIL subfile.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">For type of index, enter: <B>REGULAR</B>.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New">Type of index: REGULAR// <B>&lt;Enter&gt;</B> REGULAR</FONT>
+				  </TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Because you selected a subfile (the EMAIL multiple), VA FileMan
+			 asks you whether you want to index the whole ZINDIVIDUAL file. Press Enter to
+			 select the default YES.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New">Want to
+				  <A
+					HREF="http://hardhats.org/fileman/Main/window_text/wt_w_f_index.htm"
+					TARGET="secondary"
+					ONCLICK="makeNewWindow('width=600,height=200,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+					TITLE="Contents of secondary window: A whole-file index is stored at a file level above the level in which the fields are defined. Whole-file indexes allow you to lookup records in a file based on field values within a subfile. For example, a whole-file index containing fields from the EMAIL multiple can be stored at the top level of the file, and allows you to lookup records in the ZZINDIVIDUAL file based on field values within that multiple.">index
+				  whole file</A> <I>ZZINDIVIDUAL</I> (#<I>662nnn</I>)? Yes// <B>&lt;Enter&gt;</B>
+				  YES</FONT><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial"> If you answered NO here, the index would be stored at the subfile
+								  level. This would allow you to lookup an entry in the EMAIL subfile for a
+								  specific record in the <I>ZZINDIVIDUAL</I> file. </FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">When asked how the index should be used, select SORTING
+			 ONLY:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Want index to be used for <A HREF="http://hardhats.org/fileman/Main/window_text/wt_l_s_index.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=260,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: A Lookup and Sorting index is automatically used by FileMan lookup APIs (^DIC, FIND^DIC, and $$FIND^DIC) and must have a name that starts with "B" or a letter that alphabetically follows "B". A Sorting Only index is used by FileMans lookup APIs only if it is explicitly specified in the input parameters to the API. A Sorting Only index must have a name that starts with the letter "A". Both Lookup & Sorting indexes and Sorting Only indexes are available for use by FileMans Sort and Print modules (EN1^DIP).'>Lookup &amp; Sorting</A>
+  or <A HREF="http://hardhats.org/fileman/Main/window_text/wt_sorting_index.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=160,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: SORTING ONLY - The index name starts with "A". Calls to Classic FileMan lookup (^DIC) or the Finder (FIND^DIC or $$FIND1^DIC) will not use this index unless it is specified in the input parameters. The index will be available for use by the FileMan Sort and Print (EN1^DIP).'>Sorting Only</A>: LOOKUP &amp; SORTING// SORTING ONLY
+</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" WIDTH="500" CELLPADDING="5">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">You want VA FileMan to use this index for lookup only if you
+								  explicitly specify the index in the call. If you choose LOOKUP &amp; SORTING
+								  here, VA FileMan would automatically use this index whenever you passed the
+								  <A
+									HREF="http://hardhats.org/fileman/Main/window_text/wt_M_flag.htm"
+									TARGET="secondary"
+									ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+									TITLE="Contents of secondary window: The M flag input variable will allow a multiple lookup on all of the files cross-references from B on to the end of the alphabet.">"M"
+								  flag</A> to a lookup API.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">For Index name select the default AC.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Index Name: AC// <B>&lt;Enter&gt;</B> AC </PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Sorting Only indexes must have names that start with the letter
+								  "A".</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 8.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">You are now presented with the two-page ScreenMan form for editing
+			 the properties of your index. On the first page, enter the following as the
+			 Short Description:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New"><B>This is a whole-file index with the
+				  computed subscript email name@email domain.</B></FONT><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP" WIDTH="37%"><FONT
+								  SIZE="2" FACE="Courier New">Number: <I>nnn</I></FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="40%"
+								 COLSPAN="2"><FONT SIZE="2" FACE="Courier New">EDIT AN INDEX</FONT></TD>
+								<TD COLSPAN="2" ALIGN="RIGHT" WIDTH="33%" VALIGN="TOP">
+								  <FONT SIZE="2" FACE="Courier New">Page 1 of 2 </FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="CENTER" WIDTH="661"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" WIDTH="26%"><FONT SIZE="2"
+								  FACE="Courier New"><A
+								  HREF="http://hardhats.org/fileman/Main/window_text/wt_file.htm"
+								  TARGET="secondary"
+								  ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+								  TITLE="Contents of secondary window: This is the file on which the index will physically reside. In this case, though the fields in our index come from the EMAIL multiple (subfile #662100.02), the index will reside at the top level, file #662100. By definition, whole-file indexes reside at a file level above the level in which the fields are defined.">File</A>:<BR>Index
+								  Name:</FONT></TD>
+								<TD ALIGN="LEFT" WIDTH="19%"><FONT SIZE="2"
+								  FACE="Courier New"><I>662nnn</I> <BR>AC</FONT></TD>
+								<TD ALIGN="CENTER" COLSPAN="3" WIDTH="45%">
+								  <FONT SIZE="2" FACE="Courier New"><A
+								  HREF="http://hardhats.org/fileman/Main/window_text/wt_root_file.htm"
+								  TARGET="secondary"
+								  ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+								  TITLE='Contents of secondary window: This is the file or subfile on which the cross-reference is defined. It corresponds to our responses to the previous Step 3, the "File:" and "Subfile:" prompts. Field-type cross-reference values must be fields from this Root File -- in this case, the EMAIL multiple.'>Root
+								  File</A>: <I>662nnn</I>.02<BR>&nbsp;<A
+								  HREF="http://hardhats.org/fileman/Main/window_text/wt_root_type.htm"
+								  TARGET="secondary"
+								  ONCLICK="makeNewWindow('width=600,height=240,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+								  TITLE="Contents of secondary window: This can be either INDEX FILE or WHOLE FILE. If we're defining a WHOLE FILE index, the fields in the index are defined in a subfile, but the index itself physically resides at a higher level. In our case, the fields in the index will come from the EMAIL multiple, but the index will reside at the top level of the file. This enables us to lookup entries in the ZZINDIVIDUAL file given an email address. If we're not defining a whole-file index, the Root Type is INDEX FILE and File and Root File are equal. The index resides at the same file level as the fields in the index. This enables us to look up entries in the EMAIL multiple for a particular ZZINDIVIDUAL file entry.">Root
+								  Type</A>: WHOLE FILE</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20" WIDTH="661"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="175"><FONT
+								  SIZE="2" FACE="Courier New">Short Description:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT" WIDTH="484"><B><FONT
+								  SIZE="2" FACE="Courier New">This is a whole-file index with the computed
+								  subscript email name@email domain.</FONT></B></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" WIDTH="175"><FONT SIZE="2"
+								  FACE="Courier New">Description (wp):</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT" WIDTH="484">
+								  <FONT SIZE="2" FACE="Courier New"> (empty)</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="LEFT" HEIGHT="20" WIDTH="661">
+								  </TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" WIDTH="175"><FONT SIZE="2"
+								  FACE="Courier New">Type:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT" WIDTH="484">
+								  <FONT SIZE="2" FACE="Courier New">REGULAR</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20" WIDTH="661"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" WIDTH="175"><FONT SIZE="2"
+								  FACE="Courier New">Activity:<BR>Execution:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT" WIDTH="484">
+								  <FONT SIZE="2" FACE="Courier New">IR<BR>FIELD</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="LEFT" HEIGHT="20" WIDTH="661">
+								  </TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" WIDTH="175"><FONT SIZE="2"
+								  FACE="Courier New">Use:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT" WIDTH="484">
+								  <FONT SIZE="2" FACE="Courier New">SORTING ONLY</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" WIDTH="661"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="40" WIDTH="661"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" WIDTH="661"><FONT SIZE="2"
+								  FACE="Courier New"><FONT SIZE="2" FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help&nbsp;&nbsp;&nbsp;Insert</FONT></FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">We're defining a whole-file index (Root type=WHOLE FILE), that
+								  contains fields at a subfile level (Root file=<I>662nnn</I>.02), but that
+								  resides at the top level (File = <I>662nnn</I>), the level at which you can use
+								  the index to lookup entries. </FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 9.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;&lt;Down&gt; or &lt;PageDown&gt; to go to page 2
+			 of the ScreenMan form.</FONT></TD>
+		</TR>
+	 </TABLE><BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 10.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Create two cross-reference values of type FIELD. Define the first
+			 as the EMAIL NAME field (#.01), and the second as the EMAIL DOMAIN field (#1)
+			 as shown below:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD ALIGN="LEFT">
+						  <TABLE WIDTH="500" BORDER="0">
+							 <TR>
+								<TD COLSPAN="6">
+								  <PRE>Number: <I>nnn</I>             EDIT AN INDEX                        Page 2 of 2
+</pre>
+<HR>
+                                  <pre>CROSS-REFERENCE VALUES:
+Order...  <A HREF="http://hardhats.org/fileman/Main/window_text/wt_subscr.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: If this cross-reference value is used as a subscript in an index, enter the subscript position number. The first subscript to the right of the index name is subscript number 1.">Subscr</A>  Type  Length  Field or Computed Expression
+--------  ------  ----  ------  ----------------------------
+   1        1     FIELD   30    EMAIL NAME (#.01)
+   2        2     FIELD   30    EMAIL DOMAIN (#1)
+
+
+
+ Set Logic: S ^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,$E(X(1),1,30),$E(X(2),1,30),DA(1),DA)=&quot;&quot;
+Kill Logic: K ^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,$E(X(1),1,30),$E(X(2),1,30),DA(1),DA)
+Whole Kill: K ^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;)
+
+ Set Condition:
+Kill Condition:</pre>
+                                </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">These two fields (EMAIL NAME and EMAIL DOMAIN) will not be used as
+								  subscripts in our index. Instead, you will create a single subscript based on
+								  those two fields.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 11.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Tab to the "<A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_subscr.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: If this cross-reference value is used as a subscript in an index, enter the subscript position number. The first subscript to the right of the index name is subscript number 1.">Subscr</A>"
+			 column in the ScreenMan form, page 2, and delete the values 1 and
+			 2.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Since you are creating a Regular index, VA FileMan assumes that
+								  all fields you add as cross-reference values in the index will be used as
+								  subscripts and automatically assigns subscript numbers to them. Most of the
+								  time, this assumption is correct. However, if a cross-reference value is not to
+								  be used as a subscript in the index, as in this example, you must remember to
+								  delete the automatically generated subscript number.<BR><BR>As you will see in
+								  Lesson 6, when you create a MUMPS cross-reference, FileMan assumes that
+								  cross-reference values will not be used as subscripts in an index.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 12.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Tab to the next column labeled "Order&#133;" on the third row of
+			 the table, type in the number 3 and press Enter.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 13.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "CROSS-REFERENCE VALUES TYPE OF VALUE:" prompt enter "C" for
+			 COMPUTED.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New">CROSS-REFERENCE VALUES TYPE OF VALUE: <B>C
+				  &lt;Enter&gt;</B> </FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 14.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Enter 1 as the subscript number.</FONT></TD>
+		</TR>
+	 </TABLE><BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 15.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Tab to "<A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_computed_cd.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=190,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: The computed code sets the variable X, and makes use of the X(order#) array. In this case X(1) refers to the EMAIL NAME, the cross-reference value we defined with order number 1, and X(2) refers to EMAIL ADDRESS, the cross-reference value we defined with order number 2. Our computed expression sets X to email_name@email_domain, and converts the result to uppercase. This will be our third cross-reference value (order number 3), which will be subscript 1 (the only data subscript) in our index.">Computed
+			 Code</A>," enter:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE><B>S X=$$UP^XLFSTR(X(1)_&quot;@&quot;_X(2))</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 16.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;C to close the pop-up window.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 17.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Delete all the values in the "Length" column. Both EMAIL NAME and
+			 EMAIL DOMAIN are free text fields from 1 to 20 characters in length. Our
+			 computed subscript, EMAIL NAME@EMAIL DOMAIN should therefore never exceed 41
+			 characters (1 to 20 for each field combined and 1 for the "@" sign) in length,
+			 well within the limits of the M portability standards.<BR><BR>Here is how page
+			 2 of the ScreenMan form should look:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD ALIGN="LEFT">
+						  <TABLE WIDTH="500" BORDER="0">
+							 <TR>
+								<TD COLSPAN="6">
+								  <PRE>Number: <I>nnn</I>           EDIT AN INDEX              Page 2 of 2
+</pre>
+<HR>
+                                  <pre>CROSS-REFERENCE VALUES:
+Order...  Subscr  Type   Length  Field or Computed Expression
+--------  ------  ----   ------  ----------------------------
+   1              FIELD          EMAIL NAME (#.01)
+   2              FIELD          EMAIL DOMAIN (#1)
+   3        1     COMPUTED       S X=$$UP^XLFSTR(X(1)_&quot;@&quot;_X(2))
+
+
+ Set Logic: S ^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,X(3),DA(1),DA)=&quot;&quot;
+Kill Logic: K ^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,X(3),DA(1),DA)
+Whole Kill: K ^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;)
+
+ Set Condition:
+Kill Condition:
+
+</pre>
+                                </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 18.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to save the changes and exit the
+			 form.</FONT></TD>
+		</TR>
+	 </TABLE><BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 19.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">If
+			 asked whether you to build the index now, answer Yes:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Do you want to build the index now? YES// <B>&lt;Enter&gt;</B>
+</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 20.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">From programmer mode, do a %G listing to look at the "AC" index
+			 that was built:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	 WIDTH="88%">
+		<TR>
+		  <TD VALIGN="TOP" WIDTH="15%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="4" WIDTH="85%">
+			 <PRE>&gt;<B>D ^%G &lt;Enter&gt;</B>
+
+Global <B>^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot; &lt;Enter&gt;</B>
+        DIZ(<I>662nnn</I>,&quot;AC&quot;
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;BASIL@ABC.DEF.COM&quot;,12,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;BSNOW@XXX.YYY.COM&quot;,12,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;CHERVIL@XXX.YYY.COM&quot;,11,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;CPUDDLES@ABC.DEF.COM&quot;,11,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;DILL@ABC.DEF.COM&quot;,5,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;DTIDE@XXX.YYY.COM&quot;,5,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;GINGER@AAA.BBB.COM&quot;,9,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;HAZEL.FROST@ABC.DEF.COM&quot;,7,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;HAZEL@ABC.DEF.COM&quot;,7,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;HERB@ABC.DEF.COM&quot;,3,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;HOLLY@ABC.DEF.COM&quot;,13,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;HOLLYRIVERS@XXX.YYY.COM&quot;,13,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;HWATERS@ABC.DEF.COM&quot;,3,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;JASMINE.GEISER@AAA.BBB.COM&quot;,2,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;JASMINE@XXX.YYY.COM&quot;,2,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;MARIGOLD@AAA.BBB.COM&quot;,4,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;MLAKE@XXX.YYY.COM&quot;,4,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;PERIWINKLE@ABC.DEF.COM&quot;,10,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;PWELLS@XXX.YYY.COM&quot;,10,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;RC@AAA.BBB.COM&quot;,1,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;ROSE@XXX.YYY.COM&quot;,1,2) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;SAFFRON@AAA.BBB.COM&quot;,8,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;SAGEBROOKS@AAA.BBB.COM&quot;,6,1) =
+^<I>DIZ</I>(<I>662nnn</I>,&quot;AC&quot;,&quot;SRIPPLE@ABC.DEF.COM&quot;,8,2) =
+Global ^
+</PRE></TD>
+		</TR>
+	 </TABLE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		5.1.</FONT></B></P><BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_5.htm"
+			 TITLE="Link to Lesson 5 Quiz"><IMG SRC="images/button_large_shadow_quiz_5.gif"
+			 WIDTH="125" HEIGHT="35" BORDER="0" ALT="Lesson 5 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p1_l4.htm"
+			 TITLE="Click and go to Lesson 4">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">5</FONT></B>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			  TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD>
+	 <LINK HREF="http://vista.med.va.gov/styles/master.css" REL="stylesheet"
+	  TYPE="text/css">
+
+
+<!--VHA OI System Design & Development-->
+<!--Oakland OIFO-->
+<!--Authored by Michael Ogi and Susan Strack, 2/29/01-->
+<!--Edited March 2007, Hardhats.org-->
+	 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+	 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Lesson 9 Quiz - Text
+		Version</TITLE> <META NAME="subject" CONTENT="Quiz 9">
+	 <META NAME="keywords"
+	  CONTENT="VISTA,IIS,Information Infrastructure Service,VA FileMan,FileMan,Tutorial,VA FileMan V. 22.0 Key and Index Tutorial,VA FileMan Key and Index Tutorial,Quiz,Quiz 9,Lesson 9,Lesson 9 Quiz">
+	 <LINK REL="StyleSheet" TYPE="text/css"
+	  HREF="http://vista.med.va.gov/styles/master.css"> 
+  </HEAD> 
+  <BODY> 
+	 <P><A HREF="http://vista.med.va.gov/" TARGET="_top"><IMG BORDER="0"
+		SRC="http://vista.med.va.gov/images/vista_logo1.jpg" WIDTH="122" HEIGHT="68"
+		ALT="VistA, VHA OI - System Design & Development Logo: Return to Home Page"></A><A
+		NAME="top"></A><BR> </P> 
+	 <H2>Lesson 9 Quiz: Text Version</H2> 
+	 <H5>The correct answers can be found at the bottom of the page.</H5> 
+	 <!-- Top Navigation Links -->
+	 <P> <A HREF="../Quiz_9.htm">Graphics Version</A>
+	  <!-- / <A HREF="#footer">Bottom Links</A> -->
+ </P> <HR SIZE="1">
+
+
+
+	  
+	 <!-- Content -->
+	 <P>&gt; <STRONG><A NAME="question1">Question 1:</A></STRONG> &nbsp;Version
+		22 of VA FileMan allows you to define a database key on a file. What is a
+		database key?<BR><BR>A.&nbsp;&nbsp;A set of one or more fields that, when taken
+		together, uniquely identifies a record in a file.<BR>B.&nbsp;&nbsp;A
+		combination of the .01 field and any other field, that, when taken together,
+		uniquely identifies a record in a file.<BR>C.&nbsp;&nbsp;Neither of the
+		above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question2">Question 2:</A></STRONG> &nbsp;The
+		definition of a key is stored in what file?<BR><BR>A.&nbsp;&nbsp;KEY AND INDEX
+		file (#.13).<BR>B.&nbsp;&nbsp;KEY file (#.31).<BR>C.&nbsp;&nbsp;Neither of the
+		above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question3">Question 3:</A></STRONG> &nbsp;When you
+		define a key, FileMan automatically enforces the integrity of that key. Key
+		integrity means that:<BR><BR>A.&nbsp;&nbsp;The key is unique for all records in
+		a file and that all fields that are part of the key, must have values (i.e.,
+		they cannot be null).<BR>B.&nbsp;&nbsp;The key is unique for all records in a
+		file and that the .01 field must have a value (i.e., it cannot be
+		null).<BR>C.&nbsp;&nbsp;Both of the above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question4">Question 4:</A></STRONG> &nbsp;When you
+		create a key in FileMan, a New-style Regular index, called the Uniqueness
+		Index, is automatically created. This index contains as
+		subscripts:<BR><BR>A.&nbsp;&nbsp;The fields in that key.<BR>B.&nbsp;&nbsp;The
+		IEN of the key.<BR>C.&nbsp;&nbsp;Neither of the above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question5">Question 5:</A></STRONG> &nbsp;FileMan
+		uses the Uniqueness Index of a key to:<BR><BR>A.&nbsp;&nbsp;Enforce the
+		integrity of that key.<BR>B.&nbsp;&nbsp;Lookup entries in the file based on the
+		fields in the key.<BR>C.&nbsp;&nbsp;Both of the above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question6">Question 6:</A></STRONG> &nbsp;If a
+		file has a key, exactly one key in that file must be designated the primary
+		key. All other keys, if any, are secondary
+		keys.<BR><BR>A.&nbsp;&nbsp;True.<BR>B.&nbsp;&nbsp;False.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question7">Question 7:</A></STRONG> &nbsp;FileMan
+		enforces key integrity equally for both primary and secondary keys, but it uses
+		the secondary key as the principal means for looking up entries in a
+		file.<BR><BR>A.&nbsp;&nbsp;True.<BR>B.&nbsp;&nbsp;False.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question8">Question 8:</A></STRONG> &nbsp;If the
+		NAME and SSN fields make up a key, which of the following conditions would
+		violate key integrity?<BR><BR>A.&nbsp;&nbsp;The SSN for a record is
+		missing.<BR>B.&nbsp;&nbsp;Two records may have exactly the same NAME and
+		SSN.<BR>C.&nbsp;&nbsp;Both of the above.</P> <HR SIZE="1"> 
+	 <H5>CORRECT ANSWERS:</H5> 
+	 <P></P> 
+	 <P><STRONG><A NAME="question1">Question 1:</A></STRONG> &nbsp;Version 22 of
+		VA FileMan allows you to define a database key on a file. What is a database
+		key?<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>A.&nbsp;"A
+		set of one or more fields that, when taken together, uniquely identifies a
+		record in a file."</P> 
+	 <P><STRONG><A NAME="question1">Question 2:</A></STRONG> &nbsp;The
+		definition of a key is stored in what file?<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>B.&nbsp;"KEY
+		file (#.31)."</P> 
+	 <P><STRONG><A NAME="question1">Question 3:</A></STRONG> &nbsp;When you
+		define a key, FileMan automatically enforces the integrity of that key. Key
+		integrity means that:<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>A.&nbsp;"The
+		key is unique for all records in a file and that all fields that are part of
+		the key, must have values (i.e., they cannot be null)."</P> 
+	 <P><STRONG><A NAME="question1">Question 4:</A></STRONG> &nbsp;When you
+		create a key in FileMan, a New-style Regular index, called the Uniqueness
+		Index, is automatically created. This index contains as subscripts:<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>A.&nbsp;"The
+		fields in that key."</P> 
+	 <P><STRONG><A NAME="question1">Question 5:</A></STRONG> &nbsp;FileMan uses
+		the Uniqueness Index of a key to:<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>C.&nbsp;"Both
+		of the above." (FileMan uses the Uniqueness Index of a key to enforce the
+		integrity of that key and to lookup entries in the file based on the fields in
+		the key.)</P> 
+	 <P><STRONG><A NAME="question1">Question 6:</A></STRONG> &nbsp;If a file has
+		a key, exactly one key in that file must be designated the primary key. All
+		other keys, if any, are secondary keys.<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>A.&nbsp;True.</P>
+	 
+	 <P><STRONG><A NAME="question1">Question 7:</A></STRONG> &nbsp;FileMan
+		enforces key integrity equally for both primary and secondary keys, but it uses
+		the secondary key as the principal means for looking up entries in a file.<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>B.&nbsp;False.
+		(FileMan uses the primary key as the principal means for looking up entries in
+		a file.)</P> 
+	 <P><STRONG><A NAME="question1">Question 8:</A></STRONG> &nbsp;If the NAME
+		and SSN fields make up a key, which of the following conditions would violate
+		key integrity?<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>C.&nbsp;Both
+		of the above. (If the SSN for a record is missing and if two records have
+		exactly the same NAME and SSN, key integrity would be violated.)</P><HR
+	 SIZE="1"> 
+	 <P>Back to the <A HREF="#top">top</A></P> 
+	 <!-- P>&nbsp;</P --> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

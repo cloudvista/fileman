@@ -1,0 +1,376 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial - Lesson 9
+		Quiz</TITLE> 
+  </HEAD> 
+  <BODY BGCOLOR="LIGHTYELLOW" ONUNLOAD="closeOpenWindow()"> 
+	 <NOSCRIPT> 
+		<P>Your browser or user agent does not support scripting. JavaScript is
+		  used in this tutorial to provide a quiz at the end of each lesson (also at the
+		  end of the Introduction Page). These quizzes have been designed not only for
+		  you to use as a tool to test yourself on what you learned, but to offer a
+		  summary of the lesson. Click on the following link to access a text version of
+		  this quiz: <A HREF="text/quiz_9_text.htm">Lesson 9 Quiz: Text Version</A>.
+		  Otherwise, click on the following link to continue onto the next lesson:
+		  <A HREF="../FMtut_p3_l10.htm">Lesson 10</A>. Please contact the IIS Webmasters
+		  if your user agent cannot read/access this information.</P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript" SRC="javascript.js">//This script calls functions from external file (i.e., javascript.js). 
+</SCRIPT><SCRIPT LANGUAGE="JavaScript">
+<!-- Begin
+
+var numQues = 8;
+
+var corrAnswers = new Array(numQues);
+corrAnswers[0] = "A set of one or more fields that, when taken together, uniquely identifies a record in a file.";
+corrAnswers[1] = "KEY file (#.31).";
+corrAnswers[2] = "The key is unique for all records in a file and that all fields that are part of the key, must have values (i.e., they cannot be null).";
+corrAnswers[3] = "The fields in that key.";
+corrAnswers[4] = "Both of the above.";
+corrAnswers[5] = "True.";
+corrAnswers[6] = "False.";
+corrAnswers[7] = "Both of the above.";
+
+var questions = new Array(numQues);
+questions[0] = "Version 22 of VA FileMan allows you to define a database key on a file. What is a database key?";
+questions[1] = "The definition of a key is stored in what file?";
+questions[2] = "When you define a key, FileMan automatically enforces the integrity of that key. Key integrity means that:";
+questions[3] = "When you create a key in FileMan, a New-style Regular index, called the Uniqueness Index, is automatically created. This index contains as subscripts:";
+questions[4] = "FileMan uses the Uniqueness Index of a key to:";
+questions[5] = "If a file has a key, exactly one key in that file must be designated the primary key. All other keys, if any, are secondary keys.";
+questions[6] = "FileMan enforces key integrity equally for both primary and secondary keys, but it uses the secondary key as the principal means for looking up entries in a file.";
+questions[7] = "If the NAME and SSN fields make up a key, which of the following conditions would violate key integrity?";
+
+var message = new Array(numQues+1);
+message[8] = "Congratulations! You did a great job!";
+message[7] = "Good job! You only missed one question.";
+message[6] = "Good job! You only missed two questions.";
+message[5] = "";
+message[4] = "";
+message[3] = "";
+message[2] = "";
+message[1] = "";
+message[0] = "";
+
+var falseHint = new Array(numQues);
+falseHint[0] = "(A key doesn't necessarily need to contain the .01 field.)";
+falseHint[1] = "";
+falseHint[2] = "(In VA FileMan, the .01 field must have a value, but that is a different issue from key integrity.)";
+falseHint[3] = "";
+falseHint[4] = "";
+falseHint[5] = "";
+falseHint[6] = "";
+falseHint[7] = "";
+
+var constantHint = new Array(numQues);
+constantHint[0] = "";
+constantHint[1] = "";
+constantHint[2] = "";
+constantHint[3] = "";
+constantHint[4] = "(FileMan uses the Uniqueness Index of a key to enforce the integrity of that key and to lookup entries in the file based on the fields in the key.)";
+constantHint[5] = "";
+constantHint[6] = "(FileMan uses the primary key as the principal means for looking up entries in a file.)";
+constantHint[7] = "(If the SSN for a record is missing and if two	records have exactly the same NAME and SSN, key integrity would be violated.)";
+
+//  End -->
+</SCRIPT> 
+	 <TABLE WIDTH="100%"> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"> 
+			 <TABLE WIDTH="100%"> 
+				<TR> 
+				  <TD ALIGN="LEFT"></TD> 
+				  <TD ALIGN="RIGHT"><A HREF="#navskip"></A><FONT SIZE="4"
+					 FACE="Arial">VA FileMan V. 22 Key and Index Tutorial</FONT><BR>
+					 <A HREF="../FMtut_p3_l9.htm">[&lt;-- Back to Lesson 9]</A>&nbsp;&nbsp;&nbsp;<A
+					 HREF="text/quiz_9_text.htm">[Lesson 9 Quiz: Text
+					 Version]</A>&nbsp;&nbsp;&nbsp;<A HREF="../FMtut_p3_l10.htm">[Go to Lesson 10
+					 --&gt;]</A></TD> 
+				</TR> 
+			 </TABLE> <BR> <FONT SIZE="6" FACE="Arial">Lesson 9 - Quiz</FONT></TD>
+		  
+		</TR> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD> 
+		</TR> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD> 
+		</TR> 
+		<TR> 
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD> 
+		</TR> 
+	 </TABLE> 
+	 <P>`</P> 
+	 <P><FONT SIZE="2" FACE="Arial">Answer the questions by selecting the radio
+		buttons, then click the Get Score button at the bottom of the page to calculate
+		your score and see your test results.</FONT></P> 
+	 <FORM NAME="quiz"> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">1. Version 22 of VA FileMan allows you to define a database key on
+				a file. What is a database key?</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q1"
+				VALUE="A set of one or more fields that, when taken together, uniquely identifies a record in a file."></FONT></TD>
+			 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">A set of one or more fields that, when taken together, uniquely
+				identifies a record in a file. </FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q1"
+				 VALUE="A combination of the .01 field and any subfield, that, when taken together, uniquely identifies a record in a file."></FONT></TD>
+			 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">A
+				combination of the .01 field and any other field, that, when taken together,
+				uniquely identifies a record in a file.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q1" VALUE="Neither of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Neither
+				of the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">2. The definition of a key is stored in what file?</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q2"
+				VALUE="KEY AND INDEX file (#.13)."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> KEY AND INDEX file (#.13).</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q2" VALUE="KEY file (#.31)."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">KEY file
+				(#.31).</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q2" VALUE="Neither of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Neither
+				of the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">3. When you define a key, FileMan automatically enforces the
+				integrity of that key. Key integrity means that:</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q3"
+				VALUE="The key is unique for all records in a file and that all fields that are part of the key, must have values (i.e., they cannot be null)."></FONT></TD>
+			 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">The key is unique for all records in a file and that all fields
+				that are part of the key, must have values (i.e., they cannot be null).
+				</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q3"
+				 VALUE="The key is unique for all records in a file and that the .01 field of the key must have a value (i.e., it cannot be null)."></FONT></TD>
+			 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">The key
+				is unique for all records in a file and that the .01 field must have a value
+				(i.e., it cannot be null).</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q3" VALUE="Both of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Both of
+				the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">4. When you create a key in FileMan, a New-style Regular index,
+				called the Uniqueness Index, is automatically created. This index contains as
+				subscripts:</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q4"
+				VALUE="The fields in that key."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">The fields in that key. </FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q4" VALUE="The IEN of the key."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">The IEN
+				of the key.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q4" VALUE="Neither of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Neither
+				of the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">5. FileMan uses the Uniqueness Index of a key to:</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q5"
+				VALUE="Enforce the integrity of that key."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">Enforce the integrity of that key. </FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q5"
+				 VALUE="Lookup entries in the file based on the fields in the key."></FONT></TD>
+			 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Lookup
+				entries in the file based on the fields in the key.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q5" VALUE="Both of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Both of
+				the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">6. If a file has a key, exactly one key in that file must be
+				designated the primary key. All other keys, if any, are secondary keys.</FONT>
+				</TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q6" VALUE="True."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">True. </FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q6" VALUE="False."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">False.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				</FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><INPUT TYPE="HIDDEN"
+				NAME="q6" VALUE=""></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">7. FileMan enforces key integrity equally for both primary and
+				secondary keys, but it uses the secondary key as the principal means for
+				looking up entries in a file.</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q7" VALUE="True."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> True.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q7" VALUE="False."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial">False.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				</FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><INPUT TYPE="HIDDEN"
+				NAME="q7" VALUE=""></TD> 
+		  </TR> 
+		</TABLE> 
+		<TABLE WIDTH="100%"> 
+		  <TR> 
+			 <TD WIDTH="98%" VALIGN="BOTTOM" COLSPAN="3"><FONT SIZE="2"
+				FACE="Arial">8. If the NAME and SSN fields make up a key, which of the
+				following conditions would violate key integrity?</FONT> </TD> 
+		  </TR> 
+		  <TR> 
+			 <TD WIDTH="2%" VALIGN="TOP"></TD> 
+			 <TD WIDTH="5%" ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+				FACE="Arial"><INPUT TYPE="RADIO" NAME="q8"
+				VALUE="The SSN for a record is missing."></FONT></TD> 
+			 <TD WIDTH="98%" ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2"
+				FACE="Arial"> The SSN for a record is missing.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q8"
+				 VALUE="Two records may have exactly the same NAME and SSN."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Two
+				records may have exactly the same NAME and SSN.</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD VALIGN="TOP"></TD> 
+			 <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2" FACE="Arial">
+				<INPUT TYPE="RADIO" NAME="q8" VALUE="Both of the above."></FONT></TD> 
+			 <TD ALIGN="LEFT" VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Both of
+				the above.</FONT></TD> 
+		  </TR> 
+		</TABLE> 
+		<P><FONT SIZE="2" FACE="Arial"><INPUT TYPE="BUTTON" VALUE="Get score"
+		  ONCLICK="getScore(quiz,numQues,'Lesson 9',corrAnswers,questions,message,falseHint,constantHint)"
+		  ALT="Get score button"> <INPUT TYPE="RESET" VALUE="Clear"
+		  ALT="Clear quiz form"></FONT></P></FORM> <BR> 
+	 <TABLE WIDTH="100%"> 
+		<TR> 
+		  <TD ALIGN="LEFT"><A HREF="../FMtut_p3_l9.htm">[&lt;-- Back to Lesson
+			 9]</A>&nbsp;&nbsp;&nbsp;<A HREF="text/quiz_9_text.htm">[Lesson 9 Quiz: Text
+			 Version]</A>&nbsp;&nbsp;&nbsp;<A HREF="../FMtut_p3_l10.htm">[Go to Lesson 10
+			 --&gt;]</A></TD> 
+		</TR> 
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

@@ -1,0 +1,174 @@
+<HTML> 
+  <HEAD>
+<!--Office of Information and Technology (OIT)-->
+<!--Oakland OITFO-->
+<!--Authored by T.B., 10/10/2017-->
+<!--Revised by T.B., 01/17/2018-->
+    <META HTTP-EQUIV="Content-Type"
+          CONTENT="text/html; charset=iso-8859-1"> 
+	<TITLE>VA FileMan Developer's Guide: ^DDD</TITLE>
+	<META NAME="subject"
+	      CONTENT="VA FileMan 22.2 Developer's Guide HTML Manual">
+	<META NAME="keywords"
+	      CONTENT="VistA Infrastructure,VI,Infrastructure,Information Infrastructure Service,IIS,OIT,Office of Information and Technology,Infrastructure and Security Services,Infrastructure Security Services,ISS,VISTA,FileMan,VA FileMan,programmer,developer,developer's guide,programmer manual,Meta Data Dictionary,MDD,meta,data,dictionary,data dictionary,other api,api,calls,^ddd api,ddd">
+	<LINK REL="StyleSheet"
+	      TYPE="text/css"
+	      HREF="common/developer.css"> 
+  </HEAD> 
+  <BODY TOPMARGIN="0"
+        BGCOLOR="white">
+<!--Table to lay out the page-->
+<!--webbot bot="Include" U-Include="common/banner_std_page.htm" TAG="BODY" startspan --> 
+    <TABLE CELLSPACING="0"
+           CELLPADDING="0"
+           BORDER="0"
+	       SUMMARY="This table is for formatting purposes only"> 
+	  <TR> 
+	    <TD>
+	      <BR>
+	      <IMG SRC="images/fileman_dg_heading.gif"
+	           BORDER="0"
+		       ALT="VA FileMan 22.2 Developer's Guide HTML Manual Banner">
+		  <BR>
+		  <IMG SRC="images/vaoitbanner.gif"
+		       BORDER="0"
+			   ALT="VA Office of Information and Technology (OIT) Banner">
+		  <BR>
+	    </TD> 
+	  </TR> 
+    </TABLE>
+  <!--webbot bot="Include" i-checksum="44734" endspan -->
+<!--Top Navigation Links--><P></P> 
+<!--webbot bot="Include" u-include="common/top_links.htm" tag="BODY" startspan -->
+    <TABLE BORDER="0"
+           WIDTH="100%"
+           CELLSPACING="0"
+           CELLPADDING="3"
+	       CLASS="tdstyle"
+	       SUMMARY="This table is for formatting purposes only"
+	       HEIGHT="1"
+	       VALIGN="TOP" id="table1"> 
+      <TR> 
+	    <TD VALIGN="BOTTOM"
+	        ALIGN="LEFT"
+	        HEIGHT="1"
+	        WIDTH="10%"
+			CLASS="menubartext">Contents:
+	    </TD> 
+		<TD VALIGN="BOTTOM"
+		    ALIGN="LEFT"
+		    HEIGHT="1"
+		    WIDTH="7%">
+		  <A HREF="index.htm"
+		     TARGET="_top"
+			 TITLE="VA FileMan Developer's Guide (HTML): Main Table of Contents"
+			 CLASS="menubarlink">Main</A>
+		</TD> 
+		<TD VALIGN="BOTTOM"
+		    ALIGN="LEFT"
+		    HEIGHT="1"
+		    WIDTH="17%">
+		  <A HREF="afd_frm.htm"
+		     TARGET="_top"
+			 TITLE="VA FileMan Developer's Guide (HTML): Advanced File Definition Section TOC"
+			 CLASS="menubarlink">Section</A>
+		</TD> 
+		<TD ALIGN="LEFT"
+		    VALIGN="BOTTOM"
+		    HEIGHT="1"
+		    WIDTH="10%"
+			CLASS="menubartext">See Also:
+	    </TD> 
+		<TD ALIGN="LEFT"
+		    VALIGN="BOTTOM"
+		    HEIGHT="1"
+		    WIDTH="28%">
+		  <A HREF="../u1/index.htm"
+		     TARGET="_top"
+			 TITLE="VA FileMan User Manual (HTML)"
+			 CLASS="menubarlink">User Manual</A>
+		</TD> 
+		<TD VALIGN="BOTTOM"
+		    ALIGN="LEFT"
+		    HEIGHT="1"
+		    WIDTH="28%">
+		  <A HREF="../u2/index.htm"
+		     TARGET="_top"
+			 TITLE="VA FileMan Advanced User Manual (HTML)"
+			 CLASS="menubarlink">Advanced User Manual</A>
+		</TD> 
+	  </TR> 
+    </TABLE>
+  <!--webbot bot="Include" i-checksum="35683" endspan -->
+<!-- Content -->
+    <H3><A NAME="navskip">Meta Data Dictionary (MDD)</A></H3>
+	<HR CLASS="hrstyle"> 
+	<H4>^DDD: Build the Meta Data Dictionary</H4> 
+	<P>You can build the Meta Data Dictionary (MDD) by directly initiating the DDD routine at the top-level from the M programmer&#8217;s prompt (e.g., 
+	&gt;<strong>D ^DDD</strong>) or by using the DDU UPDATE META DD menu option. The ^DDD API removes all current entries and fully reproduces the Meta Data Dictionary.</P>
+	<H5>Format</H5> 
+	<Pre>    ^DDD</Pre>
+	<H5>Input Parameters</H5> 
+	<p>None.</p>
+    <h5>Output</h5>
+    <p>Meta Data Dictionary (MDD).</p>
+    <h5>Example</h5>
+    <pre>    &gt;<strong>D ^DDD</strong></pre>	 
+	<HR CLASS="hrstyle">
+	<TABLE WIDTH="100%"
+	       SUMMARY="This table for layout purposes only"
+	       CLASS="white"> 
+	  <TR> 
+	    <TD ALIGN="CENTER"
+	        VALIGN="TOP">
+<!--Bottom Navigation Links-->
+<!--webbot bot="Include" U-Include="common/bottom_links.htm" TAG="BODY" startspan --> 
+    <P ALIGN="CENTER">
+	<A HREF="http://www.va.gov/"
+	   CLASS="bodylink"
+	   TARGET="_top"
+	   TITLE="Department of Veterans Affairs (VA) Internet Home Page"><ACRONYM TITLE="Department of Veterans Affairs">VA</ACRONYM> (Internet)</A> /
+    <A HREF="http://vaww.va.gov/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Department of Veterans Affairs (VA) Intranet Home Page"><ACRONYM TITLE="Department of Veterans Affairs">VA</ACRONYM> (Intranet)</A> / 
+	<A HREF="http://vaww.oit.va.gov/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Office of Information and Technology (OIT) Home Page"><ACRONYM TITLE="Office of Information and Technology">OIT</ACRONYM></A> /
+	<A HREF="https://vaww.oit.va.gov/epmo/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Enterprise Program Management Office (EPMO) Home Page"><ACRONYM TITLE="Enterprise Program Management Office">EPMO</ACRONYM></A> /
+    <A HREF="http://vista.med.va.gov/iss/site_map.asp"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="VistA Infrastructure (VI) Site Map">Site Map</A> /
+    <A HREF="http://vista.med.va.gov/termsofuse.htm"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Enterprise Program Management Office (EPMO) Terms of Use Page">Terms of Use</A> /
+    <A HREF="http://www.va.gov/privacy/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Department of Veterans Affairs (VA) Privacy Policy">VA Privacy Policy</A>
+			    /
+    <A HREF="http://www1.va.gov/accessible/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Department of Veterans Affairs (VA) Internet Accessibility">Accessibility</A></P>
+  <!--webbot bot="Include" i-checksum="63908" endspan --><!--Date content was reviewed or updated--><P> Reviewed/Updated: 
+          <!--webbot bot="Timestamp"
+          S-Type="REGENERATED" S-Format="%B %d, %Y" startspan -->January 22, 2018<!--webbot bot="Timestamp" i-checksum="31906" endspan --></P> 
+		  <P ALIGN="CENTER">If you have questions, need more information, or
+		  are having accessibility problems with this Web site, please contact us by
+		  E-Mail:
+		  <A HREF="mailto:VHAISFCVTECH@med.va.gov?subject=Web page comments from: /fileman/docs/dg/mdd_ddd.htm"
+			 TITLE="Send mail to the Webmasters regarding this page"
+			 CLASS="bodylink">Webmasters</A></P> 
+		  <P>&nbsp;</P>
+	    </TD> 
+	  </TR> 
+    </TABLE>
+  </BODY>
+</HTML>

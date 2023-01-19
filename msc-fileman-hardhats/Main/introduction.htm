@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML> 
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ 
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Introduction</TITLE>
+	 
+  </HEAD> 
+  <BODY ONUNLOAD="closeOpenWindow()"> 
+	 <NOSCRIPT> 
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for the Introduction
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT> 
+	 <TABLE WIDTH="100%"> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"> 
+			 <TABLE WIDTH="100%"> 
+				<TR> 
+				  <TD ALIGN="LEFT"></TD> 
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR><A HREF="appendix_a.htm"
+					 TITLE="Click and go to the Environment Setup Page">[&lt;-- Environment
+					 Setup]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_introduction.htm"
+					 TITLE="Link to Introduction Quiz"><IMG
+					 SRC="images/button_small_shadow_quiz_intro.gif" WIDTH="89" HEIGHT="16"
+					 BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Introduction Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p1_l1.htm"
+					 TITLE="Click and go to Lesson 1">[Lesson 1 --&gt;]</A></TD> 
+				</TR> 
+			 </TABLE><BR> <FONT SIZE="6" FACE="Arial">Introduction to Keys and
+			 Indexes</FONT></TD> 
+		</TR> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD> 
+		</TR> 
+		<TR> 
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD> 
+		</TR> 
+		<TR> 
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD> 
+		</TR> 
+	 </TABLE> <BR> 
+	 <P><A NAME="navskip"></A><FONT SIZE="2" FACE="Arial"> VA FileMan Version
+		22.0 introduced Key and Index functionality, which provides <B>V</B><FONT
+		SIZE="-2"><I>IST</I></FONT><B>A</B> application developers the tools to design
+		and develop more robust, efficient, and maintainable code and files. Native
+		support for keys and complex indexes means developers no longer need to
+		simulate these structures with M code.</FONT></P> 
+	 <P><FONT SIZE="2" FACE="Arial">With this hands-on tutorial, you will learn
+		how you can take advantage of these powerful new tools. The instructions in the
+		tutorial will guide you in creating your own keys and indexes on a test file
+		set up via the A6AKIT set of routines. (See the
+		<A HREF="appendix_a.htm" TARGET="display"
+		 TITLE="Click and go to the Environment Setup Page">Environment Setup</A> page
+		for information on how to obtain the A6AKIT routines.)</FONT></P> 
+	 <P><FONT SIZE="2" FACE="Arial">First, some definitions&#133;.</FONT></P>
+	 <BR> 
+	 <P><B><FONT FACE="Arial" SIZE="3">What is a Key?</FONT></B></P> 
+	 <P><FONT SIZE="2" FACE="Arial">A key is a set of one or more fields in a
+		file that together uniquely identifies a record in that file. If you define a
+		key, VA FileMan V. 22.0 automatically enforces the integrity of that
+		key.</FONT></P> 
+	 <P><FONT SIZE="2" FACE="Arial">Key integrity means:</FONT></P> 
+	 <BLOCKQUOTE> 
+		<PRE><FONT SIZE="2" FACE="Arial">1.  No key field is null.
+2.  The key (that is, the combination of fields in a key) is unique for all records in the file.</FONT></PRE></BLOCKQUOTE><BR> 
+	 <P><B><FONT FACE="Arial" SIZE="3">What is an Index?</FONT></B></P> 
+	 <P><FONT SIZE="2" FACE="Arial">An index is a sorted list of field values or
+		associated data that "point" to a particular record in a file. It can be used
+		to sort data and to look up a record via the indexed value, instead of
+		searching the file sequentially.</FONT></P> 
+	 <P><FONT SIZE="2" FACE="Arial">In an index, VA FileMan stores the index
+		name, the data value or values, and the internal entry number (IEN) of the
+		record, each in its own subscript. To create an index in VA FileMan, you define
+		a cross-reference of a given type.</FONT></P> <BR> 
+	 <P><B><FONT FACE="Arial" SIZE="3">What is a Cross-Reference?</FONT></B></P>
+	 
+	 <P><FONT SIZE="2" FACE="Arial">A cross-reference identifies an action that
+		should take place when the value of a field or fields defined in that
+		cross-reference are changed. Often, the action is the placement of the value(s)
+		into an index, in this case, the terms index and cross-reference are often used
+		interchangeably. Technically speaking though, an index is a sorted list of
+		records, and is built and maintained by defining a
+		cross-reference(s).</FONT></P> 
+	 <P><FONT SIZE="2" FACE="Arial">Cross-references in Version 22 of VA FileMan
+		can be divided into two broad categories: <B>Traditional</B> and
+		<B>New-style</B>. Traditional cross-references are those cross-references you
+		were able to create in versions of VA FileMan prior to Version 22, and can
+		still create in Version 22. The new kind of cross-references you can create in
+		Version 22 are called New-style cross-references.</FONT></P><BR> 
+	 <P><B><FONT FACE="Arial" SIZE="3">Traditional
+		Cross-References</FONT></B></P> 
+	 <P><FONT SIZE="2" FACE="Arial">There are seven types of Traditional
+		cross-references:</FONT></P> 
+	 <TABLE WIDTH="88%"> 
+		<TBODY> 
+		  <TR> 
+			 <TD ALIGN="RIGHT" WIDTH="9%"><FONT SIZE="2"
+				FACE="Arial">1.</FONT></TD> 
+			 <TD WIDTH="1%"></TD> 
+			 <TD WIDTH="90%"><FONT SIZE="2" FACE="Arial">Regular
+				(index)</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">2.</FONT></TD> 
+			 <TD></TD> 
+			 <TD><FONT SIZE="2" FACE="Arial">Soundex (index)</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">3.</FONT></TD> 
+			 <TD></TD> 
+			 <TD><FONT SIZE="2" FACE="Arial">KWIC (index)</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">4.</FONT></TD> 
+			 <TD></TD> 
+			 <TD><FONT SIZE="2" FACE="Arial">Mnemonic (index)</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">5.</FONT></TD> 
+			 <TD></TD> 
+			 <TD><FONT SIZE="2" FACE="Arial">MUMPS (index or action)</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">6.</FONT></TD> 
+			 <TD></TD> 
+			 <TD><FONT SIZE="2" FACE="Arial">Trigger (action)</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">7.</FONT></TD> 
+			 <TD></TD> 
+			 <TD><FONT SIZE="2" FACE="Arial">Bulletin (action)</FONT></TD> 
+		  </TR> 
+		</TBODY> 
+	 </TABLE> 
+	 <P><FONT SIZE="2" FACE="Arial">The first four define indexes, while the
+		last two define actions that should be performed when the field on which the
+		cross-reference is defined is edited. A MUMPS cross-reference may set an index
+		or perform an action, depending on how it's defined.</FONT></P> 
+	 <P><FONT SIZE="2" FACE="Arial">A Traditional cross-reference is defined on
+		a single field, and its definition is stored under ^DD(file#,field#,1). In
+		general, the logic for a Traditional cross-reference is executed when the field
+		on which it's defined is edited.</FONT></P> <BR> 
+	 <P><B><FONT FACE="Arial" SIZE="3">New-Style Cross-References</FONT></B></P>
+	 
+	 <P><FONT SIZE="2" FACE="Arial">There are two types of New-style
+		cross-references:</FONT></P> 
+	 <TABLE WIDTH="88%"> 
+		<TBODY> 
+		  <TR> 
+			 <TD ALIGN="RIGHT" WIDTH="9%"><FONT SIZE="2"
+				FACE="Arial">1.</FONT></TD> 
+			 <TD WIDTH="1%"></TD> 
+			 <TD WIDTH="90%"><FONT SIZE="2" FACE="Arial">Regular
+				(index)</FONT></TD> 
+		  </TR> 
+		  <TR> 
+			 <TD ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">2.</FONT></TD> 
+			 <TD></TD> 
+			 <TD><FONT SIZE="2" FACE="Arial">MUMPS (index or action)</FONT></TD> 
+		  </TR> 
+		</TBODY> 
+	 </TABLE> 
+	 <P><FONT SIZE="2" FACE="Arial">A New-style cross-reference can be composed
+		of one or more fields. Its definition is stored in the INDEX file (#.11), which
+		has the global root ^DD("IX").</FONT></P> 
+	 <P><FONT SIZE="2" FACE="Arial">New-style cross-references that are composed
+		of a single field are called <B>simple cross-references</B>, and by default
+		have <B>field-level execution</B>, which means that the cross-reference logic
+		is executed immediately after the field is edited.</FONT></P> 
+	 <P><FONT SIZE="2" FACE="Arial">New-style cross-references that are composed
+		of more than one field are called <B>compound cross-references</B>, and by
+		default have <B>record-level execution</B>. Record-level execution means that
+		the cross-reference logic is executed only after an entire record is edited,
+		after all the fields in the cross-reference have been edited.</FONT></P>
+	 <BR><BR> 
+	 <TABLE WIDTH="100%" ALIGN="CENTER"> 
+		<TR> 
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A
+			 HREF="quiz/Quiz_introduction.htm" TITLE="Link to Introduction Quiz"><IMG
+			 SRC="images/button_large_shadow_quiz_intro.gif" WIDTH="125" HEIGHT="35"
+			 BORDER="0" ALT="Introduction Quiz Button"></A></TD> 
+		  <TD WIDTH="5%"></TD> 
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD> 
+		</TR> 
+	 </TABLE> <BR> 
+	 <TABLE WIDTH="100%"> 
+		<TR> 
+		  <TD ALIGN="LEFT"> <B><FONT COLOR="#999999" SIZE="2"
+			 FACE="Arial">[&lt;-- Previous Lesson]</FONT></B>&nbsp;&nbsp;&nbsp;<B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">Intro</FONT></B>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			 TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[Next Lesson
+			 --&gt;]</A></TD> 
+		</TR> 
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 6.0::19990601::extensions to HTML 4.0//EN" "hmpro6.dtd">
+<HTML> 
+  <HEAD>
+	 <LINK HREF="http://vista.med.va.gov/styles/master.css" REL="stylesheet"
+	  TYPE="text/css">
+
+
+<!--VHA OI System Design & Development-->
+<!--Oakland OIFO-->
+<!--Authored by Michael Ogi and Susan Strack, 2/29/01-->
+<!--Edited March 2007, Hardhats.org-->
+	 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+	 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1"> 
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Lesson 7 Quiz - Text
+		Version</TITLE> <META NAME="subject" CONTENT="Quiz 9">
+	 <META NAME="keywords"
+	  CONTENT="VISTA,IIS,Information Infrastructure Service,VA FileMan,FileMan,Tutorial,VA FileMan V. 22.0 Key and Index Tutorial,VA FileMan Key and Index Tutorial,Quiz,Quiz 9,Lesson 9,Lesson 9 Quiz">
+	 <LINK REL="StyleSheet" TYPE="text/css"
+	  HREF="http://vista.med.va.gov/styles/master.css"> 
+  </HEAD> 
+  <BODY> 
+	 <P><A HREF="http://vista.med.va.gov/"><IMG BORDER="0"
+		SRC="http://vista.med.va.gov/images/vista_logo1.jpg" WIDTH="122" HEIGHT="68"
+		ALT="VistA, VHA OI - System Design & Development Logo: Return to Home Page"></A><A
+		NAME="top"></A><BR> </P> 
+	 <H2>Lesson 7 Quiz: Text Version</H2> 
+	 <H5>The correct answers can be found at the bottom of the page.</H5><!-- Top Navigation Links -->
+	 <P> <A HREF="../Quiz_7.htm">Graphics Version</A> <!-- / <A HREF="#footer">Bottom Links</A> -->
+ </P> <HR SIZE="1">
+
+
+
+	  
+	 <!-- Content -->
+	 <P>&gt; <STRONG><A NAME="question1">Question 1:</A></STRONG> &nbsp;The Kill
+		Logic for a New-style cross-reference is executed when a record is edited
+		and:<BR><BR>A.&nbsp;&nbsp;Old values used as subscripts are null, and the Kill
+		Condition, if any, sets X to true (1).<BR>B.&nbsp;&nbsp;No old values used as
+		subscripts are null, and the Kill Condition, if any, sets X to true (1).
+		<BR>C.&nbsp;&nbsp;Neither of the above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question2">Question 2:</A></STRONG> &nbsp;The Set
+		Logic for a Traditional cross-reference on a field is executed
+		if:<BR><BR>A.&nbsp;&nbsp;The field value goes from null to
+		non-null.<BR>B.&nbsp;&nbsp;The field value goes from non-null to
+		null.<BR>C.&nbsp;&nbsp;Neither of the above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question3">Question 3:</A></STRONG> &nbsp;If a
+		field is part of a New-style MUMPS cross-reference, and the field value is
+		deleted:<BR><BR>A.&nbsp;&nbsp;The Kill Logic will not be executed under any
+		circumstances.<BR>B.&nbsp;&nbsp;The Kill Logic will not be executed if the
+		field is used as a subscript (has a subscript number assigned to
+		it).<BR>C.&nbsp;&nbsp;Neither of the above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question4">Question 4:</A></STRONG> &nbsp;The
+		Execution property of New-style cross-references controls the timing of
+		cross-reference execution. Execution can be either Field or Record. Field
+		execution means that:<BR><BR>A.&nbsp;&nbsp;The cross-reference logic is
+		executed after all the fields in the cross-reference are
+		edited.<BR>B.&nbsp;&nbsp;The cross-reference logic is executed immediately
+		after each and every field in the cross-reference is
+		edited.<BR>C.&nbsp;&nbsp;Neither of the above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question5">Question 5:</A></STRONG> &nbsp;Record
+		execution means that:<BR><BR>A.&nbsp;&nbsp;The cross-reference logic is
+		executed once at the end of an editing session after all fields in the record
+		are edited.<BR>B.&nbsp;&nbsp;The cross-reference logic is executed immediately
+		after each and every field in the cross-reference is
+		edited.<BR>C.&nbsp;&nbsp;Neither of the above.</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question6">Question 6:</A></STRONG> &nbsp;Usually,
+		simple cross-references (those that have only one field-type cross-reference
+		value) have Field-level
+		execution?<BR><BR>A.&nbsp;&nbsp;True<BR>B.&nbsp;&nbsp;False</P> <HR SIZE="1"> 
+	 <P>&gt; <STRONG><A NAME="question7">Question 7:</A></STRONG> &nbsp;Usually,
+		compound cross-references (those that have more than one field-type
+		cross-reference value) have Record-level
+		execution:<BR><BR>A.&nbsp;&nbsp;True<BR>B.&nbsp;&nbsp;False</P> <HR SIZE="1"> 
+	 <H5>CORRECT ANSWERS:</H5> 
+	 <P></P> 
+	 <P><STRONG><A NAME="question1">Question 1:</A></STRONG> &nbsp;The Kill
+		Logic for a New-style cross-reference is executed when a record is edited
+		and:<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>B.&nbsp;"No
+		old values used as subscripts are null, and the Kill Condition, if any, sets X
+		to true (1)."</P> 
+	 <P><STRONG><A NAME="question1">Question 2:</A></STRONG> &nbsp;The Set Logic
+		for a Traditional cross-reference on a field is executed if:<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>A.&nbsp;"The
+		field value goes from null to non-null."</P> 
+	 <P><STRONG><A NAME="question1">Question 3:</A></STRONG> &nbsp;If a field is
+		part of a New-style MUMPS cross-reference, and the field value is deleted:<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>B.&nbsp;"The
+		Kill Logic will not be executed if the field is used as a subscript (has a
+		subscript number assigned to it)."</P> 
+	 <P><STRONG><A NAME="question1">Question 4:</A></STRONG> &nbsp;The Execution
+		property of New-style cross-references controls the timing of cross-reference
+		execution. Execution can be either Field or Record. Field execution means
+		that:<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>B.&nbsp;"The
+		cross-reference logic is executed immediately after each and every field in the
+		cross-reference is edited."</P> 
+	 <P><STRONG><A NAME="question1">Question 5:</A></STRONG> &nbsp;Record
+		execution means that:<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>A.&nbsp;"The
+		cross-reference logic is executed once at the end of an editing session after
+		all fields in the record are edited."</P> 
+	 <P><STRONG><A NAME="question1">Question 6:</A></STRONG> &nbsp;Usually,
+		simple cross-references (those that have only one field-type cross-reference
+		value) have Field-level execution?<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>A.&nbsp;"True."</P>
+	 
+	 <P><STRONG><A NAME="question1">Question 7:</A></STRONG> &nbsp;Usually,
+		compound cross-references (those that have more than one field-type
+		cross-reference value) have Record-level execution:<BR>
+		<STRONG>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Answer:&nbsp;&nbsp;</STRONG>A.&nbsp;"True."</P><HR
+	 SIZE="1"> 
+	 <P>Back to the <A HREF="#top">top</A></P> 
+	 <!-- P>&nbsp;</P --> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

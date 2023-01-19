@@ -1,0 +1,1039 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial, Part 1, Lesson 1
+		</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters if you cannot read/access this information.<A
+		  HREF="#navskip" TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 1
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT" VALIGN="BOTTOM"><FONT SIZE="4" FACE="Arial">VA
+					 FileMan V. 22 Key and Index Tutorial</FONT><BR> <FONT SIZE="2" FACE="Arial"><A
+					 HREF="introduction.htm" TITLE="Click and go to the Introduction Page">[&lt;--
+					 Introduction]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_1.htm"
+					 TITLE="Link to Lesson 1 Quiz"><IMG SRC="images/button_small_shadow_quiz_1.gif"
+					 WIDTH="89" HEIGHT="16" BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Lesson 1 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p1_l2.htm"
+					 TITLE="Click and go to Lesson 2">[Next Lesson --&gt;]</A></FONT></TD>
+				</TR>
+			 </TABLE> <BR> <FONT SIZE="6" FACE="Arial">Part 1 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_REGULAR.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: Regular is one of the two types of new-style cross-references you can create. (The other is MUMPS.) In a regular cross-reference, data is stored as subscript(s) in an index. The index can be used for sorting the data and for looking up entries in a file based on the indexed data.">Regular
+			 Indexes</A></FONT> </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE><BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="110" VALIGN="TOP"><A NAME="navskip"></A><FONT FACE="Arial"
+			 SIZE="5">Lesson 1.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="689" VALIGN="TOP" ALIGN="LEFT"><FONT FACE="Arial"
+			 SIZE="5">Create a Compound Index</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">In this lesson you will learn how to create
+		a
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_new_style.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=305,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE='Contents of secondary window: A new-style cross reference can be composed of one or more fields. Its definition is stored in the INDEX file (#.11), which has the global root ^DD("IX"). New-style cross-references that are composed of a single field are called simple cross-references, and by default have field-level execution, which means that the cross-reference logic is executed immediately after the field is edited. New-style cross-references that are composed of more than one field are called compound cross-references, and by default have record-level execution. Record-level execution means that the cross-reference logic is executed only after an entire record is edited, after all the fields in the cross-reference have been edited. There are two types of New-Style cross-references: Regular and MUMPS.'>New-style</A>
+		Regular index. The index you will create is a
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_c_s_xref.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=305,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: Simple Cross-Reference - A cross-reference that is composed of one field. By default, has field-level execution; where the cross-reference logic is executed immediately after the field is edited. Compound Cross-Reference - A cross-reference that is composed of more than one field. By default, has record-level execution, where the cross-reference logic is executed only after the entire record is edited.">compound
+		index</A>, one that contains as subscripts data from two different
+		fields.</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">Note that the only way you could have
+		created a two-field compound index prior to Version 22.0 was to create two
+		MUMPS cross-references, one on each field in the index. With Version 22.0, you
+		can define the compound index as a single New-style Regular index.</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">There are only two types of New-style
+		cross-references, Regular and MUMPS, but they are much more powerful than their
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_traditional.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=200,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: A traditional cross-reference is defined on a single field, and its definition is stored under ^DD(file#,field#,1). In general, the logic for a traditional cross-reference is executed when the field is edited. There are seven types of Traditional cross-references: Regular, MUMPS, Trigger, Bulletin, Soundex, KWIC, and Mnemonic.">Traditional
+		cross-reference</A> counterparts. In fact, most of the indexes you previously
+		had to define as Traditional MUMPS cross-references can, with Version 22.0, be
+		defined as New-style Regular indexes.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 1.1. &nbsp;Create Your Test
+		File</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">The exercises in this tutorial make use of a
+		simple test file that contains some sample data. In this exercise, you will use
+		the A6AKIT routine to install your own personal copy of the test file. (See the
+		<A HREF="appendix_a.htm"
+		 TITLE="Click and go to the Environment Setup Page">Environment Setup</A> page
+		for information on how to obtain the A6AKIT set of routines.)<BR><BR>Note that
+		in this tutorial, all references to the tutorial test file will be of file name
+		<I>ZZINDIVIDUAL</I>, file number #<I>662nnn</I>, and global root
+		^<I>DIZ</I>(<I>662nnn</I>,; however, you should always work with your own
+		personal copy of the test file.</FONT></P><BR>
+	 <P><B><FONT FACE="Arial" SIZE="2">Steps to Install the Test
+		File</FONT></B></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><B><FONT SIZE="2"
+			 FACE="Arial">Step 1. </FONT></B></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Enter the following in programmer mode:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="92%"><FONT SIZE="2"
+				  FACE="Courier New">&gt;<B>D ^A6AKIT</B></FONT><BR> <BR>
+				  <FONT SIZE="2" FACE="Courier New">I am going to set up a test file for the
+				  FileMan V. 22.0 Key and Index Tutorial.<BR> <BR>The tutorial assumes the name
+				  of the test file is ZZINDIVIDUAL and the number of the test file is 662nnn, but
+				  you can choose any name and number you wish.</FONT></TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><B><FONT SIZE="2"
+			 FACE="Arial">Step 2.</FONT></B></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select a name for the test file. The default is
+			 <I>ZZINDIVIDUAL</I>, but you can choose a different name, if you wish. Then
+			 choose a file number and a global root (internal global reference) for the
+			 file.<BR><BR></FONT>
+			 <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+				<TR>
+				  <TD>
+					 <TABLE BORDER="0" BGCOLOR="#F1F2F3" BORDERCOLORLIGHT="#F1F2F3"
+					  BORDERCOLORDARK="#808080" WIDTH="100%">
+						<TR>
+						  <TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT SIZE="2"
+							 FACE="Arial">Note:</FONT></B></TD>
+						  <TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+							 FACE="Arial">If the <I>ZZINDIVIDUAL</I> file already exists in the account in
+							 which you are taking this tutorial, don't assume you can use it. Someone else
+							 may be using that file. <B>You should use your own personal copy of the test
+							 file, with its own unique file name and number.</B></FONT></TD>
+						</TR>
+					 </TABLE> </TD>
+				</TR>
+			 </TABLE></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="92%">
+				  <PRE>Name of test file: <I>ZZINDIVIDUAL</I>// <I><B>MY ZZINDIVIDUAL</B></I>
+  Are you adding '<I>MY ZZINDIVIDUAL</I>' as a new FILE? No// <B>Y</B>  &lt;Enter&gt;  (Yes)
+   FILE NUMBER: <I>nnnn</I>// <I><B>nnnn</B></I>
+
+INTERNAL GLOBAL REFERENCE: ^<I>DIZ</I>(<I>nnnn</I>,// <B>&lt;Enter&gt;</B>
+
+...HMMM, THIS MAY TAKE A FEW MOMENTS...
+     A FreeText NAME Field (#.01) has been created.
+
+File created: <I>MY ZZINDIVIDUAL</I> (#<I>nnnn</I>)
+ Global root: ^<I>DIZ</I>(<I>nnnn</I>,
+
+DONE!!
+</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">If at the "Name of test file:" prompt you choose an existing file
+								  that looks like a Key and Index Tutorial test file, A6AKIT gives you the
+								  opportunity of deleting that file, and replacing it with the original version
+								  of the test file.</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		1.1.</FONT></B></P><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 1.2. &nbsp;Create Your First
+		Compound Index</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise, you will create a
+		New-style compound index based on the DOB and SSN fields in your
+		<A
+		HREF="http://hardhats.org/fileman/Main/window_text/wt_ZZINDIVIDUAL.htm"
+		TARGET="secondary"
+		ONCLICK="makeNewWindow('width=600,height=210,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		TITLE="Contents of secondary window: The exercises in this tutorial make use of a simple test file that contains some sample data. The file is installed as part of Lesson 1, Exercise 1.1, and each user taking the tutorial works with his or her own copy of the tutorial test file. Each user's copy of the test file has a unique file name and number. In this tutorial, all references to this test file will be of file name: ZZINDIVIDUAL, file number: #662nnn, and global root: ^DIZ(662nnn,."><I>ZZINDIVIDUAL</I></A>
+		test file.</FONT></P> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">
+			 First, follow the menu path to the VA FileMan option Cross Reference a Field or
+			 File:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"> VA FileMan</FONT><BR> <FONT SIZE="2"
+				  FACE="Courier New">&nbsp;&nbsp;&nbsp;Utility Functions</FONT> <BR>
+				  <FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT
+				  SIZE="2" FACE="Courier New">Cross Reference a Field or File</FONT></FONT></TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Enter N for New at the prompt:</FONT> </TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"> What type of cross-reference (<FONT SIZE="2"
+				  FACE="Courier New">Traditional</FONT> or <FONT SIZE="2"
+				  FACE="Courier New">New</FONT>)? Traditional//<B>N</B></FONT></TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Next, you are asked for the name of the file on which to create
+			 your cross-reference. Select the <I>ZZINDIVIDUAL</I> test file. Press Enter
+			 when prompted to select a
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn1_1.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=110,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Because you are creating a cross-reference at the top level of the file, not at the subfile level, press the Enter key at this prompt to bypass any further subfile entries. ">subfile</A>.
+			 Answer YES when asked if you want to create a new index on this
+			 file.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"> MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>//
+				  <B>&lt;Enter&gt;</B><BR> Select Subfile: <B>&lt;Enter&gt;</B></FONT> <BR><BR>
+				  <FONT SIZE="2" FACE="Courier New"> There are no INDEX file cross-references
+				  defined on file #662nnn. Want to create a new Index for this file? No//
+				  <B>YES</B></FONT></TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Next, you are asked for the type of index you want to create.
+			 Press Enter to select the default index type REGULAR:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New">Type of index:
+				  <A
+				  HREF="http://hardhats.org/fileman/Main/window_text/wt_REGULAR.htm"
+				  TARGET="secondary"
+				  ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+				  TITLE="Contents of secondary window: Regular is one of the two types of new-style cross-references you can create. (The other is MUMPS.) In a regular cross-reference, data is stored as subscript(s) in an index. The index can be used for sorting the data and for looking up entries in a file based on the indexed data.">REGULAR</A>//
+				  <B>&lt;Enter&gt;</B></FONT><BR> <BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">You can create two types of New-style cross-references: Regular
+								  and MUMPS. MUMPS cross-references are discussed in Part 2 of this
+								  tutorial.</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">You are now asked if you want your index to be used for
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_l_s_index.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=260,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE='Contents of secondary window: A Lookup and Sorting index is automatically used by FileMan lookup APIs (^DIC, FIND^DIC, and $$FIND^DIC) and must have a name that starts with "B" or a letter that alphabetically follows "B". A Sorting Only index is used by FileMans lookup APIs only if it is explicitly specified in the input parameters to the API. A Sorting Only index must have a name that starts with the letter "A". Both Lookup & Sorting indexes and Sorting Only indexes are available for use by FileMans Sort and Print modules (EN1^DIP).'>Lookup
+			 and Sorting</A>, or Sorting Only. Press Enter to select Lookup and
+			 Sorting:</FONT> </TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New">Want index to be used for Lookup &amp; Sorting <BR> or
+				  Sorting Only: LOOKUP &amp; SORTING// <B>&lt;Enter&gt;</B></FONT></TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press Enter at the prompt to accept "C" as the
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_index_name.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 ONMOUSEMOVE="Contents of secondary window: "
+			 TITLE='The name of the index is used as a subscript in the index. For example, your index will be stored in global ^DIZ(662100,"C"). The index name is the subscript "C". (^DIZ(662100, is the global root of the file).'>index
+			 name</A>:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New">Index Name: C// <B>&lt;Enter&gt;</B></FONT><BR> <BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">VA FileMan determines a default name for your index from your
+								  response to the question in Step 5 (the type of index).</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">On
+			 the two-page
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_screenman.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=195,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: ScreenMan is VA FileMan's screen-oriented data entry tool. It is an alternative to the Scrolling Mode approach. With ScreenMan, data is entered in forms. Each form field occupies a fixed position on the screen (instead of scrolling off!). You can see many data fields at once, and use simple key combinations to edit data and move from field to field on a screen. You can also move from one screen to another like turning through the pages of a book.">ScreenMan</A>
+			 form you can edit the properties of the index you are creating. The first page
+			 shows you the responses to the questions you have already answered (i.e., the
+			 results of Steps 1 through 6).<BR> <BR> The only field you must fill in here is
+			 the Short Description. Tab to the Short Description field and enter the
+			 following: <BR> <BR> &nbsp;&nbsp;&nbsp;<B><FONT SIZE="2"
+			 FACE="Courier New">This is a regular index on the DOB and SSN
+			 fields.</FONT></B></FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BGCOLOR="#F1F2F3" BORDER="1">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nnn</I></FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="36%"
+								COLSPAN="2"> <FONT SIZE="2" FACE="Courier New">EDIT AN INDEX</FONT></TD>
+								<TD COLSPAN="2" ALIGN="RIGHT" WIDTH="33%" VALIGN="TOP">
+								  <FONT SIZE="2" FACE="Courier New">Page 1 of 2 </FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="CENTER"><HR> </TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" WIDTH="32%"><FONT SIZE="2"
+								  FACE="Courier New">File:<BR> Index Name:</FONT></TD>
+								<TD ALIGN="LEFT" WIDTH="15%"><FONT SIZE="2"
+								  FACE="Courier New"><I>662nnn</I><BR> C</FONT></TD>
+								<TD ALIGN="CENTER" COLSPAN="3" WIDTH="45%">
+								  <FONT SIZE="2" FACE="Courier New">Root File: <I>662nnn</I><BR>
+								  &nbsp;&nbsp;&nbsp;&nbsp;Root Type: INDEX FILE</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">Short Description:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT"> <B><FONT SIZE="2"
+								  FACE="Courier New">This is a regular index on the DOB and SSN
+								  fields.</FONT></B></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Description (wp):</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New"> (empty)</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="LEFT" HEIGHT="20"> </TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Type:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New">REGULAR</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Activity:<BR> Execution:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New">IR<BR> FIELD</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="LEFT" HEIGHT="20"> </TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Use:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New">LOOKUP &amp; SORTING</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20"> </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5"><HR> </TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" COLSPAN="3"><FONT SIZE="2"
+								  FACE="Courier New">Save &nbsp;&nbsp;&nbsp;&nbsp;Exit
+								  &nbsp;&nbsp;&nbsp;&nbsp;Next Page &nbsp;&nbsp;&nbsp;&nbsp;Refresh</FONT></TD>
+								<TD ALIGN="LEFT" COLSPAN="2"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" COLSPAN="5" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5"> <FONT SIZE="2"
+								  FACE="Courier New">Enter a command or '^' followed by a caption to jump to a
+								  specific field.</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="40"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Tips:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial"><B>&lt;CTRL-U&gt;</B> is a toggle between the values: null, last
+								  edited, and the default of the ScreenMan field you are editing.<BR><BR>Press
+								  <B>&lt;PF1&gt;Z</B> ("zoom") at any field to open up an editing window at the
+								  bottom of the screen. This editing window is often easier to use than the usual
+								  scrolling window, especially when the value of the field is very long, as is
+								  the case with the Set Logic.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 8.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Page 2 of the ScreenMan form is used to enter field data. Press
+			 &lt;PF1&gt;&lt;Down&gt; or &lt;PageDown&gt; to go to page 2. Here you will
+			 specify the fields in your compound index.<BR> <BR> In the "<A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_order.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE='Contents of secondary window: FileMan evaluates cross-reference values by order of "Order Number" and places each value in the X(order#) array. The set and kill logic, for example, can use X(2) to refer to the cross-reference value with order number 2.'>Order...</A>"
+			 column, type in the number 1 and press Enter:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nn</I></FONT></TD>
+								<TD COLSPAN="2"><FONT SIZE="2" FACE="Courier New">EDIT
+								  AN INDEX</FONT></TD>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Page 2 of 2</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" ALIGN="CENTER"><HR> </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">CROSS-REFERENCE VALUES:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="14%" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Order...</FONT></TD>
+								<TD WIDTH="12%" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Subscr</FONT></TD>
+								<TD WIDTH="10%" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Type</FONT></TD>
+								<TD WIDTH="14%" ALIGN="CENTER" VALIGN="BOTTOM"><FONT
+								  SIZE="2" FACE="Courier New">Length</FONT></TD>
+								<TD WIDTH="50%" COLSPAN="2" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Field or Computed
+								  Expression</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">----------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-----</FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">--------</FONT></TD>
+								<TD COLSPAN="2" ALIGN="LEFT" VALIGN="TOP"><FONT
+								  SIZE="1" FACE="Courier New">-------------------------------------</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="LEFT"><B><FONT SIZE="2"
+								  FACE="Courier New">1 &lt;Enter&gt;</FONT></B></TD>
+								<TD></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="40"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;Set Logic: Q<BR> Kill Logic: Q<BR> Whole
+								  Kill:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;Set Condition:<BR> Kill Condition:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><HR> </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 9.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Tab or arrow to the "CROSS-REFERENCE VALUES TYPE OF VALUE:"
+			 prompt, enter "F" for FIELD:<BR> <BR> </FONT><FONT FACE="Courier New"
+			 SIZE="2">&nbsp;&nbsp;&nbsp;&nbsp;CROSS-REFERENCE VALUES TYPE OF VALUE: <B>F
+			 &lt;Enter&gt;</B></FONT><BR> <BR> <FONT SIZE="2" FACE="Arial">This will bring
+			 up the pop-up window "Field-Type Cross Reference Value", shown in the next
+			 step.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Each cross-reference value can be a field or a computed
+								  value.</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 10.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Field:" prompt in the pop-up window, enter DOB and press
+			 Enter:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%" BORDER="0">
+							 <TR>
+								<TD COLSPAN="6">
+								  <PRE>Number: <I>nn</I>            EDIT AN INDEX              Page 2 of 2
+<HR>
+CROSS-REFERENCE VALUES:
+Order...  Subscr  Type  Length  Field or Computed Expression
+--------  ------  ----  ------  ----------------------------</PRE> </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="4" WIDTH="23%"><HR ALIGN="RIGHT" SIZE="5">
+								  </TD>
+								<TD WIDTH="54%"><FONT SIZE="2"
+								  FACE="Courier New">Field-Type Cross Reference Value</FONT></TD>
+								<TD WIDTH="23%"><HR ALIGN="LEFT" SIZE="5"> </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" ALIGN="LEFT" VALIGN="TOP">
+								  <PRE>  Order Number: 1               Subscript Number:
+         <A HREF="http://hardhats.org/fileman/Main/window_text/wt_field.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: If this cross-reference value is a field, answer with the field number or name. Enter ?? to see a list of selectable fields.">Field</A>: <B><A HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn1_3.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=110,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: You can enter the field name or number at the "Field:" prompt. FileMan automatically sets "Field:" to the field number and "Field Name:" to the field name.'>DOB</A> &lt;Enter&gt;</B>                 File: <I>662nnn</I>
+    Field Name:
+
+Maximum Length:                        Collation: forwards
+ Lookup Prompt:
+Transform for Storage:
+Transform for Lookup:
+Transform for Display:
+<HR SIZE="5"></PRE> </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 this point we have entered to first field (DOB) of our two field compound
+			 index.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 11.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to close the pop-up window.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">VA FileMan has automatically built the Set and Kill logic for your
+								  new cross-reference based on the DOB cross-reference value you added to the
+								  index.</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 12.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Tab to the second row of the table, type the number 2 in the
+			 "Order&#133;" column and press Enter.</FONT></TD>
+		</TR>
+	 </TABLE> <BR> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 13.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "CROSS-REFERENCE VALUES TYPE OF VALUE:" prompt, enter "F" for
+			 FIELD.</FONT></TD>
+		</TR>
+	 </TABLE> <BR> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 14.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Field:" prompt on the pop-up window, enter SSN and press &lt;PF1&gt;E or
+			 &lt;PF1&gt;C to close the "Field-Type Cross Reference Value" pop-up window.<BR>
+			 <BR>At this point we have entered the second and last field (SSN) of our two
+			 field compound index.<BR><BR> After you've added these two cross-reference
+			 values, page 2 should look like this:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%" BORDER="0">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nnn</I></FONT></TD>
+								<TD COLSPAN="2"><FONT SIZE="2" FACE="Courier New">EDIT
+								  AN INDEX</FONT></TD>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Page 2 of 2</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" ALIGN="CENTER"><HR> </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">CROSS-REFERENCE VALUES:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="14%" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Order...</FONT></TD>
+								<TD WIDTH="12%" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Subscr</FONT></TD>
+								<TD WIDTH="10%" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Type</FONT></TD>
+								<TD WIDTH="14%" ALIGN="CENTER" VALIGN="BOTTOM"><FONT
+								  SIZE="2" FACE="Courier New">Length</FONT></TD>
+								<TD WIDTH="50%" COLSPAN="2" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Field or Computed
+								  Expression</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">----------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-----</FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">--------</FONT></TD>
+								<TD COLSPAN="2" ALIGN="LEFT" VALIGN="TOP"><FONT
+								  SIZE="1" FACE="Courier New">-------------------------------------</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">1<BR> 2</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">1<BR> 2</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">FIELD<BR> FIELD</FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New"><BR> 30</FONT></TD>
+								<TD COLSPAN="2" ALIGN="LEFT" VALIGN="TOP"><FONT
+								  SIZE="2" FACE="Courier New">DOB (#.03)<BR> SSN (#.02)</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="40"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;Set Logic:
+								  <A
+									HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn1_4.htm"
+									TARGET="secondary"
+									ONCLICK="makeNewWindow('width=600,height=110,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+									TITLE="Contents of secondary window: FileMan automatically builds the Set and Kill logic for your new cross-reference based on the DOB and SSN cross-reference values you added to the index.">S
+								  ^<I>DIZ</I>(<I>662nnn</I>,"C",X(1),$E(X(2),1,30),DA)=""</A><BR> Kill Logic:
+								  <A
+									HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn1_4.htm"
+									TARGET="secondary"
+									ONCLICK="makeNewWindow('width=600,height=110,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+									TITLE="Contents of secondary window: FileMan automatically builds the Set and Kill logic for your new cross-reference based on the DOB and SSN cross-reference values you added to the index.">K
+								  ^<I>DIZ</I>(<I>662nnn</I>,"C",X(1),$E(X(2),1,30),DA)</A><BR> Whole Kill: K
+								  ^<I>DIZ</I>(<I>662nnn</I>,"C")</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;Set Condition:<BR> Kill Condition:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><HR> </TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Your index contains two fields, DOB and SSN, each of which is used
+			 as a subscript in your index. Notice above that the Set and Kill Logic is
+			 automatically generated for you. X(1) refers to your DOB field, and X(2) refers
+			 to your SSN field. The subscripts 1 and 2 in the X array correspond to the
+			 Order numbers of the cross-reference values.</FONT></TD>
+		</TR>
+	 </TABLE> <BR> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 15.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to exit the ScreenMan form.</FONT></TD>
+		</TR>
+	 </TABLE> <BR> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 16.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press Enter at the prompt "Do you want to build the index now?
+			 YES//". This will build the new "C" index on your file.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">If you haven't installed Patch DI*22.0*58, you will not see this
+								  prompt and the index will be built automatically. This patch was released
+								  October 18, 2000.</FONT></TD>
+							 </TR>
+						  </TABLE> </TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE> </BLOCKQUOTE> </BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		1.2.</FONT></B> </P> <BR>
+	 <P ALIGN="CENTER"><FONT SIZE="5" FACE="Arial">Congratulations! You have
+		just created your first New-Style cross-reference!</FONT></P><BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_1.htm"
+			 TITLE="Link to Lesson 1 Quiz"><IMG SRC="images/button_large_shadow_quiz_1.gif"
+			 WIDTH="125" HEIGHT="35" BORDER="0" ALT="Lesson 1 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">1</FONT></B>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			  TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

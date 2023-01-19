@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//SQ//DTD HTML 2.0 HoTMetaL + extensions//EN" "hmpro6.dtd">
+<html><head><!--VHA OI Health Systems Design & Development (HSD&D)--><!--Oakland OIFO--><!--Authored by Thom Blom and Kyle Clarke, 12/31/99--><!--Revised by Strack Susan, 12/03/02--><!--Edited March 2007, Hardhats.org-->
+
+
+
+
+
+	 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+	 
+	 <title>VA FileMan Programmer Manual: DIFROM Introduction</title><meta name="subject" content="VA FileMan V. 22.0 Programmer HTML Manual">
+	 <meta name="keywords" content="Information Infrastructure Service,IIS,VISTA,FileMan,VA FileMan,programmer,developer,programmer manual,difrom,introduction">
+	 <link rel="StyleSheet" type="text/css" href="programmer.css"></head>
+ 
+  <body topmargin="0" bgcolor="white">
+
+	<br><img src="common/fileman_pm_heading.gif" alt="VA FileMan V. 22.0 Programmer Manual Banner" border="0" height="29" width="429">
+	<br>
+	<hr align="left" color="blue" width="429">
+	<br>
+	<p>&nbsp;</p>
+<table class="tdstyle" summary="This table is for formatting purposes only" valign="TOP" border="0" cellpadding="3" cellspacing="0" height="1" width="100%"> 
+		<tbody><tr> 
+		  <td class="menubartext" align="left" height="1" valign="bottom" width="10%">Contents:</td> 
+		  <td align="left" height="1" valign="bottom" width="7%">
+			 <a href="index.htm" target="_top" title="VA FileMan V. 22.0 Programmer HTML Manual: Main Table of Contents" class="menubarlink">Main</a> </td> 
+		  <td align="left" height="1" valign="bottom" width="17%"><a href="di_frm.htm" target="_top" class="menubarlink" title="VA FileMan V. 22.0 Programmer HTML Manual: DIFROM Chapter TOC">Chapter</a></td>
+		  
+		  <td class="menubartext" align="left" height="1" valign="bottom" width="10%">See Also: </td> 
+		  <td align="left" height="1" valign="bottom" width="28%"><a href="../u1/index.htm" target="_top" title="VA FileMan V. 22.0 Getting Started HTML Manual" class="menubarlink">Getting Started Manual</a></td> 
+		  <td colspan="4" align="left" height="1" valign="bottom" width="28%">
+			 <a href="../u2/index.htm" target="_top" title="VA FileMan V. 22.0 Advanced User HTML Manual" class="menubarlink">Advanced User Manual</a></td> 
+		</tr> 
+	 </tbody></table> 
+	 <!-- Content -->
+	 <h3><a name="navskip">DIFROM</a></h3> <hr class="hrstyle"> 
+	 <h4>DIFROM Introduction</h4> 
+	 <p>DIFROM is the mechanism that was used <b>in the past</b> to transfer
+		software packages from one VA FileMan environment to another.</p> 
+	 <p><b>NOTE:</b> DIFROM has been superceded by KIDS (Kernel Installation and
+		Distribution System) for this function, starting with Kernel V. 8.0. DIFROM can
+		still be used, for the time being, for the purpose of package export between
+		FileMan systems where Kernel has not been installed.</p>Package transfer is a two-stage process. First, DIFROM is run on the
+		source system. It is a nondestructive process that uses the ^UTILITY global to
+		build data structures and store information about the package. Then, DIFROM
+		creates init routines. Later, on the target system, the init routines are run
+		to recreate each component of the package and put them into place according to
+		the installer's instructions. 
+	 <p>Another component of the package export process is the Package file. A
+		PACKAGE file entry contains information about the components of a package. It
+		also indicates how the installation will proceed on the target system. The
+		PACKAGE file also has fields that document the package production and
+		installation process. PACKAGE file entries can be created using the standard VA
+		FileMan editing option.</p>
+	 <p>&nbsp;</p> 
+	 <hr class="hrstyle">
+	 <!-- di_intro.htm -->
+	 <p align="center">Reviewed/Updated: October 2016</p>
+	 <p>&nbsp;</p> 
+
+  </body></html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//SQ//DTD HTML 2.0 HoTMetaL + extensions//EN" "hmpro6.dtd">
+<html><head><!--VHA OI Health Systems Design & Development (HSD&D)--><!--Oakland OIFO--><!--Authored by Thom Blom and Kyle Clarke, 12/31/99--><!--Revised by Strack Susan, 11/26/02--><!--Edited March 2007, Hardhats.org-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"><title>VA FileMan Programmer Manual: VA FileMan LANGUAGE File</title>
+
+<meta name="subject" content="VA FileMan V. 22.0 Programmer HTML Manual">
+<meta name="keywords" content="Information Infrastructure Service,IIS,Infrastructure and Security Services,Infrastructure Security Services,ISS,VISTA,FileMan,VA FileMan,programmer,developer,programmer manual">
+<link rel="StyleSheet" type="text/css" href="programmer.css"></head>
+<body topmargin="2">
+<br>
+<img src="common/fileman_pm_heading.gif" alt="VA FileMan V. 22.0 Programmer Manual Banner" border="0" height="29" width="429"> <br>
+<hr align="left" color="blue" width="429"> <br>
+<p>&nbsp;</p>
+<table class="tdstyle" summary="This table is for formatting purposes only" valign="TOP" border="0" cellpadding="3" cellspacing="0" height="1" width="100%">
+<tbody>
+<tr>
+<td class="menubartext" align="left" height="1" valign="bottom" width="10%">Contents:</td>
+<td align="left" height="1" valign="bottom" width="7%"> <a href="index.htm" target="_top" title="VA FileMan V. 22.0 Programmer HTML Manual: Main Table of Contents" class="menubarlink">Main</a> </td>
+<td align="left" height="1" valign="bottom" width="17%"><a href="dia_frm.htm" target="_top" class="menubarlink" title="VA FileMan V. 22.0 Programmer HTML Manual: DIALOG File Chapter TOC">Chapter</a></td>
+<td class="menubartext" align="left" height="1" valign="bottom" width="10%">See Also: </td>
+<td align="left" height="1" valign="bottom" width="28%"><a href="../u1/index.htm" target="_top" title="VA FileMan V. 22.0 Getting Started HTML Manual" class="menubarlink">Getting Started Manual</a></td>
+<td colspan="4" align="left" height="1" valign="bottom" width="28%"> <a href="../u2/index.htm" target="_top" title="VA FileMan V. 22.0 Advanced User HTML Manual" class="menubarlink">Advanced User Manual</a></td>
+</tr>
+</tbody>
+</table>
+<!-- Content -->
+<h3><a name="navskip">DIALOG File</a></h3>
+<hr class="hrstyle">
+<h4>VA FileMan LANGUAGE File</h4>
+<h5>Introduction</h5>
+<p>Certain types of data such as dates and numbers, should be
+formatted differently for display depending on the language of the end
+user. The VA FileMan LANGUAGE file has been designed to help solve this
+problem for users of interactive VA FileMan. The LANGUAGE file, File
+.85, stores M
+code used to perform language-specific conversions on such data. A
+system variable identifies to VA FileMan the language currently in use.
+</p>
+<p>
+<span class="badge">22.2</span>VA FileMan includes over 500 entries in File .85. Included in the
+definitions of these languages are two- and three-letter codes,
+'linguistic categories', and other information not actually used by
+FileMan code itself.</p><br>The
+LANGUAGE File is referenced by canned text in the DIALOG File (.84).
+&nbsp; Any DIALOG may have a TRANSLATION for any LANGUAGE.<br><br><h5>Use of the LANGUAGE File</h5>
+<p>A system variable, DUZ("LANG"), identifies to VA FileMan the
+language currently in use. This system variable is set equal to a
+number that corresponds to the ID NUMBER of an entry in the LANGUAGE
+file. It tells VA FileMan where to find the appropriate data conversion
+code from the LANGUAGE file at the time the code needs to be executed
+(for example, when printing a date). For users running Kernel V. 8.0 or
+later, this variable is set automatically during signon.</p>
+<p></p>
+<p align="center">Reviewed/Updated: October 2016</p>
+<p>&nbsp;</p>
+</body></html>

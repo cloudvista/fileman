@@ -1,0 +1,244 @@
+<HTML xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office"> 
+  <HEAD>
+<!--Office of Information and Technology (OIT)-->
+<!--Oakland OITFO-->
+<!--Authored by T.B., 10/10/2017-->
+<!--Revised by T.B., 01/17/2018-->
+    <META HTTP-EQUIV="Content-Type"
+          CONTENT="text/html; charset=iso-8859-1"> 
+	<TITLE>VA FileMan Developer's Guide: Meta Data Dictionary (MDD) Introduction</TITLE>
+	<META NAME="subject"
+	      CONTENT="VA FileMan 22.2 Developer's Guide HTML Manual">
+	<META NAME="keywords"
+	      CONTENT="VistA Infrastructure,VI,Infrastructure,Information Infrastructure Service,IIS,OIT,Office of Information and Technology,Infrastructure and Security Services,Infrastructure Security Services,ISS,VISTA,FileMan,VA FileMan,programmer,developer,developer's guide,programmer manual,Meta Data Dictionary,MDD,meta,data,dictionary,data dictionary,introduction">
+	<LINK REL="StyleSheet"
+	      TYPE="text/css"
+	      HREF="common/developer.css"> 
+  </HEAD> 
+  <BODY TOPMARGIN="0"
+        BGCOLOR="white">
+<!--Table to lay out the page-->
+<!--webbot bot="Include" U-Include="common/banner_std_page.htm" TAG="BODY" startspan --> 
+    <TABLE CELLSPACING="0"
+           CELLPADDING="0"
+           BORDER="0"
+	       SUMMARY="This table is for formatting purposes only"> 
+	  <TR> 
+	    <TD>
+	      <BR>
+	      <IMG SRC="images/fileman_dg_heading.gif"
+	           BORDER="0"
+		       ALT="VA FileMan 22.2 Developer's Guide HTML Manual Banner">
+		  <BR>
+		  <IMG SRC="images/vaoitbanner.gif"
+		       BORDER="0"
+			   ALT="VA Office of Information and Technology (OIT) Banner">
+		  <BR>
+	    </TD> 
+	  </TR> 
+    </TABLE>
+  <!--webbot bot="Include" i-checksum="44734" endspan -->
+<!--Top Navigation Links--><P></P> 
+<!--webbot bot="Include" u-include="common/top_links.htm" tag="BODY" startspan -->
+    <TABLE BORDER="0"
+           WIDTH="100%"
+           CELLSPACING="0"
+           CELLPADDING="3"
+	       CLASS="tdstyle"
+	       SUMMARY="This table is for formatting purposes only"
+	       HEIGHT="1"
+	       VALIGN="TOP" id="table1"> 
+      <TR> 
+	    <TD VALIGN="BOTTOM"
+	        ALIGN="LEFT"
+	        HEIGHT="1"
+	        WIDTH="10%"
+			CLASS="menubartext">Contents:
+	    </TD> 
+		<TD VALIGN="BOTTOM"
+		    ALIGN="LEFT"
+		    HEIGHT="1"
+		    WIDTH="7%">
+		  <A HREF="index.htm"
+		     TARGET="_top"
+			 TITLE="VA FileMan Developer's Guide (HTML): Main Table of Contents"
+			 CLASS="menubarlink">Main</A>
+		</TD> 
+		<TD VALIGN="BOTTOM"
+		    ALIGN="LEFT"
+		    HEIGHT="1"
+		    WIDTH="17%">
+		  <A HREF="afd_frm.htm"
+		     TARGET="_top"
+			 TITLE="VA FileMan Developer's Guide (HTML): Advanced File Definition Section TOC"
+			 CLASS="menubarlink">Section</A>
+		</TD> 
+		<TD ALIGN="LEFT"
+		    VALIGN="BOTTOM"
+		    HEIGHT="1"
+		    WIDTH="10%"
+			CLASS="menubartext">See Also:
+	    </TD> 
+		<TD ALIGN="LEFT"
+		    VALIGN="BOTTOM"
+		    HEIGHT="1"
+		    WIDTH="28%">
+		  <A HREF="../u1/index.htm"
+		     TARGET="_top"
+			 TITLE="VA FileMan User Manual (HTML)"
+			 CLASS="menubarlink">User Manual</A>
+		</TD> 
+		<TD VALIGN="BOTTOM"
+		    ALIGN="LEFT"
+		    HEIGHT="1"
+		    WIDTH="28%">
+		  <A HREF="../u2/index.htm"
+		     TARGET="_top"
+			 TITLE="VA FileMan Advanced User Manual (HTML)"
+			 CLASS="menubarlink">Advanced User Manual</A>
+		</TD> 
+	  </TR> 
+    </TABLE>
+  <!--webbot bot="Include" i-checksum="35683" endspan -->
+<!-- Content -->
+    <H3><A NAME="navskip">Meta Data Dictionary (MDD)</A></H3>
+	<HR CLASS="hrstyle"> 
+	<H4>Introduction</H4> 
+	<P>The META DATA DICTIONARY (#.9) file is a summary of all the VA FileMan files within a Veterans Health Information Systems and Technology Architecture (VistA) installation. It enables users to quickly identify where information is stored within files and fields throughout the VistA system.</P>
+	<p>The META DATA DICTIONARY (#.9) file contains the following fields:</p>
+	<ul>
+	  <li>
+	    NAME (#.01)&#8212;Contains the dictionary name followed by the field name with the underscore (&#8220;_&#8221;) connecting the two. If the field is a Multiple, then the Multiple name is included.
+	    <br>
+	    <br>
+	  </li>
+	  <li>
+	    LOOKUP TERM (#.02)&#8212;Final field name.
+	    <br>
+	    <br>
+	  </li>
+	  <li>
+	    DATA DICTIONARY NUMBER (#.03)&#8212;Internal entry number (IEN) for the dictionary represented.
+	    <br>
+	    <br>
+	  </li>
+	  <li>
+	    FIELD NUMBER (#.04)&#8212;Internal entry number (IEN) for the field represented.
+	    <br>
+	    <br>
+	  </li>
+	  <li>
+	    DATA (#.05)&#8212;Indicator that the field contains data.
+	    <br>
+	    <br>
+	  </li>
+	  <li>
+	    OBJECT NAME (#.06)&#8212;CamelCase representation of the NAME (#.01) field.
+	    <br>
+	    <br>
+	  </li>
+	  <li>
+	    LAST UPDATED (#.07)&#8212;Indicates the last date/time this field was last edited.
+	    <br>
+	    <br>
+	  </li>
+	  <li>
+	    DESCRIPTION (#1)&#8212;Field description.
+	    <br>
+	    <br>
+	  </li>
+	  <li>
+	    BUILD(S) (#9.6)&#8212;Displays all of the builds where this field was included.
+	    <br>
+	    <br>
+	  </li>
+	  <li>
+	    TYPE (#25)&#8212;Data Type of the field.
+	  </li>
+	</ul>
+	<HR>
+    <h6>META DATA DICTIONARY (#.9) File Sample Entry:</h6>	 
+	<table width="100%"
+           border="1"
+           cellspacing="3"
+           cellpadding="3">
+      <tr>
+        <td>
+          <pre>NUMBER: 21336                           NAME: NEW PERSON_NAME
+  LOOKUP TERM: NAME                     DATA DICTIONARY NUMBER: 200
+  FIELD NUMBER: .01                     OBJECT NAME: newPerson.name
+  LAST UPDATED: DEC 30,2015@08:02:19
+ DESCRIPTION:   Answer must be 3-35 upper-case characters in length, and be in
+ the format Family(Last),Given(First) Middle Suffix. Enter '??' for more help.  
+  Enter only data that is actually part of the person's name. Do not include
+ extra titles, identification, flags, local information, etc.  Enter the
+ person's name in 'LAST,FIRST MIDDLE SUFFIX' format.  This value must be 3-35
+ characters in length and may contain only uppercase alpha characters, spaces,
+ apostrophes, hyphens and one comma.  All other characters and parenthetical
+ text will be removed.  
+BUILD(S) (c): XU*8.0*120
+            : XU*8.0*135
+            : XU*8.0*134
+            : XU*8.0*551                TYPE (c): FREE TEXT</pre>    
+        </td>
+      </tr>
+    </table>
+    <p>&nbsp;</p>	 
+	<HR CLASS="hrstyle"> 
+	<TABLE WIDTH="100%"
+	       SUMMARY="This table for layout purposes only"
+	       CLASS="white"> 
+	  <TR> 
+	    <TD ALIGN="CENTER"
+	        VALIGN="TOP">
+<!--Bottom Navigation Links-->
+<!--webbot bot="Include" U-Include="common/bottom_links.htm" TAG="BODY" startspan --> 
+    <P ALIGN="CENTER">
+	<A HREF="http://www.va.gov/"
+	   CLASS="bodylink"
+	   TARGET="_top"
+	   TITLE="Department of Veterans Affairs (VA) Internet Home Page"><ACRONYM TITLE="Department of Veterans Affairs">VA</ACRONYM> (Internet)</A> /
+    <A HREF="http://vaww.va.gov/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Department of Veterans Affairs (VA) Intranet Home Page"><ACRONYM TITLE="Department of Veterans Affairs">VA</ACRONYM> (Intranet)</A> / 
+	<A HREF="http://vaww.oit.va.gov/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Office of Information and Technology (OIT) Home Page"><ACRONYM TITLE="Office of Information and Technology">OIT</ACRONYM></A> /
+	<A HREF="https://vaww.oit.va.gov/epmo/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Enterprise Program Management Office (EPMO) Home Page"><ACRONYM TITLE="Enterprise Program Management Office">EPMO</ACRONYM></A> /
+    <A HREF="http://vista.med.va.gov/iss/site_map.asp"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="VistA Infrastructure (VI) Site Map">Site Map</A> /
+    <A HREF="http://vista.med.va.gov/termsofuse.htm"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Enterprise Program Management Office (EPMO) Terms of Use Page">Terms of Use</A> /
+    <A HREF="http://www.va.gov/privacy/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Department of Veterans Affairs (VA) Privacy Policy">VA Privacy Policy</A>
+			    /
+    <A HREF="http://www1.va.gov/accessible/"
+       CLASS="bodylink"
+       TARGET="_top"
+	   TITLE="Department of Veterans Affairs (VA) Internet Accessibility">Accessibility</A></P>
+  <!--webbot bot="Include" i-checksum="63908" endspan --><!--Date content was reviewed or updated--><P> Reviewed/Updated: 
+          <!--webbot bot="Timestamp"
+          S-Type="REGENERATED" S-Format="%B %d, %Y" startspan -->January 17, 2018<!--webbot bot="Timestamp" i-checksum="31915" endspan --></P> 
+		  <P ALIGN="CENTER">If you have questions, need more information, or
+		  are having accessibility problems with this Web site, please contact us by
+		  E-Mail:
+		  <A HREF="mailto:VHAISFCVTECH@med.va.gov?subject=Web page comments from: /fileman/docs/dg/mdd_intro.htm"
+			 TITLE="Send mail to the Webmasters regarding this page"
+			 CLASS="bodylink">Webmasters</A></P> 
+		  <P>&nbsp;</P>
+	    </TD> 
+	  </TR> 
+    </TABLE>
+  </BODY>
+</HTML>

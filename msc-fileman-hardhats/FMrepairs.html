@@ -1,0 +1,122 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en]C-PBI-NC404  (Win98; U) [Netscape]">
+   <meta name="FORMATTER" content="Microsoft FrontPage 2.0">
+   <title>REPAIR SHOP</title>
+</head>
+<body bgcolor="#FFFFFF">
+&nbsp;
+<table BORDER=0 CELLSPACING=6 CELLPADDING=6 WIDTH="100%" >
+<tr>
+<td ALIGN=CENTER><a href="FMmain.html"><img SRC="../images/shopFmOn.gif" height=90 width=64></a><b><font face="Arial"><font size=+2>
+FileMan Repair Shop</font></font></b></td>
+
+<td ALIGN=CENTER WIDTH="80%"><!--webbot bot="Include"
+
+
+
+
+
+        u-include="../navicon_plain.html" tag="BODY" startspan
+
+
+
+
+
+        -->
+<center><a href="../index.html"><img SRC="../images/shopSHomeOff.gif" ALT="Home Page" BORDER=0 height=76 width=54 align=TOP></a><a href="../m/Mmain.html"><img SRC="../images/shopSMOff.gif" ALT="M |" BORDER=0 height=76 width=54 align=TOP></a><a href="FMmain.html"><img SRC="../images/shopSFmOn.gif" ALT="FileMan |" BORDER=0 height=76 width=54 align=TOP></a><a href="../kernel/KRNmain.html"><img SRC="../images/shopSKrnOff.gif" ALT="Kernel |" BORDER=0 height=76 width=54 align=TOP></a><a href="../cs/CSmain.html"><img SRC="../images/shopSCsOff.gif" ALT="CS/MM/Web |" BORDER=0 height=86 width=62 align=TOP></a><a href="../tools/TOOLSmain.html"><img SRC="../images/shopSPgmOff.gif" ALT="Programmer Tools |" BORDER=0 height=86 width=54 align=TOP></a><a href="../apps/APPSmain.html"><img SRC="../images/shopSAppOff.gif" ALT="Applications" BORDER=0 height=76 width=54 align=TOP></a></center>
+</td>
+</tr>
+</table>
+
+<center><table BORDER=0 CELLSPACING=6 CELLPADDING=6 WIDTH="100%" >
+<tr>
+<td VALIGN=TOP WIDTH="30%" BGCOLOR="#e6e6e6">
+<center><b><font face="Arial"><font size=+1>Contents</font></font></b></center>
+
+<p>&nbsp;<b><font face="Arial"><a href="#22">How do I get the latest version
+of VA FileMan?</a></font></b>
+<p><b><font face="Arial"><a href="#Install">How do I install it?</a></font></b>
+<p><b><font face="Arial"><a href="#backwards">Is Version 22 backwards-compatible?</a></font></b>
+<p>&nbsp;<b><font face="Arial"><a href="#1995">Does Version 22 require
+1995 Standard MUMPS?</a></font></b>
+<p><b><font face="Arial,Helvetica"><a href="#fm21">Can I still get Version
+21?</a></font></b>
+<p><b><font face="Arial"><a href="#Y2K">What about Y2K?</a></font></b>
+<p><b><font face="Arial,Helvetica"><a href="#patches">How can I make FileMan
+understand 1995 Standard M[UMPS]?</a></font></b>
+<br>&nbsp;
+<p><a href="https://www.hardhats.org/fileman/Dim.rtn"><img SRC="../images/brickbutton.gif" BORDER=0 height=40 width=40 align=LEFT></a>
+<br><a href="Date.rtn.txt">'%DT' and '%DTC' routines</a>&nbsp; to insure Y2K
+compliance.&nbsp;
+<p><a href="patch0.htm"><img SRC="../images/brickbutton.gif" BORDER=0 height=40 width=40 align=LEFT></a>
+<br><a href="patch0.htm">'DIM*' patch</a> to allow FileMan to understand
+1995 M[UMPS] syntax</td>
+
+<td VALIGN=TOP WIDTH="70%" BGCOLOR="#fff"><a NAME="22"></a><b><font face="Arial">How
+do I get the latest version of VA FileMan?</font></b>
+<br><a href="fm22.zip"><img SRC="../images/brickbutton.gif" BORDER=0 height=40 width=40 align=ABSBOTTOM></a><a href="fm22.zip">Download
+it right here!</a>&nbsp; Here is FileMan Version 22, with patches through
+October, 2004, already included. This is a ZIP file that unzips to a file
+of 797 routines, "fm22.rsa&quot;, in Cache' format.&nbsp;
+<br>&nbsp;
+<p><a NAME="Install"></a><b><font face="Arial">How do I install it?</font></b>
+<br><a href="install.htm"><img SRC="../images/brickbutton.gif" BORDER=0 height=40 width=40 align=ABSBOTTOM></a><a href="install.htm">Follow
+the instructions</a>.
+<br>&nbsp;
+<p><a NAME="backwards"></a><b><font face="Arial">Is Version 22 backwards-compatible?</font></b>
+<p>Yes. But a few of the VA applications packages were relying on undocumented
+variables and behaviors.&nbsp; They have had to be repaired.&nbsp; If you
+are running <b>Lab/Blood Bank</b>, you will need patches <b>LR*5.2*212
+</b>and<b>
+LR*5.2*221</b>.&nbsp; If you are running <b>Radiology</b>, you will need
+patch <b>RA*5*7</b>.&nbsp; If you are running the<b> Dental</b> package,
+Patch<b> DENT*1.2*26</b> will correct a minor user annoyance.&nbsp;
+<p><a NAME="1995"></a><b><font face="Arial">Does Version 22 require 1995
+Standard MUMPS?</font></b>
+<p>Yes!&nbsp; Please note that VA FileMan Version 22 will <b>not run </b>under
+operating systems which do not support at least the following 1995 MUMPS
+constructs:&nbsp;
+<ul>
+<li>
+Two-argument $ORDER and $GET functions</li>
+
+<li>
+MERGE command</li>
+
+<li>
+'Alternative' pattern-match syntax</li>
+
+<li>
+$NAME, $REVERSE, $QUERY, $QLENGTH and $QSUBSCRIPT functions</li>
+</ul>
+
+<p><br><a NAME="fm21"></a><b><font face="Arial">Can I still get Version
+21?</font></b>
+<p>Yes. Just click&nbsp; <a href="fm21.zip">right
+here.</a>
+<br>&nbsp;
+<p><a NAME="Y2K"></a><b><font face="Arial">What about Y2K?</font></b>
+<p>FileMan is Y2K compliant.&nbsp; Be sure you have the <a href="Date.rtn.txt">latest
+copy of the FileMan date routines</a>.&nbsp;
+<p><a NAME="patches"></a><b><font face="Arial">How can I make FileMan understand
+1995 Standard M[UMPS]?</font></b>
+<p>Please note the "DIM" patch.&nbsp; It is a part of Version 22, and can
+be added to <b>any</b> version of FileMan.&nbsp; It is an upgrade to the
+DIM* routines (which parse MUMPS input to FileMan), which has been released
+by the VA. Click on <i>DIM* patch</i> at left.</td>
+</tr>
+</table></center>
+
+<p><!--webbot bot="Include"
+
+
+
+
+
+u-include="../../navtext.html" tag="BODY" startspan --><p><em>[../../navtext.html]</em></p>
+<!--webbot bot="Include" endspan i-checksum="26815" -->
+</body>
+</html>

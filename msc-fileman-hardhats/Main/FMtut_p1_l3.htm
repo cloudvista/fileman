@@ -1,0 +1,531 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 1, Lesson
+		3</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 3
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR>
+					 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_3.htm"
+					 TITLE="Link to Lesson 3 Quiz"><IMG SRC="images/button_small_shadow_quiz_3.gif"
+					 WIDTH="89" HEIGHT="16" BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Lesson 3 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p1_l4.htm"
+					 TITLE="Click and go to Lesson 4">[Next Lesson --&gt;]</A></TD>
+				</TR>
+			 </TABLE> <BR> <FONT SIZE="6" FACE="Arial">Part 1 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_regular.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: Regular is one of the two types of new-style cross-references you can create. (The other is MUMPS.) In a regular cross-reference, data is stored as subscript(s) in an index. The index can be used for sorting the data and for looking up entries in a file based on the indexed data.">Regular
+			 Indexes</A></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE><BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="110" VALIGN="TOP"><A NAME="navskip"></A><FONT FACE="Arial"
+			 SIZE="5">Lesson 3.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="689" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">VA FileMan
+			 Lookups Using Compound Indexes</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">In this lesson you will see how your Regular
+		index affects the behavior of the lookup utility IX^DIC. You will also change
+		the collation and lookup prompt for the DOB field in your "C" index. The
+		following topics are covered with exercises following each:</FONT> </P>
+	 <BLOCKQUOTE>
+		<P><FONT SIZE="2" FACE="Arial">1. &nbsp;Interactive Lookups Using
+		  Compound Indexes.<BR> 2. &nbsp;Passing Lookup Values for Lookups Using Compound
+		  Indexes.<BR> 3. &nbsp;Collation Property and Lookup Prompt Property.</FONT></P>
+		</BLOCKQUOTE> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Interactive Lookups Using Compound
+		Indexes</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">When you use a compound index for an
+		interactive lookup, FileMan prompts you for values for each of the subscripts
+		in the index.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 3.1. &nbsp;Use the New-Style Index
+		in an Interactive IX^DIC Call</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial"></FONT><FONT SIZE="2" FACE="Arial">In this
+		lesson you will see how your lookup index affects the behavior of the lookup
+		utility IX^DIC. You will also change the collation and lookup prompt for the
+		DOB field in your "C" index.</FONT></P> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">From programmer mode, set up the input variables and perform an
+			 IX^DIC call using the New-style "C" index. Afterward, enter two question marks
+			 (??) at the "Select <I>ZZINDIVIDUAL</I> DOB:" prompt.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>&gt;<B>S <A HREF="http://hardhats.org/fileman/Main/window_text/wt_DIC_construct.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=255,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: INPUT VARIABLES TO IX^DIC LOOKUP = (1) DIC - Set to the global root of the file. (2) DIC(0) -  Set to the following lookup parameters: Q=Question erroneous input with two question marks (??); E=Echo information (dialog with the user is allowed); A=Ask the user for the lookup value, if erroneous, ask again; Z=Return the zero node of the selected entry in Y(0), and the external form of the .01 field. (3) D - Set to the name of the index to use in the lookup.">DIC="^<I>DIZ</I>(<I>662nnn</I>,",DIC(0)="QEAZ",D="C"</A></B>
+&gt;<B>D</B> <A HREF="http://hardhats.org/fileman/Main/window_text/wt_IX_DIC_construct.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=160,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: This entry point is similar to ^DIC, except for the way it uses cross-references to perform lookup. IX^DIC starts with the cross-reference you specify, or uses only the cross-reference you specify. We are using the IX^DIC call so that we can specify the "C" index for the lookup.'><B>IX^DIC</B></A>
+
+Select <I>ZZINDIVIDUAL</I> DOB: <B>??</B>
+
+   Choose from:
+   OCT 31, 1919   012345678      RAINEY,GINGER
+   FEB 05, 1932   555443333      GEISER,JASMINE
+   APR 09, 1938   765432123      WELLS,PERIWINKLE
+   MAY 20, 1945   234567890      RIVERS,HOLLY
+   MAY 20, 1945   333221111      CURRENT,ROSEMARY
+   MAY 22, 1947   444996666      SNOW,BASIL
+   AUG 11, 1948   345678901      FROST,HAZEL
+   JUN 02, 1955   777889999      BROOKS,SAGE
+   JUL 14, 1959   888776666      WATERS,HERB
+   NOV 23, 1969   111223333      LAKE,MARIGOLD
+   MAR 21, 1970   678765432      PUDDLES,CHERVIL
+   FEB 27, 1971   987654321      TIDE,DILL
+   SEP 26, 1973   543891234      RIPPLE,SAFFRON
+</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">In the listing above FileMan displays the values stored in the
+								  index, DOB and SSN, as well as the value of the NAME field (#.01).</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Select <I>ZZINDIVIDUAL</I> DOB:" prompt enter 5/20/1945. Press Enter at
+			 the "SSN:" prompt, then press Enter again at the "CHOOSE 1-2:"
+			 prompt.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select <I>ZZINDIVIDUAL</I> DOB: <B>5/20/1945</B>
+                    <A HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn3_1.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=100,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: After youve entered the DOB, FileMan prompts you for SSN, the second cross-reference value in the "C" index.'><B>SSN</B></A>: <A HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn3_7.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=100,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: Pressing Enter here will display all records with the date of birth you've entered, regardless of the Social Security Number."><B>&lt;Enter&gt;</B></A></PRE> <FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp; 1
+				  <A
+					HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn3_2.htm"
+					TARGET="secondary"
+					ONCLICK="makeNewWindow('width=600,height=100,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+					TITLE='Contents of secondary window: Since you entered nothing at the "SSN:" prompt, FileMan displays the two records in your test file that have DOBs of 5/20/1945.'><B>MAY
+				  20, 1945</B></A> 234567890 RIVERS,HOLLY<BR> &nbsp;&nbsp; 2
+				  <A
+					HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn3_2.htm"
+					TARGET="secondary"
+					ONCLICK="makeNewWindow('width=600,height=100,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+					TITLE='Contents of secondary window: Since you entered nothing at the "SSN:" prompt, FileMan displays the two records in your test file that have DOBs of 5/20/1945.'><B>MAY
+				  20, 1945</B></A> 333221111 CURRENT,ROSEMARY <BR> CHOOSE 1-2:
+				  <B>&lt;Enter&gt;</B> ??</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Select <I>ZZINDIVIDUAL</I> DOB:" prompt enter 5/20/1945, then at the
+			 "SSN:" prompt enter 333:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New">Select <I>ZZINDIVIDUAL</I> DOB:<B>
+				  5/20/1945</B><BR>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  SSN: <B>333</B><BR>
+				  <A
+					HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn3_3.htm"
+					TARGET="secondary"
+					ONCLICK="makeNewWindow('width=600,height=110,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+					TITLE="Contents of secondary window: Here, FileMan selected Rosemary Current's record because it is the only one in your test file with a DOB of 5/20/1945, and an SSN that begins with 333. ">MAY
+				  20, 1945 333221111 CURRENT,ROSEMARY</A></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		3.1.</FONT></B> </P> <BR> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Passing Lookup Values for Lookups Using
+		Compound Indexes</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">Suppose you want to perform a lookup on the
+		"C" index, but pass the lookup values to IX^DIC, rather than prompt the user
+		for the values. Normally, in this kind of non-interactive lookup, you would
+		pass the lookup value in the variable X. But with a compound index, you might
+		want to look up a record based on the values of more than one field. FileMan
+		allows you to pass in multiple values via the X(<I>n</I>) array, where n
+		corresponds to the <I>subscript</I> number in the index. You can set X(1) to
+		the lookup value for the data in <I>subscript</I> 1 (after the index name),
+		X(2) to the lookup value for the data in <I>subscript</I> 2, etc. </FONT></P>
+	 <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 3.2. &nbsp;Use the New-Style Index
+		in a Non-Interactive IX^DIC Call</FONT><BR> <BR> <FONT SIZE="2" FACE="Arial">In
+		this exercise, you will make a non-interactive call to IX^DIC, passing in the
+		lookup values in the X(<I>subscript</I>#) array.</FONT> </P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Set up the input variables for a non-interactive IX^DIC call using
+			 the "C" index:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New">&gt;<B>S
+				  DIC="^<I>DIZ</I>(<I>662nnn</I>,",DIC(0)="QZ",D="C"</B></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Set the X array to the lookup values shown below, and perform an
+			 IX^DIC call:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New">&gt;<B>S X(1)="5/20/1945",X(2)=333</B><BR>
+				  &gt;<B>D IX^DIC</B></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Enter
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_zw_y.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=210,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: Y = N^S - N is the Internal Entry Number of the selected entry in the file, and S is the value of the .01 field of that entry. Y(0) - This variable is set only if DIC(0) contains a Z. When the variable is set, it is equal to the entire zero node of the entry that was selected. Y(0,0) - This variable is set only if DIC(0) contains a Z. When the variable is set, it is equal to the external form of the .01 field of the selected entry.">ZWRITE
+			 (ZW) Y</A> at the programmer mode prompt to see the results of the
+			 lookup.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New">&gt;<B>ZW Y &lt;Enter&gt;</B><BR>
+				  Y=1^CURRENT,ROSEMARY<BR> Y(0)=CURRENT,ROSEMARY^333221111^2450520<BR>
+				  Y(0,0)=CURRENT,ROSEMARY</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		3.2.</FONT></B> </P> <BR> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Collation Property</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">New-style indexes allow you to control the
+		direction in which FileMan traverses an index when it displays entries to the
+		user. This is done via the
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_collation.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=180,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: Collation is where you can specify the forwards or backwards direction in which VA FileMan's lookup utilities loop through a subscript in an index when entries are returned or displayed to the user. This is especially useful for dates. Developers can store dates in their natural internal VA FileMan date format, and still display entries in the date index in reverse date order."><B>Collation</B></A>
+		property of cross-reference subscripts. Normally, you would display entries in
+		ascending alphabetical order, and so the collation for most subscripts is
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_f_b_collation.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=195,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: This is the direction FileMan's lookup utilities should $ORDER through this subscript when entries are returned or displayed to the user. If for example, you have a compound index on a Date of Birth field and a Name field, and you specify a COLLATION of backwards on the Date of Birth value, the Lister and the Finder will return entries in reverse-date order. Likewise, question mark (?) help and partial matches in interactive ^DIC lookups will display entries in reverse-date order."><B>forward</B></A>.
+		But if you would like FileMan to traverse a subscript in an index in reverse
+		order, you could change the collation of the subscript to
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_f_b_collation.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=195,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: This is the direction FileMan's lookup utilities should $ORDER through this subscript when entries are returned or displayed to the user. If for example, you have a compound index on a Date of Birth field and a Name field, and you specify a COLLATION of backwards on the Date of Birth value, the Lister and the Finder will return entries in reverse-date order. Likewise, question mark (?) help and partial matches in interactive ^DIC lookups will display entries in reverse-date order."><B>backward</B></A>.</FONT></P>
+	 <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Lookup Prompt Property</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">The Lookup prompt property of
+		cross-reference subscripts can also be changed so that interactive lookups will
+		use that string, rather than than the field Label, to prompt the user for a
+		lookup value.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 3.3. &nbsp;Change Collation and
+		Lookup Prompt for DOB in "C" Index</FONT><BR> <BR> <FONT SIZE="2"
+		FACE="Arial">In this exercise, you will change the collation of the DOB
+		subscript in our "C" index so that most recent DOBs are displayed first. You
+		will also change the Lookup prompt to DATE OF BIRTH instead of DOB.</FONT></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Follow the menu path to the option Cross Reference a Field or
+			 File:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"> VA FileMan</FONT><BR> <FONT SIZE="2"
+				  FACE="Courier New">&nbsp;&nbsp;&nbsp;Utility Functions</FONT><BR>
+				  <FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cross
+				  Reference a Field or File</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select NEW for the type of cross-reference, then select your
+			 <I>ZZINDIVIDUAL</I> test file at the "MODIFY WHAT FILE:" prompt. Press Enter at
+			 the "Select Subfile:" prompt.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>What type of cross-reference (Traditional or New)? Traditional// <B>NEW</B>
+
+MODIFY WHAT FILE: // <B><I>ZZINDIVIDUAL</I></B>
+Select Subfile: <B>&lt;Enter&gt;</B>
+
+Current Indexes on file #<I>662nnn</I>:
+  <I>nnn</I>    <A HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn3_4.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=100,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: Here you're presented with a list of new-style cross-references already defined on your test file. ">'C' Index</A>
+
+Choose E (Edit)/D (Delete)/C (Create): <B>E &lt;Enter&gt;</B></PRE> <FONT SIZE="2" FACE="Courier New">Which Index do you wish
+				  to edit? <I>nnn</I>// <B>C &lt;Enter&gt;</B></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Next, you are presented the ScreenMan form where you can edit the
+			 properties of your "C" index. Press &lt;PF1&gt;Down or &lt;PageDown&gt; to go
+			 to page 2. </FONT></TD>
+		</TR>
+	 </TABLE> <BR> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press Enter on the number 1 in the "Order&#133;" column to edit
+			 the properties of the cross-reference value with Order number 1, the DOB field.
+			 A pop-up page opens where you can edit the properties of the DOB
+			 cross-reference value. Tab to Collation and enter <B>B</B> for backwards and
+			 press Enter.</FONT></TD>
+		</TR>
+	 </TABLE> <BR> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Tab to the "Lookup Prompt:" field, enter: <B><FONT SIZE="2"
+			 FACE="Courier New">DATE OF BIRTH</FONT></B>.</FONT></TD>
+		</TR>
+	 </TABLE> <BR> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to close the pop-up page. Press &lt;PF1&gt;E
+			 again to save changes and exit the form.</FONT></TD>
+		</TR>
+	 </TABLE> <BR> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">From programmer mode, set up the input variables and perform an
+			 IX^DIC call using the "C" index. Afterward, enter two question marks (??) at
+			 the "Select <I>ZZINDIVIDUAL</I> DATE OF BIRTH:" prompt.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"> &gt;<B>S
+				  DIC="^<I>DIZ</I>(<I>662nnn</I>,",DIC(0)="QEAZ",D="C" <BR> &gt;D
+				  IX^DIC</B></FONT>
+				  <P></P> <FONT SIZE="2" FACE="Courier New">Select
+				  <A
+					HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn3_5.htm"
+					TARGET="secondary"
+					ONCLICK="makeNewWindow('width=600,height=110,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+					TITLE='Contents of secondary window: The change to this prompt "Select ZZINDIVIDUAL DATE OF BIRTH" resulted from changing the "Lookup:" prompt property of the DOB cross-reference value.'><I>ZZINDIVIDUAL</I>
+				  DATE OF BIRTH:</A> <B>??</B></FONT><BR> <BR> <FONT SIZE="2"
+				  FACE="Courier New">&nbsp;&nbsp;Choose from: <BR> &nbsp;&nbsp;<A
+				  HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn3_6.htm"
+				  TARGET="secondary"
+				  ONCLICK="makeNewWindow('width=600,height=140,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+				  TITLE="Contents of secondary window: In contrast to Exercise 3.1, this list is displayed in the order of the most recent DOB first. This was achieved by specifying a backward collation for the DOB cross-reference value. Backward collation causes FileMan to use a reverse $Order to traverse the data at the DOB subscript level.">SEP
+				  26, 1973 543891234</A> RIPPLE,SAFFRON<BR> &nbsp;&nbsp;FEB 27, 1971 987654321
+				  TIDE,DILL <BR> &nbsp;&nbsp;MAR 21, 1970 678765432 PUDDLES,CHERVIL <BR>
+				  &nbsp;&nbsp;NOV 23, 1969 111223333 LAKE,MARIGOLD <BR> &nbsp;&nbsp;JUL 14, 1959
+				  888776666 WATERS,HERB <BR> &nbsp;&nbsp;JUN 02, 1955 777889999 BROOKS,SAGE <BR>
+				  &nbsp;&nbsp;AUG 11, 1948 345678901 FROST,HAZEL<BR> &nbsp;&nbsp;MAY 22, 1947
+				  444996666 SNOW,BASIL <BR> &nbsp;&nbsp;MAY 20, 1945 234567890 RIVERS,HOLLY <BR>
+				  &nbsp;&nbsp;MAY 20, 1945 333221111 CURRENT,ROSEMARY <BR> &nbsp;&nbsp;APR 09,
+				  1938 765432123 WELLS,PERIWINKLE <BR> &nbsp;&nbsp;FEB 05, 1932 555443333
+				  GEISER,JASMINE <BR> &nbsp;&nbsp;OCT 31, 1919 012345678 RAINEY,GINGER
+				  </FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		3.3.</FONT></B> </P> <BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_3.htm"
+			 TITLE="Link to Lesson 3 Quiz"><IMG SRC="images/button_large_shadow_quiz_3.gif"
+			 WIDTH="125" HEIGHT="35" BORDER="0" ALT="Lesson 3 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p1_l2.htm"
+			 TITLE="Click and go to Lesson 2">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">3</FONT></B>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			 TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

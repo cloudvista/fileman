@@ -1,0 +1,1151 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 2, Lesson
+		7</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 7
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR><A HREF="FMtut_p2_l6.htm"
+					 TITLE="Click and go to Lesson 6">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_7.htm"
+					 TITLE="Link to Lesson 7 Quiz"><IMG SRC="images/button_small_shadow_quiz_7.gif"
+					 WIDTH="89" HEIGHT="16" BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Lesson 7 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p2_l8.htm"
+					 TITLE="Click and go to Lesson 8">[Next Lesson --&gt;]</A></TD>
+				</TR>
+			 </TABLE><BR> <FONT SIZE="6" FACE="Arial">Part 2 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_mumps_xref.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=180,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: MUMPS is one of the two types of new-style cross-references you can create. (The other is Regular.) In contrast to Regular cross-references, you define the set and kill logic of MUMPS cross-references. The logic of a MUMPS cross-reference is executed whenever a field in the cross-reference is edited, and usually performs some action other than just maintaining an index.">MUMPS
+			 Cross-References</A></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE><BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="110" VALIGN="TOP"><A NAME="navskip"></A><FONT FACE="Arial"
+			 SIZE="5">Lesson 7.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="689" VALIGN="TOP"><FONT FACE="Arial"
+			 SIZE="5">Cross-Reference Execution</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">In this lesson you will learn when VA
+		FileMan executes the Set and Kill Logic of New-style cross-references. You will
+		also use the X1 and X2 arrays in the Set Logic of a MUMPS
+		cross-reference.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">When Does Cross-Reference Logic Get
+		Executed?</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">In general, for New-style cross-references
+		both Regular and MUMPS, when a field or group of fields defined in a New-style
+		cross-reference is edited, both the Kill and the Set Logic of that
+		cross-reference are executed. First, the Kill logic is executed with the
+		X(order#) array set to the old (pre-edited) field values. Then the Set Logic is
+		executed with the X(order#) array set to the new values.</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">The exceptions to this are as
+		follows:</FONT></P>
+	 <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	  WIDTH="88%">
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" WIDTH="7%"><FONT SIZE="2"
+			 FACE="Arial"> 1.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="92%"><FONT SIZE="2"
+			 FACE="Arial"><B>Null subscript values.</B></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">If
+			 a cross-reference value is used as a subscript (that is, it has a subscript
+			 number), and the old value is null, the Kill logic is not executed. Similarly,
+			 the Set Logic is not executed if a new value used as a subscript is
+			 null.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">
+			 2.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+			 FACE="Arial"><B>Record deletion.</B></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+			 FACE="Arial">When an entire record is deleted from a file, only the Kill Logic,
+			 not the Set Logic, is executed. The X2(order#) array elements, which normally
+			 contain the new cross-reference values, are all set to null.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">
+			 3.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+			 FACE="Arial"><B>Record creation.</B></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">
+			 Immediately after a record is added to a file, only the Set Logic, not the Kill
+			 Logic, of New-style cross-references that contain the .01 field is executed.
+			 The X1(order#) array element that corresponds to the .01 field is set to null
+			 at this point.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">
+			 4.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+			 FACE="Arial"><B>Kill and Set Conditions.</B></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">As
+			 illustrated in Lesson 6, if the Set or Kill Condition sets X to Boolean false,
+			 the Set or Kill Logic will not be executed.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT FACE="Arial" SIZE="2">The following table summarizes when the Kill
+		and Set Logic are executed for New-style cross-references.</FONT></P>
+	 <P><B><FONT FACE="Arial" SIZE="2">New-style cross-references</FONT></B></P>
+
+	 <BLOCKQUOTE>
+		<TABLE BORDER="1" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		 WIDTH="500" BGCOLOR="#F1F2F3">
+		  <TR>
+			 <TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT" WIDTH="25%">&nbsp;</TD>
+
+			 <TD VALIGN="BOTTOM" WIDTH="20%"><B><FONT SIZE="2" FACE="Arial">Kill
+				Logic</FONT></B></TD>
+			 <TD VALIGN="BOTTOM" WIDTH="55%"><B><FONT SIZE="2" FACE="Arial">Set
+				Logic</FONT></B></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="BOTTOM" COLSPAN="4"><A
+				HREF="http://hardhats.org/fileman/Main/window_text/wt_record_creation.htm"
+				TARGET="secondary"
+				ONCLICK="makeNewWindow('width=600,height=200,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+				TITLE="Contents of secondary window: Record creation occurs when a new record is added to a file or subfile. When a record is first created, FileMan sets the .01 field for that record and immediately fires the set logic for cross-references on the .01 field. Note that if additional fields are edited after the .01 is set, cross-references on those fields may also be executed, including those that may have already been fired when the .01 field was initially set.">Record
+				creation</A></TD>
+			 <TD VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Not
+				executed</FONT></TD>
+			 <TD VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial"><B>Executed</B>
+				immediately after the .01 is set (if .01 is a cross-reference
+				value.)</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="BOTTOM" COLSPAN="4"><A
+				HREF="http://hardhats.org/fileman/Main/window_text/wt_record_edit.htm"
+				TARGET="secondary"
+				ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+				TITLE="Contents of secondary window: Record edit occurs when one or more field values for a record are changed.">Record
+				edit</A></TD>
+			 <TD VALIGN="BOTTOM"><B><FONT SIZE="2"
+				FACE="Arial">Executed<SUP>1</SUP></FONT></B></TD>
+			 <TD VALIGN="BOTTOM"><B><FONT SIZE="2"
+				FACE="Arial">Executed<SUP>2</SUP></FONT></B></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="BOTTOM" COLSPAN="4"><A
+				HREF="http://hardhats.org/fileman/Main/window_text/wt_record_deletion.htm"
+				TARGET="secondary"
+				ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+				TITLE="Contents of secondary window: Record deletion occurs when an entire record is removed from a file or subfile.">Record
+				deletion</A></TD>
+			 <TD VALIGN="BOTTOM"><B><FONT SIZE="2"
+				FACE="Arial">Executed<SUP>1</SUP></FONT></B></TD>
+			 <TD VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Not
+				executed</FONT></TD>
+		  </TR>
+		</TABLE></BLOCKQUOTE>
+	 <P><FONT SIZE="2" FACE="Arial"><B><SUP>1 </SUP></B>only if no old values
+		used as subscripts are null, and the Set Condition, if any, sets X to true
+		(1).<BR><B><SUP>2 </SUP></B> only if no new values used as subscripts are null,
+		and the Kill Condition, if any, sets X to true (1).</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">Note that in "Record edit," it doesn't
+		matter if individual field values are created (go from null to non-null) or
+		deleted (go from non-null to null) - both the Kill and the Set Logic are
+		executed as long as none of the field values used as subscripts evaluate to
+		null.</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">This behavior is slightly different than
+		that of Traditional cross-references. Since Traditional cross-references are
+		defined on a specific field, the Kill and Set Logic are executed depending on
+		whether that one field value is created, deleted, or edited.</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">The following table summarizes when the Kill
+		and Set Logic are executed for Traditional cross-references.</FONT></P>
+	 <P><B><FONT SIZE="2" FACE="Arial">Traditional
+		cross-references</FONT></B></P>
+	 <BLOCKQUOTE>
+		<TABLE BORDER="1" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		WIDTH="500" BGCOLOR="#F1F2F3">
+		  <TR>
+			 <TD VALIGN="BOTTOM" COLSPAN="4" ALIGN="RIGHT" WIDTH="35%">&nbsp;</TD>
+
+			 <TD VALIGN="BOTTOM" WIDTH="20%"><B><FONT SIZE="2" FACE="Arial">Kill
+				Logic</FONT></B></TD>
+			 <TD VALIGN="BOTTOM" WIDTH="45%"><B><FONT SIZE="2" FACE="Arial">Set
+				Logic</FONT></B></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="BOTTOM" COLSPAN="4"><FONT SIZE="2" FACE="Arial">Field
+				value "creation" - value goes from null to non-null.</FONT></TD>
+			 <TD VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Not
+				executed</FONT></TD>
+			 <TD VALIGN="BOTTOM"><B><FONT SIZE="2"
+				FACE="Arial">Executed</FONT></B></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="BOTTOM" COLSPAN="4"><FONT SIZE="2" FACE="Arial">Field
+				edit - both old and new values are non-null.</FONT></TD>
+			 <TD VALIGN="BOTTOM"><B><FONT SIZE="2"
+				FACE="Arial">Executed</FONT></B></TD>
+			 <TD VALIGN="BOTTOM"><B><FONT SIZE="2"
+				FACE="Arial">Executed</FONT></B></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="BOTTOM" COLSPAN="4"><FONT SIZE="2" FACE="Arial">Field
+				value deletion - value goes from non-null to null.</FONT></TD>
+			 <TD VALIGN="BOTTOM"><B><FONT SIZE="2"
+				FACE="Arial">Executed</FONT></B></TD>
+			 <TD VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Not
+				executed</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="BOTTOM" COLSPAN="4"><FONT SIZE="2" FACE="Arial">Record
+				creation</FONT></TD>
+			 <TD VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Not
+				executed</FONT></TD>
+			 <TD VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial"><B>Executed</B> for
+				all x-refs on the .01 field, immediately after the .01 is set</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="BOTTOM" COLSPAN="4"><FONT SIZE="2" FACE="Arial">Record
+				deletion</FONT></TD>
+			 <TD VALIGN="BOTTOM"><B><FONT SIZE="2"
+				FACE="Arial">Executed</FONT></B></TD>
+			 <TD VALIGN="BOTTOM"><FONT SIZE="2" FACE="Arial">Not
+				executed</FONT></TD>
+		  </TR>
+		</TABLE></BLOCKQUOTE><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Execution</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">The Execution property of New-style
+		cross-references controls the timing of cross-reference execution. Execution
+		can be either of the following: </FONT></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="RIGHT" VALIGN="TOP" WIDTH="7%"><FONT SIZE="2"
+			 FACE="Arial">1.</FONT></TD>
+		  <TD WIDTH="1%" ROWSPAN="2"></TD>
+		  <TD WIDTH="92%" ALIGN="LEFT" VALIGN="TOP" ROWSPAN="2"><FONT SIZE="2"
+			 FACE="Arial"><B>Field</B> execution means that the cross-reference logic is
+			 executed immediately after each and every field in the cross-reference is
+			 edited.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD ALIGN="RIGHT" VALIGN="TOP"></TD>
+		</TR>
+		<TR>
+		  <TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial">2.</FONT></TD>
+		  <TD ROWSPAN="2"></TD>
+		  <TD ALIGN="LEFT" VALIGN="TOP" ROWSPAN="2"><FONT SIZE="2"
+			 FACE="Arial"><B>Record</B> execution means that the cross-reference logic is
+			 executed once at the end of an editing session after all fields in the record
+			 are edited.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD ALIGN="RIGHT" VALIGN="TOP"></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">Usually, simple cross-references (those that
+		have only one field-type cross-reference value) have Field-level execution.
+		Compound cross-references (those that have more than one field-type
+		cross-reference value) have Record-level execution.</FONT></P><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 7.1. &nbsp;Create a MUMPS
+		Cross-Reference that Makes Use of the X, X1, and X2 Arrays</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise, you will create a MUMPS
+		cross-reference that contains two field-type cross-reference values, AREA CODE
+		field (#3.1) and LOCAL NUMBER field (#3.2). When either or both of those fields
+		are updated, the OLD PHONE NUMBER field (#3.4) will be set to:</FONT></P>
+	 <BLOCKQUOTE><FONT SIZE="2" FACE="Arial">(Old_Area_Code)
+		Old_Local_Number</FONT></BLOCKQUOTE>
+	 <P><FONT SIZE="2" FACE="Arial">and the PHONE NUMBER field (#3.3) is set
+		to:</FONT></P>
+	 <BLOCKQUOTE><FONT SIZE="2" FACE="Arial">(New_Area_Code)
+		New_Local_Number</FONT></BLOCKQUOTE>
+	 <P><FONT SIZE="2" FACE="Arial">In addition, if the old area code, new area
+		code, old local number, or new local number is null, you will store the value
+		as the string "null" in the OLD PHONE NUMBER and PHONE NUMBER fields. To
+		accomplish this task, you will use computed cross-reference
+		values.</FONT></P><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Cross Reference a Field or File option to create
+			 a MUMPS cross-reference named "AE":</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION: <B>U</B>TILITY FUNCTIONS
+Select UTILITY OPTION: <B>C</B>ROSS-REFERENCE A FIELD OR FILE
+
+What type of cross-reference (Traditional or New)? Traditional// <B>NEW</B>
+
+MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select Subfile: <B>&lt;Enter&gt;</B>
+
+Current Indexes on file #<I>662nnn</I>:
+  <I>nnn</I>    'C' index
+  <I>nnn</I>    'D' index
+  <I>nnn</I>    'AD' index
+
+Choose E (Edit)/D (Delete)/C (Create): <B>C</B>REATE
+Want to create a new Index for this file? No// <B>Y</B>ES
+
+Type of index: REGULAR// <B>M</B>UMPS
+
+How is this MUMPS cross reference to be used: ACTION// <B>ACTION</B>
+
+Index Name: AE// <B>&lt;Enter&gt;</B> AE</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">On
+			 the first page of the ScreenMan form, enter the following Short
+			 Description:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><B><FONT SIZE="2"
+				  FACE="Courier New">Update PHONE NUMBER &amp; OLD PHONE NUMBER if AREA CODE
+				  &amp; LOCAL NUMBER are edited.</FONT></B></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Tab to Execution and enter <B>R</B> for RECORD.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <TABLE WIDTH="500" BGCOLOR="#F1F2F3" BORDER="1">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nnn</I></FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="36%"
+								 COLSPAN="2"> <FONT SIZE="2" FACE="Courier New">EDIT AN INDEX</FONT></TD>
+								<TD COLSPAN="2" ALIGN="RIGHT" WIDTH="33%" VALIGN="TOP">
+								  <FONT SIZE="2" FACE="Courier New">Page 1 of 2 </FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" WIDTH="32%"><FONT SIZE="2"
+								  FACE="Courier New">File:<BR> Index Name:</FONT></TD>
+								<TD ALIGN="LEFT" WIDTH="15%"><FONT SIZE="2"
+								  FACE="Courier New"><I>662nnn</I><BR> AE</FONT></TD>
+								<TD ALIGN="CENTER" COLSPAN="3" WIDTH="45%">
+								  <FONT SIZE="2" FACE="Courier New">Root File: <I>662nnn</I><BR>
+								  &nbsp;&nbsp;&nbsp;&nbsp;Root Type: INDEX FILE</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">Short Description:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT"> <B><FONT SIZE="2"
+								  FACE="Courier New">Update PHONE NUMBER &amp; OLD PHONE NUMBER if AREA CODE
+								  &amp; LOCAL NUMBER are edited.</FONT></B></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Description (wp):</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New"> (empty)</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="LEFT" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Type:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New">MUMPS</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Activity:<BR>
+								  <A
+									HREF="http://hardhats.org/fileman/Main/window_text/wt_execution.htm"
+									TARGET="secondary"
+									ONCLICK="makeNewWindow('width=600,height=215,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+									TITLE="Contents of secondary window: Field - This indicates that the cross-reference logic is executed immediately after each and every field that makes up the cross-reference is edited. Most simple (single-field) cross-references should have Field execution. Record - This indicates that the cross-reference logic is executed only after all fields in the record have been edited. Most compound (multi-field) cross-references should have Record execution.">Execution</A>:</FONT></TD>
+
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New">IR<BR> <B>RECORD</B></FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="LEFT" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Use:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New">ACTION</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" COLSPAN="3"><FONT SIZE="2"
+								  FACE="Courier New">Save &nbsp;&nbsp;&nbsp;&nbsp;Exit
+								  &nbsp;&nbsp;&nbsp;&nbsp;Next Page &nbsp;&nbsp;&nbsp;&nbsp;Refresh</FONT></TD>
+								<TD ALIGN="LEFT" COLSPAN="2"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="50"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Our "AE" cross-reference will contain two fields, AREA CODE and
+								  LOCAL NUMBER, and so should have an execution value of Record.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">On
+			 page 2 of the ScreenMan form, add the AREA CODE field as order number
+			 1:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Order...: <B>1</B>
+CROSS-REFERENCE VALUES TYPE OF VALUE: <B>FIELD</B>
+Field: <B>AREA CODE</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Add the LOCAL NUMBER field as order number 2:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New">Order...: <B>2</B><BR>CROSS-REFERENCE VALUES
+				  TYPE OF VALUE: <B>FIELD</B><BR>Field: <B>LOCAL NUMBER</B></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Page 2 of the ScreenMan form should now look like
+			 this:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%" BORDER="0">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nnn</I></FONT></TD>
+								<TD COLSPAN="2"><FONT SIZE="2" FACE="Courier New">EDIT
+								  AN INDEX</FONT></TD>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Page 2 of 2</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">CROSS-REFERENCE VALUES:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="14%" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Order...</FONT></TD>
+								<TD WIDTH="12%" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Subscr</FONT></TD>
+								<TD WIDTH="10%" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Type</FONT></TD>
+								<TD WIDTH="14%" ALIGN="CENTER" VALIGN="BOTTOM"><FONT
+								  SIZE="2" FACE="Courier New">Length</FONT></TD>
+								<TD WIDTH="50%" COLSPAN="2" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Field or Computed
+								  Expression</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">----------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-----</FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">--------</FONT></TD>
+								<TD COLSPAN="2" ALIGN="LEFT" VALIGN="TOP"><FONT
+								  SIZE="1" FACE="Courier New">-------------------------------------</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">1<BR> 2</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">FIELD<BR> FIELD</FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New"><BR> 30</FONT></TD>
+								<TD COLSPAN="2" ALIGN="LEFT" VALIGN="TOP"><FONT
+								  SIZE="2" FACE="Courier New">AREA CODE (#3.1)<BR>LOCAL NUMBER (#3.2)</FONT></TD>
+
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="40"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;Set Logic: <FONT SIZE="2"
+								  FACE="Courier New">Q</FONT><BR> Kill Logic: <FONT SIZE="2"
+								  FACE="Courier New">Q</FONT><BR> Whole Kill: </FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;Set Condition:<BR> Kill Condition:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="50"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Add a cross-reference value of type Computed that evaluates either
+			 to the AREA CODE field or to the string "null", if the AREA CODE field is
+			 missing.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Order...: <B>3</B>
+CROSS-REFERENCE VALUES TYPE OF VALUE: <B>COMPUTED</B>
+<A HREF="http://hardhats.org/fileman/Main/window_text/wt_computed_code.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=200,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: The computed code is MUMPS code that sets the variable X. FileMan places the resulting value of X into the X(order#) array element that corresponds to this cross-reference value. You can then use X(order#) to refer to the computed value in your set and kill logic and conditions, as well as in the computed code for any computed cross-reference values with higher order numbers.">Computed Code</A>: <B>S X=$S(X(1)="":"null",1:X(1))</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">X(<B>1</B>) in the computed expression is the value of the AREA
+								  CODE field, the cross-reference value with order number <B>1</B>. The computed
+								  expression sets the variable X to the AREA CODE (X(1)), or if the AREA CODE is
+								  null (X(1)=""), it sets X to the string "null".</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Similarly, add a cross-reference value of type Computed that
+			 evaluates to the LOCAL NUMBER field, or, if the LOCAL NUMBER field is missing,
+			 the string "null."</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Order...: <B>4</B>
+CROSS-REFERENCE VALUES TYPE OF VALUE: <B>COMPUTED</B>
+Computed Code: <B>S X=$S(X(2)="":"null",1:X(2))</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">X(<B>2</B>) in the computed expression is the cross-reference
+								  value with order number <B>2</B>, in this case, the LOCAL NUMBER
+								  field.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Page 2 of the ScreenMan form should now look like
+			 this:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="505" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%" BORDER="0">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nnn</I></FONT></TD>
+								<TD COLSPAN="2"><FONT SIZE="2" FACE="Courier New">EDIT
+								  AN INDEX</FONT></TD>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Page 2 of 2</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">CROSS-REFERENCE VALUES:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="14%" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Order...</FONT></TD>
+								<TD WIDTH="12%" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Subscr</FONT></TD>
+								<TD WIDTH="10%" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Type</FONT></TD>
+								<TD WIDTH="14%" ALIGN="CENTER" VALIGN="BOTTOM"><FONT
+								  SIZE="2" FACE="Courier New">Length</FONT></TD>
+								<TD WIDTH="50%" COLSPAN="2" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Field or Computed
+								  Expression</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">----------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-----</FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">--------</FONT></TD>
+								<TD COLSPAN="2" ALIGN="LEFT" VALIGN="TOP"><FONT
+								  SIZE="1" FACE="Courier New">-------------------------------------</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">1<BR> 2<BR>3<BR>4</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">FIELD<BR> FIELD<BR>COMPUTED<BR>COMPUTED</FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP"></TD>
+								<TD COLSPAN="2" ALIGN="LEFT" VALIGN="TOP"><FONT
+								  SIZE="2" FACE="Courier New">AREA CODE (#3.1)<BR>LOCAL NUMBER (#3.2)<BR>S
+								  X=$S(X(1)="":"null",1:X(1))<BR>S X=$S(X(2)="":"null",1:X(2))</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="40"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;Set Logic: <FONT SIZE="2"
+								  FACE="Courier New">Q</FONT><BR> Kill Logic: <FONT SIZE="2"
+								  FACE="Courier New">Q</FONT><BR> Whole Kill: </FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;Set Condition:<BR> Kill Condition:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="50"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 8.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Tab to Set Logic and enter (on one line):</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <PRE><B>N ZZFDA,ZZMSG,DIERR
+ S ZZFDA(<I>662nnn</I>,DA_",",3.3)="("_<A HREF="http://hardhats.org/fileman/Main/window_text/wt_x2_3_array.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: X2(3) - the new value of the cross-reference value with order number 3, a computed value. This is the new AREA CODE field, or the string "null" if the new AREA CODE field is null.'>X2(3)</A>_") "_<A HREF="http://hardhats.org/fileman/Main/window_text/wt_x2_4_array.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: X2(4) - the new value of the cross-reference value with order number 4, a computed value. This is the new value of the LOCAL NUMBER field, or the string "null" if the new LOCAL NUMBER field is null.'>X2(4)</A>,
+ZZFDA(<I>662nnn</I>,DA_",",3.4)="("_<A HREF="http://hardhats.org/fileman/Main/window_text/wt_x1_3_array.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: X1(3) - the old value of the cross-reference value with order number 3, a computed value. This is the old AREA CODE field, or the string "null" if the old AREA CODE field is null.'>X1(3)</A>_") "_<A HREF="http://hardhats.org/fileman/Main/window_text/wt_x1_4_array.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: X1(4) - the old value of the cross-reference value with order number 4, a computed value. This is the old LOCAL NUMBER field, or the string "null" if the old LOCAL NUMBER field is null.'>X1(4)</A>
+ D FILE^DIE("E","ZZFDA","ZZMSG")</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">This code calls the Filer (FILE^DIE) to set the PHONE NUMBER field
+								  (#3.3) to the new (Area_Code) Local_Number, and the OLD PHONE NUMBER field
+								  (#3.4) to the old (Area_Code) Local_Number.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 9.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to exit the form.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 10.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Do you want to cross reference existing data now?" prompt, answer NO,
+			 shown below:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%"> <FONT SIZE="2" FACE="Courier New"> Do you want to
+				  cross reference existing data now? <B>N</B>O</FONT> <BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">If you answered "YES" at this point, VA FileMan will execute the
+								  Set Logic for all entries in the file. For each record, the PHONE NUMBER field
+								  (#3.3) and the OLD PHONE NUMBER field (#3.4) would both be populated with
+								  (Area_Code) Local_Number. This is not a problem, but we'll choose to have those
+								  fields updated only upon subsequent edits.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise
+		7.1.</FONT></B></P><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 7.2. &nbsp;Test the New MUMPS
+		Cross-Reference</FONT></P><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Enter or Edit File Entries to edit the AREA CODE
+			 field (#3.1) and the LOCAL NUMBER field (#3.2) of the MODIFIED,ENTRY record
+			 added in Lesson 6.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>ENTER</B> OR EDIT FILE ENTRIES
+
+INPUT TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+EDIT WHICH FIELD: ALL// <B>3.1 &lt;Enter&gt;</B>  AREA CODE
+THEN EDIT FIELD: <B>3.2 &lt;Enter&gt;</B>  LOCAL NUMBER
+THEN EDIT FIELD:
+
+Select <I>ZZINDIVIDUAL</I> NAME: <B>MODIFIED,ENTRY</B>
+AREA CODE: <B>415</B>
+LOCAL NUMBER: <B>555-1234</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Inquire to File Entries option to look at the
+			 data in the MODIFIED,ENTRY record.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>IN</B>QUIRE TO FILE ENTRIES
+
+OUTPUT FROM WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select <I>ZZINDIVIDUAL</I> NAME: <B>MODIFIED,ENTRY</B>
+ANOTHER ONE: <B>&lt;Enter&gt;</B>
+STANDARD CAPTIONED OUTPUT? Yes// <B>&lt;Enter&gt;</B> (Yes)
+Include COMPUTED fields:  (N/Y/R/B): NO// <B>&lt;Enter&gt;</B> - No record number (IEN), no Computed Fields
+
+NAME: MODIFIED,ENTRY             AREA CODE: <B>415</B>
+  LOCAL NUMBER: <B>555-1234</B>         <A HREF="http://hardhats.org/fileman/Main/window_text/wt_phone_numbers.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: These two fields were updated via the set logic of our MUMPS cross-reference. That logic called the Filer to update the numbers based on our edits to the AREA CODE and LOCAL NUMBER fields.">PHONE NUMBER</A>: <B>(415) 555-1234</B>
+  <A HREF="http://hardhats.org/fileman/Main/window_text/wt_phone_numbers.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: These two fields were updated via the set logic of our MUMPS cross-reference. That logic called the Filer to update the numbers based on our edits to the AREA CODE and LOCAL NUMBER fields.">OLD PHONE NUMBER</A>: <B>(null) null</B>  DATE CREATED: &lt;Date/Time Created&gt;</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The OLD PHONE NUMBER field is set to the previous phone number
+								  (area code and local phone were both null), and the PHONE NUMBER field is set
+								  to the new phone number (area code and local number).</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Repeat steps 1 and 2, but this time delete the area code. At the
+			 end of this step, the field values should be:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <PRE>NAME: MODIFIED,ENTRY               LOCAL NUMBER: 555-1234
+  PHONE NUMBER: <B>(null) 555-1234</B>    OLD PHONE NUMBER: <B>(415) 555-1234</B>
+  DATE CREATED: &lt;Date/Time Created&gt;</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The PHONE NUMBER and OLD PHONE NUMBER fields again correctly
+								  reflect the original and new values of the AREA CODE and LOCAL NUMBER
+								  fields.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Repeat Steps 1 and 2, but this time enter 510 as the Area Code and
+			 delete the Local Number. At the end of this step, the field values should
+			 be:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>NAME: MODIFIED,ENTRY              AREA CODE: 510
+  PHONE NUMBER: <B>(510) null</B>        OLD PHONE NUMBER: <B>(null) 555-1234</B>
+  DATE CREATED: &lt;Date/Time Created&gt;</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Repeat Steps 1 and 2, but this time enter 555-3412 as the Local
+			 Number. At the end of this step, the field values should be:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <PRE>NAME: MODIFIED,ENTRY             AREA CODE: 510
+  LOCAL NUMBER: 555-3412         PHONE NUMBER: <B>(510) 555-3412</B>
+  OLD PHONE NUMBER: <B>(510) null</B>   DATE CREATED: &lt;Date/Time Created&gt;</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">In all cases, Steps 1 through 5, the Set Logic was executed, even
+								  when the Area Code and/or the Local Number field values were
+								  deleted.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		7.2.</FONT></B></P><BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_7.htm"
+			 TITLE="Link to Lesson 7 Quiz"><IMG SRC="images/button_large_shadow_quiz_7.gif"
+			 WIDTH="125" HEIGHT="35" BORDER="0" ALT="Lesson 7 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p2_l6.htm"
+			 TITLE="Click and go to Lesson 6">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">7</FONT></B>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			  TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

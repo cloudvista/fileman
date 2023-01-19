@@ -1,0 +1,695 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 3, Lesson
+		9</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 9
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR><A HREF="FMtut_p2_l8.htm"
+					 TITLE="Click and go to Lesson 8">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_9.htm"
+					 TITLE="Link to Lesson 9 Quiz"><IMG SRC="images/button_small_shadow_quiz_9.gif"
+					 WIDTH="89" HEIGHT="16" BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Lesson 9 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p3_l10.htm"
+					 TITLE="Click and go to Lesson 10">[Next Lesson --&gt;]</A></TD>
+				</TR>
+			 </TABLE><BR> <FONT SIZE="6" FACE="Arial">Part 3 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_key.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=610,height=250,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE='Contents of secondary window: A key is a set of one or more fields in a file that together uniquely identifies a record in that file. If you define a key, FileMan V.22.0 automatically enforces the integrity of that key, which means that: (1)  No key field is null; (2) The key (that is, the combination of fields in a key) is unique for all records in the file. FileMan stores the definition of keys in the KEY file (#.31), which has the global root ^DD("KEY").'>Keys</A></FONT>
+			 </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE>
+	 <P><A NAME="navskip"></A><FONT SIZE="2" FACE="Arial">Version 22 of VA
+		FileMan allows you to define a database key on a file. A database key is a set
+		of one or more fields that, when taken together, uniquely identifies a record
+		in a file.<BR><BR>VA FileMan stores key definitions in the KEY file (#.31),
+		under the global root ^DD("KEY").</FONT></P> <BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="110" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">Lesson
+			 9.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="689" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">Create a
+			 Key</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT FACE="Arial" SIZE="2">This lesson covers the following
+		topics:</FONT></P>
+	 <BLOCKQUOTE>
+		<PRE><FONT FACE="Arial" SIZE="2">1.  Key Integrity
+2.  Uniqueness Index
+3.  Primary and Secondary Keys</FONT></PRE></BLOCKQUOTE>
+	 <P><FONT SIZE="2" FACE="Arial">In the exercise that follows, you will
+		create a key on the <I>ZZINDIVIDUAL</I> file.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Key Integrity</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">When you define a key, VA FileMan
+		automatically enforces the integrity of that key. Key integrity means
+		that:</FONT></P>
+	 <BLOCKQUOTE>
+		<PRE><FONT FACE="Arial" SIZE="2">1.  The key is unique for all records in a file.
+2.  A field that is part of a key must have a value (i.e., it cannot be null).</FONT></PRE></BLOCKQUOTE><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Uniqueness Index</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">When you create a key in VA FileMan, an
+		index, called the <B>Uniqueness Index</B>, is automatically created. This index
+		contains as subscripts the fields in that key. The Uniqueness Index is simply a
+		New-style Regular index that supports a key. VA FileMan uses the Uniqueness
+		Index of a key to enforce the integrity of that key and to look up entries in
+		the file based on the fields in the key.</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">For example, if you define a key and select
+		NAME and SSN as the fields in that key, FileMan automatically creates a
+		corresponding Uniqueness Index that contains as subscripts the NAME and SSN
+		fields.</FONT></P><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Primary and Secondary Keys</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">If a file has a key, exactly one key in that
+		file must be designated the <B>primary key</B>. All other keys, if any, are
+		<B>secondary keys</B>. VA FileMan enforces key integrity equally for both
+		primary and secondary keys, but it uses the primary key as the principal means
+		for looking up entries in a file. For example, in a ^DIC lookup, if the user
+		enters a question mark (?) at the Select prompt, VA FileMan automatically
+		displays the data in the primary key fields for each record listed.</FONT></P>
+	 <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	  WIDTH="88%">
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="5" WIDTH="100%">
+			 <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+				<TR>
+				  <TD>
+					 <TABLE BORDER="0" BGCOLOR="#F1F2F3" BORDERCOLORLIGHT="#F1F2F3"
+					  BORDERCOLORDARK="#808080" WIDTH="100%">
+						<TR>
+						  <TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT SIZE="2"
+							 FACE="Arial">Note:</FONT></B></TD>
+						  <TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+							 FACE="Arial">The .01 field should be defined as part of the primary
+							 key.</FONT></TD>
+						</TR>
+					 </TABLE></TD>
+				</TR>
+			 </TABLE></TD>
+		</TR>
+	 </TABLE><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 9.1. &nbsp;Create Your First
+		Key</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise you will define your first
+		key on the <I>ZZINDIVIDUAL</I> file. The fields in that key will be the NAME
+		field (#.01) and the SSN field (#.02).</FONT></P> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Key Definition option to create a new key named
+			 "A":</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION: <B>UTILITY FUNCTIONS</B>
+Select UTILITY OPTION: <B>KEY</B> DEFINITION
+
+MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select Subfile: <B>&lt;Enter&gt;</B>
+
+There are no Keys defined on file #<I>662nnn</I>.
+Want to create a new Key for this file? No// <B>Y</B>ES
+
+Enter a Name for the new Key: A// <B>&lt;Enter&gt;</B> A
+  Creating new Key 'A' ...</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Key names must be one uppercase letter. You should give the
+								  primary key of your file or subfile the name "A". Subsequent secondary keys
+								  should be given the names "B", "C", and so on.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">You are now presented with a one-page ScreenMan form. Here you can
+			 select the fields in your new key.<BR><BR>In the first row of the "KEY FIELDS"
+			 section, under the "Field" column, enter NAME (or .01). In the "Seq No."
+			 column, enter 1. In the second row of the "KEY FIELDS" section, enter SSN (or
+			 .02), and in the "Seq No." column, enter 2.<BR><BR>The screen should now look
+			 like this:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nn</I></FONT></TD>
+								<TD COLSPAN="3" WIDTH="34%" ALIGN="CENTER"><FONT
+								  SIZE="2" FACE="Courier New">EDIT A KEY</FONT></TD>
+								<TD ALIGN="RIGHT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Page 1 of 1</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7">
+								  <PRE>  File: <I>662nnn</I>         Name: A             <A HREF="http://hardhats.org/fileman/Main/window_text/wt_priority.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: Priority indicates whether the key is the primary key of the file or a secondary key. By default, the first key you create for a file or subfile is designated the primary key.">Priority</A>: PRIMARY</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;<A
+								  HREF="http://hardhats.org/fileman/Main/window_text/wt_key_fields.htm"
+								  TARGET="secondary"
+								  ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+								  TITLE="Contents of secondary window: In this section of the form, you can view and edit the fields that make up the key.">KEY
+								  FIELDS</A>:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;==========</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM">
+								  <PRE>  Field          Seq No.  File            Field Name
+  -----          -------  ----            ----------
+  <B>.01              1      <I>662nnn</I>          NAME
+  .02              2      <I>662nnn</I>          SSN</B></PRE></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;<A
+								  HREF="http://hardhats.org/fileman/Main/window_text/wt_unique_index.htm"
+								  TARGET="secondary"
+								  ONCLICK="makeNewWindow('width=600,height=195,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+								  TITLE="Contents of secondary window: If a Uniqueness Index already existed for this key, you would see information about that index here. As you will see in Lesson 10, you can also select an already existing new-style index as the Uniqueness Index for the key, and have FileMan make all the fields in that index the fields in the key. You can do this in lieu of selecting fields in the Key Fields section of the form.">Uniqueness
+								  Index</A>:<BR><BR> &nbsp;&nbsp;&nbsp;<A
+								  HREF="http://hardhats.org/fileman/Main/window_text/wt_index_details.htm"
+								  TARGET="secondary"
+								  ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+								  TITLE="Contents of secondary window: If a Uniqueness Index already exists for the key, you press return at the Index Details… field to display the properties of that index.">Index
+								  Details...</A></FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The sequence number corresponds to the subscript number of the
+								  cross-reference value as it will be stored in the Uniqueness Index. The first
+								  field of every key should be given a sequence number of 1, the second 2, and so
+								  on.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to exit the form.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">FileMan then indicates that it will create a Uniqueness Index to
+			 support the key you just created and prompts you for an index name. Select the
+			 default name "E".</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>I'm going to create a new Uniqueness Index to support Key 'A'
+of File #<I>662nnn</I>.
+
+Index Name: E// <B>&lt;Enter&gt;</B>
+
+  One moment please ...</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">If
+			 asked whether you want to build the new index, press Enter to select the
+			 default YES and press Enter again to continue.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Do you want to build the index now? YES// <B>&lt;Enter&gt;</B>
+  Building new index ...  DONE!
+
+Press RETURN to continue: <B>&lt;Enter&gt;</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">At this point a Uniqueness Index to support Key A has been
+								  created. It is a compound index named "E", and its subscripts (cross-reference
+								  values) are the NAME and SSN fields.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Answer YES to check key integrity now.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Do want to check the integrity of this key now? <B>Y</B>ES
+
+Checking key integrity ...</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">If
+			 any of the records in your file violate key integrity, you are presented with a
+			 list of options. A problem will probably be found. If so, select option 3 to
+			 ignore the problem for now. We know that we want to define the NAME and SSN
+			 fields as Key A. If any of the existing data in the file causes key integrity
+			 to be violated, we will correct it later.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>ERROR: The key is not unique and/or some records have key
+field values missing.
+
+     Select one of the following:
+
+          1        Delete the Key (also selected on up-arrow)
+          2        Re-Edit the Key
+          3        Ignore problem (Be sure to fix later)
+
+Enter response: <B>3 &lt;Enter&gt;</B>  Ignore problem (Be sure to fix later)</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The problem here is that one or more records in the file violate
+								  the integrity of the key. There may be fields with missing key values, or two
+								  records may have exactly the same NAME and SSN. You will find out what the
+								  specific problem is in the next few steps.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 8.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 this point, the key is successfully defined, and FileMan shows you the basic
+			 information about the key. At the list of options, choose VERIFY to determine
+			 which record(s) violated key integrity in Step 7.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Keys defined on file #<I>662nnn</I>:
+
+  A  PRIMARY KEY    Uniqueness Index: E
+         Field(s):  1) NAME (#.01)
+                    2) SSN (#.02)</PRE><FONT SIZE="2" FACE="Courier New">Choose V (Verify)/E
+				  (Edit)/D (Delete)/C (Create): <B>V</B>ERIFY</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 9.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select Key A, the key you just created, as the key to verify.
+			 Since our test file has only a few records in it, don't store the internal
+			 entry numbers of the records that violate key integrity in a template - just
+			 press Enter at the "STORE THESE ENTRY ID'S IN TEMPLATE:" prompt. Press Enter at
+			 the "DEVICE:" prompt to print the results to the screen.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <PRE>Which Key do you wish to verify? A// <B>&lt;Enter&gt;</B>
+STORE THESE ENTRY ID'S IN TEMPLATE: <B>&lt;Enter&gt;</B></PRE><FONT SIZE="2" FACE="Courier New">DEVICE: HOME//
+				  <B>&lt;Enter&gt;</B></FONT><BR><BR>
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT" WIDTH="50%"><FONT SIZE="2"
+								  FACE="Courier New">KEY INTEGRITY CHECK</FONT></TD>
+								<TD COLSPAN="4" WIDTH="50%" ALIGN="RIGHT"><FONT
+								  SIZE="2" FACE="Courier New">SEP 21, 2000 14:35&nbsp;&nbsp;&nbsp;&nbsp;PAGE
+								  1</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7">
+								  <PRE>             Key: A (#<I>nn</I>), File #<I>662nnn</I>
+Uniqueness Index: E (#<I>nnn</I>)</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM">
+								  <PRE>ENTRY #   NAME                    ERROR
+-------   ----                    -----
+<I>14</I>        MODIFIED,ENTRY          Missing Key Fields(s):
+                                   SSN [<I>662nnn</I>,.02]</PRE></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">You created this entry in a previous lesson. However, you never
+								  added an SSN for this record, and it is the only record that violates key
+								  integrity.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 10.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Enter or Edit File Entries option to correct edit
+			 the SSN field for the MODIFIED,ENTRY record to 123456789.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>E</B>NTER OR EDIT FILE ENTRIES
+
+INPUT TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+EDIT WHICH FIELD: ALL// <B>SSN</B>
+THEN EDIT FIELD: <B>&lt;Enter&gt;</B>
+
+Select <I>ZZINDIVIDUAL</I> NAME: <B>MODIFIED,ENTRY</B>
+SSN: <B>123456789</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 11.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Now, go back to the Key Definition option and check key integrity
+			 again.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>U</B>TILITY FUNCTIONS
+Select UTILITY OPTION NAME: <B>K</B>EY DEFINITION
+
+MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select Subfile: <B>&lt;Enter&gt;</B>
+
+Keys defined on file #<I>662nnn</I>:
+
+  A  PRIMARY KEY    Uniqueness Index: E
+         Field(s):  1) NAME (#.01)
+                    2) SSN (#.02)
+
+Choose V (Verify)/E (Edit)/D (Delete)/C (Create): <B>V</B>ERIFY
+
+Which Key do you wish to verify? A// <B>&lt;Enter&gt;</B>
+STORE THESE ENTRY ID'S IN TEMPLATE: <B>&lt;Enter&gt;</B>
+
+DEVICE: HOME// <B>&lt;Enter&gt;</B>  SYSTEM</PRE>
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT" WIDTH="50%"><FONT SIZE="2"
+								  FACE="Courier New">KEY INTEGRITY CHECK</FONT></TD>
+								<TD COLSPAN="4" WIDTH="50%" ALIGN="RIGHT"><FONT
+								  SIZE="2" FACE="Courier New">SEP 22, 2000 10:00&nbsp;&nbsp;&nbsp;&nbsp;PAGE
+								  1</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7">
+								  <PRE>             Key: A (#<I>nn</I>), File #<I>662nnn</I>
+Uniqueness Index: E (#<I>nnn</I>)</PRE><FONT SIZE="2" FACE="Courier New">** NO
+								  PROBLEMS **</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">This time, no problems were found! Every entry in the file has
+								  values for NAME and SSN, and the combination of those two fields is unique for
+								  all entries in the file.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE> </TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise 9.1.</FONT></B></P><BR>
+	 <P ALIGN="CENTER"><FONT SIZE="5" FACE="Arial">Congratulations! You have
+		just created your first key!</FONT></P><BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_9.htm"
+			 TITLE="Link to Lesson 9 Quiz"><IMG SRC="images/button_large_shadow_quiz_9.gif"
+			 WIDTH="125" HEIGHT="35" BORDER="0" ALT="Lesson 9 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p2_l8.htm"
+			 TITLE="Click and go to Lesson 8">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">9</FONT></B>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			 TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

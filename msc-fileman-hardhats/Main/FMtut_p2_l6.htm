@@ -1,0 +1,750 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 2, Lesson
+		6</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 6
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR>
+					 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_6.htm"
+					 TITLE="Link to Lesson 6 Quiz"><IMG SRC="images/button_small_shadow_quiz_6.gif"
+					 WIDTH="89" HEIGHT="16" BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Lesson 6 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p2_l7.htm"
+					 TITLE="Click and go to Lesson 7">[Next Lesson --&gt;]</A></TD>
+				</TR>
+			 </TABLE> <BR> <FONT SIZE="6" FACE="Arial">Part 2 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_mumps_xref.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=180,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: MUMPS is one of the two types of new-style cross-references you can create. (The other is Regular.) In contrast to Regular cross-references, you define the set and kill logic of MUMPS cross-references. The logic of a MUMPS cross-reference is executed whenever a field in the cross-reference is edited, and usually performs some action other than just maintaining an index.">MUMPS
+			 Cross-References</A></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE>
+	 <P><A NAME="navskip"></A><FONT SIZE="2" FACE="Arial">VA FileMan Version
+		22.0 allows you to create two types of New-style cross-references: Regular and
+		MUMPS. As you have seen in previous lessons, Regular cross-references build
+		indexes that can be used to lookup and/or sort entries in a file.</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">The advanced capabilities of Regular
+		cross-references, which include the ability to define compound indexes,
+		computed subscripts, and subscript transforms, means that most of the indexes
+		you previously had to define as Traditional MUMPS cross-references can, with
+		Version 22.0, be defined as New-style Regular indexes. You can usually reserve
+		MUMPS cross-references for performing actions other than building
+		indexes.</FONT></P> <BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="110" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">Lesson
+			 6.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="689" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">Create a
+			 New-Style MUMPS Cross-Reference</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">This lesson introduces you to New-style
+		MUMPS cross-references. It covers two topics:</FONT></P>
+	 <BLOCKQUOTE>
+		<PRE><FONT SIZE="2" FACE="Arial">1.  The X, X1, and X2 arrays.
+2.  The set and kill logic and conditions of cross-references.</FONT></PRE></BLOCKQUOTE> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">The X, X1, and X2 Arrays</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">The
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_set_kill_logic.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=290,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: FileMan executes the logic of a cross-reference when the values of any fields that make up the cross-reference are edited. FileMan first executes the kill logic, and then the set logic. In the set and kill logic, you can assume that the DA array describes the entry number of the record to be cross-referenced. The X(order#) array contains cross-reference values after the transform for storage is applied, but before the truncation to the maximum length. The variable X equals X(order#) of the lowest order number. The X1(order#) array contains the old cross-reference values, and the X2(order#) array contains the new cross-reference values. If a record is being added, and there is an X1(order#) array element that corresponds to the .01 field, it is set to null. When a record is deleted, all X2(order#) array elements are null.">set
+		and kill logic</A> and the set and Kill Conditions of New-style
+		cross-references can reference the X, X1, and X2 arrays. Here is what those
+		arrays contain when a record is edited, and the cross-reference is
+		fired:</FONT></P>
+	 <TABLE BORDER="1" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	  WIDTH="88%">
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" WIDTH="15%"><FONT SIZE="2"
+			 FACE="Arial">X(<A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_order_no.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE='Contents of secondary window: "Order#" is the order number of the cross-reference value. (Recall that new-style cross-reference can have more than one cross-reference value.) The order number is displayed in the "Order..." column on page 2 of the ScreenMan form when a cross-reference is edited or created.'>order#</A>)
+			 </FONT></TD>
+		  <TD VALIGN="TOP" COLSPAN="2" WIDTH="85%"><FONT SIZE="2"
+			 FACE="Arial">Contains the <B>old</B> cross-reference values when the kill logic
+			 and Kill Condition are executed.<BR>Contains the <B>new</B> cross-reference
+			 values when the Set Logic and Set Condition are executed.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+			 FACE="Arial">X1(order#) </FONT></TD>
+		  <TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Contains the
+			 <B>old</B> cross-reference values when the set and kill logic and conditions
+			 are executed.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+			 FACE="Arial">X2(order#) </FONT></TD>
+		  <TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Contains the
+			 <B>new</B> cross-reference values when the set and kill logic and conditions
+			 are executed.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT FACE="Arial" SIZE="2">When a new record is added to a file, VA
+		FileMan sets the .01 field and immediately fires the Set Logic of all the
+		cross-references on the .01 field. If a New-style cross-reference contains the
+		.01 field as a cross-reference value, the X1(order#) array element that
+		corresponds to the .01 field is guaranteed to be null at this point.</FONT></P>
+
+	 <P><FONT FACE="Arial" SIZE="2">When a record is deleted from a file, the
+		kill logic of all cross-references for that record is executed. All X2(order#)
+		array elements are null at this point.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Set and Kill Condition</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">You can define Set and Kill Conditions on
+		both Regular and MUMPS cross-references to prevent a cross-reference from
+		firing under conditions you specify.</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">If there is a Set Condition, the Set Logic
+		will be executed only if the Set Condition sets X to Boolean true (that is,
+		after the Set Condition code is executed, the command IF X evaluates to true).
+		Similarly, if there is Kill Condition, the Kill Logic is executed only if the
+		Kill Condition sets X to Boolean true.</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">Typically, your Set and Kill Conditions
+		would check the X, X1 and/or X2 arrays to decide whether the Set and Kill Logic
+		should be executed.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 6.1. &nbsp;Create Your First
+		New-Style MUMPS Cross-Reference</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise, you will create a MUMPS
+		cross-reference that should be executed only when a new record is added to the
+		file. To do this you will add the .01 field as the only cross-reference value
+		in the cross-reference, make it order number 1, and include a Set Condition
+		that sets X to 1 only if X1(1) is null. The Set Logic itself will update the
+		DATE CREATED field with the current date and time.</FONT></P> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Cross Reference a Field or File option to create
+			 a MUMPS cross-reference named "AD".</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION: <B>UTILITY FUNCTIONS</B>
+Select UTILITY OPTION: <B>CROSS-REFERENCE A FIELD OR FILE</B>
+
+What type of cross-reference (Traditional or New)? Traditional// <B>NEW</B>
+
+MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select Subfile: <B>&lt;Enter&gt;</B>
+
+Current Indexes on file #<I>662nnn</I>:
+  <I>nnn</I>    'C' index
+  <I>nnn</I>    'D' index
+
+Choose E (Edit)/D (Delete)/C (Create): <B>C</B>REATE
+
+Want to create a new Index for this file? No// <B>Y</B>ES
+
+Type of index: REGULAR// <B>M</B>UMPS
+
+How is this MUMPS cross reference to be used: <A HREF="http://hardhats.org/fileman/Main/window_text/wt_action_type_xref.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=160,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: An Action-type cross-reference is a cross-reference with set and kill logic that performs some action other than building an index. Most MUMPS cross-references are Action-type cross-references. An Action-type cross-reference must have a name that starts with the letter "A".'>ACTION</A>// <B>&lt;Enter&gt;</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Recall that our other choices at this prompt are LOOKUP &amp;
+								  SORTING and SORTING ONLY. Instead of setting index for lookup and/or sorting,
+								  our MUMPS cross-reference will perform an action, namely, set the DATE CREATED
+								  field (#4.1) to the current date and time.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE>
+				  <PRE>Index Name: AD// <B>&lt;Enter&gt;</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">ACTION cross-references, just like SORTING ONLY indexes, must have
+								  names that begin with the letter "A".</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use the ScreenMan form to select the .01 field as a
+			 cross-reference value for the MUMPS cross-reference.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" WIDTH="5%"><FONT
+				  SIZE="2" FACE="Arial">1.</FONT></TD>
+				<TD VALIGN="TOP" WIDTH="1%"></TD>
+				<TD VALIGN="TOP" COLSPAN="2" WIDTH="82%"><FONT SIZE="2"
+				  FACE="Arial">On page 1 of the ScreenMan form, at the "Short Description:" field
+				  enter <B>Set the DATE CREATED field when a new record is added</B>.</FONT></TD>
+
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">2.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">On page 2,
+				  in the "Order..." column type <B>1</B> and press Enter.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">3.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">For
+				  "Cross-Reference Values Type of Value", enter <B>FIELD</B>.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">4.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">In the
+				  pop-up window at the "Field:" prompt, enter <B>.01</B>.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">5.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Press
+				  &lt;PF1&gt;C to close the pop-up page.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="7"><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Because you are defining a MUMPS cross-reference, FileMan assumes
+								  your cross-reference value will not be used as a subscript, and so doesn't
+								  automatically assign it a subscript number. Since most of the time,
+								  cross-references that set an index can be defined as Regular indexes, most
+								  MUMPS cross-references don't have values that are used as subscripts in an
+								  index. If your MUMPS cross-reference has cross-reference values that are used
+								  as subscripts, you must manually enter subscript numbers for them.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Set Logic:" prompt enter (on a single line):</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE><B>N ZZFDA,ZZMSG,DIERR <A HREF="http://hardhats.org/fileman/Main/window_text/wt_FDA.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=240,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: Data is passed to and from the DBS as values in the FileMan Data Array (FDA). The FDA contains the file, internal entry numbers, and field information in its subscripting scheme. The format of the FDA is: FDA_ROOT(FILE#,"IENS",FIELD#)="VALUE". In this case, we are setting the FDA for field 4.1, the DATE CREATED field in file 662100, to "NOW", and passing this FDA to FILE^DIE, the Filer.'>S ZZFDA(<I>662nnn</I>,DA_",",4.1)="NOW"</A>
+<A HREF="http://hardhats.org/fileman/Main/window_text/wt_filer.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=350,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: The Filer puts validated data that is in internal FileMan format into the database; or validates data that is in external (user-provided) format, converts it into FileMan internal format, and files valid data into the database. The following is a breakdown of parameters passed to the Filer in the call: >D FILE^DIE("E","ZZFDA","ZZMSG") - (1) "E" This is the flag parameter. "E" indicates that the FDA contains the external form of the data. The Filer validates the value and converts it to internal form before it files it in the database. (2) "ZZFDA" This is the fda_root parameter and equals the root of the FDA that contains the data to file. (3) "ZZMSG" This is the msg_root parameter and equals the root of the array in which the Filer returns error messages.'>D FILE^DIE("E","ZZFDA","ZZMSG")</A></B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">This code sets a node in the ZZFDA array, which is passed to the
+								  Filer (FILE^DIE). The Filer sets the current date and time (NOW) into the DATE
+								  CREATED field (#4.1) of the <I>ZZINDIVIDUAL</I> file. To simplify the example,
+								  you will ignore any error messages the Filer returns in the ZZMSG
+								  array.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Tips:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial"><B>&lt;CTRL-U&gt;</B> is a toggle between the values: null, last
+								  edited, and the default of the ScreenMan field you are editing.<BR><BR>Press
+								  <B>&lt;PF1&gt;Z</B> ("zoom") at any field to open up an editing window at the
+								  bottom of the screen. This editing window is often easier to use than the usual
+								  scrolling window, especially when the value of the field is very long, as is
+								  the case with the Set Logic.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Set Condition:" prompt enter:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE><B>S X=X1(1)=""</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">This Set Condition sets X to 1 if X1(1)=""; otherwise, it sets it
+								  to 0. Since X1(1) refers to the old value of the .01 field (the cross-reference
+								  value with order number 1), the Set Condition means that the Set Logic of our
+								  MUMPS cross-reference should be executed only if the record is new.</FONT></TD>
+
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR>
+				  <TABLE WIDTH="505" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%" BORDER="0">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nnn</I></FONT></TD>
+								<TD COLSPAN="2"><FONT SIZE="2" FACE="Courier New">EDIT
+								  AN INDEX</FONT></TD>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Page 2 of 2</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">CROSS-REFERENCE VALUES:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="14%" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Order...</FONT></TD>
+								<TD WIDTH="12%" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Subscr</FONT></TD>
+								<TD WIDTH="10%" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Type</FONT></TD>
+								<TD WIDTH="14%" ALIGN="CENTER" VALIGN="BOTTOM"><FONT
+								  SIZE="2" FACE="Courier New">Length</FONT></TD>
+								<TD WIDTH="50%" COLSPAN="2" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">Field or Computed
+								  Expression</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">----------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-------</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">-----</FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP"><FONT SIZE="1"
+								  FACE="Courier New">--------</FONT></TD>
+								<TD COLSPAN="2" ALIGN="LEFT" VALIGN="TOP"><FONT
+								  SIZE="1" FACE="Courier New">-------------------------------------</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">1</FONT></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"></TD>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">FIELD</FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">30</FONT></TD>
+								<TD COLSPAN="2" ALIGN="LEFT" VALIGN="TOP"><FONT
+								  SIZE="2" FACE="Courier New">NAME (#.01)</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="40"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6">
+								  <PRE> Set Logic: N ZZFDA,ZZMSG,DIERR S ZZFDA(<I>662nnn</I>,DA_",",4.1)="NOW"
+            D FILE^DIE("E"
+Kill Logic: Q
+Whole Kill:</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;Set Condition: S X=X1(1)=""<BR> Kill
+								  Condition:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2" FACE="Courier New">Enter
+								  a command or '^' followed by a caption to jump to a specific
+								  field.<BR><BR>COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to exit the form.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Do you want to cross reference existing data now?" prompt, answer
+			 NO.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Do you want to cross reference existing data now? <B>N</B>O</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">If you answered "YES" at this point, VA FileMan will loop through
+								  all the entries in the file, and execute the Set Condition. If the Set
+								  Condition sets X to true (1), VA FileMan would execute the Set Logic. We want
+								  FileMan to update the DATE CREATED field only for new records subsequently
+								  added to the file, not for entries already in the file. Also, X1(1) would
+								  evaluate to true (1) for every existing entry, since all entries have non-null
+								  .01 field values, so the Set Logic wouldn't get executed anyway.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		6.1.</FONT></B> </P><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 6.2. &nbsp;Test the New MUMPS
+		Cross-Reference</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise, you will check the
+		behavior of the new MUMPS cross-reference you created in Exercise 6.1. To do
+		this, you will add a record to the file and make sure the DATE CREATED field is
+		correctly updated with the current date and time. You will then edit the .01
+		field of an existing record to make sure the DATE CREATED field is <B>not</B>
+		updated.</FONT> </P><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Enter or Edit File Entries option to add a new
+			 record 'NEW,ENTRY' to the <I>ZZINDIVIDUAL</I> file:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>E</B>NTER OR EDIT FILE ENTRIES
+
+INPUT TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+EDIT WHICH FIELD: ALL// <B>.01</B>  NAME
+THEN EDIT FIELD: <B>&lt;Enter&gt;</B>
+
+Select <I>ZZINDIVIDUAL</I> NAME: <B>NEW,ENTRY</B>
+  Are you adding 'NEW,ENTRY' as a new <I>ZZINDIVIDUAL</I> (the 14TH)? No//
+  <B>Y</B>  (Yes)</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Inquire to File Entries to look at the
+			 'NEW,ENTRY' record you just added:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>I</B>NQUIRE TO FILE ENTRIES
+
+OUTPUT FROM WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select <I>ZZINDIVIDUAL</I> NAME: <B>&lt;space&gt;&lt;Enter&gt;</B>   NEW,ENTRY
+ANOTHER ONE: <B>&lt;Enter&gt;</B>
+STANDARD CAPTIONED OUTPUT? Yes// <B>&lt;Enter&gt;</B>  (Yes)
+Include COMPUTED fields:  (N/Y/R/B): NO// <B>&lt;Enter&gt;</B> - No record number (IEN), no
+Computed Fields
+
+NAME: NEW,ENTRY                <B>DATE CREATED: FEB 21,2001@10:42:27</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The MUMPS cross-reference stuffed the current date and time into
+								  the DATE CREATED field.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Enter or Edit File Entries option to edit the
+			 NAME field of our 'NEW,ENTRY' record to 'MODIFIED,ENTRY':</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>E</B>NTER OR EDIT FILE ENTRIES
+
+INPUT TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+EDIT WHICH FIELD: ALL// <B>NAME</B>
+THEN EDIT FIELD: <B>&lt;Enter&gt;</B>
+
+Select <I>ZZINDIVIDUAL</I> NAME:  <B>&lt;space&gt;&lt;Enter&gt;</B>  NEW,ENTRY
+NAME: NEW,ENTRY// <B>MODIFIED,ENTRY</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Inquire to File Entries again to see if the DATE
+			 CREATED field has changed:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>I</B>NQUIRE TO FILE ENTRIES
+
+OUTPUT FROM WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select <I>ZZINDIVIDUAL</I> NAME:  <B>&lt;space&gt;&lt;Enter&gt;</B>  MODIFIED,ENTRY
+ANOTHER ONE: <B>&lt;Enter&gt;</B>
+STANDARD CAPTIONED OUTPUT? Yes//  <B>&lt;Enter&gt;</B> (Yes)
+Include COMPUTED fields:  (N/Y/R/B): NO// <B>&lt;Enter&gt;</B> - No record number (IEN), no
+Computed Fields
+
+NAME: MODIFIED,ENTRY           <B>DATE CREATED: FEB 21,2001@10:42:27</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The date and time stored in the DATE CREATED field has not
+								  changed, even though the value of the .01 field was changed. Our Set Condition
+								  prevented the Set Logic from executing since during the edit, the values of the
+								  .01 field and the corresponding X1(1) array element are not null.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		6.2.</FONT></B> </P> <BR><BR>
+	 <P ALIGN="CENTER"><FONT SIZE="5" FACE="Arial">Congratulations! You have
+		just created your first New-Style MUMPS cross-reference!</FONT></P> <BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_6.htm"
+			 TITLE="Link to Lesson 6 Quiz"><IMG SRC="images/button_large_shadow_quiz_6.gif"
+			 WIDTH="125" HEIGHT="35" BORDER="0" ALT="Lesson 6 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p1_l5.htm"
+			 TITLE="Click and go to Lesson 5">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">6</FONT></B>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			 TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

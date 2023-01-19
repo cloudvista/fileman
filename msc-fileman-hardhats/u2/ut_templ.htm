@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//SQ//DTD HTML 2.0 HoTMetaL + extensions//EN" "hmpro6.dtd">
+<html><head><!--VHA OI Health Systems Design & Development (HSD&D)--><!--Oakland OIFO--><!--Authored by Thom Blom and Kyle Clarke, 12/31/99--><!--Revised by Thom Blom, 06/27/03--><!--Edited March 2007, Hardhats.org-->
+
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"> 
+	 
+	 <title>VA FileMan V. 22.0 Advanced User Manual: File Utilities - Template Edit</title><meta name="subject" content="VA FileMan V. 22.0 Advanced User HTML Manual">
+	 <meta name="keywords" content="information infrastructure service,iis,vista,fileman,va fileman,user,advanced user manual,file utilities,utilities,template edit,edit,templates">
+	 <link rel="StyleSheet" type="text/css" href="user.css"></head>
+<body topmargin="0" bgcolor="white">D<br><img src="common/fileman_au_heading.gif" alt="VA FileMan V. 22.0 Getting Started HTML Manual Banner" border="0" height="29" width="429">
+	<br>
+	<hr align="left" color="blue" width="429">
+	<br>
+	<p>&nbsp;</p>
+	<table class="tdstyle" summary="This table is for formatting purposes only" valign="TOP" border="0" cellpadding="3" cellspacing="0" height="1" width="100%"> 
+		<tbody><tr> 
+		  <td class="menubartext" align="left" height="1" valign="bottom" width="10%">Contents:</td> 
+		  <td align="left" height="1" valign="bottom" width="7%">
+			 <a href="index.htm" target="_top" title="VA FileMan V. 22.0 Advanced User HTML Manual: Main Table of Contents" class="menubarlink">Main</a> </td> 
+		  <td align="left" height="1" valign="bottom" width="17%"><a href="ut_frm.htm" target="_top" title="VA FileMan V. 22.0 Advanced User HTML Manual: File Utilities Chapter TOC" class="menubarlink">Chapter</a></td> 
+		  <td class="menubartext" align="left" height="1" valign="bottom" width="10%">See Also: </td> 
+		  <td align="left" height="1" valign="bottom" width="28%"><a href="../u1/index.htm" target="_top" title="VA FileMan V. 22.0 Getting Started HTML Manual" class="menubarlink">Getting Started Manual</a></td> 
+		  <td colspan="4" align="left" height="1" valign="bottom" width="28%">
+			 <a href="../pm/index.htm" target="_top" title="VA FileMan V. 22.0 Programmer HTML Manual" class="menubarlink">Programmer Manual</a></td> 
+		</tr> 
+	 </tbody></table><!-- Content -->
+	 <h3><big><big><big><a name="navskip">File Utilities</a></big></big></big></h3> <hr class="hrstyle"> 
+	 <h4><big><big>Template Edit</big></big></h4> 
+	 <p>The Template Edit option available on the VA FileMan Utility Functions
+		submenu, is used to edit each of the three types of VA FileMan templates:</p> 
+	 <ul> 
+		<li><b>INPUT</b><br><br></li> 
+		<li><b>PRINT</b><br><br></li> 
+		<li><b>SORT</b></li> 
+	 </ul> 
+	 <p>For each template type, a <i>two</i>-screen
+		<a href="../u1/sm_frm.htm" target="_top" class="bodylink" title="ScreenMan">ScreenMan</a> form is used. This allows you to edit templates
+		in Screen Mode.</p> 
+	 <p>The <b><i>first</i></b> screen of the pair allows you to change the
+		access privileges of the template you're editing:</p> 
+	 <ul> 
+		<li><b>READ ACCESS --</b> This access controls which class of users
+		  [i.e., DUZ(0)] get to <i>use</i> the template.<br><br></li> 
+		<li><b>WRITE ACCESS --</b> This access controls which class of users gets
+		  to <i>change</i> the template.</li> 
+	 </ul> 
+	 <p> The <b><i>first</i></b> screen also allows you to enter a DESCRIPTION
+		for the purpose of documenting what the template does. This DESCRIPTION will be
+		printed on a "TEMPLATES ONLY" data dictionary list, and in the "TEMPLATES"
+		section of other data dictionary listings. </p> 
+	 <p>The <b><i>second</i></b> screen allows you to edit the <i>contents</i>
+		of a template. In order to "jump" to the second screen from the first screen in
+		a Screen Mode, you need only press the <b>&lt;PF1&gt;&lt;ArrowDown&gt;</b> from
+		wherever you are on the current screen.&nbsp;</p> 
+	 <p><b>NOTE:</b> The <b><i>first</i></b> screen provides the usual kind of
+		field-by-field Help in response to entering a single question mark
+		("<b>?</b>"); all Help messages are displayed in the lower portion of the
+		screen. Also, entering <b>&lt;PF1&gt;H</b> will provide general
+		<a href="../u1/sm_frm.htm" target="_top" class="bodylink" title="ScreenMan">ScreenMan</a> Help. <br> <br> The <b><i>second</i></b>
+		screen, however, does <i>not</i> provide help on individual entries. Thus, if
+		you are building a complicated new template from scratch, it is still a good
+		idea to use the traditional, interactive Scrolling Mode with the Enter or Edit
+		File Entries and Print File Entries options.</p> <hr> 
+	 <p>Here is an example the <b><i>first</i></b> screen of a PRINT template
+		using the Template Edit option:</p> 
+	 <pre>Select Utility Functions Option: <b>TEMPLATE</b> Edit<br><br> MODIFY WHAT FILE: NEW PERSON// <b></b><br> Select TEMPLATE File: <b>PRINT</b> TEMPLATE  <br><br><br> Select PRINT TEMPLATE: <b></b> XUFILEINQ    <br>                               (NOV 04, 2004@11:29)</pre> <hr> 
+	 <p>You will then be taken into a ScreenMan form where you can edit the
+		template properties, as shown below:</p> 
+	 <p></p> 
+	 <center>
+		<img style="width: 675px; height: 412px;" alt="" src="Ptempl1.jpg"> </center> 
+	 <p></p> 
+	 <p>The dates shown following the "DATE LAST MODIFIED" and "DATE LAST USED"
+		prompts are for informational purposes only and are <i>not</i> editable. Also,
+		if a template has been "compiled" into a set of routines, an informational
+		message will be displayed near the top of the screen (e.g., "Compiled as
+		'^XUFILE0 routine").</p><p><span class="badge">22.2</span>Note
+the caption that reads "CANONIC FOR FILE 200:" &nbsp; A 'canonic'
+template is one that is specifically designated as the 'preferred'
+Template to use for a given File (File 200 in this example).
+&nbsp;Answering "Y" to the prompt here would make "XUFILEINQ" the
+Template name that would be prompted as the default in user interaction
+dialogues "PRINT" and "INQUIRE".</p><p></p> <hr> 
+	 <p>On the <b><i>second</i></b> screen of the form, you will see the SORT,
+		PRINT, or INPUT fields themselves. Thus, you can use this second screen to edit
+		the specific template fields.&nbsp;</p> 
+	 <p>Here is an example of the <b><i>second</i></b> screen of a PRINT
+		template using the Template Edit option:</p> 
+	 <p></p> 
+	 <center>
+		<img src="Ptempl2.jpg" style="width: 640px; height: 455px;" alt="ScreenMan Form where you can edit a template (second screen)."> </center> 
+	 <p></p> 
+	 <p>As you can see from this example, fields under a Multiple field (e.g.,
+		ACCESSIBLE FILE) are <i>indented</i>. As you edit, add, and delete subfields
+		here, you must <i>preserve the indentation</i>. The same holds true for
+		<a href="rn_intro.htm" title="Relational Navigation" class="bodylink">Relational Navigation</a> within the template; fields jumped
+		to are in a different file and are indented an extra three spaces each. You
+		don't have to indent each new level exactly three spaces, however, there must
+		be some extra number of spaces. Then, if necessary, "un-indent" the same number
+		of spaces to get back to a previous level.</p> <hr> 
+	 <p></p><p></p><p></p><p></p><p>If a SORT template has a user number (i.e., USER #), only that user can
+		use that SORT template in the VA FileMan Print File Entries option. To remove
+		this restriction, simply delete the user number by entering an at-sign
+		("<b>@</b>") at the "USER #" prompt.</p> 
+	 <p>For SORT templates, you can also use the <b><i>first</i></b> screen of
+		the Template Edit option to associate a particular PRINT template with a SORT
+		template. Thus, whenever that SORT template is invoked in the Print File
+		Entries option, the associated PRINT template will be used by default, with
+		<i>no</i> "FIRST PRINT FIELD:" prompt being displayed to the user. </p> 
+	 <pre>Select Utility Functions Option: <b>TEMPLATE</b> Edit<br><br> MODIFY WHAT FILE: NEW PERSON<br> Select TEMPLATE File: <b>SORT</b> TEMPLATE  <br><br><br> Select SORT TEMPLATE: <b><span style="font-family: monospace;">XU EPCS DISUSER2 SORT  XU EPCS DISUSER2 SORT<br>                              (DEC 14, 2012@13:18)          File #200    SORT</span></b></pre> <hr> 
+	 <p>You will then be taken into a ScreenMan form where you can edit the
+		properties of the template, as shown below:</p> 
+	 <p></p> 
+	 <center>
+		<img src="STempl1.jpg" alt="ScreenMan Form where you can edit a template (first screen)." height="455" width="640"> </center> 
+	 <p></p> 
+	 <p><span class="badge">22.2</span>Again
+note the "CANONIC FOR FILE 200" question. &nbsp; If a Sort Template has
+been designated as CANONIC, the user who goes into the FileMan PRINT
+option will see that Template name as a default answer to the "SORT
+BY:" query.</p><p></p><p> </p> 
+	 <p><a name="sortfields"></a>Here is an example of the <b><i>second</i></b> screen of a SORT template
+		using the Template Edit option:&nbsp;</p> 
+	 <p></p> 
+	 <center>
+		<img src="stempl2.jpg" alt="ScreenMan Form where you can edit a template (second screen)." height="398" width="640"> </center> 
+	 <p></p> 
+	 <p>Editing
+SORT template fields is particularly tricky; however, most SORT
+templates have only three or so sort levels. &nbsp; The specifications
+for each successive level of sorting are indented further to the right.
+You can add or insert sort levels, however, each sort group of lines
+must be indented further to the right than the sort group above it. For
+each level of sorting, except when the sorting is on a Boolean value,
+there should be a "From:" line and a "To:" line. You can also have a
+fourth line that says "ASK" or "DO NOT ASK," for sort ranges other than
+first-to-last. Remember to indent each line in a sort group by the same
+number of spaces.</p>
+	 <p>&nbsp;</p> 
+	 <hr class="hrstyle">
+	 <!-- ut_templ.htm -->
+	 <p align="center">Reviewed/Updated: October 2016</p>
+	 <p>&nbsp;</p> 
+
+  </body></html>

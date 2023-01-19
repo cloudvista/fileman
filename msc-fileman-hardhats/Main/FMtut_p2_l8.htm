@@ -1,0 +1,577 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 2, Lesson
+		8</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 8
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR><A HREF="FMtut_p2_l7.htm"
+					 TITLE="Click and go to Lesson 7">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_8.htm"
+					 TITLE="Link to Lesson 8 Quiz"><IMG SRC="images/button_small_shadow_quiz_8.gif"
+					 WIDTH="89" HEIGHT="16" BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Lesson 8 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p3_l9.htm"
+					 TITLE="Click and go to Lesson 8">[Next Lesson --&gt;]</A></TD>
+				</TR>
+			 </TABLE><BR> <FONT SIZE="6" FACE="Arial">Part 2 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_mumps_xref.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=180,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: MUMPS is one of the two types of new-style cross-references you can create. (The other is Regular.) In contrast to Regular cross-references, you define the set and kill logic of MUMPS cross-references. The logic of a MUMPS cross-reference is executed whenever a field in the cross-reference is edited, and usually performs some action other than just maintaining an index.">MUMPS
+			 Cross-References</A></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE><BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="110" VALIGN="TOP"><A NAME="navskip"></A><FONT FACE="Arial"
+			 SIZE="5">Lesson 8.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="689" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">Using ACTIVITY
+			 to Suppress Cross-Reference Execution</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">In this lesson you will learn about the
+		Activity property of New-style cross-references.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Activity</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">Cross-references are executed when a record
+		is re-indexed via one of the ^DIK entry points or when the Re-Index File option
+		on the VA FileMan Utility Functions menu is selected. Also, during a KIDS
+		installation, if the
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_kids.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=150,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: KIDS is a Kernel tool that is used to transfer software packages from one Kernel/FileMan environment to another.">KIDS</A>
+		Build sends a file with data, records in the file may be reindexed
+		automatically.</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">The Activity cross-reference property allows
+		you to prevent a particular cross-reference from firing during a re-indexing
+		operation and/or a KIDS installation. By default, when you create a New-style
+		cross-reference, Activity is automatically set to "IR". Activity does not
+		control whether a cross-reference is fired when a record is added, edited, or
+		deleted.</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">If you wish to suppress the firing of the
+		cross-reference when VA FileMan's reindexing APIs (xxx^DIK) and when the
+		Re-Index File option is called, you can remove the "R" from Activity. (Note,
+		however, that if you explicitly select a cross-reference in an EN^DIK, EN1^DIK,
+		or ENALL^DIK call, or in the UTILITY FUNCTIONS/RE-INDEX FILE option on the VA
+		FileMan menu, that cross-reference will be fired whether or not its Activity
+		contains an "R".)</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">If you wish to suppress firing a
+		cross-reference during a KIDS installation, you can remove the "I" from
+		Activity.</FONT></P><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 8.1. &nbsp;Reindex a Single Record
+		with IX1^DIK</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise, you will reindex the
+		MODIFIED,ENTRY record via the IX1^DIK entry point. This causes the Set Logic of
+		the "AE" cross-reference you created in Lesson 7 to be executed.</FONT></P>
+	 <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Enter or Edit File Entries option to edit the
+			 AREA CODE field (#3.1) and the LOCAL NUMBER field (#3.2) of the MODIFIED,ENTRY
+			 record. First change the area code to 111 and the local number to 111-1111.
+			 Then change them again to 415 and 555-1234, respectively. This step simply
+			 establishes a starting point for the values of the fields OLD PHONE NUMBER and
+			 PHONE NUMBER.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" CELLPADDING="5" BORDERCOLORLIGHT="#F1F2F3"
+			BORDERCOLORDARK="#808080" WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: ENTER OR EDIT FILE ENTRIES
+
+INPUT TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+EDIT WHICH FIELD: ALL// <B>3.1 &lt;Enter&gt;</B>  AREA CODE
+THEN EDIT FIELD: <B>3.2 &lt;Enter&gt;</B>  LOCAL NUMBER
+THEN EDIT FIELD:
+
+Select <I>ZZINDIVIDUAL</I> NAME: <B>MODIFIED,ENTRY</B>
+AREA CODE: <B>111</B>
+LOCAL NUMBER: <B>111-1111</B>
+
+Select <I>ZZINDIVIDUAL</I> NAME: <B>&lt;space&gt;&lt;Enter&gt;</B> MODIFIED,ENTRY
+AREA CODE: 111// <B>415</B>
+LOCAL NUMBER: 111-1111// <B>555-1234</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Inquire to File Entries option to look at the
+			 values of OLD PHONE NUMBER and PHONE NUMBER. Select a
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_standard_caption.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: The standard captioned output in the Inquire to File Entries option prints out all fields that contain data for each entry in your report. It is the fastest way to choose which fields to print.">STANDARD
+			 CAPTIONED OUTPUT</A>, and when asked whether to include COMPUTED fields, answer
+			 R to include the Record Number in the display.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>I</B>NQUIRE TO FILE ENTRIES
+
+OUTPUT FROM WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select <I>ZZINDIVIDUAL</I> NAME:  <B>&lt;space&gt;&lt;Enter&gt;</B>  MODIFIED,ENTRY
+ANOTHER ONE: <B>&lt;Enter&gt;</B>
+STANDARD CAPTIONED OUTPUT? Yes// <B>&lt;Enter&gt;</B> (Yes)
+Include COMPUTED fields:  (N/Y/R/B): NO// <B>R</B>ecord Number (IEN)
+
+NUMBER: <A HREF="http://hardhats.org/fileman/Main/window_text/cl_lessn8_1.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This number may be different on your system if you've added other records to your test file. Use the number displayed on your system in Step 3."><B>14</B></A>                         NAME: MODIFIED,ENTRY
+  AREA CODE: 415                   LOCAL NUMBER: 555-1234
+  PHONE NUMBER: <B>(415) 555-1234</B>     OLD PHONE NUMBER: <B>(111) 111-1111</B>
+  DATE CREATED: &lt;Date/Time Created&gt;</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use IX1^DIK to reindex the MODIFIED,ENTRY. Set DA to the record
+			 number displayed in Step 2.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>&gt;S <A HREF="http://hardhats.org/fileman/Main/window_text/wt_IX1_DIK_vars.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: DIK - This variable is set to the global root of the file or subfile that contains the record to be reindexed. DA - This variable is set to the internal entry number of the record to be reindexed.">DIK="^<I>DIZ</I>(<I>662nnn</I>,",DA=<B>14</B></A>
+&gt;D <A HREF="http://hardhats.org/fileman/Main/window_text/wt_IX1_DIK.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This entry point executes the set logic of all cross-references for a single entry in the file.">IX1^DIK</A></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Inquire to File Entries option to see the effect
+			 of reindexing the entry.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>IN</B>QUIRE TO FILE ENTRIES
+
+OUTPUT FROM WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select <I>ZZINDIVIDUAL</I> NAME:  <B>&lt;space&gt;&lt;Enter&gt;</B>  MODIFIED,ENTRY
+ANOTHER ONE: <B>&lt;Enter&gt;</B>
+STANDARD CAPTIONED OUTPUT? Yes// <B>&lt;Enter&gt;</B> (Yes)
+Include COMPUTED fields:  (N/Y/R/B): NO// <B>R</B>ecord Number (IEN)
+
+NUMBER: 14                         NAME: MODIFIED,ENTRY
+  AREA CODE: 415                   LOCAL NUMBER: 555-1234
+  PHONE NUMBER: <B>(415) 555-1234</B>     OLD PHONE NUMBER: <B>(415) 555-1234</B>
+  DATE CREATED: &lt;Date/Time Created&gt;</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The reindexing call IX1^DIK caused the Set Logic of the MUMPS "AE"
+								  index you created in Lesson 7 to be executed. When an entry is reindexed,
+								  fields aren't being edited, and so the old field values in the X1 array and the
+								  new field values in the X2 array both equal the current field values. Hence,
+								  when the Set Logic of our "AE" cross-reference is executed, both the OLD PHONE
+								  NUMBER and PHONE NUMBER fields reflect the current values of the AREA CODE
+								  (#3.1) and LOCAL NUMBER (#3.2) fields.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise 8.1.</FONT></B></P>
+	 <BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 8.2. &nbsp;See How Removing "R"
+		from Activity Affects the IX1^DIK Call</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">In this exercise, you will remove the "R"
+		from the Activity property of our "AE" cross-reference. This will cause the Set
+		Logic of that cross-reference not to be executed when you reindex a record with
+		IX1^DIK.</FONT></P><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Before you begin this exercise, you need to re-establish the
+			 starting point for the values of the fields PHONE NUMBER and OLD PHONE NUMBER.
+			 To do this, enter the following command from programmer mode:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New">&gt;<B>D
+				  MODENT^A6AKIT</B>(<I>662nnn</I>)</FONT><FONT SIZE="2"
+				  FACE="Arial"><BR><BR>Where <I>662nnn</I> is the number of your copy of the
+				  tutorial test file. This is equivalent to performing Steps 1 and 2 from
+				  exercise 8.1</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Edit the "AE" MUMPS cross-reference:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>U</B>TILITY FUNCTIONS
+Select UTILITY OPTION NAME: <B>C</B>ROSS-REFERENCE A FIELD OR FILE
+
+What type of cross-reference (Traditional or New)? Traditional// <B>NEW</B>
+
+MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select Subfile: <B>&lt;Enter&gt;</B>
+
+Current Indexes on file #<I>662nnn</I>:
+  <I>nnn</I>    'C' index
+  <I>nnn</I>    'D' index
+  <I>nnn</I>    'AD' index
+  <I>nnn</I>    'AE' index
+
+Choose E (Edit)/D (Delete)/C (Create): <B>E</B>DIT
+
+Which Index do you wish to edit? <B>AE &nbsp;&lt;Enter&gt;</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">On
+			 the first page of the ScreenMan, tab to the Activity field and remove the
+			 "R".</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BGCOLOR="#F1F2F3" BORDER="1">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nnn</I></FONT></TD>
+								<TD ALIGN="CENTER" VALIGN="TOP" WIDTH="36%"
+								COLSPAN="2"> <FONT SIZE="2" FACE="Courier New">EDIT AN INDEX</FONT></TD>
+								<TD COLSPAN="2" ALIGN="RIGHT" WIDTH="33%" VALIGN="TOP">
+								  <FONT SIZE="2" FACE="Courier New">Page 1 of 2 </FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" WIDTH="32%"><FONT SIZE="2"
+								  FACE="Courier New">File:<BR> Index Name:</FONT></TD>
+								<TD ALIGN="LEFT" WIDTH="15%"><FONT SIZE="2"
+								  FACE="Courier New"><I>662nnn</I><BR> AE</FONT></TD>
+								<TD ALIGN="CENTER" COLSPAN="3" WIDTH="45%">
+								  <FONT SIZE="2" FACE="Courier New">Root File: <I>662nnn</I><BR>
+								  &nbsp;&nbsp;&nbsp;&nbsp;Root Type: INDEX FILE</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT" VALIGN="TOP"><FONT SIZE="2"
+								  FACE="Courier New">Short Description:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New">Update the PHONE NUMBER field when the AREA
+								  CODE and LOCAL N</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Description (wp):</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New"> (empty)</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="LEFT" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Type:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New">MUMPS</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2" FACE="Courier New"><A
+								  HREF="http://hardhats.org/fileman/Main/window_text/wt_activity.htm"
+								  TARGET="secondary"
+								  ONCLICK="makeNewWindow('width=600,height=345,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+								  TITLE='Contents of secondary window: Activity is a set of flags that that controls whether FileMan fires a cross-reference during an installation and/or a re-cross-referencing operation. The possible flags are: I - Installing an entry at a site; R - Re-cross-referencing this index. Activity can contain either "I", "R" or both flags together. FileMan automatically fires cross-references during an edit, regardless of Activity, though you can control whether a cross-reference is fired by entering Set and Kill Conditions. Also, if you explicitly select a cross-reference in an EN^DIK, EN1^DIK, or ENALL^DIK call, or in the UTILITY FUNCTIONS/RE-INDEX FILE option on the VA FileMan menu, that cross-reference will be fired whether or not its Activity contains an "R".'>Activity</A>:<BR>
+								  Execution:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New"><B>I</B><BR> RECORD</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" ALIGN="LEFT" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="RIGHT"><FONT SIZE="2"
+								  FACE="Courier New">Use:</FONT></TD>
+								<TD COLSPAN="4" ALIGN="LEFT">
+								  <FONT SIZE="2" FACE="Courier New">ACTION</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD ALIGN="LEFT" COLSPAN="3"><FONT SIZE="2"
+								  FACE="Courier New">Save &nbsp;&nbsp;&nbsp;&nbsp;Exit
+								  &nbsp;&nbsp;&nbsp;&nbsp;Next Page &nbsp;&nbsp;&nbsp;&nbsp;Refresh</FONT></TD>
+								<TD ALIGN="LEFT" COLSPAN="2"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5" HEIGHT="50"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="5"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">You actually would probably also want to remove the "I" from
+								  Activity to suppress the firing of this cross-reference during a KIDS
+								  installation when data is sent with the file.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to exit (and save) the form.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">As
+			 in Step 3 of Exercise 1, make an IX1^DIK call to reindex the MODIFIED,ENTRY
+			 entry:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>&gt;S DIK="^<I>DIZ</I>(<I>662nnn</I>,",DA=14 D IX1^DIK</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Inquire to File Entries option to see the effect
+			 of reindexing the entry.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <PRE>NUMBER: 14    	                   NAME: MODIFIED,ENTRY
+  AREA CODE: 415                   LOCAL NUMBER: 555-1234
+  PHONE NUMBER: <B>(415) 555-1234</B>     OLD PHONE NUMBER: <B>(111) 111-1111</B>
+  DATE CREATED: &lt;Date/Time Created&gt;</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The PHONE NUMBER and OLD PHONE NUMBER fields haven't been changed.
+								  The reindexing call IX1^DIK did not execute the "AE" MUMPS cross-reference
+								  because you removed the "R" from the Activity property of that
+								  cross-reference.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		8.2.</FONT></B></P><BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_8.htm"
+			 TITLE="Link to Lesson 8 Quiz"><IMG SRC="images/button_large_shadow_quiz_8.gif"
+			 WIDTH="125" HEIGHT="35" BORDER="0" ALT="Lesson 8 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p2_l7.htm"
+			 TITLE="Click and go to Lesson 7">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">8</FONT></B>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			 TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

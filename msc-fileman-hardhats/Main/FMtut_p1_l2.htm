@@ -1,0 +1,327 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 1, Lesson
+		2</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+
+//Secondary windows for Lesson 2
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"> <FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR><A HREF="FMtut_p1_l1.htm"
+					 TITLE="Click and go to Lesson 1">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_2.htm"
+					 TITLE="Link to Lesson 2 Quiz"><IMG SRC="images/button_small_shadow_quiz_2.gif"
+					 WIDTH="89" HEIGHT="16" BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Lesson 2 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p1_l3.htm"
+					 TITLE="Click and go to Lesson 3">[Next Lesson --&gt;]</A></TD>
+				</TR>
+			 </TABLE><BR> <FONT SIZE="6" FACE="Arial">Part 1 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_regular.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: Regular is one of the two types of new-style cross-references you can create. (The other is MUMPS.) In a regular cross-reference, data is stored as subscript(s) in an index. The index can be used for sorting the data and for looking up entries in a file based on the indexed data.">Regular
+			 Indexes</A></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE><BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="110" VALIGN="TOP"><A NAME="navskip"></A><FONT FACE="Arial"
+			 SIZE="5">Lesson 2.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="689" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">Print the
+			 Definition of Your New Index to View Data</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><A NAME="navskip"></A><FONT SIZE="2" FACE="Arial">VA FileMan provides
+		several data dictionary listing formats to view the definition of a file. In
+		Version 22, the
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_standard_dd.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=180,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: The most complete information about a file is obtained by using the Standard data dictionary format, which is the default for the List File Attributes option. In addition to detailed information about every field in the file, the Standard data dictionary format gives the file access, identifiers, cross-references, other files pointing to the file, files pointed to by the file, and any templates (including forms and blocks) associated with the file.">Standard</A>
+		data dictionary listing has been modified to display New-style indexes. In
+		addition, a new
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_index_dd.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: The Indexes Only format shows the Traditional and New-Style cross-references that are defined on a file.">Indexes
+		Only</A> type of listing displays only the cross-references, both new and
+		Traditional, as they are defined on a file.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 2.1. &nbsp;See the New-Style Index
+		You Created in Lesson 1</FONT></P> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">First, follow the menu path to the data dictionary listing option
+			 List File Attributes:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"> VA FileMan</FONT><BR><FONT SIZE="2"
+				  FACE="Courier New">&nbsp;&nbsp;&nbsp;Data Dictionary</FONT><BR><FONT SIZE="2"
+				  FACE="Courier New">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<A
+				  HREF="http://hardhats.org/fileman/Main/window_text/wt_file_atbs_op.htm"
+				  TARGET="secondary"
+				  ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+				  TITLE="Contents of secondary window: This option is used to print data dictionary listings for a given file. This listing is useful for programmers, analysts, and others interested in data base structures.">List
+				  File Attributes</A></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select your <I>ZZINDIVIDUAL</I> test file:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>START WITH WHAT FILE: <B><I>ZZINDIVIDUAL</I></B>
+     GO TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+     Select SUB-FILE: <B>&lt;Enter&gt;</B>
+Select LISTING FORMAT: STANDARD// <A HREF="http://hardhats.org/fileman/Main/window_text/wt_fm_help.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: You can enter ? or ?? for additional help at any prompt."><B>??</B>
+</A>Choose from:
+   1            STANDARD
+   2            BRIEF
+   3            CUSTOM-TAILORED
+   4            MODIFIED STANDARD
+   5            TEMPLATES ONLY
+   6            GLOBAL MAP
+   7            CONDENSED
+   8            INDEXES ONLY
+   9            KEYS ONLY</PRE><FONT SIZE="2" FACE="Courier New">Select LISTING FORMAT:
+				  STANDARD//
+				  <A
+					HREF="http://hardhats.org/fileman/Main/window_text/wt_index_dd.htm"
+					TARGET="secondary"
+					ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+					TITLE="Contents of secondary window: The Indexes Only format shows the Traditional and New-Style cross-references that are defined on a file."><B>IND</B>EXES
+				  ONLY</A></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Device:" prompt, enter ;80;999 to display the report on your
+			 terminal:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>     DEVICE: <B>;80;999</B>  <B>&lt;Enter&gt;</B>
+
+
+<FONT FACE="Arial" SIZE="2">The following is a report of all the cross-references defined on the <I>ZZINDIVIDUAL</I>
+ test file:
+</FONT>
+
+INDEX AND CROSS-REFERENCE LIST -- FILE #<I>662nnn</I>    09/07/00  PAGE 1
+------------------------------------------------------------------
+
+File #<I>662nnn</I>
+
+  Traditional Cross-References:
+
+  B    REGULAR
+            Field:  NAME  (<I>662nnn</I>,.01)
+                    1)= S ^<I>DIZ</I>(<I>662nnn</I>,"B",$E(X,1,30),DA)=""
+                    2)= K ^<I>DIZ</I>(<I>662nnn</I>,"B",$E(X,1,30),DA)
+
+  <B>New-Style Indexes:
+
+  <A HREF="http://hardhats.org/fileman/Main/window_text/wt_c_index.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This is the name of the index, which for Regular indexes corresponds to the index subscript."><B>C</B></A>  (#<A HREF="http://hardhats.org/fileman/Main/window_text/wt_nnn.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=195,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: The definitions of new-style indexes are stored in the INDEX file (#.11), a file used internally by VA FileMan. The #nnn is the internal entry number of the record in the INDEX file that contains this index definition. The index number varies from system to system, just as the internal entry number of records in the Input and Print Template files vary from system to system."><B><I>nnn</I></B></A>)    <A HREF="http://hardhats.org/fileman/Main/window_text/wt_record.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=325,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This is the Execution designation of the index. Record-level execution means that FileMan will execute the cross-reference logic only once after all the fields in a record are edited, typically at the end of an editing session. This is in contrast to Field-level execution, where FileMan executes the cross-reference logic after each and every field in the cross-reference is edited. For example, if both the DOB and SSN fields are contained in a single input template, but the index is defined as having Field-level execution, the cross-reference logic would be fired twice: once when the DOB field is edited, and then again when SSN is edited. Record-level execution means that even if the user edits both the DOB and SSN fields for a record, FileMan will execute the cross-reference logic only once at the end of the editing session. In most cases, simple indexes should have Field-level execution, while compound indexes should have Record-level execution."><B>RECORD</B></A>    <A HREF="http://hardhats.org/fileman/Main/window_text/wt_regular.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: Regular is one of the two types of new-style cross-references you can create. (The other is MUMPS.) In a regular cross-reference, data is stored as subscript(s) in an index. The index can be used for sorting the data and for looking up entries in a file based on the indexed data."><B>REGULAR</B></A>    <A HREF="http://hardhats.org/fileman/Main/window_text/wt_ir.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=205,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: This is the Activity designation of the index. New-Style cross-references can have an Activity of "R" and/or "I" to allow you to control whether the cross-reference should be fired during Reindexing and a KIDS Installation. If you call the entry points in ^DIK for reindexing, or if you select the Re-Index File option on VA FileMans Utility Functions submenu, only those new-style cross-references that contain an "R" in Activity will be fired. During a KIDS installation, when a file is reindexed, a new-style cross-reference is executed only if its Activity contains an "I".'><B>IR</B></A>    <A HREF="http://hardhats.org/fileman/Main/window_text/wt_l_s_index.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=260,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: A Lookup and Sorting index is automatically used by FileMan lookup APIs (^DIC, FIND^DIC, and $$FIND^DIC) and must have a name that starts with "B" or a letter that alphabetically follows "B". A Sorting Only index is used by FileMans lookup APIs only if it is explicitly specified in the input parameters to the API. A Sorting Only index must have a name that starts with the letter "A". Both Lookup & Sorting indexes and Sorting Only indexes are available for use by FileMans Sort and Print modules (EN1^DIP).'><B>LOOKUP &amp; SORTING</B></A>
+      Short Descr:  This is a Regular index on the DOB and SSN fields.
+        <A HREF="http://hardhats.org/fileman/Main/window_text/wt_set_kill.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: For regular indexes, the set and kill logic is generated automatically for you when you create the index. This code sets and kills an index entry."><B>Set Logic</B></A>:  S ^<I>DIZ</I>(<I>662nnn</I>,"C",X(1),$E(X(2),1,30),DA)=""
+        <A HREF="http://hardhats.org/fileman/Main/window_text/wt_set_kill.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: For regular indexes, the set and kill logic is generated automatically for you when you create the index. This code sets and kills an index entry."><B>Kill Logic</B></A>:  K ^<I>DIZ</I>(<I>662nnn</I>,"C",X(1),$E(X(2),1,30),DA)
+        <A HREF="http://hardhats.org/fileman/Main/window_text/wt_whole_kill.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This code, like the set and kill logic is, automatically generated for you for regular indexes. This is the code that FileMan executes when requested to delete an entire index from a file."><B>Whole Kill</B></A>:  K ^<I>DIZ</I>(<I>662nnn</I>,"C")
+             <A HREF="http://hardhats.org/fileman/Main/window_text/wt_x1_x2.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=305,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: These lines shows information about the cross-reference values. Every cross-reference value must have a unique order number. X(1) corresponds to the cross-reference value with order number 1; X(2) corresponds to the cross-reference value with order number 2. X(1) in this case is the value of the DOB field (file #662100, field #.03), which is stored in the first subscript (Subscr 1) after "C" in the index. The forwards designation indicates that lookups will traverse this subscript in a forwards direction. (This is the Collation property of a subscript, and will be discussed further in Lesson 3). The subscript number for a cross-reference value need not equal the order number. In fact there may be times when youd create a cross-reference value that has no subscript number. In that case, even though the value isnt stored in the index, you can still refer to it via X(order#) in the cross-reference logic. (Youll see an example of this in Lesson 5.)'><B>X(1)</B></A>:  DOB (<I>662nnn</I>,.03) (Subscr 1) (forwards)
+             <A HREF="http://hardhats.org/fileman/Main/window_text/wt_x1_x2.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=305,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE='Contents of secondary window: These lines shows information about the cross-reference values. Every cross-reference value must have a unique order number. X(1) corresponds to the cross-reference value with order number 1; X(2) corresponds to the cross-reference value with order number 2. X(1) in this case is the value of the DOB field (file #662100, field #.03), which is stored in the first subscript (Subscr 1) after "C" in the index. The forwards designation indicates that lookups will traverse this subscript in a forwards direction. (This is the Collation property of a subscript, and will be discussed further in Lesson 3). The subscript number for a cross-reference value need not equal the order number. In fact there may be times when youd create a cross-reference value that has no subscript number. In that case, even though the value isnt stored in the index, you can still refer to it via X(order#) in the cross-reference logic. (Youll see an example of this in Lesson 5.)'><B>X(2)</B></A>:  SSN (<I>662nnn</I>,.02) (Subscr 2) (Len 30) (forwards)</B>
+
+Subfile #<I>662nnn</I>.02
+
+Traditional Cross-References:
+
+  B    REGULAR
+            Field:  ALIAS  (<I>662nnn</I>.02,.01)
+                    1)= S ^<I>DIZ</I>(<I>662nnn</I>,DA(1),2,"B",$E(X,1,30),DA)=""
+                    2)= K ^<I>DIZ</I>(<I>662nnn</I>,DA(1),2,"B",$E(X,1,30),DA)</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">How to Look at the Data in Your
+		Index</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">From programmer mode, do a global listing
+		and look at the data in the "C" index of the
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_ZZINDIVIDUAL.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=210,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: The exercises in this tutorial make use of a simple test file that contains some sample data. The file is installed as part of Lesson 1, Exercise 1.1, and each user taking the tutorial works with his or her own copy of the tutorial test file. Each user's copy of the test file has a unique file name and number. In this tutorial, all references to this test file will be of file name: ZZINDIVIDUAL, file number: #662nnn, and global root: ^DIZ(662nnn,."><I>ZZINDIVIDUAL</I></A>
+		file as shown below:</FONT></P>
+	 <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	  WIDTH="88%">
+		<TR>
+		  <TD VALIGN="TOP" WIDTH="7%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="4" WIDTH="93%">
+			 <PRE>
+&gt;<B>D ^%G &lt;Enter&gt;</B>
+Global <B><A HREF="http://hardhats.org/fileman/Main/window_text/wt_DIZ.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=160,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: DIZ Global Root ^DIZ(662100, is the global root of the file that stores the data. When you create a file, FileMan prompts you for an internal global reference. ^DIZ(file#, is the default. This global root is used for internal purposes such as test files or files used locally."><B>^<I>DIZ</I></B></A>(<I>662nnn</I>,"C" &lt;Enter&gt;</B>
+        <I>DIZ</I>(<I>662nnn</I>,"C"
+^<I>DIZ</I>(<I>662nnn</I>,"C",2191031,"012345678",9) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2320205,555443333,2) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2380409,765432123,10) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2450520,234567890,13) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2450520,333221111,1) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2470522,444996666,12) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2480811,345678901,7) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2550602,777889999,6) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2590714,888776666,3) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2691123,111223333,4) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2700321,678765432,11) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2710227,987654321,5) =
+^<I>DIZ</I>(<I>662nnn</I>,"C",2730926,543891234,8) =
+Global ^</PRE></TD>
+		</TR>
+	 </TABLE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="3"><FONT FACE="Arial" SIZE="2">As
+			 you can see, the first subscript after the index name "C" contains the data
+			 from the DOB field. The next subscript contains the data from the SSN field.
+			 The last subscript in the index is the internal entry number of the indexed
+			 record.</FONT><BR><BR><FONT FACE="Arial" SIZE="2">Prior to Version 22, the only
+			 way to create an index such as this was to create two MUMPS cross-references,
+			 one on the DOB field, and one on the SSN field. In fact, New-style Regular
+			 indexes are so powerful, the only time you should need to create a MUMPS
+			 cross-reference is for a cross-reference that performs some action, rather than
+			 sets an index.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		2.1.</FONT></B></P><BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_2.htm"
+			 TITLE="Link to Lesson 2 Quiz"><IMG SRC="images/button_large_shadow_quiz_2.gif"
+			 WIDTH="125" HEIGHT="35" BORDER="0" ALT="Lesson 2 Quiz Button"></A></TD>
+		  <TD WIDTH="3%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p1_l1.htm"
+			 TITLE="Click and go to Lesson 1">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">2</FONT></B>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			 TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

@@ -1,0 +1,1351 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 3, Lesson
+		10</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 10
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR><A HREF="FMtut_p3_l9.htm"
+					 TITLE="Click and go to Lesson 9">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_10.htm"
+					 TITLE="Link to Lesson 10 Quiz"><IMG
+					 SRC="images/button_small_shadow_quiz_10.gif" WIDTH="89" HEIGHT="16" BORDER="0"
+					 ALIGN="ABSBOTTOM" ALT="Lesson 10 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A
+					 HREF="FMtut_p3_l11.htm" TITLE="Click and go to Lesson 11">[Next Lesson
+					 --&gt;]</A></TD>
+				</TR>
+			 </TABLE><BR> <FONT SIZE="6" FACE="Arial">Part 3 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_key.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=610,height=250,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE='Contents of secondary window: A key is a set of one or more fields in a file that together uniquely identifies a record in that file. If you define a key, FileMan V.22.0 automatically enforces the integrity of that key, which means that: (1)  No key field is null; (2) The key (that is, the combination of fields in a key) is unique for all records in the file. FileMan stores the definition of keys in the KEY file (#.31), which has the global root ^DD("KEY").'>Keys</A></FONT></TD>
+
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE><BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="120" VALIGN="TOP"><A NAME="navskip"></A><FONT FACE="Arial"
+			 SIZE="5">Lesson 10.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="679" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">Print Key
+			 Definition and View Uniqueness Index</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">In Lesson 9, you created a primary key on
+		the <I>ZZINDIVIDUAL</I> file, with key fields NAME (#.01) and SSN (#.02). In
+		this lesson, you will print the definition of the key and look at the
+		Uniqueness Index automatically created. You will also explore different methods
+		for defining the fields in the key.</FONT></P> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">The "Keys Only" Data Dictionary
+		Listing</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">The
+		<A
+		 HREF="http://hardhats.org/fileman/Main/window_text/wt_standard_dd.htm"
+		 TARGET="secondary"
+		 ONCLICK="makeNewWindow('width=600,height=180,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		 TITLE="Contents of secondary window: The most complete information about a file is obtained by using the Standard data dictionary format, which is the default for the List File Attributes option. In addition to detailed information about every field in the file, the Standard data dictionary format gives the file access, identifiers, cross-references, other files pointing to the file, files pointed to by the file, and any templates (including forms and blocks) associated with the file.">standard
+		data dictionary listing</A> in Version 22 has been modified to display the keys
+		defined on a file or subfile. In addition, a new <B>Keys Only</B> type of
+		listing has been created to display only the keys defined on a file.</FONT></P>
+	 <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 10.1. &nbsp;Display the Key You
+		Created in Lesson 9</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise, you will use the Keys Only
+		data dictionary listing to take a look at the key (Key A) you defined in Lesson
+		9. You will also look at the Uniqueness Index VA FileMan automatically created
+		to support the key.</FONT></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_file_atbs_op.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: This option is used to print data dictionary listings for a given file. This listing is useful for programmers, analysts, and others interested in data base structures.">List
+			 File Attributes</A> option to select the "Keys Only" listing
+			 format:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION: <B>DATA</B> DICTIONARY UTILITIES
+Select DATA DICTIONARY UTILITY OPTION: <B>L</B>IST FILE ATTRIBUTES
+START WITH WHAT FILE: <I><B>ZZINDIVIDUAL</B></I>
+     GO TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+     Select SUB-FILE: <B>&lt;Enter&gt;</B>
+Select LISTING FORMAT: STANDARD// <B>??</B>
+
+   Choose from:
+   1            STANDARD
+   2            BRIEF
+   3            CUSTOM-TAILORED
+   4            MODIFIED STANDARD
+   5            TEMPLATES ONLY
+   6            GLOBAL MAP
+   7            CONDENSED
+   8            INDEXES ONLY
+   9            KEYS ONLY
+
+Select LISTING FORMAT: STANDARD// <B>KEYS</B> ONLY
+DEVICE: <B>;80;999  &lt;Enter&gt;</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">The output is a report of all the keys defined on the
+			 <I>ZZINDIVIDUAL</I> test file (there is only one):</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT" WIDTH="50%"><FONT SIZE="2"
+								  FACE="Courier New">KEY LIST -- FILE #<I>662nnn</I></FONT></TD>
+								<TD COLSPAN="4" WIDTH="50%" ALIGN="RIGHT"><FONT
+								  SIZE="2" FACE="Courier New">09/26/00&nbsp;&nbsp;&nbsp;&nbsp;PAGE 1</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TH COLSPAN="7" ALIGN="LEFT">
+								  <PRE>  <A HREF="http://hardhats.org/fileman/Main/window_text/wt_file_662100.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This is the number of the file on which the keys are defined.">FILE #<I>662nnn</I></A>
+  ------------
+  <A HREF="http://hardhats.org/fileman/Main/window_text/wt_primary_key.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This indicates that the key is a primary key, rather than a secondary key. ">PRIMARY KEY</A>:        <A HREF="http://hardhats.org/fileman/Main/window_text/wt_A_nn.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This is the name and number of the key. Key definitions are stored in the KEY file (#.31), a FileMan file, and the key number (#nn) is the internal entry number of the key in that file. Like index numbers, key numbers vary from system to system.">A (#<I>nn</I>)</A>
+    Uniqueness Index: <A HREF="http://hardhats.org/fileman/Main/window_text/wt_E_nnn.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: The key's uniqueness index is the E index, stored as entry #nnn in the INDEX file (#.11). (Internally, a uniqueness index is a new-style index that is pointed to by an entry in the KEY file [#.31].) ">E (#<I>nnn</I>)</A>
+         <A HREF="http://hardhats.org/fileman/Main/window_text/wt_file_field.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This section lists the fields that make up the key. Key A contains two fields: NAME (#.01), which is sequence number 1 (subscript 1 in the uniqueness index), and SSN (#.02), which is sequence number 2 (subscript 2 in the uniqueness index). ">File, Field</A>: 1) NAME (<I>662nnn</I>,.01)  2) SSN (<I>662nnn</I>,.02)</PRE></TH>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Do
+			 another data dictionary listing, but this time select the
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_index_dd.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: The Indexes Only format shows the Traditional and New-Style cross-references that are defined on a file.">INDEXES
+			 ONLY</A> format to view the definition of the "E" Uniqueness Index.</FONT></TD>
+
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select DATA DICTIONARY UTILITY OPTION NAME: <B>L</B>IST FILE ATTRIBUTES
+  START WITH WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+      GO TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+      Select SUB-FILE: <B>&lt;Enter&gt;</B>
+Select LISTING FORMAT NAME: STANDARD// <B>IN</B>DEXES ONLY
+DEVICE: <B>;80;999</B>
+
+INDEX AND CROSS-REFERENCE LIST -- FILE #<I>662nnn</I>   09/26/00 PAGE 1
+----------------------------------------------------------------
+
+File #<I>662nnn</I>
+
+...
+
+  E (#<I>nnn</I>)    RECORD    REGULAR    IR    LOOKUP &amp; SORTING
+       <B>Unique for:  Key A (#<I>nn</I>), File #<I>662nnn</I></B>
+      Short Descr:  Uniqueness Index for Key 'A' of File #<I>662nnn</I>
+        Set Logic:  S ^<I>DIZ</I>(<I>662nnn</I>,"E",X(1),X(2),DA)=""
+       Kill Logic:  K ^<I>DIZ</I>(<I>662nnn</I>,"E",X(1),X(2),DA)
+       Whole Kill:  K ^<I>DIZ</I>(<I>662nnn</I>,"E")
+             X(1):  NAME  (<I>662nnn</I>,.01)  (Subscr 1)
+             X(2):  SSN  (<I>662nnn</I>,.02)  (Subscr 2)
+
+...</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The report includes the definition of the "E" index. The "Unique
+								  for" line indicates that this Regular compound index is the Uniqueness Index
+								  for Key A. VA FileMan created this Uniqueness Index automatically when you
+								  created the key.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Now, from programmer mode, use ^%G to look at the data in the "E"
+			 index, the Uniqueness Index for Key A.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>&gt;<B>D ^%G</B>
+
+Global ^<B><I>DIZ</I>(<I>662nnn</I>,"E"</B>
+        <I>DIZ</I>(<I>662nnn</I>,"E"
+^<I>DIZ</I>(<I>662nnn</I>,<A HREF="http://hardhats.org/fileman/Main/window_text/wt_index_e.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This is the name of the uniqueness index, which corresponds to the subscript in the index.">"E"</A>,<A HREF="http://hardhats.org/fileman/Main/window_text/wt_name_field.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This is the data in the NAME field (#.01), which is sequence number 1 in the key. ">"BROOKS,SAGE"</A>,<A HREF="http://hardhats.org/fileman/Main/window_text/wt_ssn_field.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This is the data in the SSN field (#.02), which is sequence number 2 in the key.">777889999</A>,<A HREF="http://hardhats.org/fileman/Main/window_text/wt_ien.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: This is the internal entry number of the indexed record.">6</A>) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","CURRENT,ROSEMARY",333221111,1) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","FROST,HAZEL",345678901,7) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","GEISER,JASMINE",555443333,2) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","LAKE,MARIGOLD",111223333,4) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","MODIFIED,ENTRY",123456789,14) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","RAINEY,GINGER","012345678",9) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","PUDDLES,CHERVIL",678765432,11) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","RIPPLE,SAFFRON",543891234,8) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","RIVERS,HOLLY",234567890,13) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","SNOW,BASIL",444996666,12) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","TIDE,DILL",987654321,5) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","WATERS,HERB",888776666,3) =
+^<I>DIZ</I>(<I>662nnn</I>,"E","WELLS,PERIWINKLE",765432123,10) = </PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise
+		10.1.</FONT></B></P><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Defining the Fields in a Key</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">The
+		<A
+		HREF="http://hardhats.org/fileman/Main/window_text/wt_key_def_opt.htm"
+		TARGET="secondary"
+		ONCLICK="makeNewWindow('width=600,height=195,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+		TITLE="Contents of secondary window: The Key Definition option is locate on FileMan's Utility Functions menu and allows you to: (1) Create a key; (2) Edit a key; (3) Delete a key; (4) Verify the integrity of a key.">Key
+		Definition option</A> gives you two ways to define fields in a key:</FONT></P>
+	 <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	 WIDTH="88%">
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" WIDTH="7%" HEIGHT="40"><FONT
+			 SIZE="2" FACE="Arial"> 1.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="92%"><FONT SIZE="2"
+			 FACE="Arial">You can enter the fields in the key in the KEY FIELDS section on
+			 the ScreenMan form, and let VA FileMan create or modify the Uniqueness Index
+			 for you. This is how you will usually define a key, and is the method you used
+			 to create Key A in Lesson 9.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" HEIGHT="40"><FONT SIZE="2"
+			 FACE="Arial"> 2.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">
+			 You can select a New-style Regular index as the Uniqueness Index for the key,
+			 and when prompted, instruct VA FileMan to make all the fields in the index key
+			 fields. The Uniqueness Index you select, however, must meet the following
+			 conditions:</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT" WIDTH="5%" ROWSPAN="2"
+		  HEIGHT="20"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" WIDTH="5%" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" WIDTH="88%" ROWSPAN="2"><FONT SIZE="2" FACE="Arial">It
+			 must be a Regular, New-style cross-reference.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" WIDTH="5%" ALIGN="RIGHT"><IMG
+			 SRC="http://hardhats.org/fileman/Main/images/bullet_black_small.gif"
+			 WIDTH="6" HEIGHT="6" BORDER="0" ALIGN="MIDDLE" ALT="Graphic: bullet"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT" ROWSPAN="2"
+		  HEIGHT="20"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"><FONT SIZE="2" FACE="Arial">It must be
+			 used for lookup and sorting; that is, it cannot have a name that starts with
+			 the letter "A".</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"><IMG
+			 SRC="http://hardhats.org/fileman/Main/images/bullet_black_small.gif"
+			 WIDTH="6" HEIGHT="6" BORDER="0" ALIGN="MIDDLE" ALT="Graphic: bullet"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT" ROWSPAN="2"
+		  HEIGHT="20"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"><FONT SIZE="2" FACE="Arial">It cannot have
+			 any Set or Kill Conditions.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"><IMG
+			 SRC="http://hardhats.org/fileman/Main/images/bullet_black_small.gif"
+			 WIDTH="6" HEIGHT="6" BORDER="0" ALIGN="MIDDLE" ALT="Graphic: bullet"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT" ROWSPAN="2"
+		  HEIGHT="20"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"><FONT SIZE="2" FACE="Arial">It must
+			 consist of only field-type cross-reference values, all of which are used as
+			 subscripts; that is, it can contain no computed values.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"><IMG
+			 SRC="http://hardhats.org/fileman/Main/images/bullet_black_small.gif"
+			 WIDTH="6" HEIGHT="6" BORDER="0" ALIGN="MIDDLE" ALT="Graphic: bullet"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT" ROWSPAN="2"
+		  HEIGHT="20"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"></TD>
+		  <TD VALIGN="TOP" ROWSPAN="2"><FONT SIZE="2" FACE="Arial">No subscripts
+			 can have transforms.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"><IMG
+			 SRC="http://hardhats.org/fileman/Main/images/bullet_black_small.gif"
+			 WIDTH="6" HEIGHT="6" BORDER="0" ALIGN="MIDDLE" ALT="Graphic: bullet"></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT FACE="Arial" SIZE="2">In the next three exercises you will see how
+		the above two methods work in defining the key fields in Key A.</FONT></P><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 10.2. &nbsp;Add DOB Field (#.03) to
+		Primary Key A</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">In this exercise, you will add the DOB field
+		to Primary Key A and have VA FileMan automatically modify the "E" Uniqueness
+		Index to include the DOB field.</FONT></P><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select VA FileMan's KEY DEFINITION option, and edit Key
+			 A.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%" COLSPAN="2">
+				  <PRE>Select OPTION NAME: <B>U</B>TILITY FUNCTIONS
+Select UTILITY OPTION NAME: <B>K</B>EY DEFINITION
+
+MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select Subfile: <B>&lt;Enter&gt;</B>
+
+Keys defined on file #<I>662nnn</I>:
+
+  A  PRIMARY KEY    Uniqueness Index: E
+         Field(s):  1) NAME (#.01)
+                    2) SSN (#.02)
+
+Choose V (Verify)/E (Edit)/D (Delete)/C (Create): <B>E</B>DIT</PRE><FONT SIZE="2" FACE="Courier New">Which Key do you wish to
+				  edit? A// <B>&lt;Enter&gt;</B></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">You are now presented with a one-page ScreenMan form where you can
+			 edit the properties of the key.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nn</I></FONT></TD>
+								<TD COLSPAN="3" WIDTH="34%" ALIGN="CENTER"><FONT
+								  SIZE="2" FACE="Courier New">EDIT A KEY</FONT></TD>
+								<TD ALIGN="RIGHT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Page 1 of 1</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7">
+								  <PRE>  File: <I>662nnn</I>         Name: A             <FONT SIZE="2" FACE="Corier New">Priority</FONT>: PRIMARY</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;<FONT SIZE="2"
+								  FACE="Corier New">KEY FIELDS</FONT>:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								 VALIGN="BOTTOM"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;==========</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								 VALIGN="BOTTOM">
+								  <PRE>  Field          Seq No.  File            Field Name
+  -----          -------  ----            ----------
+  .01              1      <I>662nnn</I>          NAME
+  .02              2      <I>662nnn</I>          SSN</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;Uniqueness Index:
+								  <I>662nnn</I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uniqueness
+								  Index for Key 'A' of File #<I>662nnn</I><BR><BR> &nbsp;&nbsp;&nbsp;Index
+								  Details...</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The Uniqueness Index field on the form shows you some of the
+								  information about the Uniqueness Index used by Key A; namely, the file on which
+								  the index resides, the name of the index, and the short description of the
+								  index.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Navigate to "Index Details&#133;" and press Enter. A pop-up window
+			 displays more detailed information about the Uniqueness Index.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD>
+								  <PRE>       File: <I>662nnn</I>                    Root File: <I>662nnn</I>
+ Index Name: E                         Root Type: INDEX FILE
+
+ Short Description: Uniqueness Index for Key 'A' of File #<I>662nnn</I>
+  Description (wp):    (empty)
+
+ Order...  Subscr  Length  [File,Field] Field Name
+ --------  ------  ------  -----------------------
+   1        1              [<I>662nnn</I>,.01] NAME
+   2        2              [<I>662nnn</I>,.02] SSN</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD></TD>
+							 </TR>
+							 <TR>
+								<TD><FONT SIZE="2" FACE="Courier New">&nbsp;Set Logic:
+								  S ^<I>DIZ</I>(<I>662nnn</I>,"E",X(1),X(2),DA)=""<BR>Kill Logic: K
+								  ^<I>DIZ</I>(<I>662nnn</I>,"E",X(1),X(2),DA)</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">On this pop-up window you can edit only some of the properties of
+								  the Uniqueness Index - the Index Name, the Short Description, the Description
+								  (wp), and the subscript Length.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;C to close the pop-up window. You won't make any
+			 changes to the Uniqueness Index here.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Navigate to the third row in the "Field" column of the KEY FIELDS
+			 section. Enter DOB (or .03) to add the DOB field as a third field primary Key
+			 A. In the "Seq No." column for the DOB field, enter 3.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nn</I></FONT></TD>
+								<TD COLSPAN="3" WIDTH="34%" ALIGN="CENTER"><FONT
+								  SIZE="2" FACE="Courier New">EDIT A KEY</FONT></TD>
+								<TD ALIGN="RIGHT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Page 1 of 1</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7">
+								  <PRE>  File: <I>662nnn</I>         Name: A             <FONT SIZE="2" FACE="Corier New">Priority</FONT>: PRIMARY</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;<FONT SIZE="2"
+								  FACE="Corier New">KEY FIELDS</FONT>:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;==========</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM">
+								  <PRE>  Field          Seq No.  File            Field Name
+  -----          -------  ----            ----------
+  .01              1      <I>662nnn</I>          NAME
+  .02              2      <I>662nnn</I>          SSN
+<B>  DOB &lt;RET&gt;        3 &lt;RET&gt;</B></PRE></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;Uniqueness Index:
+								  <I>662nnn</I>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;E<BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Uniqueness
+								  Index for Key 'A' of File #<I>662nnn</I><BR><BR> &nbsp;&nbsp;&nbsp;Index
+								  Details...</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to exit the form and save changes.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 this point, the Uniqueness Index "E" contains only the two fields NAME and SSN.
+			 VA FileMan notices the discrepancy between this and the fact that you specified
+			 the three fields NAME, SSN, and DOB in the "KEY FIELDS" section of the form.
+			 So, VA FileMan asks you how you want to resolve this discrepancy.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>The Key fields and the fields in the Uniqueness Index don't
+match.
+
+     Select one of the following:
+
+        1   <A HREF="http://hardhats.org/fileman/Main/window_text/wt_re-edit_key.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: If you select this option, FileMan will take you back into the ScreenMan form where you can edit the properties of the key.">Re-Edit the Key</A>
+        2   <A HREF="http://hardhats.org/fileman/Main/window_text/wt_key_match.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: If you select this option, FileMan will make the key fields match the fields defined in the uniqueness index.">Make Key match Uniqueness Index</A> (also selected on
+            up-arrow)
+        3   <A HREF="http://hardhats.org/fileman/Main/window_text/wt_match_key.htm" TARGET="secondary" ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')" TITLE="Contents of secondary window: If you select this option, FileMan will modify the uniqueness index so that it matches the fields in the key (the fields in the Key Fields section of the form).">Make Uniqueness Index match Key</A>
+
+Enter response: <B>3 &lt;Enter&gt;</B> Make Uniqueness Index match Key</PRE><FONT SIZE="2" FACE="Courier New">&nbsp; Modifying
+				  Uniqueness Index ... DONE!</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select option number 3, "Make Uniqueness Index match Key." This
+			 will make VA FileMan modify the definition of the Uniqueness Index so that it
+			 contains the three fields listed in the KEY FIELDS section of the
+			 form.</FONT></TD>
+		</TR>
+	 </TABLE><BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 8.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">If
+			 prompted to delete the old and rebuild the new index, answer YES to both
+			 questions. Press Enter again to continue.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Do you want to delete the old index now? YES// <B>&lt;Enter&gt;</B>
+  Removing old index ...  DONE!
+
+Do you want to build the index now? YES// <B>&lt;Enter&gt;</B>
+  Building new index ...  DONE!
+
+Press RETURN to continue: <B>&lt;Enter&gt;</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 9.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Next, you are asked whether you want to check the integrity of the
+			 key. Since you are going to modify this key again in the next exercise, answer
+			 NO to this question.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Courier New">Do want to check the integrity of this key
+				  now? <B>NO</B></FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise
+		10.2</FONT></B></P><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 10.3. &nbsp;Make the "C" Index the
+		Uniqueness Index for Key A</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">In this exercise, you will select the "C"
+		index created in Lesson 1 as the Uniqueness Index for Key A. Then you will have
+		VA FileMan automatically redefine the key so that the fields in that index (DOB
+		and SSN) are the key fields.</FONT></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select VA FileMan's KEY DEFINITION option, and edit Key
+			 A.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>UTILITY FUNCTIONS</B>
+Select UTILITY OPTION NAME: <B>KEY</B> DEFINITION
+
+MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select Subfile: <B>&lt;Enter&gt;</B>
+
+Keys defined on file #<I>662nnn</I>:
+
+  A  PRIMARY KEY    Uniqueness Index: E
+         Field(s):  1) NAME (#.01)
+                    2) SSN (#.02)
+                    3) DOB (#.03)
+
+Choose V (Verify)/E (Edit)/D (Delete)/C (Create): <B>E</B>DIT
+
+Which Key do you wish to edit? A// <B>&lt;Enter&gt;</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">On
+			 the ScreenMan form, navigate to "Index Details&#133;" and press Enter. Notice
+			 that as a result of Exercise 10.2, VA FileMan added the DOB field to the "E"
+			 Uniqueness Index. Press &lt;PF1&gt;C to close the pop-up window.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Now, navigate to "Uniqueness Index" and enter C to select as the
+			 Uniqueness Index for Key A the "C" index you created in Lesson 1 of this
+			 tutorial. The "C" index is a compound index with two fields, DOB and
+			 SSN.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nn</I></FONT></TD>
+								<TD COLSPAN="3" WIDTH="34%" ALIGN="CENTER"><FONT
+								  SIZE="2" FACE="Courier New">EDIT A KEY</FONT></TD>
+								<TD ALIGN="RIGHT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Page 1 of 1</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7">
+								  <PRE>  File: <I>662nnn</I>         Name: A             <FONT SIZE="2" FACE="Corier New">Priority</FONT>: PRIMARY</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;<FONT SIZE="2"
+								  FACE="Corier New">KEY FIELDS</FONT>:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;==========</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM">
+								  <PRE>  Field          Seq No.  File            Field Name
+  -----          -------  ----            ----------
+  .01              1      <I>662nnn</I>          NAME
+  .02              2      <I>662nnn</I>          SSN
+  .03              3      <I>662nnn</I>          DOB</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;Uniqueness Index: <B>C
+								  &lt;Enter&gt;</B></FONT><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<FONT
+								  SIZE="2" FACE="Courier New">This is a Regular index on the DOB and SSN
+								  fields.</FONT><BR><BR><FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;&nbsp;Index
+								  Details...</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Notice that entering "C" as the "Uniqueness Index:" property
+								  displayed a description of the index. If you'll remember, this is the Short
+								  Description you entered for the "C" index in Lesson 1 of this
+								  tutorial.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to exit the form and save changes.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Since you changed the Uniqueness Index for Key A from "E" to "C",
+			 VA FileMan asks if you no longer need the "E" index and whether you want to
+			 delete it. Answer NO. In a later step, you will again make index "E" the
+			 Uniqueness Index for Key A.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Do you want to delete the 'E' Uniqueness Index (#<I>nnn</I>) on File
+#<I>662nnn</I> previously used by Key 'A' of File #<I>662nnn</I>? <B>NO</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Now VA FileMan recognizes that the fields listed in the KEY FIELDS
+			 section of the ScreenMan form (NAME, SSN, and DOB) don't match the fields
+			 defined in the "C" index (DOB and SSN), and asks you how you want to resolve
+			 this discrepancy. This time, select option 2, "Make Key match Uniqueness
+			 Index."</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>The Key fields and the fields in the Uniqueness Index don't
+match.
+
+     Select one of the following:
+
+        1   Re-Edit the Key
+        2   Make Key match Uniqueness Index (also selected on
+            up-arrow)
+        3   Make Uniqueness Index match Key
+
+Enter response: <B>2</B> Make Key match Uniqueness Index (also selected on
+            up-arrow)
+
+  Modifying Uniqueness Index ...  DONE!</PRE><BR><FONT SIZE="2" FACE="Courier New">Press RETURN to
+				  continue: <B>&lt;Enter&gt;</B></FONT><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Selecting option 2 makes the KEY FIELDS match the fields in the
+								  "C" Uniqueness Index, in this case, the DOB and SSN fields.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Answer NO when asked if you want to check the integrity of the
+			 key.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Do want to check the integrity of this key now? <B>NO</B>
+
+Keys defined on file #<I>662nnn</I>:
+
+  A  PRIMARY KEY    Uniqueness Index: C
+         Field(s):  1) DOB (#.03)
+                    2) SSN (#.02)</PRE><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The Uniqueness Index is now "C", and the two key fields are DOB
+								  and SSN.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise
+		10.3</FONT></B></P><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 10.4. &nbsp;Restore Key A To Its
+		Original Definition</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">In this exercise you will restore the
+		definition of Key A so that it contains the fields NAME and SSN, and uses "E"
+		as its Uniqueness Index.</FONT></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select the VA FileMan's KEY DEFINITION option, and edit Key
+			 A.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>U</B>TILITY FUNCTIONS
+Select UTILITY OPTION NAME: <B>K</B>EY DEFINITION
+
+MODIFY WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+Select Subfile: <B>&lt;Enter&gt;</B>
+
+Keys defined on file #<I>662nnn</I>:
+
+  A  PRIMARY KEY    Uniqueness Index: C
+         Field(s):  1) DOB (#.03)
+                    2) SSN (#.02)
+
+Choose V (Verify)/E (Edit)/D (Delete)/C (Create): <B>EDIT</B>
+
+Which Key do you wish to edit? A// <B>&lt;Enter&gt;</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">On
+			 the ScreenMan form, navigate to the second row in the "Field" column of the
+			 "KEY FIELDS" section and change the .03 to .01.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Navigate to "Uniqueness Index" and enter E. The screen should look
+			 like this:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD WIDTH="2%"></TD>
+				<TD WIDTH="98%">
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%">
+							 <TR>
+								<TD COLSPAN="3" ALIGN="LEFT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Number: <I>nn</I></FONT></TD>
+								<TD COLSPAN="3" WIDTH="34%" ALIGN="CENTER"><FONT
+								  SIZE="2" FACE="Courier New">EDIT A KEY</FONT></TD>
+								<TD ALIGN="RIGHT" WIDTH="33%"><FONT SIZE="2"
+								  FACE="Courier New">Page 1 of 1</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" ALIGN="CENTER"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7">
+								  <PRE>  File: <I>662nnn</I>         Name: A             <FONT SIZE="2" FACE="Corier New">Priority</FONT>: PRIMARY</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;<FONT SIZE="2"
+								  FACE="Corier New">KEY FIELDS</FONT>:</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;==========</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD WIDTH="50%" COLSPAN="7" ALIGN="LEFT"
+								VALIGN="BOTTOM">
+								  <PRE>  Field          Seq No.  File            Field Name
+  -----          -------  ----            ----------
+  .02              2      <I>662nnn</I>          SSN
+  <B>.01              1      <I>662nnn</I>          NAME</B>
+</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">&nbsp;&nbsp;Uniqueness Index:
+								  <B><I>662nnn</I></B>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>E</B><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<B>Uniqueness
+								  Index for Key 'A' of File #<I>662nnn</I></B><BR><BR> &nbsp;&nbsp;&nbsp;Index
+								  Details...</FONT></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><HR></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7" HEIGHT="20"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="7"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to exit the form and save changes.</FONT></TD>
+		</TR>
+	 </TABLE> <BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Answer NO when asked if you want to delete the "C"
+			 index.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Do you want to delete the 'C' Uniqueness Index (#<I>nnn</I>) on File
+#<I>662nnn</I> previously used by Key 'A' of File #<I>662nnn</I>? <B>NO</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Again the KEY FIELDS (NAME and SSN) don't match the fields in the
+			 "E" Uniqueness Index (NAME, SSN, and DOB). Select option 3 to have FileMan
+			 modify the "E" index.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>The Key fields and the fields in the Uniqueness Index don't match.
+
+     Select one of the following:
+
+        1   Re-Edit the Key
+        2   Make Key match Uniqueness Index (also selected on
+            up-arrow)
+        3   Make Uniqueness Index match Key
+
+Enter response: <B>3</B> Make Uniqueness Index match Key
+
+  Modifying Uniqueness Index ...  DONE!</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Answer YES if asked whether you want to delete the old and build
+			 the new "E" index. Press Enter to continue.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%" HEIGHT="47"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%" HEIGHT="47">
+				  <PRE>Do you want to delete the old index now? YES// <B>&lt;Enter&gt;</B>
+  Removing old index ...  DONE!
+
+Do you want to build the index now? YES// <B>&lt;Enter&gt;</B>
+  Building new index ...  DONE!
+
+Press RETURN to continue: <B>&lt;Enter&gt;</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 8.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Answer YES to check key integrity. There should be no
+			 problems.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%" HEIGHT="47"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%" HEIGHT="47">
+				  <PRE>Do want to check the integrity of this key now? <B>YES</B>
+
+Checking key integrity ...  NO PROBLEMS
+
+Press RETURN to continue: <B>&lt;Enter&gt;</B>
+
+Keys defined on file #<I>662nnn</I>:</PRE><FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;&nbsp; A
+				  PRIMARY KEY Uniqueness Index: E
+				  <BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Field(s): 1) NAME (#.01)<BR>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2)
+				  SSN (#.02)</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise
+		10.4</FONT></B></P><BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_10.htm"
+			 TITLE="Link to Lesson 10 Quiz"><IMG
+			 SRC="images/button_large_shadow_quiz_10.gif" WIDTH="125" HEIGHT="35" BORDER="0"
+			 ALT="Lesson 10 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p3_l9.htm"
+			 TITLE="Click and go to Lesson 9">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">10</FONT></B>
+			 <A HREF="FMtut_p3_l11.htm"
+			  TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p3_l11.htm" TITLE="Click and go to Lesson 11">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

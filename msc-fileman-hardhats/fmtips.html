@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=iso-8859-1">
+  <meta name="GENERATOR"
+ content="Mozilla/4.72 [en]C-PBI-NC404  (Win98; U) [Netscape]">
+  <meta name="FORMATTER" content="Microsoft FrontPage 2.0">
+  <meta name="Author" content="George Timson">
+  <title>FILEMAN TIPS</title>
+</head>
+<body bgcolor="#ffffff">
+&nbsp;
+<center>
+<table border="0" cellpadding="6" cellspacing="6" width="100%">
+  <tbody>
+    <tr>
+      <td align="center" width="20%"><img src="../images/logo.gif"
+ alt="hat &amp; gloves" height="79" width="120">
+      <p><b><font face="Arial"><font size="+2">FileMan Tips</font></font></b>
+      <br>
+&nbsp;</p>
+      </td>
+      <td width="80%">
+      <pre><b><font face="Arial"><font size="+2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></font></b>&nbsp;</pre>
+<!--webbot bot="Include"
+
+
+
+
+
+
+
+
+
+
+
+        u-include="../navicon_plain.html" tag="BODY" startspan
+
+
+
+
+
+
+
+
+
+
+
+        -->
+      <center><a href="../index.html"><img
+ src="../images/shopSHomeOff.gif" alt="Home Page"
+ align="top" border="0" height="76" width="54"></a><a
+ href="../m/Mmain.html"><img
+ src="../images/shopSMOff.gif" alt="M |"
+ align="top" border="0" height="76" width="54"></a><a
+ href="FMmain.html"><img
+ src="../images/shopSFmOn.gif" alt="FileMan |"
+ align="top" border="0" height="76" width="54"></a><a
+ href="../kernel/KRNmain.html"><img
+ src="../images/shopSKrnOff.gif" alt="Kernel |"
+ align="top" border="0" height="76" width="54"></a><a
+ href="../cs/CSmain.html"><img
+ src="../images/shopSCsOff.gif" alt="CS/MM/Web |"
+ align="top" border="0" height="86" width="62"></a><a
+ href="../tools/TOOLSmain.html"><img
+ src="../images/shopSPgmOff.gif"
+ alt="Programmer Tools |" align="top" border="0" height="86" width="54"></a><a
+ href="../apps/APPSmain.html"><img
+ src="../images/shopSAppOff.gif" alt="Applications"
+ align="top" border="0" height="76" width="54"></a></center>
+<!--webbot bot="Include" endspan i-checksum="54737" --></td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<center>
+<table border="0" cellpadding="6" cellspacing="6" width="100%">
+  <tbody>
+    <tr>
+      <td align="left" bgcolor="#e6e6e6" valign="top" width="156"><b><font
+ face="Arial"><a href="#Avoiding%20Save">Avoiding
+the "Save changes?" ScreenMan prompt</a></font></b>
+      <p><b><font face="Arial"><a href="#autonum">Auto-numbering
+FileMan ".01"
+fields</a></font></b> <br>
+&nbsp; </p>
+      <p><b><font face="Arial,Helvetica"><a
+ href="fmtips.html#Search">Sorting
+in the order the developer wanted</a></font></b> <br>
+&nbsp; </p>
+      <p><b><font face="Arial,Helvetica"><a href="#Crosstabs">Crosstabs
+in&nbsp;
+FileMan V22</a></font></b> </p>
+      <p>&nbsp;</p>
+      </td>
+      <td bgcolor="#fff" valign="top" width="400">Here are a few
+tips from your
+fellow Hardhats about how to use FileMan better.&nbsp; <br>
+&nbsp;
+      <p><a name="Avoiding Save"></a><img alt=""
+ src="../images/brickbutton.gif" style="width: 38px; height: 38px;"><b><font
+ face="Arial">Avoiding
+the "Save changes?" ScreenMan prompt</font></b> <br>
+When a ScreenMan user finishes a page, and the cursor&nbsp; is in the
+COMMAND LINE at the bottom of the screen, he types "E" if he wants
+to&nbsp; ""save and "exit".&nbsp; He is then asked<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<font
+ face="Arial,Helvetica">
+Save changes before leaving form (Y/N)?</font> <br>
+There is a very small patch that can eliminate this question.&nbsp;
+At E+3^DDS3, add <br>
+a line that says: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+SET Y=1 GO EX <br>
+&nbsp; <br>
+&nbsp; </p>
+      <p><a name="autonum"></a><img alt=""
+ src="../images/brickbutton.gif" style="width: 38px; height: 38px;"><b><font
+ face="Arial">Auto-numbering
+FileMan ".01" fields</font></b> <br>
+Greg Kreis offers a technique to "permit the user to enter a + symbol
+when they are at the 'Select Prompt'.&nbsp; They are then presented
+with
+the next available number in the question that asks if they want to add
+this new record.&nbsp; Presto chango, the + is transformed into the
+next
+number..". </p>
+      <p>1.&nbsp; Set up a 7.5 pre-lookup transform on the .01 field,
+as shown
+below: </p>
+      <p>^<tt>DD(&lt;file number&gt;,.01,7.5) =</tt> <br>
+      <tt>I X="+" S X=""""_$$AUTONUM^&lt;routinename&gt;(X)_""""</tt> </p>
+      <p>2.&nbsp; Write the logic that you use to derive record names: </p>
+      <p><tt>AUTONUM(X) ; generate a unique number for a record</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; N %,NUM</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; I X="+" D</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .S %=$$PARAM ; derive the site
+parameter
+record number</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .I % D</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ..L +^XYZ(%,10)</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ..S
+NUM=1+$S($D(^XYZ(%,10)):$P(^(10),U,1),1:0)</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ..F NUM=NUM:1
+Q:'$D(^XYZ("B",NUM))</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ..S $P(^XYZ(%,10),U,1)=+NUM</tt>
+      <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ..L -^XYZ(%,10)</tt> <br>
+      <tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Q NUM</tt> </p>
+      <p>3.&nbsp; As a little trick, define the field that holds the
+'next number'
+as the only field on the node - a FM feature that is not often
+used.&nbsp;
+In this case, node 10. </p>
+      <p>&nbsp;&nbsp;&nbsp; NODE;PIECE:&nbsp;&nbsp; 10;E1,245 </p>
+      <p>The advantage of this lone field on the node, is that it is
+easier to
+lock the <br>
+node, etc. and know that it has no other purpose. </p>
+      <p>Alternatively, store the counter in a node among the
+xrefs.&nbsp; For
+example, </p>
+      <p>&nbsp; ^XYZ("AUTONUM")= 6 </p>
+      <p>The advantage of the above is that it stores the count with
+the file.&nbsp;
+The first approach requires a site parameter file and a node for every
+file being "auto-numbered". </p>
+      <p></p>
+      <hr width="100%">
+      <p><a name="Search"></a><img alt=""
+ src="../images/brickbutton.gif" style="width: 50px; height: 50px;"><b><font
+ face="Arial">Sorting
+in the order the developer wanted</font></b> <br>
+Marianne Follingstadt discovered that the FileMan output module may
+sometimes change the sorting order of a Template that you have
+created.&nbsp;
+It does this because it has "computed a better search
+efficiency".&nbsp;
+But it may happen that you, the developer, absolutely need the Sort
+Logic
+to work just as you specify. </p>
+      <p>Marianne discovered a solution.&nbsp; It is just a matter of
+editing
+two fields that pertain to any Sort Template: </p>
+      <p><tt>Select OPTION: 1&nbsp; ENTER OR EDIT FILE ENTRIES</tt> </p>
+      <p><tt>INPUT TO WHAT FILE: SORT TEMPLATE//</tt> </p>
+      <p><tt>EDIT WHICH FIELD: 1621&nbsp; SORT FIELD DATA&nbsp;
+(multiple)</tt> <br>
+      <tt>&nbsp;&nbsp; EDIT WHICH SORT FIELD DATA SUB-FIELD: ALL//
+SEARCH
+EFFICIENCY RATING</tt> <br>
+      <tt>&nbsp;&nbsp; THEN EDIT SORT FIELD DATA SUB-FIELD: PROBABILITY
+RATING</tt> <br>
+      <tt>&nbsp;&nbsp; THEN EDIT SORT FIELD DATA SUB-FIELD:</tt> <br>
+      <tt>THEN EDIT FIELD:</tt> </p>
+      <p><tt>Select SORT TEMPLATE: &lt;</tt>Your Template name&gt; <br>
+      <tt>Select FILE OR SUBFILE NO.: &lt;</tt>The file number&gt; <br>
+      <tt>&nbsp; SEARCH EFFICIENCY RATING: 999</tt> <br>
+      <tt>&nbsp; PROBABILITY RATING: 999</tt> </p>
+      <p></p>
+      <hr width="100%">
+      <p><a name="Crosstabs"></a><img alt=""
+ src="../images/brickbutton.gif" style="width: 50px; height: 50px;"><b><font
+ face="Arial">Crosstabs
+in FileMan V22</font></b> <br>
+Many FileMan users need to produce cross-tabulations of data.&nbsp;
+FileMan's "PRINT" option has always offered a powerful sub-totalling
+capability,
+but no way to "pretty-print" the resulting subtotals. </p>
+      <p>For example, let's take the DIALOG file that comes
+pre-installed with
+FileMan.&nbsp; Suppose we want to do a two-way breakdown of all the
+entries:
+by the PACKAGE each belongs to, and by TYPE of Dialogue. </p>
+      <p>We do this in the following FileMan interaction: </p>
+      <p><tt><font color="#000000">Select OPTION: 2&nbsp; PRINT FILE
+ENTRIES</font></tt> </p>
+      <p><tt><font color="#000000">OUTPUT FROM WHAT FILE:
+DIALOG&nbsp;&nbsp;
+(513 entries)</font></tt> <br>
+      <tt><font color="#000000">SORT BY: DIALOG NUMBER// +PACKAGE</font></tt>
+      <br>
+      <tt><font color="#000000">START WITH PACKAGE: FIRST// @</font></tt>
+      <br>
+      <tt><font color="#000000">GO TO PACKAGE: LAST//</font></tt> <br>
+      <tt><font color="#000000">&nbsp; WITHIN PACKAGE, SORT BY: +TYPE</font></tt>
+      <br>
+      <tt><font color="#000000">&nbsp; START WITH TYPE: FIRST//</font></tt>
+      <br>
+      <tt><font color="#000000">&nbsp;&nbsp;&nbsp; WITHIN TYPE, SORT BY:</font></tt>
+      <br>
+      <tt><font color="#000000">FIRST PRINT FIELD: !.01&nbsp; DIALOG
+NUMBER</font></tt> <br>
+      <tt><font color="#000000">THEN PRINT FIELD:</font></tt> <br>
+      <tt><font color="#000000">Heading (S/C): DIALOG STATISTICS//</font></tt>
+      <br>
+      <tt><font color="#000000">START AT PAGE: 1//</font></tt> <br>
+      <tt><font color="#000000">DEVICE:&nbsp;&nbsp;
+CONSOLE&nbsp;&nbsp;&nbsp;
+Right Margin: 80//</font></tt> </p>
+      <p>The resulting output would look something like -- <br>
+&nbsp;
+      <table border="0" cols="1" width="100%">
+        <tbody>
+          <tr>
+            <td bgcolor="#ccc" width="80%"><tt><font color="#000000"><font
+ size="-1">DIALOG
+STATISTICS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; FEB&nbsp;
+8,2000&nbsp;
+16:48&nbsp;&nbsp;&nbsp; PAGE 1</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+DIALOG NUMBER</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">------------------------------------------------------</font></font></tt>
+            <p><tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PACKAGE:&nbsp;&nbsp; EMPTY</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TYPE: ERROR</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TYPE: GENERAL MESSAGE</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+138</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+152</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PACKAGE: MAILMAN</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TYPE: ERROR</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TYPE: GENERAL MESSAGE</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+40</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+PACKAGE: VA FILEMAN</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TYPE: ERROR</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+176</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TYPE: GENERAL MESSAGE</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+103</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TYPE: HELP</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+42</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">SUBCOUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+321</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">COUNT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+513</font></font></tt> </p>
+            <p>&nbsp;</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </p>
+      <p>Not too easy to read.&nbsp; But with the release of a recent
+FileMan
+patch, <a
+ href="http://www.va.gov/vista/Software/Packages/VA%20FileMan%20-%20DI/DI-22_SEQ-10_PAT-2.kid">sequence
+#10 of the VA releases of FileMan V22.0</a>, these results can be
+prettied
+up enough to be entered into a spreadsheet: </p>
+      <p><tt><font color="#000000">Select OPTION: OTHER OPTIONS</font></tt>
+      <br>
+      <tt><font color="#000000">Select OTHER OPTION: STATISTICS</font></tt>
+      <br>
+      <tt><font color="#000000">Select STATISTICAL ROUTINE: 1
+DESCRIPTIVE
+STATISTICS</font></tt> </p>
+      <p>and voila --
+      <table border="0" cols="1" width="100%">
+        <tbody>
+          <tr>
+            <td bgcolor="#ccc"> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;DIALOG
+FILE:
+COUNTS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+FEB 8,2000&nbsp;&nbsp;&nbsp; Page 1</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;
+PACKAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+TYPE</font></font></tt>
+            <p><tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+ERROR&nbsp;&nbsp; GENERAL
+MESSAGE&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+HELP&nbsp; TOTAL</font></font></tt> <br>
+            <tt><font color="#000000"><font size="-1">----------------------------------------------------------------------</font></font></tt>
+            </p>
+            <p><tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;
+EMPTY&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+14&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+138&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp; 152</font></font></tt> </p>
+            <p><tt><font color="#000000"><font size="-1">&nbsp;&nbsp;
+MAILMAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+23&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+17&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+0&nbsp;&nbsp;&nbsp;&nbsp; 40</font></font></tt> </p>
+            <p><tt><font color="#000000"><font size="-1">&nbsp;&nbsp;
+VA FILEMAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+176&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+103&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+42&nbsp;&nbsp;&nbsp; 321</font></font></tt> </p>
+            <p><tt><font color="#000000"><font size="-1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+--------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+------------&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+------------&nbsp; ----</font></font></tt> </p>
+            <p><tt><font color="#000000"><font size="-1">&nbsp;&nbsp;
+TOTALS&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+213&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+258&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+42&nbsp;&nbsp;&nbsp; 513</font></font></tt> <br>
+&nbsp;</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      </p>
+      <p>Note that, as usual, statistics need to be printed out from
+the same
+terminal that called for the output.&nbsp; Single-level and
+triple-level
+subtotals can also be pretty-printed using the newly-revised
+DESCRIPTIVE
+STATISTICS option. </p>
+      <p>The patch enabling these outputs is part of our <a
+ href="FMrepairs.html#22">FileMan
+download</a>, and also part of the <a
+ href="../projects/installs/gems.html">Hardhats'
+distribution of "Diamond 2.0" for Cache</a>.</p>
+      </td>
+    </tr>
+    <tr>
+      <td><br>
+      </td>
+      <td><br>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</center>
+<script language="JavaScript">
+<!--
+document.write("<font face=\"arial,helv\" size=1> This page updated on " + document.lastModified+".")
+//-->
+</script>
+<br>
+<!--webbot bot="Include"
+
+
+
+
+
+
+
+
+
+
+
+u-include="../navtext.html" tag="BODY" startspan -->
+<center><font size="-1">Search | <a
+ href="../index.html">Home</a>|
+<a href="../m/Mmain.html">MUMPS</a>
+| <a href="FMmain.html">Fileman</a> | <a
+ href="../kernel/KRNmain.html">Kernel</a>|
+<a href="../cs/CSmain.html">C/S,
+Mailman, Web</a> | <a
+ href="../tools/TOOLSmain.html">Programmer
+Tools</a> | <a href="../apps/APPSmain.html">Applications</a></font></center>
+<!--webbot bot="Include" endspan i-checksum="21369" -->
+</body>
+</html>

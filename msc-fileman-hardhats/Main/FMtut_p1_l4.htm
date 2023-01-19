@@ -1,0 +1,797 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 1, Lesson
+		4</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 4
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR><A HREF="FMtut_p1_l3.htm"
+					 TITLE="Click and go to Lesson 3">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_4.htm"
+					 TITLE="Link to Lesson 4 Quiz"><IMG SRC="images/button_small_shadow_quiz_4.gif"
+					 WIDTH="89" HEIGHT="16" BORDER="0" ALIGN="ABSBOTTOM"
+					 ALT="Lesson 4 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A HREF="FMtut_p1_l5.htm"
+					 TITLE="Click and go to Lesson 5">[Next Lesson --&gt;]</A></TD>
+				</TR>
+			 </TABLE><BR> <FONT SIZE="6" FACE="Arial">Part 1 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_regular.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: Regular is one of the two types of new-style cross-references you can create. (The other is MUMPS.) In a regular cross-reference, data is stored as subscript(s) in an index. The index can be used for sorting the data and for looking up entries in a file based on the indexed data.">Regular
+			 Indexes</A></FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE><BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="110" VALIGN="TOP"><A NAME="navskip"></A><FONT FACE="Arial"
+			 SIZE="5">Lesson 4.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="689" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">Transforms on
+			 Subscripts</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">In this lesson you will learn about the
+		three different transforms you can define on cross-reference values, and how
+		they can help make your indexes more usable.</FONT></P><BR>
+	 <P><B><FONT SIZE="3" FACE="Arial">Three Types of Transforms for
+		Cross-Reference Values</FONT></B></P>
+	 <P><FONT SIZE="2" FACE="Arial">These are the three types of transforms you
+		can perform in VA FileMan on cross-reference values used as subscripts in an
+		index:</FONT></P>
+	 <TABLE BORDER="0" CELLPADDING="5" BORDERCOLORLIGHT="#F1F2F3"
+	  BORDERCOLORDARK="#808080" WIDTH="88%">
+		<TR>
+		  <TD VALIGN="TOP" WIDTH="7%" ALIGN="RIGHT"><FONT SIZE="2"
+			 FACE="Arial">1.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="4" WIDTH="92%"><FONT SIZE="2"
+			 FACE="Arial"><B>Transform for Storage:</B> You can use Transform for Storage to
+			 transform the internal value of the field before it is stored as a subscript in
+			 the index. In the exercises in this lesson, you will create a New-style Regular
+			 "D" index on the SSN field and use the Transform for Storage to append a space
+			 to the end of the SSN before it's stored in the index. This will make all SSNs
+			 noncanonic, so that they will all sort in the ASCII collation sequence
+			 ("011223333 " sorts before "111223333 ").</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"><FONT SIZE="2"
+			 FACE="Arial">2.</FONT></TD>
+		  <TD VALIGN="TOP"></TD>
+		  <TD VALIGN="TOP" COLSPAN="4"><FONT SIZE="2" FACE="Arial"><B>Transform
+			 for Lookup:</B> When VA FileMan uses an index in a lookup, it first looks up
+			 the value exactly as it was input. If it can't find the lookup value as it was
+			 originally input in the index, it performs some basic transformations on the
+			 value, as shown below:</FONT><BR><BR>
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD WIDTH="5%" VALIGN="MIDDLE"><IMG
+					 SRC="images/bullet_black_small.gif" ALIGN="RIGHT" WIDTH="6" HEIGHT="6"
+					 BORDER="0" ALT="Graphic: bullet"></TD>
+				  <TD WIDTH="1%"></TD>
+				  <TD WIDTH="94%"><FONT SIZE="2" FACE="Arial">Converts the lookup
+					 value to all uppercase,</FONT></TD>
+				</TR>
+				<TR>
+				  <TD WIDTH="5%" VALIGN="MIDDLE"><IMG
+					 SRC="images/bullet_black_small.gif" ALIGN="RIGHT" WIDTH="6" HEIGHT="6"
+					 BORDER="0" ALT="Graphic: bullet"></TD>
+				  <TD WIDTH="1%"></TD>
+				  <TD WIDTH="94%"><FONT SIZE="2" FACE="Arial">Truncates long input
+					 to the maximum subscript length,</FONT></TD>
+				</TR>
+				<TR>
+				  <TD WIDTH="5%" VALIGN="MIDDLE"><IMG
+					 SRC="images/bullet_black_small.gif" ALIGN="RIGHT" WIDTH="6" HEIGHT="6"
+					 BORDER="0" ALT="Graphic: bullet"></TD>
+				  <TD WIDTH="1%"></TD>
+				  <TD WIDTH="94%"><FONT SIZE="2" FACE="Arial">Performs
+					 comma-piecing, or</FONT></TD>
+				</TR>
+				<TR>
+				  <TD WIDTH="5%" VALIGN="MIDDLE"></TD>
+				  <TD WIDTH="1%" ROWSPAN="3"></TD>
+				  <TD WIDTH="94%" ROWSPAN="3"><FONT SIZE="2" FACE="Arial">Converts
+					 values to internal form for the following fields: date, set of codes, pointer,
+					 and variable pointers, it converts values to internal form.</FONT></TD>
+				</TR>
+				<TR>
+				  <TD WIDTH="5%" VALIGN="TOP"><IMG
+					 SRC="images/bullet_black_small.gif" ALIGN="RIGHT" WIDTH="6" HEIGHT="6"
+					 BORDER="0" ALT="Graphic: bullet"></TD>
+				</TR>
+				<TR>
+				  <TD WIDTH="5%" VALIGN="TOP"></TD>
+				</TR>
+			 </TABLE><BR><FONT SIZE="2" FACE="Arial"> Once this conversion has
+			 taken place, VA FileMan tries the lookup again - but this time, looking for the
+			 transformed value.<BR><BR>With New-style indexes, you can define your own
+			 transform that VA FileMan will perform in addition to its usual transforms. In
+			 Exercise 4.2 of this lesson, you will use the Transform for Lookup in your "D"
+			 index to strip out any hyphens from the SSN entered by the user. For example,
+			 if the user enters "123-45-6789" VA FileMan would strip the hyphens and also
+			 look for 123456789 in the index.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="RIGHT"><FONT SIZE="2"
+			 FACE="Arial">3.</FONT></TD>
+		  <TD VALIGN="TOP"></TD>
+		  <TD VALIGN="TOP" COLSPAN="4"><FONT SIZE="2" FACE="Arial"><B>Transform
+			 for Display:</B> If a subscript in the index has a Transform for Storage, you
+			 would probably also want to define a Transform for Display that takes the value
+			 as it is stored in the index and converts it back into a form that can be
+			 displayed to the user. In Exercise 4.2 of this lesson, you will use the
+			 Transform For Display property to take the space out of the SSN. (This is not
+			 really necessary in our case, since the extra space displayed at the end of the
+			 SSN wouldn't confuse the user. However, we'll strip it anyway for illustration
+			 purposes.)</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT FACE="Arial" SIZE="2">The Transform properties are located in the
+		"Field-Type Cross Reference Value" pop-up window, shown in the next screen
+		capture.</FONT></P>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE WIDTH="500">
+			 <TR>
+				<TD>
+				  <TABLE WIDTH="500" BORDER="1" BGCOLOR="#F1F2F3">
+					 <TR>
+						<TD>
+						  <TABLE WIDTH="100%" BORDER="0">
+							 <TR>
+								<TD COLSPAN="6">
+								  <PRE>Number: <I>nn</I>            EDIT AN INDEX              Page 2 of 2
+<HR>
+CROSS-REFERENCE VALUES:
+Order...  Subscr  Type  Length  Field or Computed Expression
+--------  ------  ----  ------  ----------------------------
+
+</PRE></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="4" WIDTH="23%"><HR ALIGN="RIGHT"
+								  SIZE="5"></TD>
+								<TD WIDTH="54%"><FONT SIZE="2"
+								  FACE="Courier New">Field-Type Cross Reference Value</FONT></TD>
+								<TD WIDTH="23%"><HR ALIGN="LEFT" SIZE="5"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6" ALIGN="LEFT" VALIGN="TOP">
+								  <PRE>  Order Number: <I>nn</I>             Subscript Number: <I>nn</I>
+         Field: <I>nn</I>                         File: <I>nnn</I>
+    Field Name: SSN
+
+Maximum Length:                       Collation: forwards
+ Lookup Prompt:
+<B>Transform for Storage:</B>
+<B>Transform for Lookup:</B>
+<B>Transform for Display:</B>
+<HR SIZE="5"></PRE></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"></TD>
+							 </TR>
+							 <TR>
+								<TD COLSPAN="6"><FONT SIZE="2"
+								  FACE="Courier New">COMMAND:
+								  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Press
+								  &lt;&gt;PF1&gt;H for help &nbsp;&nbsp;&nbsp;Insert</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 4.1. &nbsp;Create a New-Style
+		Regular "D" Index on the SSN Field</FONT><BR></P>
+	 <P><FONT SIZE="2" FACE="Arial">To illustrate how and why you might use
+		these transforms, you will create another New-style index, this time using the
+		SSN field as the cross-reference value.</FONT></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Create a New-style Regular "D" index on the SSN field. Here's an
+			 abbreviated procedure for doing this:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" WIDTH="5%"><FONT
+				  SIZE="2" FACE="Arial">1.</FONT></TD>
+				<TD VALIGN="TOP" WIDTH="1%"></TD>
+				<TD VALIGN="TOP" COLSPAN="2" WIDTH="82%"><FONT SIZE="2"
+				  FACE="Arial">Select <B>UTILITY FUNCTIONS</B> and <B>CROSS-REFERENCE A FIELD OR
+				  FILE</B> on the VA FileMan menu.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">2.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Select
+				  <B>NEW</B> for type of cross-reference.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">3.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Select the
+				  <B><I>ZZINDIVIDUAL</I></B> file.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">4.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Choose
+				  <B>C</B> to create a new index.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">5.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Enter
+				  <B>REGULAR</B> for type of index.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">6.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Enter
+				  <B>LOOKUP &amp; SORTING</B> for how the index should be used.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">7.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Enter
+				  <B>D</B> for the index name.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">8.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">On page 1
+				  of the ScreenMan form, at the "Short Description:" field enter <B>A simple
+				  index on the SSN field</B>.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">9.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">On page 2,
+				  in the "Order..." column type <B>1</B> and press Enter.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">10.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">For
+				  "Cross-Reference Values Type of Value," enter <B>FIELD</B>.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">11.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">In the
+				  pop-up window, for Field, enter <B>SSN</B>.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				  FACE="Arial">12.</FONT></TD>
+				<TD VALIGN="TOP"></TD>
+				<TD VALIGN="TOP" COLSPAN="2"><FONT SIZE="2" FACE="Arial">Press
+				  &lt;PF1&gt;E twice and press Enter until you return to programmer
+				  mode.</FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="7"><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Refer to Lesson 1, "Exercise 1.1. Create Your First Compound
+								  Index" for more information on creating a New-style Regular index on a field.
+								  However, don't forget to use these values.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">The resulting Set and Kill Logic should look like
+			 this:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="100%">
+				  <PRE>  Set Logic: S ^<I>DIZ</I>(<I>662nnn</I>,"D",$E(X,1,30),DA)=""
+ Kill Logic: K ^<I>DIZ</I>(<I>662nnn</I>,"D",$E(X,1,30),DA)
+ Whole Kill: K ^<I>DIZ</I>(<I>662nnn</I>,"D")
+</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">This step and the next will illustrate two problems with the "D"
+			 index that you just created. The first is that the SSNs aren't sorted the way
+			 that you would expect. The second is that SSNs entered with hyphens are
+			 rejected.<BR><BR>From programmer mode, set up the input variables using the "D"
+			 index and perform an IX^DIC call. Afterward, enter two question marks (??) at
+			 the "Select <I>ZZINDIVIDUAL</I> SSN:" prompt to see a list of records in your
+			 test file as they are currently sorted in the "D" index.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="100%">
+				  <PRE>&gt;<B>S DIC="^<I>DIZ</I>(<I>662nnn</I>,",DIC(0)="QEAZ",D="D"</B>
+&gt;<B>D IX^DIC</B>
+
+Select <I>ZZINDIVIDUAL</I> SSN: <B>??</B></PRE></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="2" WIDTH="25%"><FONT SIZE="2"
+				  FACE="Courier New">&nbsp;Choose
+				  from:<BR>&nbsp;&nbsp;111223333<BR>&nbsp;&nbsp;234567890<BR>&nbsp;&nbsp;333221111<BR>&nbsp;&nbsp;345678901<BR>&nbsp;&nbsp;444996666<BR>&nbsp;&nbsp;543891234<BR>&nbsp;&nbsp;555443333<BR>&nbsp;&nbsp;678765432<BR>&nbsp;&nbsp;765432123<BR>&nbsp;&nbsp;777889999<BR>&nbsp;&nbsp;888776666<BR>&nbsp;&nbsp;987654321<BR>&nbsp;&nbsp;012345678</FONT></TD>
+
+				<TD VALIGN="TOP" WIDTH="75%" COLSPAN="2" ALIGN="LEFT">
+				  <FONT SIZE="2"
+				  FACE="Courier New"><BR>&nbsp;&nbsp;LAKE,MARIGOLD<BR>&nbsp;&nbsp;RIVERS,HOLLY<BR>&nbsp;&nbsp;CURRENT,ROSEMARY<BR>&nbsp;&nbsp;FROST,HAZEL
+				  <BR>&nbsp;&nbsp;SNOW,BASIL<BR>&nbsp;&nbsp;RIPPLE,SAFFRON<BR>&nbsp;&nbsp;GEISER,JASMINE<BR>&nbsp;&nbsp;PUDDLES,CHERVIL<BR>&nbsp;&nbsp;WELLS,PERIWINKLE<BR>&nbsp;&nbsp;BROOKS,SAGE<BR>&nbsp;&nbsp;WATERS,HERB<BR>&nbsp;&nbsp;TIDE,DILL<BR>&nbsp;&nbsp;RAINEY,GINGER
+				  </FONT></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="21%"> <BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The record with the SSN of 012345678 appears at the end of the
+								  list. This is because in M, all canonic numbers sort before strings of
+								  characters that are noncanonic. A canonic number is a number that contains no
+								  nonsignificant leading zeros, no plus signs (+) in the case of positive
+								  numbers, and no insignificant trailing zeros to the right of the decimal point
+								  in the case of real numbers. The SSNs 111223333 through 987654321 are canonic
+								  numbers and are ordered numerically. All of them precede 012345678 which is
+								  noncanonic.<BR><BR>In exercise 4.2, you will define a Transform for Storage for
+								  the SSN field to have VA FileMan store the SSNs as non-canonic strings. This
+								  will make the SSN of 012345678 appear at the beginning of the list.</FONT></TD>
+
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Select <I>ZZINDIVIDUAL</I> SSN:" prompt, enter 111-22-3333:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="100%"><FONT SIZE="2"
+				  FACE="Courier New">Select <I>ZZINDIVIDUAL</I> SSN: <B>111-22-3333
+				  &lt;Enter&gt;</B> ??</FONT><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Since the SSNs are stored in the "D" index without hyphens, VA
+								  FileMan is unable to find the SSN in this format: 111-22-3333.<BR><BR>In
+								  exercise 4.2, you will define a Transform for Lookup that will allow you to
+								  look up an SSN, even if you enter it with hyphens.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		4.1.</FONT></B></P><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 4.2. &nbsp;Modify the "D" Index to
+		Include Transforms on the SSN Subscript</FONT><BR></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise you will modify the "D"
+		index created in Exercise 4.1 so that:</FONT></P>
+	 <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	 WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" WIDTH="7%"><FONT SIZE="2"
+			 FACE="Arial">1.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" WIDTH="92%"><FONT SIZE="2" FACE="Arial">The list of
+			 SSNs displayed on ?? is sorted as you would expect, regardless of whether the
+			 SSN is canonic or noncanonic.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+			 FACE="Arial">2.</FONT></TD>
+		  <TD VALIGN="TOP"></TD>
+		  <TD VALIGN="TOP"><FONT SIZE="2" FACE="Arial">Input of SSNs with hyphens
+			 (-) is accepted.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">To do this you will use the three Transform
+		properties of cross-reference values:</FONT></P>
+	 <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	 WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" WIDTH="7%"><FONT SIZE="2"
+			 FACE="Arial">1.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" WIDTH="92%"><FONT SIZE="2" FACE="Arial">The Transform
+			 for Storage to force each SSN stored in the index to be noncanonic by appending
+			 a space at the end.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+			 FACE="Arial">2.</FONT></TD>
+		  <TD VALIGN="TOP"></TD>
+		  <TD VALIGN="TOP"><FONT SIZE="2" FACE="Arial">The Transform for Lookup
+			 to remove hyphens (-) from the lookup value.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+			 FACE="Arial">3.</FONT></TD>
+		  <TD VALIGN="TOP"></TD>
+		  <TD VALIGN="TOP"><FONT SIZE="2" FACE="Arial">The Transform for Display
+			 to remove the space at the end of the SSN.</FONT></TD>
+		</TR>
+	 </TABLE><BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial">Edit the "D" index, and on page 2 of the ScreenMan form, press
+			 Enter in the "Order&#133;" column for Order number 1 to select the SSN
+			 cross-reference value.</FONT></TD>
+		</TR>
+	 </TABLE><BR><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial">In the pop-up window, Tab to the "<A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_Trans_Storage.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=300,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: FileMan uses this transform only when setting or killing an entry in the index. The contents of this transform should be M code that sets the variable X to a new value. X is the only input variable that is guaranteed to be defined and is equal to the internal value of the field. TRANSFORM FOR STORAGE can be used on field-type cross-reference values to transform the internal value of the field before it is stored as a subscript in the index. If a match is made on this index during a lookup, then in order to properly display the resulting index value to the user, the developer may need to enter code into the TRANSFORM FOR DISPLAY field to transform the index value back to a displayable format.">Transform
+			 for Storage</A>" and enter the following M code:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="5" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"><B>S X=X_" "</B></FONT><BR><BR><FONT SIZE="2"
+				  FACE="Arial">(This concatenates a space at the end of each SSN.)</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "<A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_Trans_lookup.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=250,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: FileMan uses this transform only during lookup. The contents of this transform should be M code that sets the variable X to a new value. X is the only input variable that is guaranteed to be defined and is equal to the lookup value entered by the user. During lookup, if the lookup value is not found in the index, FileMan will execute the TRANSFORM FOR LOOKUP code to transform the lookup value X. It will then search this index looking for a match to the transformed lookup value.">Transform
+			 for Lookup</A>", enter the following M code:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="5" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"><B>S X=$TR(X,"-")</B></FONT><BR><BR><FONT SIZE="2"
+				  FACE="Arial">(This removes all hyphens from any SSN entered by the
+				  user.)</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "<A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_Trans_display.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=350,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: FileMan uses this transform only during lookup. The contents of this transform should be M code that sets the variable X to a new value. X is the only variable that is guaranteed to be defined and is equal to the value of the subscript from the index. TRANSFORM FOR DISPLAY should be set only for an index value that has been transformed using the code in the TRANSFORM FOR STORAGE prior to storing the value in the index. The code should take the internal value from the index subscript X, and convert it back to a format that can be displayed to an end user. During lookup, if a match or matches are made to a lookup value that was transformed using the TRANSFORM FOR LOOKUP code on this index, then FileMan will execute the TRANSFORM FOR DISPLAY code before displaying the index value(s) to the end user.">Transform
+			 for Display</A>", enter the following M code:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="5" WIDTH="98%"><FONT SIZE="2"
+				  FACE="Courier New"><B>S:$E(X,$L(X))=" "
+				  X=$E(X,1,$L(X)-1)</B></FONT><BR><BR><FONT SIZE="2" FACE="Arial">(This removes
+				  the space, previously concatenated in Step 2, at the end when displaying the
+				  SSN.)</FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Press &lt;PF1&gt;E to close the pop-up window. Press &lt;PF1&gt;E
+			 again to save changes and exit the form. Answer YES to the following two
+			 questions:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <FONT SIZE="2" FACE="Arial"><FONT SIZE="2" FACE="Courier New">&nbsp;&nbsp;Do
+				  you want to delete the old index now? YES// <B>&lt;Enter&gt;</B><BR>
+				  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Removing old index ... DONE! <BR>&nbsp;&nbsp;Do
+				  you want to build the index now? YES//
+				  <B>&lt;Enter&gt;</B><BR>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Building new index ...
+				  DONE! </FONT></FONT><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">If you haven't installed Patch DI*22.0*58, you will not see this
+								  prompt and the index will be built automatically. This patch was released
+								  October 18, 2000.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">From programmer mode, set up the input variables and perform an
+			 IX^DIC call using the "D" index. Afterward, enter two question marks (??) at
+			 the "Select <I>ZZINDIVIDUAL</I> SSN:" prompt.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="100%">
+				  <PRE>&gt;<B>S DIC="^<I>DIZ</I>(<I>662nnn</I>,",DIC(0)="QEAZ",D="D"</B>
+&gt;<B>D IX^DIC</B>
+
+Select <I>ZZINDIVIDUAL</I> SSN: <B>??</B></PRE></TD>
+			 </TR>
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="2" WIDTH="25%"><FONT SIZE="2"
+				  FACE="Courier New">&nbsp;Choose
+				  from:<BR>&nbsp;&nbsp;012345678<BR>&nbsp;&nbsp;111223333<BR>&nbsp;&nbsp;234567890<BR>&nbsp;&nbsp;333221111<BR>&nbsp;&nbsp;345678901<BR>&nbsp;&nbsp;444996666<BR>&nbsp;&nbsp;543891234<BR>&nbsp;&nbsp;555443333<BR>&nbsp;&nbsp;678765432<BR>&nbsp;&nbsp;765432123<BR>&nbsp;&nbsp;777889999<BR>&nbsp;&nbsp;888776666<BR>&nbsp;&nbsp;987654321</FONT></TD>
+
+				<TD VALIGN="TOP" WIDTH="75%" COLSPAN="2" ALIGN="LEFT">
+				  <FONT SIZE="2"
+					FACE="Courier New"><BR>&nbsp;&nbsp;RAINEY,GINGER<BR>&nbsp;&nbsp;LAKE,MARIGOLD<BR>&nbsp;&nbsp;RIVERS,HOLLY<BR>&nbsp;&nbsp;CURRENT,ROSEMARY<BR>&nbsp;&nbsp;FROST,HAZEL
+				  <BR>&nbsp;&nbsp;SNOW,BASIL<BR>&nbsp;&nbsp;RIPPLE,SAFFRON<BR>&nbsp;&nbsp;GEISER,JASMINE<BR>&nbsp;&nbsp;PUDDLES,CHERVIL<BR>&nbsp;&nbsp;WELLS,PERIWINKLE<BR>&nbsp;&nbsp;BROOKS,SAGE<BR>&nbsp;&nbsp;WATERS,HERB<BR>&nbsp;&nbsp;TIDE,DILL
+				  </FONT></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+			 <TR>
+				<TD>
+				  <TABLE BORDER="0" BGCOLOR="#F1F2F3" BORDERCOLORLIGHT="#F1F2F3"
+					BORDERCOLORDARK="#808080">
+					 <TR>
+						<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT SIZE="2"
+						  FACE="Arial">Note:</FONT></B></TD>
+						<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+						  FACE="Arial">This time, in contrast to Exercise 4.1, SSN "012345678" is
+						  displayed first.</FONT></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B> </FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2" FACE="Arial">At
+			 the "Select <I>ZZINDIVIDUAL</I>:" prompt, enter 111-22-3333:</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="88%">
+			 <TR>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="92%">
+				  <PRE>Select <I>ZZINDIVIDUAL</I>: <B>111-22-3333 &lt;Enter&gt;</B> 111223333  LAKE,MARIGOLD</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+			 <TR>
+				<TD>
+				  <TABLE BORDER="0" BGCOLOR="#F1F2F3" BORDERCOLORLIGHT="#F1F2F3"
+					BORDERCOLORDARK="#808080">
+					 <TR>
+						<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT SIZE="2"
+						  FACE="Arial">Note:</FONT></B></TD>
+						<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+						  FACE="Arial">In contrast to Exercise 4.1, FileMan was able to find the entry
+						  you were looking for, even though you entered the SSN with hyphens, a form not
+						  found in the index.</FONT></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P ALIGN="LEFT"><B><FONT SIZE="2" FACE="Arial">End of Exercise
+		4.2.</FONT></B></P><BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_4.htm"
+			 TITLE="Link to Lesson 4 Quiz"><IMG SRC="images/button_large_shadow_quiz_4.gif"
+			 WIDTH="125" HEIGHT="35" BORDER="0" ALT="Lesson 4 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p1_l3.htm"
+			 TITLE="Click and go to Lesson 3">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">4</FONT></B>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A>
+			 <A HREF="FMtut_p3_l11.htm"
+			 TITLE="Click and go to Lesson 11">[11]</A>&nbsp;&nbsp;&nbsp;<A
+			 HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[Next Lesson
+			 --&gt;]</A></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>

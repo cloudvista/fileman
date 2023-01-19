@@ -1,0 +1,871 @@
+<!DOCTYPE HTML PUBLIC "-//SoftQuad Software//DTD HoTMetaL PRO 5.0::19981217::extensions to HTML 4.0//EN" "hmpro5.dtd">
+<HTML>
+  <HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+	 <TITLE>VA FileMan Version 22.0 Key and Index Tutorial: Part 3, Lesson
+		11</TITLE>
+  </HEAD>
+  <BODY ONUNLOAD="closeOpenWindow()">
+	 <NOSCRIPT>
+		<P>Your browser or user agent does not support scripting. The JavaScript
+		  contained on this web page provides hyperlinks to display pop-up windows for
+		  additional topical information. The information contained in each window is
+		  provided in the associated HTML Title tag attribute. For user agents, your
+		  device should be able to read this content. For browsers, you should be able to
+		  display this information by simply moving your mouse across the hyperlink.
+		  Please contact the IIS Webmasters (see bottom of this web page for contact
+		  information) if you cannot read/access this information.<A HREF="#navskip"
+		  TITLE="[Skip Navigation]"></A></P></NOSCRIPT><SCRIPT LANGUAGE="JavaScript" TYPE="text/javascript">
+
+		<!--
+//Secondary windows for Lesson 11
+
+//Check if window is open
+
+<!-- Begin
+var openWindow
+function setOpenWindow(current){
+	openWindow = current
+	}
+function closeOpenWindow() {
+	if (openWindow) openWindow.close()
+	openWindow = null
+	}
+//  End -->
+
+//Create new window. Close when selected.
+
+<!-- Begin
+var newWindow
+function makeNewWindow(parameters) {
+		closeOpenWindow()
+		newWindow = window.open("","secondary",parameters);
+		setOpenWindow(newWindow)
+	}
+  function closeNewWindow() {
+		if (newWindow) {
+			newWindow.close()
+	}
+}
+//  End -->
+</SCRIPT>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2">
+			 <TABLE WIDTH="100%">
+				<TR>
+				  <TD ALIGN="LEFT"></TD>
+				  <TD ALIGN="RIGHT"><FONT SIZE="4" FACE="Arial">VA FileMan V. 22
+					 Key and Index Tutorial</FONT><BR><A HREF="FMtut_p3_l10.htm"
+					 TITLE="Click and go to Lesson 10">[&lt;-- Previous
+					 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="quiz/Quiz_11.htm"
+					 TITLE="Link to Lesson 11 Quiz"><IMG
+					 SRC="images/button_small_shadow_quiz_11.gif" WIDTH="89" HEIGHT="16" BORDER="0"
+					 ALIGN="ABSBOTTOM" ALT="Lesson 11 Quiz Button"></A>&nbsp;&nbsp;&nbsp;<A
+					 HREF="FMtut_dd.htm"
+					 TITLE="Click and go to the Tutorial Data Dictionary Page">[Tutorial Data
+					 Dictionary --&gt;]</A></TD>
+				</TR>
+			 </TABLE><BR><FONT SIZE="6" FACE="Arial">Part 3 -
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_key.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=610,height=250,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE='Contents of secondary window: A key is a set of one or more fields in a file that together uniquely identifies a record in that file. If you define a key, FileMan V.22.0 automatically enforces the integrity of that key, which means that: (1)  No key field is null; (2) The key (that is, the combination of fields in a key) is unique for all records in the file. FileMan stores the definition of keys in the KEY file (#.31), which has the global root ^DD("KEY").'>Keys</A></FONT></TD>
+
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" ALIGN="CENTER" WIDTH="100%" COLSPAN="2">
+			<HR ALIGN="left" WIDTH="100%" SIZE="5" COLOR="#000080">
+		  </TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="MIDDLE" ALIGN="LEFT" WIDTH="100%" COLSPAN="2"
+			HEIGHT="10"></TD>
+		</TR>
+	 </TABLE><BR>
+	 <TABLE WIDTH="800">
+		<TR>
+		  <TD WIDTH="120" VALIGN="TOP"><A NAME="navskip"></A><FONT FACE="Arial"
+			 SIZE="5">Lesson 11.</FONT></TD>
+		  <TD WIDTH="1" VALIGN="TOP"></TD>
+		  <TD WIDTH="679" VALIGN="TOP"><FONT FACE="Arial" SIZE="5">VA FileMan Key
+			 Integrity</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <P><FONT SIZE="2" FACE="Arial">In this lesson, you will see examples of how
+		VA FileMan enforces the integrity of the key you created in Lesson 9, and
+		worked with in Lesson 10.</FONT></P><BR>
+	 <P><FONT FACE="Arial" SIZE="4">When Does VA FileMan Check Key
+		Integrity?</FONT></P>
+	 <P><FONT FACE="Arial" SIZE="2">VA FileMan checks the integrity of keys at
+		the following times:</FONT></P>
+	 <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+	  WIDTH="88%">
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" WIDTH="7%"><FONT SIZE="2"
+			 FACE="Arial"> 1.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="92%"><B><FONT SIZE="2"
+			 FACE="Arial">In the Key Definition option</FONT></B></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+			 FACE="Arial">When you create or edit a key, VA FileMan asks if you want to
+			 check the integrity of the key. You can select to verify a key at any time.
+			 (You've already seen examples of this.)</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">
+			 2.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+			 FACE="Arial"><B> In the
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_m_r_field_chk.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: The Mandatory/Required Field Check option checks that all fields that are key fields or designated as required contain data. It can check one, a series, or all entries in a file.">Mandatory/Required
+			 Field Check option</A></B> (on VA FileMan's Utility Functions menu)</FONT></TD>
+
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">If
+			 the field selected for checking is a key field, this option verifies that the
+			 field has a value (i.e., not null) for all records in the file.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">
+			 3.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+			 FACE="Arial"><B>In the
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_verify_fields.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=245,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE='Contents of secondary window: The Verify Fields option uses a fields definition to verify the data stored in a file. After invoking this option, you can ask to verify all existing values of a particular field by entering its label at the "VERIFY WHICH FIELD:" prompt; or you can ask that all fields at a given file level be verified by entering ALL at the prompt. If more than one discrepancy is found between the current definition and the data on file, you will be asked if you want to save the list of those entries containing the inconsistent data in a template. Later you would be able to "SORT BY:" the entries in this template to display or edit them.'>Verify
+			 Fields option</A></B> (on VA FileMan's Utility Functions menu)</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">If
+			 the field selected for verification is a key field, the integrity of the key(s)
+			 to which it is a part is checked.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">
+			 4.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><B><FONT SIZE="2"
+			 FACE="Arial">When records are added</FONT></B></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+			 FACE="Arial">All of the VA FileMan APIs and options that add records (<A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_FILE_DICN.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: This classic VA FileMan API adds a new entry to a file.">FILE^DICN</A>,
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_UPDATE_DIE.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: This DBS server API adds a new entry to a file. ">UPDATE^DIE</A>,
+			 the
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_enter_edit.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: This VA FileMan option allows you to add and edit an entry in a file.">Enter
+			 or Edit File Entries</A> option, etc.) have been modified to verify the
+			 integrity of keys as records are added to the file. By default, if the new
+			 record violates key integrity, the record is deleted.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">
+			 5.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><B><FONT SIZE="2"
+			 FACE="Arial"> When records are edited</FONT></B></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">
+			 Similarly, all of the VA FileMan APIs and options that allow you to edit the
+			 value of key fields (<A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_DIE.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: This classic VA FileMan API allows you to edit an existing record in a file. ">^DIE</A>,
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_FILE_DIE.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=145,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: This DBS server API allows you to put validated data that is internal format into a file; or to validate data that is in external (user-provided) format, convert it to internal FileMan format, and file the valid data into the database.">FILE^DIE</A>
+			 <A
+			 HREF="http://hardhats.org/fileman/Main/window_text/wt_DDS.htm"
+			 TARGET="secondary"
+			 ONCLICK="makeNewWindow('width=600,height=115,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			 TITLE="Contents of secondary window: This ScreenMan API allows you to use a screen-mode interface to edit an entry in a file.">^DDS</A>,
+			 the Enter or Edit File Entries option, etc.) have been modified to ensure that
+			 edits don't cause key integrity to be violated.</FONT></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2" FACE="Arial">
+			 6.</FONT></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><B><FONT SIZE="2"
+			 FACE="Arial">In the Validator APIs</FONT></B></TD>
+		</TR>
+		<TR>
+		  <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"></TD>
+		  <TD VALIGN="TOP" WIDTH="1%"></TD>
+		  <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_KEYVAL_DIE.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: The Key Validator extrinsic function verifies that new values contained in a FileMan Data Array (FDA) do not produce an invalid key. All keys in which any field in the FDA participates are checked. If the value for a field in a key being checked is not present in the FDA, the value used to verify the key is obtained from the previously filed data.">
+			 $$KEYVAL^DIE</A>,
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_VAL_DIE.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=130,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: The Validator takes the external form of a value (the user input) and determines if that value is valid (i.e., if that value can be put into the VA FileMan database). ">VAL^DIE</A>,
+			 and
+			 <A
+			  HREF="http://hardhats.org/fileman/Main/window_text/wt_VALS_DIE.htm"
+			  TARGET="secondary"
+			  ONCLICK="makeNewWindow('width=600,height=165,alwaysRaised=yes,scrollbars=yes,resizable=yes')"
+			  TITLE="Contents of secondary window: The Fields Validator validates data for a group of fields and converts valid data to internal VA FileMan format. It is intended for use with a set of fields that comprise a logical record; fields from more than one file can be validated by a single call. By default, the integrity of any keys affected by the new values is checked. ">VALS^DIE</A>
+			 all check the integrity of key fields.</FONT></TD>
+		</TR>
+	 </TABLE><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">The Editing APIs and Key
+		Integrity</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">All of VA FileMan's editing APIs, including
+		^DIE and FILE^DIE, automatically enforce key integrity when you edit key
+		fields.</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">^DIE checks the integrity of <B>simple
+		keys</B> (i.e., one-field keys) immediately after the field is edited. It
+		checks the integrity of <B>compound keys</B> (i.e., keys that are composed of
+		more than one field) at the very end of the editing session, after all the
+		fields in the record have been edited.</FONT></P><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 11.1. &nbsp;Try to Delete the Value
+		of the Key Field SSN</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise, you will see how VA
+		FileMan's Enter or Edit File Entries automatically enforces key
+		integrity.</FONT></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Enter or Edit File Entries option to edit the
+			 NAME field and the SSN field, the two fields in the Primary Key A you created
+			 in Lesson 9.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>E</B>NTER OR EDIT FILE ENTRIES
+
+INPUT TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+EDIT WHICH FIELD: ALL// <B>SSN</B>
+THEN EDIT FIELD: <B>&lt;Enter&gt;</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select the MODIFIED,ENTRY record and enter and at-sign (@) at the
+			 SSN field to try to delete it.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select <I>ZZINDIVIDUAL</I> NAME: <B>MODIFIED,ENTRY</B>
+
+SSN: 123456789// <B>@</B> ??  Required Key field
+SSN: 123456789// <B>&lt;Enter&gt;</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Because the SSN field is a key field, VA FileMan does not let you
+								  delete its value.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise 11.1</FONT></B></P>
+	 <BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 11.2. &nbsp;Try to Create a
+		Duplicate Key</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this exercise, you will try to change the
+		NAME and SSN of the MODIFIED,ENTRY record to see how VA FileMan handles edits
+		that cause duplicate keys.</FONT></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Enter or Edit File Entries option to edit the
+			 fields in Primary Key A: NAME field (#.01) and SSN field (#.02) in the
+			 <I>ZZINDIVIDUAL</I> file.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>E &lt;Enter&gt;</B>NTER OR EDIT FILE ENTRIES
+
+INPUT TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+EDIT WHICH FIELD: ALL// <B>.01</B>  NAME
+THEN EDIT FIELD: <B>SSN</B>
+THEN EDIT FIELD: <B>&lt;Enter&gt;</B></PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select the MODIFIED,ENTRY record and try to change the Name to
+			 LAKE,MARIGOLD and the SSN to 111223333.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select <I>ZZINDIVIDUAL</I> NAME: <B>MOD</B>IFIED,ENTRY    123456789
+NAME: MODIFIED,ENTRY// <B>LAKE,MARIGOLD</B>
+SSN: 123456789// <B>111223333</B></PRE><FONT SIZE="2" FACE="Courier New">***** NOTE *****
+				  <BR><BR>Some of the previous edits are not valid because they create one or
+				  more duplicate keys. Some fields have been restored to their pre-edited
+				  values.</FONT><BR><BR>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Another record in the <I>ZZINDIVIDUAL</I> already has these exact
+								  values for NAME and SSN. VA FileMan displayed a message indicating that this
+								  would violate key integrity. In addition, VA FileMan automatically restored the
+								  values of the NAME and SSN to their pre-edited values.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Answer YES when asked if you want to see a list of the fields that
+			 were edited with values that violate key integrity.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Do you want to see a list of those fields? YES// <B>&lt;Enter&gt;</B>
+
+The following field(s) have been restored to their pre-edited values:
+
+File: <I>ZZINDIVIDUAL</I> File (#<I>662nnn</I>)
+  Key: A
+    Record: 'MODIFIED,ENTRY' (#14)
+
+              Field: NAME (#.01)
+      Invalid value: LAKE,MARIGOLD
+        Restored to: MODIFIED,ENTRY
+
+              Field: SSN (#.02)
+      Invalid value: 111223333
+        Restored to: 123456789</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">VA FileMan displays the record that was edited, the invalid key
+								  field values, and the original values to which the fields were
+								  restored.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Now try changing just the name of MODIFIED,ENTRY to
+			 LAKE,MARIGOLD.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>ENTER OR EDIT FILE ENTRIES</B>
+
+INPUT TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+EDIT WHICH FIELD: ALL// <B>.01 &lt;Enter&gt;</B>  NAME
+THEN EDIT FIELD: <B>SSN</B>
+THEN EDIT FIELD: <B>&lt;Enter&gt;</B>
+
+
+Select <I>ZZINDIVIDUAL</I> NAME: <B>MOD</B>IFIED,ENTRY    123456789
+NAME: MODIFIED,ENTRY// <B>LAKE,MARIGOLD</B>
+SSN: 123456789// <B>&lt;Enter&gt;</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">This time FileMan accepted our edits. Now there are two entries in
+								  the <I>ZZINDIVIDUAL</I> file with the name LAKE,MARIGOLD, but since they have
+								  different SSNs, key integrity has not been violated.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise
+		11.2</FONT></B></P><BR><BR>
+	 <P><FONT FACE="Arial" SIZE="4">The DIEFIRE Variable</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">You can set the variable DIEFIRE in an input
+		template or within any of the semicolon-pieces of the DR input variable to ^DIE
+		to instruct VA FileMan to fire the record-level indexes and check the integrity
+		of all compound keys at that point in the template or DR string. If the
+		integrity of any key is violated, VA FileMan sets the variable X to the string
+		"BADKEY", which can be checked by M code in the next field in the template, or
+		the next semicolon-piece of the DR string.</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">You can control what VA FileMan does if it
+		finds any problems with the keys by setting DIEFIRE to null or any combination
+		of the following flags:</FONT></P>
+	 <BLOCKQUOTE>
+		<TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		 WIDTH="88%">
+		  <TR>
+			 <TD VALIGN="TOP" COLSPAN="4" ALIGN="CENTER" WIDTH="1%"><FONT SIZE="2"
+				FACE="Arial">M</FONT></TD>
+			 <TD VALIGN="TOP" WIDTH="1%" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial">=</FONT></TD>
+			 <TD VALIGN="TOP" COLSPAN="3" WIDTH="98%"><FONT SIZE="2"
+				FACE="Arial">Prints an error message to user.</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="TOP" COLSPAN="4" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial">L</FONT></TD>
+			 <TD VALIGN="TOP" WIDTH="3%" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial">=</FONT></TD>
+			 <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+				FACE="Arial">Returns the DIEBADK array.</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="TOP" COLSPAN="4" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial">R</FONT></TD>
+			 <TD VALIGN="TOP" WIDTH="3%" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial">=</FONT></TD>
+			 <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+				FACE="Arial">Restores invalid key fields to their pre-edited
+				values.</FONT></TD>
+		  </TR>
+		</TABLE></BLOCKQUOTE>
+	 <P><FONT SIZE="2" FACE="Arial">If you include the L flag in DIEFIRE and a
+		key is invalid, VA FileMan sets the DIEBADK array, which can be checked by M
+		code in the next field in the template, or the next semicolon-piece of the DR
+		string. The format of the DIEBADK array is as follows:</FONT></P>
+	 <BLOCKQUOTE>
+		<TABLE WIDTH="100%">
+		  <TR>
+			 <TD><FONT SIZE="2"
+				FACE="Arial">DIEBADK(rFile#,key#,file#,IENS,field#,"O") = The original value of
+				the field.</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD><FONT SIZE="2"
+				FACE="Arial">DIEBADK(rFile#,key#,file#,IENS,field#,"N") = The new (invalid)
+				value of the field.</FONT></TD>
+		  </TR>
+		</TABLE></BLOCKQUOTE>
+	 <P><FONT SIZE="2" FACE="Arial">where,</FONT></P>
+	 <BLOCKQUOTE>
+		<TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		 WIDTH="88%">
+		  <TR>
+			 <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT" WIDTH="5%"><FONT SIZE="2"
+				FACE="Arial"> rFile#</FONT></TD>
+			 <TD VALIGN="TOP" WIDTH="3%" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial"> =</FONT></TD>
+			 <TD VALIGN="TOP" COLSPAN="3" WIDTH="92%"><FONT SIZE="2"
+				FACE="Arial">The root file of the Uniqueness Index of the key. This is the file
+				or subfile number of the fields that make up the key.</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				FACE="Arial"> key#</FONT></TD>
+			 <TD VALIGN="TOP" WIDTH="1%" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial"> =</FONT></TD>
+			 <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+				FACE="Arial">The internal entry number (IEN) of the key in the KEY
+				file.</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				FACE="Arial"> file# </FONT></TD>
+			 <TD VALIGN="TOP" WIDTH="1%" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial"> =</FONT></TD>
+			 <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2"
+				FACE="Arial">The file of the Uniqueness Index of the key. This is the file or
+				subfile where the Uniqueness Index resides. For whole file indexes, this is a
+				file or subfile at a higher level than root file.</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				FACE="Arial"> IENS</FONT></TD>
+			 <TD VALIGN="TOP" WIDTH="1%" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial"> =</FONT></TD>
+			 <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">
+				The IENS of the record that - with the edits - would have a non-unique
+				key.</FONT></TD>
+		  </TR>
+		  <TR>
+			 <TD VALIGN="TOP" COLSPAN="4" ALIGN="RIGHT"><FONT SIZE="2"
+				FACE="Arial"> field#</FONT></TD>
+			 <TD VALIGN="TOP" WIDTH="1%" ALIGN="CENTER"><FONT SIZE="2"
+				FACE="Arial"> =</FONT></TD>
+			 <TD VALIGN="TOP" COLSPAN="3" WIDTH="93%"><FONT SIZE="2" FACE="Arial">
+				The field number of the field being edited.</FONT></TD>
+		  </TR>
+		</TABLE></BLOCKQUOTE> <BR>
+	 <P><FONT FACE="Arial" SIZE="4">Exercise 11.3. &nbsp;Use the DIEFIRE
+		Variable to Check Key Integrity at a Specific Point</FONT></P>
+	 <P><FONT SIZE="2" FACE="Arial">In this lesson you will create an input
+		template that contains the NAME and SSN fields. Immediately after the SSN
+		field, the input template sets the DIEFIRE variable to "R" to check the
+		integrity of Key A and restore the fields to their original values if the edits
+		to NAME and SSN cause a duplicate key. If edits result in a duplicate key, the
+		input template sets Y to jump back to the NAME field, so that the user can try
+		entering values for NAME and SSN again.</FONT></P>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 1.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Use VA FileMan's Enter or Edit File Entries option to create an
+			 input template called <I>ZZINDIVIDUAL</I>.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+		  WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select OPTION NAME: <B>E</B>NTER OR EDIT FILE ENTRIES
+
+INPUT TO WHAT FILE: <I>ZZINDIVIDUAL</I>// <B>&lt;Enter&gt;</B>
+EDIT WHICH FIELD: ALL// <B>@1</B>
+THEN EDIT FIELD: <B>.01 &lt;Enter&gt;</B>  NAME
+THEN EDIT FIELD: <B>.02 &lt;Enter&gt;</B>  SSN</PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+						  BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">The @1, which is entered as the first field, serves as a label to
+								  which we return if a duplicate key would be created with the user's new NAME
+								  and SSN values.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 2.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Enter as the next field code to set DIEFIRE to an R.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>THEN EDIT FIELD: <B>S DIEFIRE="R"</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">This tells VA FileMan to fire the compound (record-level)
+								  cross-references and to validate any keys at this point. The "R" tells FileMan
+								  to restore the NAME and SSN to their pre-edited values if the user-supplied
+								  values resulted in a duplicate key.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 3.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Enter the following as the next field in the template.</FONT></TD>
+
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>THEN EDIT FIELD: <B>I X="BADKEY" W !!,"An entry already exists
+with that NAME and SSN. Please try again.",! S Y="@1"</B>
+THEN EDIT FIELD: <B>&lt;Enter&gt;</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">Here, immediately after the code that sets DIEFIRE, we check the
+								  variable X to see if it is set to "BADKEY". If so, the new NAME and SSN caused
+								  a duplicate, so we print a message to the user and branch back to label @1 in
+								  the template to prompt for NAME and SSN again.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE><BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 4.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Save the input template as <I>ZZINDIVIDUAL</I>.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>STORE THESE FIELDS IN TEMPLATE: <B><I>ZZINDIVIDUAL</I></B>
+  Are you adding '<I>ZZINDIVIDUAL</I>' as a new INPUT TEMPLATE? No//
+  <B>Y &lt;Enter&gt;</B>  (Yes)</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 5.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Select the LAKE,MARIGOLD entry with SSN 123456789.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>Select <I>ZZINDIVIDUAL</I> NAME: <B>LAKE</B>
+     1   LAKE,MARIGOLD    111223333
+     2   LAKE,MARIGOLD    123456789
+CHOOSE 1-2: <B>2 &lt;Enter&gt;</B>  LAKE,MARIGOLD  123456789</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 6.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">Try to change the SSN to 111223333.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>NAME: LAKE,MARIGOLD// <B>&lt;Enter&gt;</B>
+SSN: 123456789// <B>111223333</B>
+
+An entry already exists with that NAME and SSN. Please try
+again.</PRE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD WIDTH="10%" ALIGN="LEFT" VALIGN="TOP"><FONT SIZE="2"
+			 FACE="Arial"><B>Step 7.</B></FONT></TD>
+		  <TD WIDTH="90%" ALIGN="LEFT" COLSPAN="2"><FONT SIZE="2"
+			 FACE="Arial">FileMan now branches us back to the NAME field in our input
+			 template. This time enter MODIFIED,ENTRY for NAME and accept the default
+			 SSN.</FONT></TD>
+		</TR>
+	 </TABLE>
+	 <BLOCKQUOTE>
+		<BLOCKQUOTE>
+		  <TABLE BORDER="0" BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080"
+			WIDTH="500">
+			 <TR>
+				<TD VALIGN="TOP" WIDTH="2%"></TD>
+				<TD VALIGN="TOP" COLSPAN="4" WIDTH="98%">
+				  <PRE>NAME: LAKE,MARIGOLD// <B>MODIFIED,ENTRY</B>
+SSN: 123456789// <B>&lt;Enter&gt;</B></PRE>
+				  <TABLE BGCOLOR="#F1F2F3" BORDER="1" CELLPADDING="5" WIDTH="500">
+					 <TR>
+						<TD>
+						  <TABLE BORDER="0" BGCOLOR="#F1F2F3"
+							BORDERCOLORLIGHT="#F1F2F3" BORDERCOLORDARK="#808080" WIDTH="100%">
+							 <TR>
+								<TD VALIGN="TOP" WIDTH="8%" ALIGN="LEFT"><B><FONT
+								  SIZE="2" FACE="Arial">Note:</FONT></B></TD>
+								<TD VALIGN="TOP" COLSPAN="2" WIDTH="92%"><FONT SIZE="2"
+								  FACE="Arial">This time, no messages are printed, since this new NAME-SSN
+								  combination is not a duplicate. FileMan does not branch you back to NAME, and
+								  you exit the template.</FONT></TD>
+							 </TR>
+						  </TABLE></TD>
+					 </TR>
+				  </TABLE></TD>
+			 </TR>
+		  </TABLE></BLOCKQUOTE></BLOCKQUOTE>
+	 <P><B><FONT FACE="Arial" SIZE="2">End of Exercise
+		11.3.</FONT></B></P><BR><BR>
+	 <TABLE WIDTH="100%" ALIGN="CENTER">
+		<TR>
+		  <TD WIDTH="15%" ALIGN="RIGHT" VALIGN="TOP"><A HREF="quiz/Quiz_11.htm"
+			 TITLE="Link to Lesson 11 Quiz"><IMG
+			 SRC="images/button_large_shadow_quiz_11.gif" WIDTH="125" HEIGHT="35" BORDER="0"
+			 ALT="Lesson 11 Quiz Button"></A></TD>
+		  <TD WIDTH="5%"></TD>
+		  <TD WIDTH="80%" VALIGN="TOP"><FONT FACE="Arial" SIZE="5"> Select this
+			 link to test yourself on what you've learned in this lesson.</FONT></TD>
+		</TR>
+	 </TABLE> <BR>
+	 <TABLE WIDTH="100%">
+		<TR>
+		  <TD ALIGN="LEFT"><A HREF="FMtut_p3_l10.htm"
+			 TITLE="Click and go to Lesson 10">[&lt;-- Previous
+			 Lesson]</A>&nbsp;&nbsp;&nbsp;<A HREF="introduction.htm"
+			 TITLE="Click and go to the Tutorial Introduction">[Intro]</A>
+			 <A HREF="FMtut_p1_l1.htm" TITLE="Click and go to Lesson 1">[1]</A>
+			 <A HREF="FMtut_p1_l2.htm" TITLE="Click and go to Lesson 2">[2]</A>
+			 <A HREF="FMtut_p1_l3.htm" TITLE="Click and go to Lesson 3">[3]</A>
+			 <A HREF="FMtut_p1_l4.htm" TITLE="Click and go to Lesson 4">[4]</A>
+			 <A HREF="FMtut_p1_l5.htm" TITLE="Click and go to Lesson 5">[5]</A>
+			 <A HREF="FMtut_p2_l6.htm" TITLE="Click and go to Lesson 6">[6]</A>
+			 <A HREF="FMtut_p2_l7.htm" TITLE="Click and go to Lesson 7">[7]</A>
+			 <A HREF="FMtut_p2_l8.htm" TITLE="Click and go to Lesson 8">[8]</A>
+			 <A HREF="FMtut_p3_l9.htm" TITLE="Click and go to Lesson 9">[9]</A>
+			 <A HREF="FMtut_p3_l10.htm" TITLE="Click and go to Lesson 10">[10]</A> <B><FONT
+			 COLOR="#999999" SIZE="2" FACE="Arial">11</FONT></B>&nbsp;&nbsp;&nbsp;<B><FONT
+			 SIZE="2" FACE="Arial" COLOR="#999999">[Next Lesson --&gt;]</FONT></B></TD>
+		</TR>
+	 </TABLE>
+	 <P>&nbsp;</P> 
+	 <HR CLASS="hrstyle" COLOR="blue"> 
+	 <P ALIGN="CENTER">Reviewed/Updated: March 20, 2007</P>
+	 <P>&nbsp;</P> 
+
+  </BODY>
+</HTML>
