@@ -1,0 +1,2233 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=utf-8">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>FileMan 22.2E Release Notes</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:Batang;
+	panose-1:2 3 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:"Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@Batang";
+	panose-1:2 3 6 0 0 1 1 1 1 1;}
+@font-face
+	{font-family:"\@Arial Unicode MS";
+	panose-1:2 11 6 4 2 2 2 2 2 4;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+h1
+	{mso-style-link:"Heading 1 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	text-indent:-.25in;
+	page-break-before:always;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+h2
+	{mso-style-link:"Heading 2 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:30.6pt;
+	text-indent:-.3in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+h3
+	{mso-style-link:"Heading 3 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.85in;
+	text-indent:-.35in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+h4
+	{mso-style-link:"Heading 4 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:1.2in;
+	text-indent:-.45in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+h5
+	{mso-style-link:"Heading 5 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:1.55in;
+	text-indent:-.55in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+h6
+	{mso-style-link:"Heading 6 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:1.9in;
+	text-indent:-.65in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{mso-style-link:"Heading 7 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:2.25in;
+	text-indent:-.75in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{mso-style-link:"Heading 8 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:2.6in;
+	text-indent:-.85in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{mso-style-link:"Heading 9 Char";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:3.0in;
+	text-indent:-1.0in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	font-size:14.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:27.0pt;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:44.0pt;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:55.0pt;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:66.0pt;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:77.0pt;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:88.0pt;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoNormalIndent, li.MsoNormalIndent, div.MsoNormalIndent
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.MsoCommentText, li.MsoCommentText, div.MsoCommentText
+	{mso-style-link:"Comment Text Char";
+	margin:0in;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{mso-style-link:"Header Char";
+	margin:0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{mso-style-link:"Footer Char";
+	margin:0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.MsoCaption, li.MsoCaption, div.MsoCaption
+	{margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListCxSpFirst, li.MsoListCxSpFirst, div.MsoListCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListCxSpMiddle, li.MsoListCxSpMiddle, div.MsoListCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListCxSpLast, li.MsoListCxSpLast, div.MsoListCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListNumberCxSpFirst, li.MsoListNumberCxSpFirst, div.MsoListNumberCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListNumberCxSpMiddle, li.MsoListNumberCxSpMiddle, div.MsoListNumberCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListNumberCxSpLast, li.MsoListNumberCxSpLast, div.MsoListNumberCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoList2, li.MsoList2, div.MsoList2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoList2CxSpFirst, li.MsoList2CxSpFirst, div.MsoList2CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoList2CxSpMiddle, li.MsoList2CxSpMiddle, div.MsoList2CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoList2CxSpLast, li.MsoList2CxSpLast, div.MsoList2CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListBullet4, li.MsoListBullet4, div.MsoListBullet4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.MsoListNumber3, li.MsoListNumber3, div.MsoListNumber3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListNumber3CxSpFirst, li.MsoListNumber3CxSpFirst, div.MsoListNumber3CxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListNumber3CxSpMiddle, li.MsoListNumber3CxSpMiddle, div.MsoListNumber3CxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoListNumber3CxSpLast, li.MsoListNumber3CxSpLast, div.MsoListNumber3CxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoTitle, li.MsoTitle, div.MsoTitle
+	{mso-style-link:"Title Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:.25in;
+	margin-left:0in;
+	text-align:center;
+	text-autospace:none;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.MsoBodyText, li.MsoBodyText, div.MsoBodyText
+	{mso-style-link:"Body Text Char";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoBodyTextIndent, li.MsoBodyTextIndent, div.MsoBodyTextIndent
+	{mso-style-link:"Body Text Indent Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.MsoSubtitle, li.MsoSubtitle, div.MsoSubtitle
+	{mso-style-link:"Subtitle Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoBodyText2, li.MsoBodyText2, div.MsoBodyText2
+	{mso-style-link:"Body Text 2 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:200%;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoBodyText3, li.MsoBodyText3, div.MsoBodyText3
+	{mso-style-link:"Body Text 3 Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:8.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.MsoBlockText, li.MsoBlockText, div.MsoBlockText
+	{margin-top:0in;
+	margin-right:1.0in;
+	margin-bottom:6.0pt;
+	margin-left:1.0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:#606420;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoCommentSubject, li.MsoCommentSubject, div.MsoCommentSubject
+	{mso-style-link:"Comment Subject Char";
+	margin:0in;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;
+	color:black;}
+p.MsoNoSpacing, li.MsoNoSpacing, div.MsoNoSpacing
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoRMPane, li.MsoRMPane, div.MsoRMPane
+	{margin:0in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-link:"Heading 1";
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-link:"Heading 2";
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.Heading3Char
+	{mso-style-name:"Heading 3 Char";
+	mso-style-link:"Heading 3";
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.Heading4Char
+	{mso-style-name:"Heading 4 Char";
+	mso-style-link:"Heading 4";
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.Heading5Char
+	{mso-style-name:"Heading 5 Char";
+	mso-style-link:"Heading 5";
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.Heading6Char
+	{mso-style-name:"Heading 6 Char";
+	mso-style-link:"Heading 6";
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.Heading7Char
+	{mso-style-name:"Heading 7 Char";
+	mso-style-link:"Heading 7";
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.Heading8Char
+	{mso-style-name:"Heading 8 Char";
+	mso-style-link:"Heading 8";
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.Heading9Char
+	{mso-style-name:"Heading 9 Char";
+	mso-style-link:"Heading 9";
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.BodyTextChar
+	{mso-style-name:"Body Text Char";
+	mso-style-link:"Body Text";
+	font-family:"Times New Roman",serif;}
+p.TableHeading, li.TableHeading, div.TableHeading
+	{mso-style-name:"Table Heading";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+span.BodyText2Char
+	{mso-style-name:"Body Text 2 Char";
+	mso-style-link:"Body Text 2";
+	font-family:"Arial",sans-serif;}
+span.BodyText3Char
+	{mso-style-name:"Body Text 3 Char";
+	mso-style-link:"Body Text 3";
+	font-family:"Arial",sans-serif;}
+p.version, li.version, div.version
+	{mso-style-name:version;
+	margin-top:24.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	text-align:center;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma",sans-serif;
+	color:black;}
+p.SCREEN, li.SCREEN, div.SCREEN
+	{mso-style-name:SCREEN;
+	mso-style-link:"SCREEN Char";
+	margin:0in;
+	border:none;
+	padding:0in;
+	font-size:9.0pt;
+	font-family:"Courier New";
+	color:black;}
+span.SCREENChar
+	{mso-style-name:"SCREEN Char";
+	mso-style-link:SCREEN;
+	font-family:"Courier New";}
+span.HeaderChar
+	{mso-style-name:"Header Char";
+	mso-style-link:Header;
+	font-family:"Times New Roman",serif;
+	color:black;}
+span.FooterChar
+	{mso-style-name:"Footer Char";
+	mso-style-link:Footer;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.Title2, li.Title2, div.Title2
+	{mso-style-name:"Title 2";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:.25in;
+	margin-left:0in;
+	text-align:center;
+	font-size:14.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+span.TitleChar
+	{mso-style-name:"Title Char";
+	mso-style-link:Title;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.BodyTextLettered1, li.BodyTextLettered1, div.BodyTextLettered1
+	{mso-style-name:"Body Text Lettered 1";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+span.CommentTextChar
+	{mso-style-name:"Comment Text Char";
+	mso-style-link:"Comment Text";
+	font-family:"Arial",sans-serif;}
+span.CommentSubjectChar
+	{mso-style-name:"Comment Subject Char";
+	mso-style-link:"Comment Subject";
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.InstructionalFooter, li.InstructionalFooter, div.InstructionalFooter
+	{mso-style-name:"Instructional Footer";
+	margin:0in;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.Appendix1, li.Appendix1, div.Appendix1
+	{mso-style-name:"Appendix 1";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	text-indent:-.25in;
+	page-break-before:always;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.Appendix11, li.Appendix11, div.Appendix11
+	{mso-style-name:"Appendix 1\.1";
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.25in;
+	text-indent:-.25in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+p.Appendix2, li.Appendix2, div.Appendix2
+	{mso-style-name:"Appendix 2";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.8in;
+	text-indent:-.3in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;
+	font-weight:bold;}
+span.BodyItalic
+	{mso-style-name:"Body Italic";
+	font-style:italic;}
+p.BodyTextBullet1, li.BodyTextBullet1, div.BodyTextBullet1
+	{mso-style-name:"Body Text Bullet 1";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.BodyTextBullet2, li.BodyTextBullet2, div.BodyTextBullet2
+	{mso-style-name:"Body Text Bullet 2";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.BodyTextLettered2, li.BodyTextLettered2, div.BodyTextLettered2
+	{mso-style-name:"Body Text Lettered 2";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.BodyTextNumbered1, li.BodyTextNumbered1, div.BodyTextNumbered1
+	{mso-style-name:"Body Text Numbered 1";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.BodyTextNumbered2, li.BodyTextNumbered2, div.BodyTextNumbered2
+	{mso-style-name:"Body Text Numbered 2";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:1.0in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.BulletInstructions, li.BulletInstructions, div.BulletInstructions
+	{mso-style-name:"Bullet Instructions";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.capture, li.capture, div.capture
+	{mso-style-name:capture;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	border:none;
+	padding:0in;
+	font-size:9.0pt;
+	font-family:"Courier New";
+	color:black;}
+p.capturereverse, li.capturereverse, div.capturereverse
+	{mso-style-name:"capture reverse";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	background:blue;
+	border:none;
+	padding:0in;
+	font-size:9.0pt;
+	font-family:"Courier New";
+	color:white;}
+p.InstructionalText1, li.InstructionalText1, div.InstructionalText1
+	{mso-style-name:"Instructional Text 1";
+	mso-style-link:"Instructional Text 1 Char";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	line-height:12.0pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+span.InstructionalText1Char
+	{mso-style-name:"Instructional Text 1 Char";
+	mso-style-link:"Instructional Text 1";
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.CoverTitleInstructions, li.CoverTitleInstructions, div.CoverTitleInstructions
+	{mso-style-name:"Cover Title Instructions";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	text-align:center;
+	line-height:12.0pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.CrossReference, li.CrossReference, div.CrossReference
+	{mso-style-name:CrossReference;
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	text-decoration:underline;}
+p.DividerPage, li.DividerPage, div.DividerPage
+	{mso-style-name:"Divider Page";
+	margin:0in;
+	page-break-before:always;
+	page-break-after:avoid;
+	font-size:24.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.In-lineInstruction, li.In-lineInstruction, div.In-lineInstruction
+	{mso-style-name:"In-line Instruction";
+	mso-style-link:"In-line Instruction Char";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+span.In-lineInstructionChar
+	{mso-style-name:"In-line Instruction Char";
+	mso-style-link:"In-line Instruction";
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.InstructionalBullet1, li.InstructionalBullet1, div.InstructionalBullet1
+	{mso-style-name:"Instructional Bullet 1";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.InstructionalBullet2, li.InstructionalBullet2, div.InstructionalBullet2
+	{mso-style-name:"Instructional Bullet 2";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.InstructionalNote, li.InstructionalNote, div.InstructionalNote
+	{mso-style-name:"Instructional Note";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:1.05in;
+	text-indent:-.8in;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.InstructionalTable, li.InstructionalTable, div.InstructionalTable
+	{mso-style-name:"Instructional Table";
+	margin:0in;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.InstructionalText2, li.InstructionalText2, div.InstructionalText2
+	{mso-style-name:"Instructional Text 2";
+	mso-style-link:"Instructional Text 2 Char";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	line-height:12.0pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+span.InstructionalText2Char
+	{mso-style-name:"Instructional Text 2 Char";
+	mso-style-link:"Instructional Text 2";
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+span.InstructionalTextBold
+	{mso-style-name:"Instructional Text Bold";
+	color:blue;
+	font-weight:bold;}
+p.InstructionalTextMainTitle, li.InstructionalTextMainTitle, div.InstructionalTextMainTitle
+	{mso-style-name:"Instructional Text Main Title";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	text-align:center;
+	line-height:12.0pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.InstructionalTextTitle2, li.InstructionalTextTitle2, div.InstructionalTextTitle2
+	{mso-style-name:"Instructional Text Title 2";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:0in;
+	text-align:center;
+	line-height:12.0pt;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;}
+span.SubtitleChar
+	{mso-style-name:"Subtitle Char";
+	mso-style-link:Subtitle;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.TableHeadingCentered, li.TableHeadingCentered, div.TableHeadingCentered
+	{mso-style-name:"Table Heading Centered";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:8.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.TableText, li.TableText, div.TableText
+	{mso-style-name:"Table Text";
+	mso-style-link:"Table Text Char";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+span.TableTextChar
+	{mso-style-name:"Table Text Char";
+	mso-style-link:"Table Text";
+	font-family:"Arial",sans-serif;}
+p.TemplateInstructions, li.TemplateInstructions, div.TemplateInstructions
+	{mso-style-name:"Template Instructions";
+	mso-style-link:"Template Instructions Char";
+	margin-top:2.0pt;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:0in;
+	page-break-after:avoid;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+span.TemplateInstructionsChar
+	{mso-style-name:"Template Instructions Char";
+	mso-style-link:"Template Instructions";
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+p.templateinstructions0, li.templateinstructions0, div.templateinstructions0
+	{mso-style-name:templateinstructions;
+	margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+span.TextBold
+	{mso-style-name:"Text Bold";
+	font-weight:bold;}
+span.TextBoldItalics
+	{mso-style-name:"Text Bold Italics";
+	font-weight:bold;
+	font-style:italic;}
+span.TextItalics
+	{mso-style-name:"Text Italics";
+	font-style:italic;}
+p.VASeal, li.VASeal, div.VASeal
+	{mso-style-name:"VA Seal";
+	margin-top:48.0pt;
+	margin-right:0in;
+	margin-bottom:48.0pt;
+	margin-left:0in;
+	text-align:center;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	color:black;}
+p.Note, li.Note, div.Note
+	{mso-style-name:Note;
+	mso-style-link:"Note Char";
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:6.0pt;
+	margin-left:.5in;
+	text-indent:-.5in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;
+	color:black;}
+span.NoteChar
+	{mso-style-name:"Note Char";
+	mso-style-link:Note;
+	font-family:"Times New Roman",serif;
+	color:black;}
+span.BodyTextIndentChar
+	{mso-style-name:"Body Text Indent Char";
+	mso-style-link:"Body Text Indent";
+	font-family:"Times New Roman",serif;
+	color:black;}
+p.TableListBullets, li.TableListBullets, div.TableListBullets
+	{mso-style-name:"Table List Bullets";
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:.5in;
+	text-indent:-.25in;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;}
+.MsoChpDefault
+	{font-size:11.0pt;
+	font-family:"Calibri",sans-serif;}
+.MsoPapDefault
+	{margin-bottom:8.0pt;
+	line-height:107%;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+@page WordSection2
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection2
+	{page:WordSection2;}
+@page WordSection3
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection3
+	{page:WordSection3;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink="#606420" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoTitle>VA FileMan 22.2</p>
+
+<p class=MsoTitle>Release Notes</p>
+
+<p class=VASeal><img width=171 height=171 id=image19.jpg
+src="release%20notes.fld/image001.jpg"
+alt="Department of Veterans Affairs official seal"></p>
+
+<p class=Title2>August 2016</p>
+
+<p class=Title2>&nbsp;</p>
+
+<p class=Title2>Department of Veterans Affairs (VA)</p>
+
+<p class=Title2>Office of Information and Technology (OI&amp;T)</p>
+
+<p class=Title2>Enterprise Program Management Office (EPMO)</p>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+</div>
+
+<b><span style='font-size:14.0pt;font-family:"Arial",sans-serif;color:black'><br
+clear=all style='page-break-before:always'>
+</span></b>
+
+<div class=WordSection2>
+
+<p class=Title2 style='page-break-before:always'>Revision History</p>
+
+<table class=MsoNormalTable border=1 cellspacing=0 cellpadding=0
+ summary="Template Revision History showing date template was created or revised, version number, description, and author."
+ width="100%" style='width:100.0%;border-collapse:collapse;border:none'>
+ <thead>
+  <tr style='page-break-inside:avoid'>
+   <td width="18%" valign=top style='width:18.8%;border:solid black 1.0pt;
+   background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+   <p class=TableHeading><a name="ColumnTitle_02"></a>Date</p>
+   </td>
+   <td width="10%" valign=top style='width:10.68%;border:solid black 1.0pt;
+   border-left:none;background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+   <p class=TableHeading><span style='color:black'>Version</span></p>
+   </td>
+   <td width="45%" valign=top style='width:45.46%;border:solid black 1.0pt;
+   border-left:none;background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+   <p class=TableHeading><span style='color:black'>Description</span></p>
+   </td>
+   <td width="25%" valign=top style='width:25.06%;border:solid black 1.0pt;
+   border-left:none;background:#F2F2F2;padding:0in 5.4pt 0in 5.4pt'>
+   <p class=TableHeading><span style='color:black'>Author</span></p>
+   </td>
+  </tr>
+ </thead>
+ <tr style='page-break-inside:avoid'>
+  <td width="18%" valign=top style='width:18.8%;border:solid black 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=TableText>08/15/2016</p>
+  </td>
+  <td width="10%" valign=top style='width:10.68%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=TableText>1.1</p>
+  </td>
+  <td width="45%" valign=top style='width:45.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=TableText>Tech Edits:</p>
+  <p class=TableListBullets><span style='font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>Removed
+  author notes in Section <u><span
+  style='color:blue'>2.2.1</span></u>.</p>
+  <p class=TableListBullets><span style='font-family:Symbol'>·<span
+  style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span>Updated
+  Section <u><span style='color:blue'>2.2.1.2</span></u>.</p>
+  </td>
+  <td width="25%" valign=top style='width:25.06%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=TableText>REDACTED</p>
+  </td>
+ </tr>
+ <tr style='page-break-inside:avoid'>
+  <td width="18%" valign=top style='width:18.8%;border:solid black 1.0pt;
+  border-top:none;padding:0in 5.4pt 0in 5.4pt'>
+  <p class=TableText>08/07/2016</p>
+  </td>
+  <td width="10%" valign=top style='width:10.68%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=TableText>1.0</p>
+  </td>
+  <td width="45%" valign=top style='width:45.46%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=TableText>Initial release of VA FileMan 22.2 Release Notes.</p>
+  </td>
+  <td width="25%" valign=top style='width:25.06%;border-top:none;border-left:
+  none;border-bottom:solid black 1.0pt;border-right:solid black 1.0pt;
+  padding:0in 5.4pt 0in 5.4pt'>
+  <p class=TableText>VA FileMan 22.2 Development Team</p>
+  </td>
+ </tr>
+</table>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<p class=MsoBodyText>&nbsp;</p>
+
+<p class=Title2>Table of Contents</p>
+
+<p class=MsoToc1><a
+href="#_Toc459022786">1.<span style='font-size:11.0pt;font-family:"Calibri",sans-serif;
+color:windowtext;font-weight:normal;text-decoration:none'>     </span>Principal
+Enhancements<span style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022787">1.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>ScreenMan Enhancements<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022788">1.1.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Use of Mouse in ScreenMan Forms<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022789">1.1.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Record Selection as a Full ScreenMan Page<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022790">1.1.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Expanded Multiples<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022791">1.1.4.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Custom Colors Option<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022792">1.1.5.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Quick Exit from Word Processing Pages<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022793">1.1.6.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Indication of Word-Processing Data<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022794">1.1.7.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Screen Print<span style='color:black;
+display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>1</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022795">1.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Internationalization<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022796">1.2.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>VA FileMan is Translation-Ready<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022797">1.2.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>New Entries in DIALOG File (#.84)<span
+style='color:black;display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022798">1.2.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Many New Languages in File #.85<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022799">1.2.4.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>New Dialog Framework for Data Dictionary
+Elements<span style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022800">1.2.5.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>New Entry Points to Help Translate DD Elements<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022801">1.2.6.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Consistent Date Formatting<span
+style='color:black;display:none;text-decoration:none'>.. </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022802">1.2.7.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Date Internationalization Enhancement<span
+style='color:black;display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022803">1.2.8.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Upper/Lowercase Translations are Consistent<span
+style='color:black;display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022804">1.2.9.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Two- and Three-letter Language Abbreviations<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>2</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022805">1.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Data Analysis Tools<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022806">1.3.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Check all Pointers into a Given File<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022807">1.3.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Automatic Auditing<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022808">1.3.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Showing Past Changes to Data Dictionary<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022809">1.3.4.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Showing Changes by a Specific User<span
+style='color:black;display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022810">1.3.5.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Modified Auditing Menu<span style='color:
+black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022811">1.3.6.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Entry Access Audit<span style='color:black;
+display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022812">1.3.7.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Update The Meta Data Dictionary<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022813">1.3.8.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Improvements to the Verify Fields Utility<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>3</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022814">1.3.8.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Checks for Duplicates and Dangling Pointers<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022815">1.3.8.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Checks Index Values Do Not Exceed
+Thirty-Character Limit<span style='color:black;display:none;text-decoration:
+none'> </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022816">1.3.8.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Output Displays Translated Field Label<span
+style='color:black;display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022817">1.3.8.4.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Suppresses Accidental Echo of dates<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022818">1.3.9.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Comparing Data and Data Dictionaries across
+Environments<span style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022819">1.4.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Ability to Edit Export Template<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc459022820">2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Other Enhancements<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022821">2.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>User Interface Changes<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022822">2.1.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Select Prompt: Extended Selection by IEN<span
+style='color:black;display:none;text-decoration:none'>.. </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022823">2.1.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Printing Multiples in Sorted Order<span
+style='color:black;display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022824">2.1.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>VA FileMan Browser Enhancements<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>4</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022825">2.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>API Changes<span style='color:black;display:
+none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022826">2.2.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Enhancements to FIND^DIC and LIST^DIC<span
+style='color:black;display:none;text-decoration:none'>.. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022827">2.2.1.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Third Argument (Fields)<span style='color:black;
+display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022828">2.2.1.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>New E Flag Returns the Complete List of Matches<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022829">2.2.1.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Eighth Parameter (Index) of LISTˆDIC<span
+style='color:black;display:none;text-decoration:none'>.. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022830">2.2.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>New API to Create Sort Templates Silently<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022831">2.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Data Dictionary Changes<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022832">2.3.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Auditable Word Processing Fields<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022833">2.3.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Word Processing Fields Can be Made Uneditable<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022834">2.3.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Set Explicit Maximum Length for Free-text
+Fields<span style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022835">2.3.4.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Override of Character Limit in Globals<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022836">2.4.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Installation and Distribution Changes<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022837">2.4.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>DIFROM: Keys and New-Style Indexes<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>5</span></a></p>
+
+<p class=MsoToc3><a href="#_Toc459022838">2.4.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>DINIT: Virgin Install<span style='color:black;
+display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>6</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc459022839">3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Bug Fixes<span style='color:black;display:
+none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>6</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022840">3.1.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Computed Expressions: Multiple Contains with
+Word-processing Fields<span style='color:black;display:none;text-decoration:
+none'>. </span><span
+style='color:black;display:none;text-decoration:none'>6</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022841">3.2.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Uppercasing<span style='color:black;display:
+none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>6</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022842">3.3.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>DIFROM Maximum Routine Size<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>6</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022843">3.4.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>DIFROM Routine Size Calculation<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>6</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022844">3.5.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Browser Display Routines Did Not Work on Caché<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>6</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022845">3.6.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Maximum Routine Size<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>6</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022846">3.7.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Browser Now Works without Kernel<span
+style='color:black;display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>7</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022847">3.8.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Replace/With Maximum Length<span
+style='color:black;display:none;text-decoration:none'>.. </span><span
+style='color:black;display:none;text-decoration:none'>7</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022848">3.9.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>  </span>Reverse Collation on Complex New Style Indexes
+When Doing Partial Matches<span style='color:black;display:none;text-decoration:
+none'>  </span><span
+style='color:black;display:none;text-decoration:none'>7</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022849">3.10.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'> </span>Q Flag on LIST^DIC and FIND^DIC and Partial
+Numeric Matches on Pointer Values<span style='color:black;display:none;
+text-decoration:none'>  </span><span
+style='color:black;display:none;text-decoration:none'>7</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022850">3.11.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'> </span>DDS3-1 New Options at Command Line<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>7</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022851">3.12.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'> </span>DDS3-2 New Dialog on Existing Form<span
+style='color:black;display:none;text-decoration:none'>.. </span><span
+style='color:black;display:none;text-decoration:none'>7</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022852">3.13.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'> </span>DDS3-3 New Capabilities from Record Selection
+Page<span style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>7</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022853">3.14.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'> </span>DIB Warning-Data Global does Not Exist<span
+style='color:black;display:none;text-decoration:none'> </span><span
+style='color:black;display:none;text-decoration:none'>7</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022854">3.15.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'> </span>DIKCUTL Non deleteable index<span
+style='color:black;display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>8</span></a></p>
+
+<p class=MsoToc2><a href="#_Toc459022855">3.16.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'> </span>DIUTL NOW Returns Minutes<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>8</span></a></p>
+
+<p class=MsoToc1><a href="#_Toc459022856">4.<span style='font-size:11.0pt;
+font-family:"Calibri",sans-serif;color:windowtext;font-weight:normal;
+text-decoration:none'>     </span>Unit Tests<span style='color:black;
+display:none;text-decoration:none'>. </span><span
+style='color:black;display:none;text-decoration:none'>8</span></a></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-family:"Arial",sans-serif'>&nbsp;</span></p>
+
+</div>
+
+<span style='font-size:12.0pt;font-family:"Times New Roman",serif'><br
+clear=all style='page-break-before:always'>
+</span>
+
+<div class=WordSection3>
+
+<h1><a name="_Toc459022786">1.<span style='font:7.0pt "Times New Roman"'>&nbsp;
+</span>Principal Enhancements</a></h1>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022787">1.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>ScreenMan Enhancements</a></h2>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022788">1.1.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Use of Mouse in ScreenMan Forms</a></h3>
+
+<p class=MsoBodyText>ScreenMan does support the use of a mouse for emulators
+that support ANSI standard control sequences to turn the mouse on and off.
+However, the Department of Veterans Affairs has elected to turn this feature
+off due to support complications with Attachmate Reflection. The parameter DI
+SCREENMAN NO MOUSE needs to be established for SYSTEM and set to “<b>Yes</b>”.
+The DI SCREENMAN NO MOUSE parameter will be set to “<b>YES</b>” during the VA
+FileMan (FM) 22.2 installation.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022789">1.1.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Record Selection as a Full ScreenMan Page</a></h3>
+
+<p class=MsoBodyText>The ScreenMan Record Selection page can now be a full
+ScreenMan page using a computed multiple pointer, so that the user can select
+an entry by scrolling up or down. This new feature lets forms contain embedded
+lookups.</p>
+
+<p class=MsoBodyText>You can set this up automatically when you create a form.
+At the query “Do you want your Form to begin with a display of all entries, for
+selection,” answer “<b>Yes</b>.” The initial position can be set to be the
+user’s last selection, rather than first, last, or new.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022790">1.1.3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Expanded Multiples</a></h3>
+
+<p class=MsoBodyText>Multiples within a single ScreenMan page can now be more
+than one line deep.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022791">1.1.4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Custom Colors </a><a name="_Toc430812327">Option</a></h3>
+
+<p class=MsoBodyText>The “Customize Colors” sub option within ScreenMan allows
+selection of ANSI colors for all ScreenMan presentations, on a parameterized
+basis (user, institution, etc.) using Kernel parameters.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022792">1.1.5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Quick Exit from Word Processing Pages</a></h3>
+
+<p class=MsoBodyText>While Editing/Adding a ScreenMan word processing document,
+the user can enter two carriage returns (press <b>Enter</b> twice) at the end
+of the document to exit ScreenMan. This is new functionality, the user is no
+longer required to use <b>&lt;PF1&gt;E</b> to exit ScreenMan.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022793">1.1.6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Indication of Word-Processing Data</a></h3>
+
+<p class=MsoBodyText>A <b>+</b> now indicates, in a ScreenMan form, whether a
+word-processing field already contains data. If users have their PREFERRED
+EDITOR field set to “SCREEN EDITOR – VA FILEMAN”, the previous message “No
+existing Text” has been modified to “THERE ARE NO LINES!” if a word-processing
+field has no data.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022794">1.1.7.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Screen Print</a></h3>
+
+<p class=MsoBodyText><b>&lt;PF1&gt;P</b> allows printing of the screen
+(including all multiples).</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022795">1.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Internationalization</a></h2>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022796">1.2.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>VA FileMan is Translation-Ready</a></h3>
+
+<p class=MsoBodyText>VA FileMan is in the process of converting all <i>non</i>-developer
+dialogues to use FM dialogues framework, so that translations can be
+table-driven.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022797">1.2.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>New Entries in DIALOG File (#.84)</a></h3>
+
+<p class=MsoBodyText>Many new entries have been added to the DIALOG file (#.84)
+to handle end-user interactions.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022798">1.2.3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Many New Languages in File #.85</a></h3>
+
+<p class=MsoBodyText>The LANGUAGE file (#.85) now includes entries for all ISO
+639-2:1998 languages, as of the 11/21/2012 update to the standard<span
+style='font-size:9.0pt'>.</span></p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022799">1.2.4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>New Dialog Framework for Data Dictionary Elements</a></h3>
+
+<p class=MsoBodyText>File names, field labels, set values, and help messages
+can be entered into the ^DD schema for any of the <b>living</b> languages
+listed in the LANGUAGE file (#.85).</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022800">1.2.5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>New Entry Points to Help Translate DD Elements</a></h3>
+
+<p class=MsoBodyText>A new direct mode tool has been created to help translate
+the file name, field names, and help prompts. The call is DO LANG^DIALOGZ().</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022801">1.2.6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Consistent Date Formatting</a></h3>
+
+<p class=MsoBodyText>Formatting of date output is now consistently done
+throughout all the end-user routines. Changing the global node ^DD(“DD”) changes
+the way all VA FileMan dates are output. Re­running ^DINIT does not change this
+node.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022802">1.2.7.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Date Internationalization Enhancement</a></h3>
+
+<p class=MsoBodyText>The Date Internationalization has been enhanced so that
+when the international format is specified using the &quot;<b>I</b>&quot; flag,
+the returned display output is in the form DD MON YYYY instead of MON, DD YYYY.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022803">1.2.8.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Upper/Lowercase Translations are Consistent</a></h3>
+
+<p class=MsoBodyText>VA FileMan’s internationalization framework has been made
+consistently independent of the ASCII character set, to improve support for
+international case conversion.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022804">1.2.9.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Two- and Three-letter Language Abbreviations</a></h3>
+
+<p class=MsoBodyText>The LANGUAGE file (#.85) now can store two and three letter
+abbreviations for languages.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022805">1.3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Data Analysis Tools</a></h2>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022806">1.3.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Check all Pointers into a Given File</a></h3>
+
+<p class=MsoBodyText>A fourth Data Dictionary utility (“find pointers into a
+file”) checks all files with pointers into a given File. The utility gives four
+kinds of output (here using PATIENT file [#2] as an example):</p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;text-autospace:none'><span style='font-size:10.0pt;font-family:
+"Arial",sans-serif'><img width=281 height=82
+src="release%20notes.fld/image002.png"
+alt="1 One particular PATIENT Entry &#13;&#10;2 All PATIENT Entries&#13;&#10;3 Non-existent PATIENT Entries&#13;&#10;4 Entries from a PATIENT Searc&#13;&#10; - Description: Example of the four types of output that the utility provides. They are 1 One particular Patient Entry, 2 All PATIENT Entries, 3 No-existent PATIENT Entries, 4 Entries from a PATIENT Searc."></span></p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022807">1.3.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Automatic Auditing</a></h3>
+
+<p class=MsoBodyText>To improve version control for data dictionaries, DD
+changes are always audited in the DD AUDIT file (#.6). There is no need to turn
+on DD auditing file­by­file.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022808">1.3.3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Showing Past Changes to Data Dictionary</a></h3>
+
+<p class=MsoBodyText style='page-break-after:avoid'>The “Show Past Changes to
+DDs” auditing option shows most DD changes since a certain date.</p>
+
+<p class=Note><img width=24 height=24 src="release%20notes.fld/image003.png"
+alt=Note>    <b>NOTE:</b> This will be added in a future release and a ticket
+has been created in the VA SDM system. Service Desk Ticket has been opened to
+fix this issue as a VA FileMan Maintenance issue. Ticket number I7740738FY16
+created on 2/26/16.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022809">1.3.4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Showing Changes by a Specific User</a></h3>
+
+<p class=MsoBodyText>“Monitor a User” is now the second auditing option. It
+shows every entry in an audited file touched by a given user in an audited
+file.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022810">1.3.5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Modified Auditing Menu</a></h3>
+
+<p class=MsoBodyText>The auditing menu has been modified to be better organized
+and more intuitive.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022811">1.3.6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Entry Access Audit</a></h3>
+
+<p class=MsoBodyText>The ACCESSED^DIET function has been modified to replace a
+call that killed the variable DIC.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022812">1.3.7.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Update The Meta Data Dictionary</a></h3>
+
+<p class=MsoBodyText>Use the Update The Meta Data Dictionary option on the Data
+Dictionary Utilities menu to create the new META DATA DICTIONARY file (#.9).
+The Meta Data Dictionary lists all fields in all files in a searchable format.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022813">1.3.8.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Improvements to the Verify Fields Utility</a></h3>
+
+<p class=MsoBodyText>A number of improvements have been made to the Verify
+Fields Utility.</p>
+
+<h4 style='margin-left:31.5pt'><a name="_Toc459022814">1.3.8.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Checks for Duplicates and Dangling Pointers</a></h4>
+
+<p class=MsoBodyText>Verify Fields checks for duplicates and dangling pointers
+in cross-references. There is no new Verify Data menu and no new Verify
+Pointers option. The verify pointers functionality is invoked by the Verify
+Fields option on the Utilities menu.</p>
+
+<h4 style='margin-left:31.5pt'><a name="_Toc459022815">1.3.8.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Checks Index Values Do Not Exceed Thirty-Character Limit</a></h4>
+
+<p class=MsoBodyText>Verify Fields checks that the index values do not exceed
+the thirty-character limit.</p>
+
+<h4 style='margin-left:31.5pt'><a name="_Toc459022816">1.3.8.3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Output Displays Translated Field Label</a></h4>
+
+<p class=MsoBodyText>If a user's language is set to a <i>non</i>-English
+language, and if a translation of a field label exists for that language, then
+Verify Fields output displays the translated field label.</p>
+
+<h4 style='margin-left:.75in;text-indent:-54.9pt'><a name="_Toc459022817">1.3.8.4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Suppresses Accidental Echo of dates</a></h4>
+
+<p class=MsoBodyText>A bug was fixed to suppress the accidental echo of dates
+in the Verify Fields output.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022818">1.3.9.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Comparing Data and Data Dictionaries across Environments</a></h3>
+
+<p class=MsoBodyText>A new Transfer menu option, Namespace Compare, lets you
+identify differences in data and DDs between different MUMPS environments (on
+the same server), to help with version control.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022819">1.4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Ability to Edit Export Template</a></h2>
+
+<p class=MsoBodyText>In prior versions of VA FileMan, if a user created an
+Export Template they were unable to edit that template like they could with a
+Sort, Print, and Edit Templates; with VA FileMan 22.2, the user is now able to
+edit an Export Template.</p>
+
+<h1 style='page-break-before:auto'><a name="_Toc459022820">2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp; </span>Other Enhancements</a></h1>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022821">2.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>User Interface Changes</a></h2>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022822">2.1.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Select Prompt: Extended Selection by IEN</a></h3>
+
+<p class=MsoBodyText>Lookup enhancement: if the .01 field of the file being selected
+from is a pointer to another file, you can use a double accent grave (<b>``</b>)
+to pick a pointed­to entry by its internal entry number (IEN).</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022823">2.1.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Printing Multiples in Sorted Order</a></h3>
+
+<p class=MsoBodyText>Until now, when printing sorted records, any subentries
+within those records were displayed unsorted, in order by internal entry
+number. A new <b>B</b> print specifier will ensure that subentries are
+displayed in order.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022824">2.1.3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>VA FileMan Browser Enhancements</a></h3>
+
+<p class=MsoBodyText>You can now print the text being browsed using <b>PF1­PF1­P</b>.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022825">2.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>API Changes</a></h2>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Ref459022677"></a><a
+name="_Toc459022826">2.2.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Enhancements to FIND^DIC and LIST^DIC</a></h3>
+
+<h4 style='margin-left:31.5pt'><a name="_Toc459022827">2.2.1.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Third Argument (Fields)</a></h4>
+
+<p class=MsoBodyText>Third argument (fields) can now be a computed expression,
+not just a field.</p>
+
+<h4 style='margin-left:31.5pt'><a name="_Ref459022706"></a><a
+name="_Toc459022828">2.2.1.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>New E Flag Returns the Complete List of Matches</a></h4>
+
+<p class=MsoBodyText>Fourth argument (flags) can now contain <b>E</b>, and it
+will return the complete list of matches even if errors are encountered during
+the generation of the results.</p>
+
+<h4 style='margin-left:31.5pt'><a name="_Toc459022829">2.2.1.3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Eighth Parameter (Index) of LISTˆDIC</a></h4>
+
+<p class=MsoBodyText>Eighth parameter (index) of LISTˆDIC can now be a sort
+template, a field, or a computed expression, if the new <b>X</b> flag is
+included.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022830">2.2.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>New API to Create Sort Templates Silently</a></h3>
+
+<p class=MsoBodyText>The BUILDNEW^DIBTED API silently creates a sort template.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022831">2.3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Data Dictionary Changes</a></h2>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022832">2.3.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Auditable Word Processing Fields</a></h3>
+
+<p class=MsoBodyText>VA FileMan security has been improved by allowing word-processing
+fields to be audited.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022833">2.3.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Word Processing Fields can be Made Uneditable</a></h3>
+
+<p class=MsoBodyText>Reference files and clinically significant text can now be
+protected from subsequent change.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022834">2.3.3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Set Explicit Maximum Length for Free-text Fields</a></h3>
+
+<p class=MsoBodyText>The Maximum Length of output for a Free Text field can now
+be set; it is not dependent on the input Transform. The Maximum Length value
+truncates the stored data during output if necessary. The Maximum Length can be
+set in the input Transform (Syntax) option on the VA FileMan's Utility Options
+sub-menu.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022835">2.3.4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Override of Character Limit in Globals</a></h3>
+
+<p class=MsoBodyText>^DD(“STRING_LIMIT”), if set, overrides the standard 255-character
+limit throughout VA FileMan.</p>
+
+<p class=Note><img width=24 height=24 src="release%20notes.fld/image004.png"
+alt="Title: Note - Description: Note"><b>    NOTE</b>: The Post Install sets
+the limit to 4094.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022836">2.4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Installation and Distribution Changes</a></h2>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022837">2.4.1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DIFROM: Keys and New-Style Indexes</a></h3>
+
+<p class=MsoBodyText>DIFROM has been extended to be able to transport keys and
+New Style indexes.</p>
+
+<p class=Note><img width=24 height=24 id="Picture 1"
+src="release%20notes.fld/image004.png" alt="Title: Note - Description: Note"><b>    NOTE</b>:<span
+style='font-size:9.0pt'> </span>This is specific to standalone VA FileMan (FM).
+The Department of Veterans Affairs does not use FM in this capacity.</p>
+
+<h3 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022838">2.4.2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DINIT: Virgin Install</a></h3>
+
+<p class=MsoBodyText>VA FileMan has been changed to restore its ability to run
+correctly without any of the rest of Veterans Health Information Systems and
+Technology Architecture (VistA) being installed.</p>
+
+<p class=Note><img width=24 height=24 id="Picture 3"
+src="release%20notes.fld/image004.png" alt="Title: Note - Description: Note"><b>    NOTE</b>:<span
+style='font-size:9.0pt'> </span>This is specific to standalone VA FileMan. The
+Department of Veterans Affairs does not use FM in this capacity. A virgin
+install of FM 22.2 does not include the META DATA DICTIONARY file (#.9) and
+will not include all the languages in the LANGUAGE file (#.85).</p>
+
+<h1 style='page-break-before:auto'><a name="_Toc433190592"></a><a
+name="_Toc459022839">3.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span>Bug
+Fixes</a></h1>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc433190593"></a><a
+name="_Toc459022840">3.1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Computed Expressions: Multiple Contains with Word-processing Fields</a></h2>
+
+<p class=MsoBodyText>Computed Expressions with Multiple Contains, such as
+(WP1[&quot;GREEN&quot;)!(WP2[&quot;GREEN&quot;), are now handled correctly for
+Word-processing Fields.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc433190596"></a><a
+name="_Toc459022841">3.2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Uppercasing</a></h2>
+
+<p class=MsoBodyText>VA FileMan uppercasing code in DILIBF is now User Language
+aware. Previously, it worked for English only.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc433190598"></a><a
+name="_Toc459022842">3.3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DIFROM Maximum Routine Size</a></h2>
+
+<p class=MsoBodyText>DIFROM did not use ^DD(“ROU”) to determine the maximum
+routine size, but rather had it hard­coded to 9999.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc433190599"></a><a
+name="_Toc459022843">3.4.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DIFROM Routine Size Calculation</a></h2>
+
+<p class=MsoBodyText>DIFROM did not correctly count the size of routines it
+created making routines larger than the maximum size.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022844"></a><a
+name="_Toc433190600">3.5.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Browser Display Routines Did Not Work on Cach</a>é</h2>
+
+<p class=MsoBodyText>DR^DDBRU did not work on Caché due to the way %RSEL works
+on Caché.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc433190601"></a><a
+name="_Toc459022845">3.6.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Maximum Routine Size</a></h2>
+
+<p class=MsoBodyText>Maximum routine size did not get set with the first
+installation of VA FileMan. The node ^DD(“ROU”) does not get initialized when
+installing VA FileMan for the first time.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc433190602"></a><a
+name="_Toc459022846">3.7.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Browser Now Works without Kernel</a></h2>
+
+<p class=MsoBodyText>The VA FileMan Browser now works without the DEVICE file
+(#3.5) and can be invoked from VA FileMan directly.</p>
+
+<p class=Note><img width=24 height=24 id="Picture 5"
+src="release%20notes.fld/image004.png" alt="Title: Note - Description: Note"><b>    NOTE:</b>
+This is specific to standalone VA FileMan. The Department of Veterans Affairs
+does not use FM in this capacity.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc433190603"></a><a
+name="_Toc459022847">3.8.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Replace/With Maximum Length</a></h2>
+
+<p class=MsoBodyText>The replace prompt only supported input up to 245
+characters long. Now, it supports any length such that the sum of the replace
+length, overhead of the field and existing characters do not exceed
+ˆDD(&quot;STRING_LIMIT&quot;).</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc433190604"></a><a
+name="_Toc459022848">3.9.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Reverse Collation on Complex New Style Indexes When Doing Partial Matches</a></h2>
+
+<p class=MsoBodyText>Previously, a compound New Style index configured to sort
+in reverse order still sorted in forward order upon partial matches even when
+it sorted in reverse when listing entries using “<b>??</b>”. Now, it correctly
+sorts in reverse order when displaying partial matches.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc433190605"></a><a
+name="_Toc459022849">3.10.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>Q Flag on LIST^DIC and FIND^DIC and Partial Numeric Matches on Pointer Values</a></h2>
+
+<p class=MsoBodyText>Previously, using <b>Q</b> flag on DBS DIC calls caused
+numeric matches on pointer fields to be partially matched a la text matches. Now,
+partial numeric matches are not allowed in these circumstances.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022850">3.11.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DDS3-1 New Options at Command Line</a> </h2>
+
+<p class=MsoBodyText>Two new items are available for selection at the “COMMAND:”
+prompt at the bottom of a ScreenMan screen: <b>Quit</b> and <b>Previous Page</b>.
+These commands are the equivalent of the previously available <b>&lt;PF1&gt;Q</b>
+and <b>&lt;PF1&gt;&lt;ArrowUp&gt;</b>.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022851">3.12.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DDS3-2 New Dialog on Existing Form</a></h2>
+
+<p class=MsoBodyText>When entering <b>EXIT</b> at the Command Line after
+editing data, the form is exited and changes saved without asking a verifying
+question; question has been removed. Now <b>&lt;PF1&gt;-E</b> and <b>EXIT</b>
+at Command Line work the same way.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022852">3.13.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DDS3-3 New Capabilities from Record Selection Page</a></h2>
+
+<p class=MsoBodyText>You can <b>Exit</b> or <b>Save</b> data from the Record
+Selection page.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022853">3.14.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DIB Warning-Data Global does Not Exist</a></h2>
+
+<p class=MsoBodyText>When ENTERING or EDITing a file, the user is notified by
+message “DATA GLOBAL DOES NOT EXIST” if the file header does not exist rather
+than just returning to the menu.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022854">3.15.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DIKCUTL Non deleteable index</a></h2>
+
+<p class=MsoBodyText style='page-break-after:avoid'>Programmers may set the 666
+node to “null” to protect a New Style index from being deleted. For example,
+programmers can issue the following command:</p>
+
+<p class=MsoBodyTextIndent style='page-break-after:avoid'><b><span
+style='font-size:10.0pt;font-family:"Courier New"'>S
+^DD(&quot;IX&quot;,321,666)=&quot;&quot;</span></b></p>
+
+<p class=MsoBodyText>Where 321 is the assigned index number that needs to be
+protected from being deleted.</p>
+
+<h2 style='margin-left:.75in;text-indent:-.75in'><a name="_Toc459022855">3.16.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DIUTL NOW Returns Minutes</a></h2>
+
+<p class=MsoBodyText>The $$NOWˆDIUTL function now returns the date and the
+minutes in the format as defined in ˆDD(“DD”).</p>
+
+<h1 style='page-break-before:auto'><a name="_Toc433190606"></a><a
+name="_Toc459022856">4.<span style='font:7.0pt "Times New Roman"'>&nbsp; </span>Unit
+Tests</a></h1>
+
+<p class=MsoBodyText>VA FileMan 22.2 comes with Unit Tests for classical
+date/time calls and new features of the DBS LISTER and FINDER. All unit tests
+are under the namespace DMU.</p>
+
+<p class=MsoBodyText>Per SRP 3.5, DMU is not planned to be released part of VA
+FileMan 22.2.</p>
+
+</div>
+
+</body>
+
+</html>
