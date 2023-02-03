@@ -25,15 +25,15 @@ https://www.va.gov/vdl/application.asp?appid=5
 
 
 __Standard Sections__
-title page  
-revision history  
-table of contents  
-list of figures  
-list of tables  
-orientation  
-introduction  
-environment setup  
-appendix  
-glossary  
-index  
+* title page  
+* revision history  
+* table of contents  
+* list of figures  
+* list of tables  
+* orientation  
+* introduction  
+* environment setup  
+* appendix  
+* glossary  
+* index  
 
